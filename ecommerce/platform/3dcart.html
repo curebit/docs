@@ -42,7 +42,7 @@
           <a href="../platform.html" title="Platform Integration"
              accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" accesskey="U">Platform Integration</a> &raquo;</li> 
       </ul>
     </div>
@@ -90,8 +90,119 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="dcart-store-integration">
-<span id="ecommerce-platform-3dcart"></span><h1>3DCart Store Integration<a class="headerlink" href="#dcart-store-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce-platform-3dcart"></span><div class="section" id="dcart-store-integration">
+<h1>3DCart Store Integration<a class="headerlink" href="#dcart-store-integration" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Login to your 3DCart Store Manager with your username and password.</p>
+</li>
+<li><p class="first">In your Store Manager, navigate to
+<strong>Settings</strong> &rarr; <strong>Design</strong> &rarr; <strong>Template Editor</strong>.</p>
+</li>
+<li><p class="first">Click on <strong>Edit</strong> next to <em>&#8220;checkout-step4.html&#8221;</em>.</p>
+</li>
+<li><p class="first">Add the following code at the very beginning of the template:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="kd">function</span> <span class="nx">correctTotalCost</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">strValue</span> <span class="o">=</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/,/g</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">strValue</span> <span class="o">=</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\./g</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+        <span class="nx">strValue</span> <span class="o">=</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/,/g</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">strValue</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
+  <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">curebitSiteId</span> <span class="o">=</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">;</span> <span class="c1">// Curebit site id</span>
+    <span class="kd">var</span> <span class="nx">curebitJsUrl</span> <span class="o">=</span> <span class="s1">&#39;//www.curebit.com/public/&#39;</span> <span class="o">+</span> <span class="nx">curebitSiteId</span> <span class="o">+</span> <span class="s1">&#39;/purchases/create.js&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitVersion</span> <span class="o">=</span> <span class="s1">&#39;0.2&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitOrderNumber</span> <span class="o">=</span> <span class="s1">&#39;[invoicenum]&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitEmail</span> <span class="o">=</span> <span class="s1">&#39;[oemail]&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitItems</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitProducts</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">curebitTemplate</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/&lt;!--(START): items--&gt;([\s\S]*?)&lt;!--(END): items--&gt;/ig</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="c1">// fix for subtotal</span>
+    <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="s1">&#39;[subtotal]&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitFindTemplate</span> <span class="o">=</span> <span class="nx">curebitTemplate</span><span class="p">;</span>
+    <span class="nx">curebitTemplate</span> <span class="o">=</span> <span class="nx">curebitTemplate</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="o">+</span><span class="s1">&#39;subtotal&#39;</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">);</span>
+    <span class="c1">// end</span>
+    <span class="kd">var</span> <span class="nx">curebitReplaceTemplate</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+    <span class="cm">/* &lt;!--START: items--&gt; */</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;product_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;[id]&#39;</span><span class="p">;</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;itemname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;[itemname]&#39;</span><span class="p">;</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">correctTotalCost</span><span class="p">(</span><span class="s1">&#39;[unitprice]&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">));</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;[numitems]&#39;</span><span class="p">;</span>
+    <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;subtotal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;[subtotal]&#39;</span><span class="p">;</span>
+
+    <span class="nx">curebitItems</span> <span class="o">+=</span> <span class="s1">&#39;p[i][&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;][\&#39;product_id\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;product_id&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
+    <span class="nx">curebitItems</span> <span class="o">+=</span> <span class="s1">&#39;p[i][&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;][\&#39;price\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
+    <span class="nx">curebitItems</span> <span class="o">+=</span> <span class="s1">&#39;p[i][&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;][\&#39;quantity\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">curebitTemplate</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[id\]/i</span><span class="p">,</span> <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;product_id&#39;</span><span class="p">]);</span>
+    <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[itemname\]/i</span><span class="p">,</span> <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;itemname&#39;</span><span class="p">]);</span>
+    <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[unitprice\]/i</span><span class="p">,</span> <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">]);</span>
+    <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[numitems\]/i</span><span class="p">,</span> <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;quantity&#39;</span><span class="p">]);</span>
+    <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[subtotal\]/i</span><span class="p">,</span> <span class="nx">curebitProducts</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="s1">&#39;subtotal&#39;</span><span class="p">]);</span>
+    <span class="nx">curebitReplaceTemplate</span> <span class="o">=</span> <span class="nx">curebitReplaceTemplate</span> <span class="o">+</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="cm">/* &lt;!--END: items--&gt; */</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">curebitFindTemplate</span><span class="p">,</span> <span class="nx">curebitReplaceTemplate</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">curebitJsSrc</span> <span class="o">=</span> <span class="nx">curebitJsUrl</span> <span class="o">+</span>
+      <span class="s1">&#39;?v=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitVersion</span><span class="p">)</span> <span class="o">+</span>
+      <span class="s1">&#39;&amp;p[\&#39;order_number\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitOrderNumber</span><span class="p">)</span> <span class="o">+</span>
+      <span class="s1">&#39;&amp;p[\&#39;subtotal\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">correctTotalCost</span><span class="p">(</span><span class="s1">&#39;[total]&#39;</span><span class="p">))</span> <span class="o">+</span>
+      <span class="s1">&#39;&amp;p[\&#39;email\&#39;]=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">curebitEmail</span><span class="p">)</span> <span class="o">+</span>
+      <span class="s1">&#39;&amp;&#39;</span> <span class="o">+</span> <span class="nx">curebitItems</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">curebitHeadID</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">curebitNewScript</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+    <span class="nx">curebitNewScript</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span>
+    <span class="nx">curebitNewScript</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">curebitJsSrc</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[&#39;/gi</span><span class="p">,</span> <span class="s2">&quot;[&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;\]/gi</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">);</span>
+    <span class="nx">curebitHeadID</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">curebitNewScript</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You will need to replace &#8220;YOUR-CUREBIT-SITE-ID&#8221; with the site ID assigned
+to you on your Curebit dashboard after you log in and create a site.</p>
+</li>
+<li><p class="first">Click <strong>Save Changes</strong> and confirm the settings have been saved.</p>
+</li>
+</ol>
+<h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
+All you have to do is check out from your store using the special email
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
+<ol class="arabic">
+<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>
+as the customer email address.</p>
+</li>
+<li><p class="first">After checking out, you should see an integration success page that looks
+like this:</p>
+<a class="reference internal image-reference" href="../../_images/integration_success.png"><img alt="Integration Success" src="../../_images/integration_success.png" style="width: 300px;" /></a>
+<p>(Don&#8217;t worry. This image is only shown when you use the special
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+</li>
+</ol>
+<p>If you can&#8217;t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>, we&#8217;ll also verify
+your integration whenever someone completes checkout on your store (but they
+won&#8217;t see anything).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Note for merchants who accept PayPal as a payment method</strong></p>
+<p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
+<a class="reference internal" href="../paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -117,7 +228,7 @@
           <a href="../platform.html" title="Platform Integration"
              >previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" >Platform Integration</a> &raquo;</li> 
       </ul>
     </div>

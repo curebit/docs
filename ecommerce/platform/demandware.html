@@ -42,7 +42,7 @@
           <a href="cre-loaded.html" title="CRE Loaded Store Integration"
              accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" accesskey="U">Platform Integration</a> &raquo;</li> 
       </ul>
     </div>
@@ -90,8 +90,70 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="demandware-store-integration">
-<span id="ecommerce-platform-demandware"></span><h1>Demandware Store Integration<a class="headerlink" href="#demandware-store-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce-platform-demandware"></span><div class="section" id="demandware-store-integration">
+<h1>Demandware Store Integration<a class="headerlink" href="#demandware-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>Curebit is a Demandware LINK partner and has easy integration into your
+Demandware store. You will need to download the <a class="reference external" href="http://curebit.com/demandware/curebit_integration_r1.0.0.zip">Demandware Curebit cartridge</a>
+and follow the instructions below.</p>
+<p>Add Curebit catridge and configuration settings</p>
+<ol class="arabic simple">
+<li>Login to your Demandware console with your administrator account.</li>
+<li>Navigate to
+<strong>Administration</strong> &rarr; <strong>Sites</strong> &rarr; <strong>Manage Sites</strong>
+and select your site.</li>
+<li>Under <strong>Settings</strong>, add the <em>int_curebitcartridge</em> cartridge to your
+Cartridges path.</li>
+<li>Navigate to
+<strong>Administration</strong> &rarr; <strong>Site Development</strong> &rarr; <strong>Import &amp; Export</strong>.</li>
+<li>Upload the <em>&#8216;meta_data_curebitcartridge.xml&#8217;</em> file and then proceed
+to import the settings.</li>
+<li>Navigate to
+<strong>Site</strong> &rarr; <strong>Site Preferences</strong> &rarr; <strong>Custom Preferences</strong> &rarr; <strong>Curebit</strong>.</li>
+<li>Enter your Curebit Site ID. You can get this from your Curebit dashboard
+after you log in and create a site.</li>
+<li>Check <strong>Enable Curebit</strong>.</li>
+</ol>
+<p>Integrate into order confirmation page</p>
+<ol class="arabic">
+<li><p class="first">In your Demandware UX Studio, locate your <em>pt_orderconfirmation</em> page.</p>
+</li>
+<li><p class="first">Near the bottom (immediately preceding <cite>&lt;/div&gt; &lt;!&#8211; END: container &#8211;&gt;</cite>),
+include this code:</p>
+<div class="code highlight-python"><div class="highlight"><pre>&lt;!-- Curebit : Code - start - Confirmation --&gt;
+&lt;isinclude template=&quot;curebit/curebit_salestrack&quot;/&gt;
+&lt;!-- Curebit : Code - ends - Confirmation --&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Save the file and upload it to your Demandware console.</p>
+</li>
+<li><p class="first">Invalidate the page caches (under
+<strong>Administration</strong> &rarr; <strong>Sites</strong> &rarr; <strong>Manage Sites</strong> &rarr; <strong>Site</strong> &rarr; <strong>Cache Tab</strong>)</p>
+</li>
+</ol>
+<h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
+All you have to do is check out from your store using the special email
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
+<ol class="arabic">
+<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>
+as the customer email address.</p>
+</li>
+<li><p class="first">After checking out, you should see an integration success page that looks
+like this:</p>
+<a class="reference internal image-reference" href="../../_images/integration_success.png"><img alt="Integration Success" src="../../_images/integration_success.png" style="width: 300px;" /></a>
+<p>(Don&#8217;t worry. This image is only shown when you use the special
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+</li>
+</ol>
+<p>If you can&#8217;t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>, we&#8217;ll also verify
+your integration whenever someone completes checkout on your store (but they
+won&#8217;t see anything).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Note for merchants who accept PayPal as a payment method</strong></p>
+<p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
+<a class="reference internal" href="../paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -117,7 +179,7 @@
           <a href="cre-loaded.html" title="CRE Loaded Store Integration"
              >previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" >Platform Integration</a> &raquo;</li> 
       </ul>
     </div>

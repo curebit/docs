@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Curebit 0.1.0 documentation" href="../index.html" />
-    <link rel="up" title="E-Commerce Integrations" href="../ecommerce.html" />
+    <link rel="up" title="Curebit Integration Options" href="../ecommerce.html" />
     <link rel="next" title="Platform Integration" href="platform.html" />
-    <link rel="prev" title="E-Commerce Integrations" href="../ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Curebit Integration Options" href="../ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
@@ -39,10 +39,10 @@
           <a href="platform.html" title="Platform Integration"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../ecommerce.html" title="E-Commerce Integrations"
+          <a href="../ecommerce.html" title="Curebit Integration Options"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../ecommerce.html" accesskey="U">E-Commerce Integrations</a> &raquo;</li> 
+          <li><a href="../ecommerce.html" accesskey="U">Curebit Integration Options</a> &raquo;</li> 
       </ul>
     </div>
   
@@ -51,7 +51,9 @@
       <h3>Table Of Contents</h3>
             <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Custom Integration</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Custom Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#syncronous-method-recommended">Syncronous Method (Recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asyncronous-method">Asyncronous Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="platform.html">Platform Integration</a></li>
@@ -75,9 +77,199 @@
             
   <div class="section" id="custom-integration">
 <span id="ecommerce-custom"></span><h1>Custom Integration<a class="headerlink" href="#custom-integration" title="Permalink to this headline">¶</a></h1>
+<p>On your final checkout receipt page (which includes things like the customer&#8217;s
+order number or confirmation code), you will include a Javascript snippet
+containing the order and purchased product information. This version of the
+Curebit integration code can be asyncronous or syncronous depending on your decision.</p>
+<p>The parameters you will need to provide are:</p>
+<ul class="simple">
+<li>Order Number</li>
+<li>Order Date and Time (in UTC time zone, or as a timestamp with timezone information)</li>
+<li>Customer Email Address</li>
+<li>Coupon code used at checkout</li>
+<li>Customer ID from your site (Optional)</li>
+<li>Any custom order data you might need (Optional)</li>
+<li>Purchase Subtotal</li>
+<li>Cart items are OPTIONAL. If provided, then for each item:<ul>
+<li>Product ID</li>
+<li>Item Unit Price</li>
+<li>Quantity</li>
+<li>Product Name/Title (Optional)</li>
+<li>Product URL (Optional)</li>
+<li>Product Image URL (Optional)</li>
+</ul>
+</li>
+</ul>
+<p>Below is the sample code for a purchase with two items.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Store ID. To get your personalized Curebit Store ID,
+access integration instructions from inside your Curebit account.</p>
+</div>
+<h2>Choose Integration Method</h2><p>You can track your purchases in Curebit in one of the following ways:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#syncronous-method-recommended">Syncronous Method (Recommended)</a></li>
+<li><a class="reference internal" href="#asyncronous-method">Asyncronous Method</a></li>
+</ul>
+<p>Finally, you must verify your integration.</p>
+<div class="section" id="syncronous-method-recommended">
+<h2>Syncronous Method (Recommended)<a class="headerlink" href="#syncronous-method-recommended" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="c1">//&lt;![CDATA[</span>
+    <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Curebit Site ID</span>
+      <span class="nx">server</span><span class="o">:</span> <span class="s1">&#39;https://www.curebit.com&#39;</span> <span class="c1">// OPTIONAL - Use your own domain (enterprise only)</span>
+    <span class="p">}]);</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku1&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;199.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
+      <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
+    <span class="p">});</span>
+
+    <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku2&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;6.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
+      <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Amazing Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
+      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2010-10-09 03:18:08&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (in UTC time zone, or as a timestamp with timezone information)</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout</span>
+      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Set to your internal customer ID for tracking</span>
+      <span class="nx">custom_field</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="c1">// OPTIONAL - Any custom order data you might need</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span><span class="p">,</span>
+      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell curebit that this purchase should not be redeemed</span>
+      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
+      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
+      <span class="c1">// iframe: { width: &#39;100%&#39;, height: &#39;400&#39; }, // OPTIONAL - display offer inline instead of popup</span>
+      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Curebit display mobile templates</span>
+      <span class="nx">device</span><span class="o">:</span> <span class="s1">&#39;desktop&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Curebit choose corresponding template</span>
+      <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
+    <span class="p">};</span>
+
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+<span class="c1">//]]&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="asyncronous-method">
+<h2>Asyncronous Method<a class="headerlink" href="#asyncronous-method" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="c1">//&lt;![CDATA[</span>
+    <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Curebit Site ID</span>
+      <span class="nx">server</span><span class="o">:</span> <span class="s1">&#39;https://www.curebit.com&#39;</span> <span class="c1">// OPTIONAL - Use your own domain (enterprise only)</span>
+    <span class="p">}]);</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku1&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;199.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
+      <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
+    <span class="p">});</span>
+
+    <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku2&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;6.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
+      <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Amazing Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
+      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2010-10-09 03:18:08&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (in UTC time zone, or as a timestamp with timezone information)</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout</span>
+      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Set to your internal customer ID for tracking</span>
+      <span class="nx">custom_field</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="c1">// OPTIONAL - Any custom order data you might need</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span><span class="p">,</span>
+      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell curebit that this purchase should not be redeemed</span>
+      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
+      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
+      <span class="c1">// iframe: { width: &#39;100%&#39;, height: &#39;400&#39; }, // OPTIONAL - display offer inline instead of popup</span>
+      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Curebit display mobile templates</span>
+      <span class="nx">device</span><span class="o">:</span> <span class="s1">&#39;desktop&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Curebit choose corresponding template</span>
+      <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
+    <span class="p">};</span>
+
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+
+    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="kd">function</span> <span class="nx">load_js</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">&#39;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&#39;</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="nx">x</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="nx">x</span><span class="p">)}</span> <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">)</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;onload&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">);</span><span class="k">else</span> <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">,</span><span class="kc">false</span><span class="p">)})();</span>
+<span class="c1">//]]&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+</pre></div>
+</div>
+<h2>Optimizing for Viewport</h2><p>Curebit provides flexibility for the merchant to decide how they want to
+optimize mobile.</p>
+<p>If your site is responsive, all you&#8217;ll want to do is set <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>.
+In your campaign, there are different views for mobile, tablet and desktop.
+We&#8217;ll automatically pull the correct theme view based on the user&#8217;s device
+once we detect the viewport. We&#8217;ll use our responsive engine to size the
+Curebit iframe to the right size. Like Magic! You&#8217;ll also want to comment out
+<tt class="docutils literal"><span class="pre">device:</span> <span class="pre">'desktop'</span></tt> line.</p>
+<p>If you have separate mobile, tablet and desktop sites (or any combination of
+the three), you can leave <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt> on but also specifically set the
+campaign theme view to use. This will prevent Curebit from automatically
+assigning the theme view to use, but will allow us to resize within the screen
+to make sure all elements fit well.</p>
+<h2>Setup Your Theme</h2><p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
+scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>)</p>
+<div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
+</pre></div>
+</div>
+<h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
+All you have to do is check out from your store using the special email
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
+<ol class="arabic">
+<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>
+as the customer email address.</p>
+</li>
+<li><p class="first">After checking out, you should see an integration success page that looks
+like this:</p>
+<a class="reference internal image-reference" href="../_images/integration_success.png"><img alt="Integration Success" src="../_images/integration_success.png" style="width: 300px;" /></a>
+<p>(Don&#8217;t worry. This image is only shown when you use the special
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+</li>
+</ol>
+<p>If you can&#8217;t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>, we&#8217;ll also verify
+your integration whenever someone completes checkout on your store (but they
+won&#8217;t see anything).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Note for merchants who accept PayPal as a payment method</strong></p>
+<p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
+<a class="reference internal" href="paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 
@@ -97,10 +289,10 @@
           <a href="platform.html" title="Platform Integration"
              >next</a> |</li>
         <li class="right" >
-          <a href="../ecommerce.html" title="E-Commerce Integrations"
+          <a href="../ecommerce.html" title="Curebit Integration Options"
              >previous</a> |</li>
         <li><a href="../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li> 
+          <li><a href="../ecommerce.html" >Curebit Integration Options</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

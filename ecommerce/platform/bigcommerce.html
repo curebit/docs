@@ -42,7 +42,7 @@
           <a href="3dcart.html" title="3DCart Store Integration"
              accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" accesskey="U">Platform Integration</a> &raquo;</li> 
       </ul>
     </div>
@@ -90,8 +90,74 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="bigcommerce-store-integration">
-<span id="ecommerce-platform-bigcommerce"></span><h1>BigCommerce Store Integration<a class="headerlink" href="#bigcommerce-store-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce-platform-bigcommerce"></span><div class="section" id="bigcommerce-store-integration">
+<h1>BigCommerce Store Integration<a class="headerlink" href="#bigcommerce-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>Curebit is easily integrated into your BigCommerce store.</p>
+<ol class="arabic">
+<li><p class="first">Login to your store&#8217;s control panel.</p>
+</li>
+<li><p class="first">Click on <strong>Settings</strong> and then select <strong>Conversions</strong> from the drop down menu.</p>
+<img alt="BigCommerce Settings" src="../../_images/bigcommerce-settings.png" />
+</li>
+<li><p class="first">In the <strong>Conversion Tracking Code</strong> box, enter the code below:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Store ID. To get your personalized Curebit Store ID,
+access integration instructions from inside your Curebit account.</p>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="c1">//&lt;![CDATA[</span>
+    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="kd">function</span> <span class="nx">load_js</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">&#39;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&#39;</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="nx">x</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="nx">x</span><span class="p">)}</span> <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">)</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;onload&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">);</span><span class="k">else</span> <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">,</span><span class="kc">false</span><span class="p">)})();</span>
+
+    <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span> <span class="p">}]);</span> <span class="cm">/* REQUIRED - Curebit Site ID */</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_ID%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_EMAIL%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_SUBTOTAL_DISCOUNTED%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
+    <span class="p">};</span>
+
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+  <span class="c1">//]]&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Click <strong>Save</strong>.</p>
+</li>
+<li><p class="first">You will see the popup below:</p>
+<img alt="BigCommerce Pop-up" src="../../_images/bigcommerce-popup.png" />
+</li>
+<li><p class="first">Click <strong>OK</strong>.</p>
+</li>
+</ol>
+<h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
+All you have to do is check out from your store using the special email
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
+<ol class="arabic">
+<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>
+as the customer email address.</p>
+</li>
+<li><p class="first">After checking out, you should see an integration success page that looks
+like this:</p>
+<a class="reference internal image-reference" href="../../_images/integration_success.png"><img alt="Integration Success" src="../../_images/integration_success.png" style="width: 300px;" /></a>
+<p>(Don&#8217;t worry. This image is only shown when you use the special
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+</li>
+</ol>
+<p>If you can&#8217;t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>, we&#8217;ll also verify
+your integration whenever someone completes checkout on your store (but they
+won&#8217;t see anything).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Note for merchants who accept PayPal as a payment method</strong></p>
+<p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
+<a class="reference internal" href="../paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
@@ -117,7 +183,7 @@
           <a href="3dcart.html" title="3DCart Store Integration"
              >previous</a> |</li>
         <li><a href="../../index.html">Curebit 0.1.0 documentation</a> &raquo;</li>
-          <li><a href="../../ecommerce.html" >E-Commerce Integrations</a> &raquo;</li>
+          <li><a href="../../ecommerce.html" >Curebit Integration Options</a> &raquo;</li>
           <li><a href="../platform.html" >Platform Integration</a> &raquo;</li> 
       </ul>
     </div>
