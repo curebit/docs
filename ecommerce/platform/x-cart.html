@@ -33,11 +33,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
           <a href="yahoo.html" title="Yahoo! Store Integration"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a></li>
         <li class="right" >
           <a href="vp-asp.html" title="VP-ASP 7.0 Store Integration"
              accesskey="P">previous</a> |</li>
@@ -92,6 +89,28 @@
             
   <span class="target" id="ecommerce-platform-x-cart"></span><div class="section" id="x-cart-store-integration">
 <h1>X-Cart Store Integration<a class="headerlink" href="#x-cart-store-integration" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="http://curebit.com/xcart/curebit.zip">X-Cart Curebit Module</a> and unzip it to your X-Cart main directory.</p>
+</li>
+<li><p class="first">Open the file located at:</p>
+<div class="line-block">
+<div class="line"><em>/skin/%FOLDER WITH YOUR CURRENT SKIN%/customer/main/order_message.tpl</em></div>
+</div>
+<p>using your favorite text editor if you use an external skin, otherwise edit:</p>
+<div class="line-block">
+<div class="line"><em>/skin/common_files/customer/main/order_message.tpl</em></div>
+</div>
+</li>
+<li><p class="first">Add the following code at the end of the file:</p>
+<div class="code highlight-python"><div class="highlight"><pre>{if $active_modules.Curebit}{include file=&quot;modules/Curebit/curebit.tpl&quot;}{/if}
+</pre></div>
+</div>
+</li>
+<li><p class="first">Save this file and upload it to your site.</p>
+</li>
+<li><p class="first">Run the script located at <em>http://www.yoursite.com/curebit_install.php</em></p>
+</li>
+</ol>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email
 <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
@@ -131,11 +150,8 @@ won&#8217;t see anything).</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
           <a href="yahoo.html" title="Yahoo! Store Integration"
-             >next</a> |</li>
+             >next</a></li>
         <li class="right" >
           <a href="vp-asp.html" title="VP-ASP 7.0 Store Integration"
              >previous</a> |</li>

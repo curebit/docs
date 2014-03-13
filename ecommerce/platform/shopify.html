@@ -33,11 +33,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
           <a href="ubercart.html" title="Ubercart (Drupal) Store Integration"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a></li>
         <li class="right" >
           <a href="oscommerce.html" title="osCommerce Store Integration"
              accesskey="P">previous</a> |</li>
@@ -92,6 +89,64 @@
             
   <span class="target" id="ecommerce-platform-shopify"></span><div class="section" id="shopify-store-integration">
 <h1>Shopify Store Integration<a class="headerlink" href="#shopify-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>To integrate your Shopify store, you will install the Curebit application and
+then add a code snippet to your checkout page.</p>
+<ol class="arabic">
+<li><p class="first">In your Shopify administration panel, go to
+<strong>Settings</strong> &rarr; <strong>Checkout &amp; Payment</strong>.</p>
+</li>
+<li><p class="first">Under <strong>Order Processing</strong> &rarr; <strong>Additional Content &amp; Scripts</strong>,
+insert this code:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</p>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="c1">//&lt;![CDATA[</span>
+    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="kd">function</span> <span class="nx">load_js</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">&#39;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&#39;</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="nx">x</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="nx">x</span><span class="p">)}</span> <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">)</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;onload&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">);</span><span class="k">else</span> <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">,</span><span class="kc">false</span><span class="p">)})();</span>
+
+    <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span> <span class="p">}]);</span> <span class="cm">/* REQUIRED - Replace with your Curebit Site ID */</span>
+    <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">line</span> <span class="k">in</span> <span class="nx">line_items</span> <span class="o">%</span><span class="p">}</span>
+      <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;{% if line.sku and line.sku != &quot;&quot; %}{{ line.sku }}{% else %}{{ line.product.id }}{% endif %}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Product ID */</span>
+        <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;{{ line.price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Unit Price */</span>
+        <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;{{ line.quantity }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Quantity */</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;{{ line.title }}&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Name of product */</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{ shop.url }}{{ line.product.url }}&#39;</span><span class="p">,</span> <span class="cm">/* Optional - URL for product */</span>
+        <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;{{ line.product.featured_image | product_img_url }}&#39;</span> <span class="cm">/* Optional - URL for product image */</span>
+      <span class="p">});</span>
+    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">couponCodes</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">discount</span> <span class="k">in</span> <span class="nx">discounts</span> <span class="o">%</span><span class="p">}</span>
+      <span class="nx">couponCodes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;{{ discount.code }}&#39;</span><span class="p">);</span>
+    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
+
+    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;{{ order_number }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
+      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;{{ created_at }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order Date and Time (in UTC time zone, or as a timestamp with timezone information) */</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;{{ customer.email }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
+      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Set to your internal customer ID for tracking */</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;{{ subtotal_price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">couponCodes</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span>
+    <span class="p">};</span>
+
+    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+  <span class="c1">//]]&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Click <strong>Apply these settings</strong>.</p>
+</li>
+</ol>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email
 <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
@@ -131,11 +186,8 @@ won&#8217;t see anything).</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
           <a href="ubercart.html" title="Ubercart (Drupal) Store Integration"
-             >next</a> |</li>
+             >next</a></li>
         <li class="right" >
           <a href="oscommerce.html" title="osCommerce Store Integration"
              >previous</a> |</li>

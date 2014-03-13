@@ -33,11 +33,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
           <a href="oscommerce.html" title="osCommerce Store Integration"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a></li>
         <li class="right" >
           <a href="magento-go.html" title="Magento Go Store Integration"
              accesskey="P">previous</a> |</li>
@@ -92,6 +89,47 @@
             
   <span class="target" id="ecommerce-platform-opencart"></span><div class="section" id="opencart-store-integration">
 <h1>OpenCart Store Integration<a class="headerlink" href="#opencart-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>After setting up a Curebit account, you need to create a site for each store you
+wish to integrate. Then, download the <a class="reference external" href="http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=15716">OpenCart Curebit Checkout Extension</a>.</p>
+<ol class="arabic">
+<li><p class="first">Extract the extension file in the root of your OpenCart directory
+(no files will be overwritten).</p>
+</li>
+<li><p class="first">Log in to the admin section of your OpenCart site and click
+<strong>Extensions</strong> &rarr; <strong>Modules</strong>.</p>
+</li>
+<li><p class="first">Locate the Curebit Checkout module and click <strong>Install</strong>.</p>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> action for Curebit Checkout.</p>
+</li>
+<li><p class="first">Set the status to <em>Enabled</em>, and enter your Curebit Site ID. You can get this
+from your Curebit dashboard after you log in and create a site.</p>
+</li>
+<li><p class="first">For OpenCart version 1.5+, edit:</p>
+<div class="line-block">
+<div class="line"><em>/catalog/controller/checkout/success.php</em></div>
+</div>
+<p>and merge in the 3 lines indicated:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+  <span class="k">class</span> <span class="nc">ControllerCheckoutSuccess</span> <span class="k">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// Begin Curebit social referral tracking</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;curebit_order_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">];</span>
+        <span class="c1">// End Curebit social referral tracking</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<h2>Reporting Problems with Integration</h2><div class="line-block">
+<div class="line">OpenCart Curebit Checkout Extension is open sourced and <a class="reference external" href="https://github.com/curebit/curebit-opencart-extension">available on GitHub</a>.</div>
+<div class="line">Please report any bugs and make any feature requests on the GitHub <a class="reference external" href="https://github.com/curebit/curebit-opencart-extension/issues">issue tracker</a>.</div>
+<div class="line">If you would like to contribute, please feel free to open a pull request.</div>
+</div>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email
 <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
@@ -131,11 +169,8 @@ won&#8217;t see anything).</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
           <a href="oscommerce.html" title="osCommerce Store Integration"
-             >next</a> |</li>
+             >next</a></li>
         <li class="right" >
           <a href="magento-go.html" title="Magento Go Store Integration"
              >previous</a> |</li>

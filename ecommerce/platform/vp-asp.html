@@ -33,11 +33,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
           <a href="x-cart.html" title="X-Cart Store Integration"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a></li>
         <li class="right" >
           <a href="volusion.html" title="Volusion Store Integration"
              accesskey="P">previous</a> |</li>
@@ -92,6 +89,39 @@
             
   <span class="target" id="ecommerce-platform-vp-asp"></span><div class="section" id="vp-asp-7-0-store-integration">
 <h1>VP-ASP 7.0 Store Integration<a class="headerlink" href="#vp-asp-7-0-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>Curebit is easily integrated into your VP-ASP 7.0 store.</p>
+<ol class="arabic">
+<li><p class="first">Open file <em>shopthanks.asp</em> in your chosen text editor.</p>
+</li>
+<li><p class="first">Locate this code: <tt class="docutils literal"><span class="pre">SendSmsMerchant</span> <span class="pre">rsorder</span></tt></p>
+</li>
+<li><p class="first">Directly below it, please insert this code:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</p>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>    &#39;Begin Curebit integration code
+dim strordertime, strorderdate, xcurebiturl
+strordertime = rsorder(&quot;otime&quot;)
+strorderdate = formatdatetime(strordertime,vblongtime)
+xcurebiturl = &quot;https://curebit.com/public/YOUR-CUREBIT-SITE-ID/purchases/create.js&quot;
+%&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=xcurebiturl%&gt;?v=0.2&amp;purchase[order_number]=&lt;%=ordernumber%&gt;&amp;purchase[subtotal]=&lt;%=getsess(&quot;OrderTotal&quot;)%&gt;&amp;purchase[email]=&lt;%=GetSess(&quot;email&quot;)%&gt;&amp;purchase[order_date]=&lt;%=strorderdate%&gt;&quot;&amp; &gt;
+&lt;/script&gt;
+&lt;%
+&#39;End Curebit integration code
+</pre></div>
+</div>
+</li>
+<li><p class="first">Save this file and upload to your site.</p>
+</li>
+</ol>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">You can find additional help on the <a class="reference external" href="http://helpnotes.vpasp.com/kb/615-VP-ASP-70-Video-Tutorials/1012-Integrate-Curebit-into-VP-ASP-700/">VP-ASP page</a>.</p>
+</div>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email
 <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
@@ -131,11 +161,8 @@ won&#8217;t see anything).</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
           <a href="x-cart.html" title="X-Cart Store Integration"
-             >next</a> |</li>
+             >next</a></li>
         <li class="right" >
           <a href="volusion.html" title="Volusion Store Integration"
              >previous</a> |</li>

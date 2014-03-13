@@ -33,11 +33,8 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
           <a href="magento-go.html" title="Magento Go Store Integration"
-             accesskey="N">next</a> |</li>
+             accesskey="N">next</a></li>
         <li class="right" >
           <a href="fastspring.html" title="FastSpring Store Integration"
              accesskey="P">previous</a> |</li>
@@ -92,6 +89,77 @@
             
   <span class="target" id="ecommerce-platform-magento"></span><div class="section" id="magento-store-integration">
 <h1>Magento Store Integration<a class="headerlink" href="#magento-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>A <a class="reference external" href="http://www.magentocommerce.com/magento-connect/curebit-checkout.html">Magento Curebit extension</a> (<a class="reference external" href="http://curebit.com/magento/Curebit_Checkout-0.1.10.tgz">direct download</a>) is available for easy
+integration. The extension currently supports Magento versions 1.3.x and 1.4.x.</p>
+<ol class="arabic">
+<li><p class="first">Log into your Magento Admin Dashboard (usually located at
+<a class="reference external" href="http://your-site.com/index.php/admin">http://your-site.com/index.php/admin</a>). We will install the Curebit extension
+using Magento Connect Manager. Go to
+<strong>System</strong> &rarr; <strong>Magento Connect</strong> &rarr; <strong>Magento Connect Manager</strong>.
+You may be required to log in again.</p>
+</li>
+<li><p class="first">For Magento 1.3/1.4, enter the extension name:</p>
+<div class="line-block">
+<div class="line"><em>magento-community/Curebit_Checkout</em></div>
+</div>
+<p>For Magento 1.5+, enter the extension name:</p>
+<div class="line-block">
+<div class="line"><em>http://connect20.magentocommerce.com/community/Curebit_Checkout</em></div>
+</div>
+<p>and click <strong>Install</strong>.
+You should see the console window indicate successful installation.</p>
+</li>
+<li><p class="first">After the extension has been installed, you must enable the extension and set
+your Curebit Site ID.</p>
+<ul>
+<li><p class="first">Click the <strong>Return to Admin</strong> link and navigate to
+<strong>System</strong> &rarr; <strong>Configuration</strong>. If you have more than one store, set
+the <strong>Current Configuration Scope</strong> on the top left to the store you want
+to enable Curebit on. Note this must be a Magento &#8220;Website&#8221;, not a &#8220;Store view&#8221;.</p>
+</li>
+<li><p class="first">On the left navigation under <strong>Sales</strong>, click <strong>Checkout</strong>. You will need
+to uncheck <strong>Use Default</strong> if you have more than one site.</p>
+</li>
+<li><p class="first">Open the Curebit Integration tab and set the <strong>Enabled</strong> state to <em>Yes</em>.
+Then, enter your Curebit Site ID.</p>
+<p>You will need to get your Curebit Site ID from your dashboard after you
+have created the site.</p>
+</li>
+</ul>
+<p>Click <strong>Save Config</strong> to save your changes.</p>
+</li>
+<li><p class="first">Flush the caches:</p>
+<ul class="simple">
+<li>In admin panel, <strong>System</strong> &rarr; <strong>Cache Management</strong>.</li>
+<li>Click <strong>Flush Magento Cache</strong>.</li>
+<li>Then click <strong>Select All</strong>, select action <em>&#8220;Refresh&#8221;</em> and click <strong>Submit</strong>.</li>
+</ul>
+</li>
+<li><p class="first">If you are using Magento 1.3.x, and you are using a theme from a package that
+is NOT &#8220;default&#8221;, you must copy the Curebit layout files into your custom
+theme directory.</p>
+<ul>
+<li><p class="first">Copy the directory:</p>
+<div class="line-block">
+<div class="line"><em>{{base_dir}}/app/design/frontend/base/default/template/curebit</em></div>
+</div>
+<p>to:</p>
+<div class="line-block">
+<div class="line"><em>{{base_dir}}/app/design/frontend/&lt;your theme name&gt;/default/template/curebit</em></div>
+</div>
+</li>
+<li><p class="first">Copy the file:</p>
+<div class="line-block">
+<div class="line"><em>{{base_dir}}/app/design/frontend/base/default/layout/curebit.xml</em></div>
+</div>
+<p>to:</p>
+<div class="line-block">
+<div class="line"><em>{{base_dir}}/app/design/frontend/&lt;your theme name&gt;/default/layout/curebit.xml</em></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email
 <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
@@ -131,11 +199,8 @@ won&#8217;t see anything).</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
           <a href="magento-go.html" title="Magento Go Store Integration"
-             >next</a> |</li>
+             >next</a></li>
         <li class="right" >
           <a href="fastspring.html" title="FastSpring Store Integration"
              >previous</a> |</li>
