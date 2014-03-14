@@ -80,20 +80,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
 </ul>
 
-        
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
   </div>
   
@@ -106,18 +102,26 @@
             
   <span class="target" id="ecommerce-platform-zen-cart"></span><div class="section" id="zen-cart-store-integration">
 <h1>Zen Cart Store Integration<a class="headerlink" href="#zen-cart-store-integration" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>Download the <a class="reference external" href="http://curebit.com/zencart/curebit_checkout_0.0.2.zip">Zen Cart Curebit Add-On</a> and unzip it to your Zen Cart catalog
-directory (eg /var/www/zencart).</li>
-<li>Login to your administrator console (eg <a class="reference external" href="http://yourstoredomain.com/admin_console">http://yourstoredomain.com/admin_console</a>)
-with your administrator credentials.</li>
-<li>Click <strong>Modules</strong> &rarr; <strong>Order Total</strong>.</li>
-<li>Click <strong>Curebit Checkout</strong>.</li>
-<li>Click <strong>install</strong>.</li>
-<li>Enter your Curebit Site ID and enable by selecting <em>true</em>.</li>
-<li>Enter your Curebit Site ID. You can get this from your Curebit dashboard
-after you log in and create a site.</li>
-<li>Click <strong>Update</strong>.</li>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="http://curebit.com/zencart/curebit_checkout_0.0.2.zip">Zen Cart Curebit Add-On</a> and unzip it to your Zen Cart catalog
+directory (eg /var/www/zencart).</p>
+</li>
+<li><p class="first">Login to your administrator console (eg <a class="reference external" href="http://yourstoredomain.com/admin_console">http://yourstoredomain.com/admin_console</a>)
+with your administrator credentials.</p>
+</li>
+<li><p class="first">Click <strong>Modules</strong> &rarr; <strong>Order Total</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Curebit Checkout</strong>.</p>
+</li>
+<li><p class="first">Click <strong>install</strong>.</p>
+</li>
+<li><div class="first line-block">
+<div class="line">Enter your Curebit Site ID and enable by selecting <em>true</em>.</div>
+<div class="line">You can get your Curebit Site ID from your Curebit dashboard after you log in and create a site.</div>
+</div>
+</li>
+<li><p class="first">Click <strong>Update</strong>.</p>
+</li>
 </ol>
 <h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
 All you have to do is check out from your store using the special email

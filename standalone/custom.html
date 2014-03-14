@@ -63,20 +63,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
 </ul>
 
-        
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
   </div>
   
@@ -89,6 +85,79 @@
             
   <span class="target" id="standalone-custom"></span><div class="section" id="custom-integration">
 <h1>Custom Integration<a class="headerlink" href="#custom-integration" title="Permalink to this headline">¶</a></h1>
+<h2>Sign Up</h2><p>Capture the email and make ajax request to Curebit with entered email, campaign
+tags and possible any other data like first/last name or gender. We return back
+a json containing offer short code. Then redirect user to share page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">site_id</span> <span class="o">=</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://www.curebit.com/public/&#39;</span> <span class="o">+</span> <span class="nx">site_id</span> <span class="o">+</span> <span class="s1">&#39;/affiliate_members/create.json&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">campaign_tag</span><span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+  <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;YOUR-USER-EMAIL&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Save offer_code</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">offer_code</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Check for errors</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">errors</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Something went wrong</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<h3>Sample response</h3><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;offer_code&quot;</span><span class="o">:</span> <span class="s2">&quot;pLs495&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;offer_link&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/o/pLs495/show&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;facebook_offer_link&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/PiqkTF&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h3>Sample errors</h3><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;errors&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Email can&#39;t be blank&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h2>Get a Coupon Code</h2><p>Use offer short code to get a Coupon Code after share.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">offer_code</span> <span class="o">=</span> <span class="s1">&#39;OFFER-CODE&#39;</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://www.curebit.com/o/&#39;</span> <span class="o">+</span> <span class="nx">offer_code</span> <span class="o">+</span> <span class="s1">&#39;/fire_event.json&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">event_name</span><span class="o">:</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+  <span class="nx">event_sharing_channel</span><span class="o">:</span> <span class="s1">&#39;email&#39;</span> <span class="c1">// REQUIRED - may be email, facebook, twitter</span>
+<span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Save coupon_code</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Check for errors</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">errors</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Something went wrong</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<h3>Sample response</h3><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;CODE-123&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h3>Sample errors</h3><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;errors&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;event_sharing_channel is not specified&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

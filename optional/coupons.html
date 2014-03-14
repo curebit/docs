@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Coupons &mdash; Curebit Documentation</title>
+    <title>Automatic Coupon Creation &mdash; Curebit Documentation</title>
     
     <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Optional Features" href="../optional.html" />
-    <link rel="next" title="Product Information" href="product_information.html" />
+    <link rel="next" title="Product Information Integration (Optional)" href="product_information.html" />
     <link rel="prev" title="Optional Features" href="../optional.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
@@ -33,7 +33,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="product_information.html" title="Product Information"
+          <a href="product_information.html" title="Product Information Integration (Optional)"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="../optional.html" title="Optional Features"
@@ -65,20 +65,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
 </ul>
 
-        
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
   </div>
   
@@ -89,8 +85,16 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="coupons">
-<span id="optional-coupons"></span><h1>Coupons<a class="headerlink" href="#coupons" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="automatic-coupon-creation">
+<span id="optional-coupons"></span><h1>Automatic Coupon Creation<a class="headerlink" href="#automatic-coupon-creation" title="Permalink to this headline">¶</a></h1>
+<p>You can reward customers and their friends with coupons. Curebit supports both
+one-time-use coupons as well as multi-use coupons. If you are using one-time-use
+coupons there is a need to refill a list of coupons within Curebit. You will need
+to export a list of coupons or provide a multi-use coupon code creation end point.</p>
+<h2>Manual Coupon Import</h2><p>Add your coupon codes on your campaign settings coupons page.</p>
+<h2>REST API to Create Coupons</h2><p><a class="reference external" href="https://curebit.helpjuice.com/questions/54519-Using-Webhooks-to-create-Single-Use-Coupon-Codes">Read this guide</a> for details on the REST API you need to implement.</p>
+<h2>Automatic Magento Coupon Creation</h2><p>This feature is only available to Enterprise customers.</p>
+<h2>Automatic Shopify Coupon Creation</h2><p>This feature is only available to Enterprise customers.</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

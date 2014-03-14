@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../../index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../../index.html">Curebit Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+  
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        
+
+      <h3>Table of contents</h3>
+      <ul><li class="toctree-l1"><a href="../../index.html">Main Page</a></li></ul></ul>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+  </div>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit product integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="nx">curebit</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">products</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/ProductPage1.htm&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/Image1.jpg&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Item&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;12345&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;19.99&#39;</span> <span class="cm">/* OPTIONAL */</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/ProductPage2.htm&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/Image2.jpg&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Sweet Item&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;67890&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;10.23&#39;</span> <span class="cm">/* OPTIONAL */</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+
+  <span class="nx">curebit</span><span class="p">.</span><span class="nx">register_products</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit product integration code --&gt;</span>
+</pre></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

@@ -55,7 +55,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="customer.html">Customer</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Purchase</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Purchase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#approve-void-rewards-for-purchases">Approve/Void Rewards for Purchases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-purchases">Create Purchases</a></li>
 </ul>
 </li>
 </ul>
@@ -63,20 +65,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
 </ul>
 
-        
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
   </div>
   
@@ -87,11 +85,245 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="purchase-api">
+  <span class="target" id="api-purchase"></span><div class="section" id="purchase-api">
 <h1>Purchase API<a class="headerlink" href="#purchase-api" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is a preliminary API release and is subject to change.
+Please <a class="reference external" href="http://curebit.com/contact">contact us</a> if you are planning to use our API.</p>
+</div>
+<div class="section" id="approve-void-rewards-for-purchases">
+<h2>Approve/Void Rewards for Purchases<a class="headerlink" href="#approve-void-rewards-for-purchases" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-url"><div class="highlight"><pre>PUT https://curebit.com/api/v1/sites/&lt;site_slug&gt;/purchases/&lt;order_number&gt;/set_rewards_status?api_key=&lt;api_key&gt;&amp;status=&lt;status&gt;
+</pre></div>
+</div>
+<p>You can approve or void rewards for purchases that are waiting approval.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Approved or voided purchases can not be changed to the opposite state.</p>
+</div>
+<h3>Parameters</h3><div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>api_key</td>
+<td>Your API key. You can manage your API key in the Account
+Settings.</td>
+</tr>
+<tr class="row-even"><td>order_number</td>
+<td>Purchase Order number for the reward that needs to be
+approved/voided.</td>
+</tr>
+<tr class="row-odd"><td>status</td>
+<td>Reward status. (see possible statuses below)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Statuses</h3><div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Status</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>approved</td>
+<td>Approve rewards and start payment procedure.
+Referral is approved.</td>
+</tr>
+<tr class="row-odd"><td>voided</td>
+<td>Voids any rewards that have not yet been paid.
+Referral is voided. <br>
+<em>It&#8217;s impossible to void rewards that have already been
+paid (e.g. Coupon on Landing Page for referred)</em></td>
+</tr>
+<tr class="row-even"><td>unrewarded</td>
+<td>Voids any rewards that have not yet been paid.
+Referral is not actually voided itself, but no reward
+will be paid. <br>
+<em>It&#8217;s impossible to void rewards that have already been
+paid (e.g. Coupon on Landing Page for referred)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Responses</h3><div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="29%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">HTTP Code</th>
+<th class="head">HTTP Body</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200 OK</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">true}</span></tt></td>
+<td>Order found / status changed.</td>
+</tr>
+<tr class="row-odd"><td>200 OK</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">true,</span>
+<span class="pre">&quot;notice&quot;:</span> <span class="pre">&quot;no</span> <span class="pre">rewards&quot;}</span></tt></td>
+<td>Order does not have rewards.</td>
+</tr>
+<tr class="row-even"><td>400 Bad Request</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">message}</span></tt></td>
+<td>The &#8220;status&#8221; is wrong.</td>
+</tr>
+<tr class="row-odd"><td>403 Forbidden</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">message}</span></tt></td>
+<td>The request failed and no purchase&#8217;s rewards were changed.</td>
+</tr>
+<tr class="row-even"><td>404 Not Found</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">&quot;An</span> <span class="pre">exception</span>
+<span class="pre">occurred.</span> <span class="pre">No</span> <span class="pre">site</span> <span class="pre">found</span> <span class="pre">by</span>
+<span class="pre">site_slug:</span> <span class="pre">#{site_slug}&quot;}</span></tt></td>
+<td>The site could not be found by &#8220;site_slug&#8221;.</td>
+</tr>
+<tr class="row-odd"><td>400 Bad Request</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">&quot;Couldn't</span>
+<span class="pre">find</span> <span class="pre">Purchase</span> <span class="pre">with</span> <span class="pre">order_number</span>
+<span class="pre">=</span> <span class="pre">#{order_number}&quot;}</span></tt></td>
+<td>The order could not be found by &#8220;order_number&#8221;.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If purchase was not redeemed and does not have rewards it will return success as well.</p>
+</div>
+</div>
+<div class="section" id="create-purchases">
+<h2>Create Purchases<a class="headerlink" href="#create-purchases" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-url"><div class="highlight"><pre>POST https://curebit.com/api/v1/sites/&lt;site_slug&gt;/purchases/create?api_key=&lt;api_key&gt;
+</pre></div>
+</div>
+<h3>Parameters</h3><div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>api_key</td>
+<td>Your API key. You can manage your API key in the Account
+Settings.</td>
+</tr>
+<tr class="row-even"><td>purchases</td>
+<td><p class="first">Array of JSON objects with following properties:</p>
+<ul class="simple">
+<li>email</li>
+<li>subtotal</li>
+<li>order_number</li>
+<li>order_date (in UTC time zone, or as a timestamp with timezone information)</li>
+<li>items (optional)</li>
+</ul>
+<p>For example,</p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;1st_customer@mail.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-13 12:49:54&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mi">500</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;2nd_customer@mail.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14 05:49:54&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;quantity&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="o">:</span> <span class="s2">&quot;TSHIRT&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Responses</h3><div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="30%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">HTTP Code</th>
+<th class="head">HTTP Body</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>201 Created</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">true}</span></tt></td>
+<td>Purchase created.</td>
+</tr>
+<tr class="row-odd"><td>400 Bad Request</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">message}</span></tt></td>
+<td>The &#8220;purchases&#8221; parameter is invalid.</td>
+</tr>
+<tr class="row-even"><td>403 Forbidden</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">message}</span></tt></td>
+<td>The request failed and purchase wasn&#8217;t created.</td>
+</tr>
+<tr class="row-odd"><td>404 Not Found</td>
+<td><tt class="docutils literal"><span class="pre">{&quot;success&quot;:</span> <span class="pre">false,</span>
+<span class="pre">&quot;error_messages&quot;:</span> <span class="pre">&quot;An</span> <span class="pre">exception</span>
+<span class="pre">occurred.</span> <span class="pre">No</span> <span class="pre">site</span> <span class="pre">found</span> <span class="pre">by</span>
+<span class="pre">site_slug:</span> <span class="pre">#{site_slug}&quot;}</span></tt></td>
+<td>The site could not be found by &#8220;site_slug&#8221;.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 

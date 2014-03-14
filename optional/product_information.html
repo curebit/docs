@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Information &mdash; Curebit Documentation</title>
+    <title>Product Information Integration (Optional) &mdash; Curebit Documentation</title>
     
     <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Optional Features" href="../optional.html" />
     <link rel="next" title="Reward Fulfillment" href="reward_fulfillment.html" />
-    <link rel="prev" title="Coupons" href="coupons.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Automatic Coupon Creation" href="coupons.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="reward_fulfillment.html" title="Reward Fulfillment"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="coupons.html" title="Coupons"
+          <a href="coupons.html" title="Automatic Coupon Creation"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Curebit Documentation</a> &raquo;</li>
           <li><a href="../optional.html" accesskey="U">Optional Features</a> &raquo;</li> 
@@ -65,20 +65,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
 </ul>
 
-        
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
     </div>
   </div>
   
@@ -89,8 +85,70 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="product-information">
-<span id="optional-product-information"></span><h1>Product Information<a class="headerlink" href="#product-information" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="product-information-integration-optional">
+<span id="optional-product-information"></span><h1>Product Information Integration (Optional)<a class="headerlink" href="#product-information-integration-optional" title="Permalink to this headline">¶</a></h1>
+<p>You can also add product specific tracking to Curebit, which will let your
+customers share specific items that they&#8217;ve purchased. Customer shares with
+products have higher click through and conversion rates.</p>
+<p>To integrate products with Curebit, you will add an additional script include
+and call at the bottom of your checkout page. The parameters should be replaced
+accordingly with your products&#8217; information.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
+replaced with your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</p>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit product integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/all-0.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="nx">curebit</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">});</span>
+
+  <span class="kd">var</span> <span class="nx">products</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/ProductPage1.htm&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/Image1.jpg&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Item&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;12345&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;19.99&#39;</span> <span class="cm">/* OPTIONAL */</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/ProductPage2.htm&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.merchant.com/Image2.jpg&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Sweet Item&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;67890&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED */</span>
+      <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;10.23&#39;</span> <span class="cm">/* OPTIONAL */</span>
+    <span class="p">}</span>
+  <span class="p">];</span>
+
+  <span class="nx">curebit</span><span class="p">.</span><span class="nx">register_products</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Curebit product integration code --&gt;</span>
+</pre></div>
+</div>
+<h2>Verifying Your Integration</h2><p>After installing Curebit, you should verify that the integration is working.
+All you have to do is check out from your store using the special email
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>.</p>
+<ol class="arabic">
+<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>
+as the customer email address.</p>
+</li>
+<li><p class="first">After checking out, you should see an integration success page that looks
+like this:</p>
+<a class="reference internal image-reference" href="../_images/integration_success.png"><img alt="Integration Success" src="../_images/integration_success.png" style="width: 300px;" /></a>
+<p>(Don&#8217;t worry. This image is only shown when you use the special
+<a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+</li>
+</ol>
+<p>If you can&#8217;t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;curebit&#46;com">integration<span>&#64;</span>curebit<span>&#46;</span>com</a>, we&#8217;ll also verify
+your integration whenever someone completes checkout on your store (but they
+won&#8217;t see anything).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>Note for merchants who accept PayPal as a payment method</strong></p>
+<p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
+<a class="reference internal" href="../ecommerce/paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

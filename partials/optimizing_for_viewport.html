@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../index.html">Curebit Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+  
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        
+
+      <h3>Table of contents</h3>
+      <ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul></ul>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+  </div>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h2>Optimizing for Viewport</h2><p>Curebit provides flexibility for the merchant to decide how they want to
+optimize mobile.</p>
+<p>If your site is responsive, all you&#8217;ll want to do is set <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>.
+In your campaign, there are different views for mobile, tablet and desktop.
+We&#8217;ll automatically pull the correct theme view based on the user&#8217;s device
+once we detect the viewport. We&#8217;ll use our responsive engine to size the
+Curebit iframe to the right size. Like Magic! You&#8217;ll also want to comment out
+<tt class="docutils literal"><span class="pre">device:</span> <span class="pre">'desktop'</span></tt> line.</p>
+<p>If you have separate mobile, tablet and desktop sites (or any combination of
+the three), you can leave <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt> on but also specifically set the
+campaign theme view to use. This will prevent Curebit from automatically
+assigning the theme view to use, but will allow us to resize within the screen
+to make sure all elements fit well.</p>
+<h2>Setup Your Theme</h2><p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
+scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>)</p>
+<div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
+</pre></div>
+</div>
+<p><a class="reference external" href="http://jsfiddle.net/iurevych/sVtc8/">Demo integration link</a></p>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

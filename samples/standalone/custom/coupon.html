@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../../../index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../../../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../../../index.html">Curebit Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+  
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        
+
+      <h3>Table of contents</h3>
+      <ul><li class="toctree-l1"><a href="../../../index.html">Main Page</a></li></ul></ul>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_hooks.html">Web Hooks</a></li>
+</ul>
+
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../../../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+  </div>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">offer_code</span> <span class="o">=</span> <span class="s1">&#39;OFFER-CODE&#39;</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://www.curebit.com/o/&#39;</span> <span class="o">+</span> <span class="nx">offer_code</span> <span class="o">+</span> <span class="s1">&#39;/fire_event.json&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">event_name</span><span class="o">:</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+  <span class="nx">event_sharing_channel</span><span class="o">:</span> <span class="s1">&#39;email&#39;</span> <span class="c1">// REQUIRED - may be email, facebook, twitter</span>
+<span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Save coupon_code</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Check for errors</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">errors</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Something went wrong</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
