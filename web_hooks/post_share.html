@@ -88,6 +88,63 @@
             
   <span class="target" id="web-hooks-post-share"></span><div class="section" id="post-share-web-hook">
 <h1>Post Share Web Hook<a class="headerlink" href="#post-share-web-hook" title="Permalink to this headline">¶</a></h1>
+<p>Triggered when a referrer person shares offer details with referred persons via
+corresponding form provided by campaign workflow.</p>
+<h2>Payload parameters provided for Post Share Web Hook</h2><ul class="simple">
+<li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
+<li><strong>id</strong> — unique campaign ID</li>
+<li><strong>cached_slug</strong> — unique SEO friendly ID</li>
+<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
+<li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
+</ul>
+</li>
+<li><strong>share_type</strong> — <em>&#8220;email&#8221;</em>, <em>&#8220;facebook&#8221;</em>, or <em>&#8220;twitter&#8221;</em></li>
+<li><strong>share_info</strong> — share-specific information<ul>
+<li>For Facebook share:<ul>
+<li><strong>facebook_share_post_id</strong> — Facebook post ID</li>
+<li><strong>facebook_share_user_id</strong> — Facebook user ID</li>
+</ul>
+</li>
+<li>For email share:<ul>
+<li><strong>recipients</strong> — array of email addresses</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>share_link</strong> — link sent in share message (optional, present only for Facebook and Twitter shares)</li>
+<li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
+<li><strong>type</strong><ul>
+<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
+<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+</ul>
+</li>
+<li><strong>id</strong> — unique identifier of the origin event</li>
+<li><strong>email</strong> — e-mail address of the referrer person</li>
+</ul>
+</li>
+</ul>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">556735918</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;share_type&quot;</span><span class="o">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;share_info&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;recipients&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">199948681</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;sam@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:556735918,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:199948681,&quot;email&quot;:&quot;sam@example.com&quot;,&quot;type&quot;:&quot;Purchase&quot;}}&#39;</span> &lt;url&gt;
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

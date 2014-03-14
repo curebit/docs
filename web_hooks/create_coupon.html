@@ -88,6 +88,44 @@
             
   <span class="target" id="web-hooks-create-coupon"></span><div class="section" id="create-coupon-web-hook">
 <h1>Create Coupon Web Hook<a class="headerlink" href="#create-coupon-web-hook" title="Permalink to this headline">¶</a></h1>
+<p>Used for enterprise clients who want to give unique coupons to each visitor
+and don&#8217;t want to manually upload a list of coupon codes to Curebit. In order
+to create coupon codes for a coupon list automatically, Curebit can notify
+a customer site which coupons should be created.</p>
+<h2>When does Curebit call this web hook?</h2><p>Suppose we have some codes in coupon list that are available for use. When the
+number of coupons available drops below Threshold, the system tries to generate
+15 new coupons in the background. If some person needs a coupon code, but there
+are no coupon codes available, the system will try to generate one in the
+foreground and give it to the person that requested it. In both cases coupons
+are sent as a web hook and then inserted into the Curebit database only in case
+when a web hook returns a successful response.</p>
+<p>Threshold is dynamically calculated based on number of coupon codes used by
+site in last 21 days. In this way Curebit coupon lists will always hold enough
+available coupons to serve the site for one week if integration become broken.
+Minimum Threshold is 20 coupons.</p>
+<h2>Payload parameters provided for Create Coupon Web Hook</h2><ul class="simple">
+<li><strong>coupon_code</strong> — coupon code</li>
+<li><strong>discount_amount</strong> — discount amount</li>
+<li><strong>percentage_discount</strong> — when true percentage discount should be created otherwise fixed discount</li>
+<li><strong>expires_at</strong> — coupon expiration date</li>
+<li><strong>usage_limit</strong> — number of usages for the coupon</li>
+<li><strong>coupon_list_id</strong> — ID of the coupon list that need to be filled</li>
+<li><strong>coupon_list_name</strong> — Name of the coupon list that need to be filled</li>
+</ul>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT58574&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;discount_amount&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">&quot;percentage_discount&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;usage_limit&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;expires_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-04-14T06:17:14.309-07:00&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;coupon_list_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;coupon_list_name&quot;</span><span class="o">:</span> <span class="s2">&quot;$10 off&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;coupon_code&quot;:&quot;WHT58574&quot;,&quot;discount_amount&quot;:10,&quot;percentage_discount&quot;:false,&quot;usage_limit&quot;:1,&quot;expires_at&quot;:&quot;2014-04-14T06:17:14.309-07:00&quot;,&quot;coupon_list_id&quot;:1,&quot;coupon_list_name&quot;:&quot;$10 off&quot;}&#39;</span> &lt;url&gt;
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

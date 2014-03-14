@@ -88,6 +88,81 @@
             
   <span class="target" id="web-hooks-referral"></span><div class="section" id="referral-web-hook">
 <h1>Referral Web Hook<a class="headerlink" href="#referral-web-hook" title="Permalink to this headline">¶</a></h1>
+<p>Triggered when there is a new referral in Curebit.</p>
+<h2>Payload parameters provided for Referral Web Hook</h2><ul class="simple">
+<li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
+<li><strong>id</strong> — unique campaign ID</li>
+<li><strong>cached_slug</strong> — unique SEO friendly ID</li>
+<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
+<li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
+</ul>
+</li>
+<li><strong>referrer</strong> — subhash of parameters describing the reward received by a referrer person<ul>
+<li><strong>email</strong> — email of the person that got reward</li>
+<li><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</li>
+<li><strong>incentive</strong> — type of incentive reward (rebate, discount_coupon, other)</li>
+<li><strong>incentive_description</strong> — verbal reward explanation</li>
+<li><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when incetive equals discount_coupon.</li>
+<li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
+<li><strong>type</strong><ul>
+<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
+<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+</ul>
+</li>
+<li><strong>id</strong> — unique identifier of the origin event</li>
+<li><strong>email</strong> — e-mail address of the referrer person</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>referred</strong> — subhash of parameters describing the reward received by referred person<ul>
+<li><strong>email</strong> — email of the person that got reward</li>
+<li><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</li>
+<li><strong>incentive</strong> — type of incentive reward (rebate, discount_coupon, other)</li>
+<li><strong>incentive_description</strong> — verbal reward explanation</li>
+<li><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when incetive equals discount_coupon.</li>
+<li><strong>origin</strong> — contains a data about Purchase that issued a referral</li>
+</ul>
+</li>
+</ul>
+<h2>Coupon codes as a reward</h2><div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Any code sent via this web hook doesn&#8217;t need to be created on merchant site.
+When Curebit needs more coupons — it always calls
+<a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><em>Create Coupon Web Hook</em></a>.
+In this web hook Curebit just sends the information to merchant that coupon
+was given as the reward in case merchant want to store this infomation in
+its own database.</p>
+</div>
+<h2>Incentive types</h2><p>Incentives can be of 3 following general types.</p>
+<ul class="simple">
+<li><strong>rebate</strong> — monetary reward, certain amount of money that should be paid out
+to a customer with a given email. Payment should be handled by the merchants&#8217;
+payment systems. In the case of automatic rebate payment, the merchant can
+connect their PayPal account to Curebit.</li>
+<li><strong>discount_coupon</strong> — discount coupon is issued to customer. This type of
+incentives is handled by Curebit.</li>
+<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>&#8220;Free T-shirt&#8221;</em>
+or <em>&#8220;One Month Free&#8221;</em>. This should be handled on the merchant&#8217;s side. More
+information on the reward is specified in <em>incentive_description</em>.</li>
+</ul>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">323228316</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:323228316,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;}}&#39;</span> &lt;url&gt;
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
