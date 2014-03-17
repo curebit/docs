@@ -8,6 +8,10 @@
 Integrating Curebit on Your Site
 ================================
 
+.. raw:: html
+
+   <!-- Test -->
+
 Contents:
 
 .. toctree::
