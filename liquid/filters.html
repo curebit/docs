@@ -25,7 +25,7 @@
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Liquid" href="../liquid.html" />
     <link rel="next" title="Sharing" href="sharing.html" />
-    <link rel="prev" title="Designer guide" href="designer.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Designer Guide" href="designer.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
@@ -36,7 +36,7 @@
           <a href="sharing.html" title="Sharing"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="designer.html" title="Designer guide"
+          <a href="designer.html" title="Designer Guide"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Curebit Documentation</a> &raquo;</li>
           <li><a href="../liquid.html" accesskey="U">Liquid</a> &raquo;</li> 
@@ -55,8 +55,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../liquid.html">Liquid</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer Guide</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Filters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#liquid-filters">Liquid filters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#curebit-filters">Curebit filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Liquid Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curebit-filters">Curebit Filters</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html">Sharing</a></li>
@@ -88,18 +88,18 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="liquid-standard"></span><div class="section" id="filters">
+  <span class="target" id="liquid-filters"></span><div class="section" id="filters">
 <h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="liquid-filters">
-<h2>Liquid filters<a class="headerlink" href="#liquid-filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Liquid Filters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters">Standard liquid filters</a> that are available out of box.</p>
 </div>
 <div class="section" id="curebit-filters">
-<h2>Curebit filters<a class="headerlink" href="#curebit-filters" title="Permalink to this headline">¶</a></h2>
+<h2>Curebit Filters<a class="headerlink" href="#curebit-filters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="asset-url">
 <h3>asset_url<a class="headerlink" href="#asset-url" title="Permalink to this headline">¶</a></h3>
 <p>Insert link for a uploaded asset.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;image.jpg&quot; | asset_url }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;image.jpg&quot; | asset_url }}
 </pre></div>
 </div>
 <p>Example: <a class="reference external" href="http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg">http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg</a></p>
@@ -107,44 +107,44 @@
 <div class="section" id="direct-asset-url">
 <h3>direct_asset_url<a class="headerlink" href="#direct-asset-url" title="Permalink to this headline">¶</a></h3>
 <p>Asset URL without CDN. Required only for custom fonts to work.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;font.woff&quot; | direct_asset_url }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;font.woff&quot; | direct_asset_url }}
 </pre></div>
 </div>
 </div>
 <div class="section" id="interpolate">
 <h3>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h3>
 <p>Allows inline string interpolation using %{} syntax.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &#39;Get %{referrer_amount} Off&#39; | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;Get %{referrer_amount} Off&#39; | interpolate }}
 </pre></div>
 </div>
 </div>
 <div class="section" id="format-date">
 <h3>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h3>
 <p>Format date for current localization.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
 </pre></div>
 </div>
 </div>
 <div class="section" id="split-test">
 <h3>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h3>
 <p>Split testing static text:</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &#39;split_test_identifier&#39; | split_test: &#39;Label 1&#39;, &#39;Label 2&#39;, &#39;Label N&#39; }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;split_test_identifier&#39; | split_test: &#39;Label 1&#39;, &#39;Label 2&#39;, &#39;Label N&#39; }}
 </pre></div>
 </div>
 <p>Split testing text with interpolation:</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &#39;share_via_email_subject&#39; | split_test: &#39;Get %{referred_amount} off %{site_name}&#39;,
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;share_via_email_subject&#39; | split_test: &#39;Get %{referred_amount} off %{site_name}&#39;,
    &#39;Your friend %{referrer_email} shared this deal with you&#39; | interpolate }}
 </pre></div>
 </div>
 <p>Split testing an asset:</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &#39;offer_background&#39; | split_test: &#39;background-green.jpg&#39;, &#39;background-red.jpg&#39; | asset_url }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;offer_background&#39; | split_test: &#39;background-green.jpg&#39;, &#39;background-red.jpg&#39; | asset_url }}
 </pre></div>
 </div>
 </div>
 <div class="section" id="simple-format">
 <h3>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h3>
 <p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &#39;Hello %{referrer_email}\nHere is your reward.&#39; | simple_format | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;Hello %{referrer_email}\nHere is your reward.&#39; | simple_format | interpolate }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
@@ -152,28 +152,28 @@
 <div class="section" id="money">
 <h3>money<a class="headerlink" href="#money" title="Permalink to this headline">¶</a></h3>
 <p>Formats number using current currency.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;50&quot; | money }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;50&quot; | money }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$50.00</span></tt>.</p>
 <p>Avaliable options: <tt class="docutils literal"><span class="pre">int</span> <span class="pre">precision</span></tt>, <tt class="docutils literal"><span class="pre">bool</span> <span class="pre">strip_insignificant_zeros</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;100.11&quot; | money: precision: 0 }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.11&quot; | money: precision: 0 }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: precision: 0 }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: precision: 0 }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$101</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: strip_insignificant_zeros: true }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: strip_insignificant_zeros: true }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100.99</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;100.90&quot; | money: strip_insignificant_zeros: true }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.90&quot; | money: strip_insignificant_zeros: true }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100.9</span></tt>.</p>
-<div class="highlight-html"><div class="highlight"><pre>{{ &quot;100.00&quot; | money: strip_insignificant_zeros: true }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.00&quot; | money: strip_insignificant_zeros: true }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
