@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Designer guide &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="up" title="Liquid" href="../liquid.html" />
+    <link rel="next" title="Filters" href="filters.html" />
+    <link rel="prev" title="Liquid" href="../liquid.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="filters.html" title="Filters"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../liquid.html" title="Liquid"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Curebit Documentation</a> &raquo;</li>
+          <li><a href="../liquid.html" accesskey="U">Liquid</a> &raquo;</li> 
+      </ul>
+    </div>
+  
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        
+
+      <h3>Table of contents</h3>
+      <ul><li class="toctree-l1"><a href="../index.html">Main Page</a></li></ul></ul>
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../liquid.html">Liquid</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Designer Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-view-size">Web view size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email-size">Email size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fonts">Fonts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing.html">Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gating.html">Gating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+  </div>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="liquid-standard"></span><div class="section" id="designer-guide">
+<h1>Designer guide<a class="headerlink" href="#designer-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="web-view-size">
+<h2>Web view size<a class="headerlink" href="#web-view-size" title="Permalink to this headline">¶</a></h2>
+<p>Make sure signup page canvas size is equal to the offer page, because
+this is a next screen referrer sees right after, there should be a
+smooth transition between these pages. Canvas size should be equal to a
+main container width of your site:</p>
+<div class="figure">
+<img alt="Page canvas size" src="../_images/figure1.png" />
+</div>
+<p>For mobile screens most common width is 320px, but we also support fluid
+width with possibility to set it to 100% to support mobile devices and
+tablets. Since Curebit integration is based on <tt class="docutils literal"><span class="pre">iframe</span></tt> it is not
+possible to change its size from within of the iframe that’s why signup
+and offer pages should always be of the same size.</p>
+<p>For Post-purchase campaign offer page should look like a modal window
+cause it integrates right to the checkout page after user makes a
+purchase (most common size is 800x500px):</p>
+<div class="figure">
+<img alt="Offer page like a modal" src="../_images/figure2.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Overlay cannot be customized.</p>
+</div>
+<p>Landing page size does not matter cause it hosts on Curebit site
+entirely. Commonly this view looks like a modal window with customer
+site loaded on the back:</p>
+<div class="figure">
+<img alt="Landing page" src="../_images/figure3.png" />
+</div>
+<p>Most common modal size is 800x500px.</p>
+</div>
+<div class="section" id="email-size">
+<h2>Email size<a class="headerlink" href="#email-size" title="Permalink to this headline">¶</a></h2>
+<p>Ideally email width is 580px for content:</p>
+<div class="figure">
+<img alt="Email size" src="../_images/figure4.png" />
+</div>
+</div>
+<div class="section" id="fonts">
+<h2>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
+<p>Using custom fonts as text allowed only for web views, <strong>not emails</strong>.
+This is email clients restriction. If its needed, we can convert custom
+font to images but it will not be editable through campaign editor and
+each copy change will require more time. Here is a list of OS default
+fonts <a class="reference external" href="http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html">http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html</a></p>
+<p>Also, for emails copy should be placed always on top of solid background
+color, not image:</p>
+<div class="figure">
+<img alt="Solid color VS image" src="../_images/figure5.png" />
+</div>
+<p>There are many options for embedding custom fonts, here are most popular
+and solid ones:</p>
+<ol class="arabic simple">
+<li>Purchase web-compatible font on <a class="reference external" href="http://myfonts.com">http://myfonts.com</a></li>
+</ol>
+<div class="figure">
+<img alt="myfonts.com" src="../_images/figure6.png" />
+</div>
+<ol class="arabic simple" start="2">
+<li>Purchase on <a class="reference external" href="http://typekit.com">http://typekit.com</a></li>
+<li>Choose free Google Font <a class="reference external" href="http://www.google.com/fonts">http://www.google.com/fonts</a></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
