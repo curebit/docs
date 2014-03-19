@@ -112,7 +112,7 @@ Also make sure <strong>RR social sharing incentive</strong> is set.</p>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span> <span class="c1">// Insert coupon code as a text</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;No coupon code provided&quot;</span><span class="p">);</span> <span class="c1">// Show error that coupon code wasn&#39;t provided.</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;No coupon code provided&#39;</span><span class="p">);</span> <span class="c1">// Show error that coupon code wasn&#39;t provided.</span>
   <span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
@@ -140,7 +140,7 @@ click here is more advanced setup:</p>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-shared&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span> <span class="c1">// Show everything with class `.js-shared`</span>
     <span class="nx">bindClipToCopy</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">);</span> <span class="c1">// Initiate click to copy functionality</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;No coupon code provided&quot;</span><span class="p">);</span> <span class="c1">// Show error that coupon code wasn&#39;t provided.</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;No coupon code provided&#39;</span><span class="p">);</span> <span class="c1">// Show error that coupon code wasn&#39;t provided.</span>
   <span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
@@ -180,11 +180,11 @@ click here is more advanced setup:</p>
 <h2>LinkedIn<a class="headerlink" href="#linkedin" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="separate-wording">
 <h3>Separate Wording<a class="headerlink" href="#separate-wording" title="Permalink to this headline">¶</a></h3>
-<p>Enable separate Linkedin share wording (Open Graph title and message).</p>
+<p>Enable separate LinkedIn share wording (Open Graph title and message).</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{% if user_agent contains &quot;LinkedInBot&quot; %}
-Special offer title for Linkedin friends
+  Special offer title for LinkedIn friends
 {% else %}
-Special offer title for Facebook friends
+  Special offer title for Facebook friends
 {% endif %}
 </pre></div>
 </div>
@@ -224,9 +224,9 @@ until it is loaded.</p>
   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.IN-widget&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">className</span><span class="p">);</span>
   <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.IN-widget&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">attr</span><span class="p">({</span><span class="nx">style</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">});</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;in&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Share&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;Share&#39;</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">});</span>
