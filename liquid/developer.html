@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Views &mdash; Curebit Documentation</title>
+    <title>Developer Guide &mdash; Curebit Documentation</title>
     
     <link rel="stylesheet" href="../_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Liquid" href="../liquid.html" />
-    <link rel="next" title="Offer Page" href="views/offers_show.html" />
-    <link rel="prev" title="Filters" href="filters.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Designer Guide" href="designer.html" />
+    <link rel="prev" title="Liquid" href="../liquid.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="../_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
@@ -33,10 +33,10 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="views/offers_show.html" title="Offer Page"
+          <a href="designer.html" title="Designer Guide"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="filters.html" title="Filters"
+          <a href="../liquid.html" title="Liquid"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Curebit Documentation</a> &raquo;</li>
           <li><a href="../liquid.html" accesskey="U">Liquid</a> &raquo;</li> 
@@ -53,14 +53,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../liquid.html">Liquid</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="developer.html">Developer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="designer.html">Designer Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters.html">Filters</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Views</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_show.html">Offer Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_claim.html">Landing Page</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Developer Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#views">Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra">Extra</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="designer.html">Designer Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
@@ -88,36 +91,38 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="liquid-views"></span><div class="section" id="views">
-<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="views/offers_show.html">Offer Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_show.html#instant-reward">Instant Reward</a></li>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_show.html#cloudsponge-integration">CloudSponge Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_show.html#multiple-email-fields">Multiple Email Fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_show.html#linkedin">LinkedIn</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_show.html#separate-wording">Separate Wording</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_show.html#basic-setup">Basic Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_show.html#advanced-setup">Advanced Setup</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="views/offers_claim.html">Landing Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_claim.html#email-gating">Email Gating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_claim.html#basic-setup">Basic Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_claim.html#advanced-setup">Advanced Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="views/offers_claim.html#like-gating">Like Gating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_claim.html#id1">Basic Setup</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <span class="target" id="liquid-developer"></span><div class="section" id="developer-guide">
+<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
+<p>Liquid is a template engine which is used by Curebit to provide
+a simple and quick way to customize campaign.</p>
+<p>Curebit editor provides interface which allows to adjust appearance of
+any campaign.</p>
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>Curebit editor allows you to edit Liquid templates of various Web and Email views,
+which are shown and sent for campaign visitors.</p>
+<p>It also supports alternative templates: mobile for Web views and plain text for Email.</p>
+<p>CSS is editable and supports Liquid and SCSS.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are two CSS stylesheets: for Web and Emails, shared between corresponding views.</p>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>Each Curebit view has it&#8217;s own set of Variables which can be used in template.</p>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>Allows to upload and use images, fonts, etc for campaign purposes.</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>Whenever view or stylesheet is updated editor saves changes in History.</p>
+</div>
+<div class="section" id="extra">
+<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
+<p>Allows to configure additional options for each view.</p>
 </div>
 </div>
 

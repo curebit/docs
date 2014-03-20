@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../liquid.html">Liquid</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="developer.html">Developer Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer Guide</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Filters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Liquid Filters</a></li>
@@ -113,7 +114,7 @@
 <div class="section" id="interpolate">
 <h3>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h3>
 <p>Allows inline string interpolation using %{} syntax.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;Get %{referrer_amount} Off&#39; | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get %{referrer_amount} Off&quot; | interpolate }}
 </pre></div>
 </div>
 </div>
@@ -127,23 +128,23 @@
 <div class="section" id="split-test">
 <h3>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h3>
 <p>Split testing static text:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;split_test_identifier&#39; | split_test: &#39;Label 1&#39;, &#39;Label 2&#39;, &#39;Label N&#39; }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
 </pre></div>
 </div>
 <p>Split testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;share_via_email_subject&#39; | split_test: &#39;Get %{referred_amount} off %{site_name}&#39;,
-   &#39;Your friend %{referrer_email} shared this deal with you&#39; | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;Get %{referred_amount} off %{site_name}&quot;,
+   &quot;Your friend %{referrer_email} shared this deal with you&quot; | interpolate }}
 </pre></div>
 </div>
 <p>Split testing an asset:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;offer_background&#39; | split_test: &#39;background-green.jpg&#39;, &#39;background-red.jpg&#39; | asset_url }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_background&quot; | split_test: &quot;background-green.jpg&quot;, &quot;background-red.jpg&quot; | asset_url }}
 </pre></div>
 </div>
 </div>
 <div class="section" id="simple-format">
 <h3>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h3>
 <p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;Hello %{referrer_email}\nHere is your reward.&#39; | simple_format | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello %{referrer_email}\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
