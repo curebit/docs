@@ -86,14 +86,7 @@
             
   <span class="target" id="standalone-standard"></span><div class="section" id="standard-integration">
 <h1>Standard Integration<a class="headerlink" href="#standard-integration" title="Permalink to this headline">¶</a></h1>
-<p>In order for a customer to join a Standalone campaign, Curebit will need to know
-the user&#8217;s email. There are two ways of doing this.</p>
-<h2>Provide the Curebit User's Email Directly</h2><p>In the case that you already have the current user&#8217;s email (e.g. if your site
-requires the user to create an account and log in to purchase) you can provide
-it to Curebit with some additional info.</p>
-<h2>Let Curebit Ask for Email</h2><p>In the case that the user is not yet registered on the merchant&#8217;s site, and
-the merchant does not yet know the user&#8217;s email. The Affiliate signup page
-will be displayed.</p>
+<p>Standalone campaign can be integrated to the page with the following code:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">//&lt;![CDATA[</span>
@@ -116,7 +109,8 @@ will be displayed.</p>
         <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer email</span>
         <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer first name</span>
         <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer last name</span>
-        <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
+        <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
+        <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
       <span class="p">},</span>
       <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Curebit display mobile templates</span>
       <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Curebit choose corresponding template</span>
