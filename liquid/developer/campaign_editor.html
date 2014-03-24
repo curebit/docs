@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Campaign Editor &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="up" title="Developer Guide" href="../developer.html" />
+    <link rel="next" title="Zeroclipboard tricks" href="zeroclipboard.html" />
+    <link rel="prev" title="Developer Guide" href="../developer.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="../../_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="zeroclipboard.html" title="Zeroclipboard tricks"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../developer.html" title="Developer Guide"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">Curebit Documentation</a> &raquo;</li>
+          <li><a href="../../liquid.html" >Liquid</a> &raquo;</li>
+          <li><a href="../developer.html" accesskey="U">Developer Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+  
+  <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        
+
+      <h3>Table of contents</h3>
+      <ul><li class="toctree-l1"><a href="../../index.html">Main Page</a></li></ul></ul>
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../liquid.html">Liquid</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../developer.html">Developer Guide</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Campaign Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zeroclipboard.html">Zeroclipboard tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views.html">Views</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+
+        <div id="searchbox" style="display: none" role="search">
+          <h3>Quick search</h3>
+            <form class="search" action="../../search.html" method="get">
+              <input type="text" name="q" />
+              <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+  </div>
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="liquid-developer-campaign-editor"></span><div class="section" id="campaign-editor">
+<h1>Campaign Editor<a class="headerlink" href="#campaign-editor" title="Permalink to this headline">¶</a></h1>
+<p>Liquid is a template engine which is used by Curebit to provide
+a simple and quick way to customize campaign.</p>
+<p>Curebit editor provides interface which allows to adjust appearance of
+any campaign.</p>
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
+<p>Curebit editor allows you to edit Liquid templates of various Web and Email views,
+which are shown and sent for campaign visitors.</p>
+<p>It also supports alternative templates: mobile for Web views and plain text for Email.</p>
+<p>CSS is editable and supports Liquid and SCSS.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are two CSS stylesheets: for Web and Emails, shared between corresponding views.</p>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>Each Curebit view has its own set of Variables which can be used in template.</p>
+</div>
+<div class="section" id="files">
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<p>Allows to upload and use images, fonts, etc for campaign purposes.</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>Whenever view or stylesheet is updated editor saves changes in History.</p>
+</div>
+<div class="section" id="extra">
+<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
+<p>Allows to configure additional options for each view.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
