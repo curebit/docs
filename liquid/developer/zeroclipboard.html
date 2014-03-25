@@ -98,7 +98,7 @@
     First element
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;js-after&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;js-after hidden&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">data-clipboard-text=</span><span class="s">&quot;Second&quot;</span> <span class="na">data-copied-label=</span><span class="s">&quot;Second&quot;</span> <span class="na">class=</span><span class="s">&quot;js-click-to-copy&quot;</span><span class="nt">&gt;</span>
     Second element
   <span class="nt">&lt;/div&gt;</span>
@@ -111,19 +111,16 @@
   <span class="nx">Curebit</span><span class="p">.</span><span class="nx">bindClickToCopy</span><span class="p">(</span><span class="s1">&#39;.js-click-to-copy&#39;</span><span class="p">);</span>
 
   <span class="kd">var</span> <span class="nx">switchBlocks</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-before&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-after&#39;</span><span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-      <span class="c1">// after you showed block, need re-init zeroclipboard</span>
-      <span class="nx">Curebit</span><span class="p">.</span><span class="nx">bindClickToCopy</span><span class="p">(</span><span class="s1">&#39;.js-click-to-copy&#39;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-before, .js-after&#39;</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s2">&quot;hidden&quot;</span><span class="p">);</span>
+    <span class="c1">// Re-init ZeroClipboard instance to refresh tooltip position</span>
+    <span class="nx">Curebit</span><span class="p">.</span><span class="nx">bindClickToCopy</span><span class="p">(</span><span class="s1">&#39;.js-click-to-copy&#39;</span><span class="p">);</span>
   <span class="p">};</span>
 
 <span class="p">});</span>
 </pre></div>
 </div>
 <p><strong>CSS:</strong></p>
-<div class="highlight-css"><div class="highlight"><pre><span class="nc">.js-after</span> <span class="p">{</span>
+<div class="highlight-css"><div class="highlight"><pre><span class="nc">.hidden</span> <span class="p">{</span>
   <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
