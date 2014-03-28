@@ -147,7 +147,7 @@ dashboard after you log in and create a site.</p>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;{{ customer.email }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
       <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Set to your internal customer ID for tracking */</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;{{ subtotal_price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
-      <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">couponCodes</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">couponCodes</span><span class="p">,</span>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span>
     <span class="p">};</span>
 
