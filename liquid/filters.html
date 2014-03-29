@@ -57,7 +57,13 @@
 <li class="toctree-l2"><a class="reference internal" href="developer.html">Developer Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer Guide</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Filters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#curebit-filters">Curebit Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asset-url">asset_url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#direct-asset-url">direct_asset_url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolate">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format-date">format_date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#split-test">split_test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-format">simple_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#money">money</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
@@ -80,10 +86,8 @@
 <h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters">Standard liquid filters</a> that are available out of box.</p>
 <p><hr></p>
-<div class="section" id="curebit-filters">
-<h2>Curebit Filters<a class="headerlink" href="#curebit-filters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="asset-url">
-<h3>asset_url<a class="headerlink" href="#asset-url" title="Permalink to this headline">¶</a></h3>
+<h2>Curebit Filters</h2><div class="section" id="asset-url">
+<h2>asset_url<a class="headerlink" href="#asset-url" title="Permalink to this headline">¶</a></h2>
 <p>Insert link for a uploaded asset.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;image.jpg&quot; | asset_url }}
 </pre></div>
@@ -92,7 +96,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="direct-asset-url">
-<h3>direct_asset_url<a class="headerlink" href="#direct-asset-url" title="Permalink to this headline">¶</a></h3>
+<h2>direct_asset_url<a class="headerlink" href="#direct-asset-url" title="Permalink to this headline">¶</a></h2>
 <p>Asset URL without CDN. Required only for custom fonts to work.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;font.woff&quot; | direct_asset_url }}
 </pre></div>
@@ -100,7 +104,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="interpolate">
-<h3>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h3>
+<h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
 <p>Allows inline string interpolation using %{} syntax.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get %{referrer_amount} Off&quot; | interpolate }}
 </pre></div>
@@ -108,7 +112,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="format-date">
-<h3>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h3>
+<h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
 <p>Format date for current localization.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
 </pre></div>
@@ -116,7 +120,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="split-test">
-<h3>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h3>
+<h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
 <p>Split testing static text:</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
 </pre></div>
@@ -133,7 +137,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="simple-format">
-<h3>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h3>
+<h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
 <p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello %{referrer_email}\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
@@ -142,7 +146,7 @@
 <p><hr></p>
 </div>
 <div class="section" id="money">
-<h3>money<a class="headerlink" href="#money" title="Permalink to this headline">¶</a></h3>
+<h2>money<a class="headerlink" href="#money" title="Permalink to this headline">¶</a></h2>
 <p>Formats number using current currency.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;50&quot; | money }}
 </pre></div>
@@ -169,7 +173,6 @@
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
-</div>
 </div>
 </div>
 
