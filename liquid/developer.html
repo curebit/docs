@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Developer Guide &mdash; Curebit Documentation</title>
+    <title>Campaign Developer Guide &mdash; Curebit Documentation</title>
     
     <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -52,8 +52,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../liquid.html">Liquid</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Developer Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#views">Views</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Campaign Developer Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advocate-signup-page">Advocate Signup Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advocate-offer-page">Advocate Offer Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
@@ -78,22 +79,99 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="liquid-developer"></span><div class="section" id="developer-guide">
-<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
-<p>Liquid is a template engine which is used by Curebit to provide
-a simple and quick way to customize campaign.</p>
-<p>Curebit editor provides interface which allows to adjust appearance of
-any campaign.</p>
-<div class="section" id="views">
-<h2>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h2>
-<p>Curebit editor allows you to edit Liquid templates of various Web and Email views,
-which are shown and sent for campaign visitors.</p>
-<p>It also supports alternative templates: mobile for Web views and plain text for Email.</p>
-<p>CSS is editable and supports Liquid and SCSS.</p>
+  <span class="target" id="liquid-developer"></span><div class="section" id="campaign-developer-guide">
+<h1>Campaign Developer Guide<a class="headerlink" href="#campaign-developer-guide" title="Permalink to this headline">¶</a></h1>
+<p>Curebit Campaign is based on interaction between <tt class="docutils literal"><span class="pre">Advocate</span></tt> and <tt class="docutils literal"><span class="pre">Friend</span></tt>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Advocate</span></tt>: person, who shares an offer with his Friend(s)</li>
+<li><tt class="docutils literal"><span class="pre">Friend</span></tt>: person, who is invited to participate in Campaign by Advocate</li>
+</ul>
+<img alt="Sharing process" src="../_images/sharing-process.png" />
+<p>Each step of this interaction has its own <tt class="docutils literal"><span class="pre">View</span></tt> so developer can easily
+change every singe step and customize its appearance and functionality based on
+campaign requirements.</p>
+<p>We use <a class="reference external" href="http://github.com/Shopify/liquid">Liquid</a> as a View template engine to provide a simple and quick way
+to change campaign functionality and appearance.
+<br> This choice was made mainly because of developers who are already
+familiar with Liquid templating in Shopify.</p>
+<p>To start editing Views simple visit <tt class="docutils literal"><span class="pre">Editor</span></tt> page from the Campaign dashboard.</p>
+<p><hr></p>
+<div class="section" id="advocate-signup-page">
+<h2>Advocate Signup Page<a class="headerlink" href="#advocate-signup-page" title="Permalink to this headline">¶</a></h2>
+<p>Advocate referral program sign up page (only for <tt class="docutils literal"><span class="pre">Standalone</span> <span class="pre">Campaign</span></tt>). On this page Advocate signs up by
+entering his email address.
+<br>
+<br></p>
+<img alt="Advocate signup" src="../_images/advocate-signup.png" />
+<p>Default template markup:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;form</span> <span class="na">accept-charset=</span><span class="s">&quot;UTF-8&quot;</span> <span class="na">action=</span><span class="s">&quot;{{ create_affiliate_member_path }}&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;email&quot;</span> <span class="na">name=</span><span class="s">&quot;affiliate_member[email]&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Your Email Address&quot;</span> <span class="na">required</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Sign up&quot;</span> <span class="na">data-disable-with=</span><span class="s">&quot;Please wait&quot;</span> <span class="na">name=</span><span class="s">&quot;commit&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">There are two CSS stylesheets: for Web and Emails, shared between corresponding views.</p>
+<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and form <tt class="docutils literal"><span class="pre">action</span></tt> attributes, otherwise functionality won&#8217;t work.</p>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="advocate-offer-page">
+<h2>Advocate Offer Page<a class="headerlink" href="#advocate-offer-page" title="Permalink to this headline">¶</a></h2>
+<p>Here Advocate shares an offer with his friends. Explain the value proposition
+to Advocate and Friend, that both will receive an exclusive discount.</p>
+<p>Available sharing methods:</p>
+<ul class="simple">
+<li>Email sharing</li>
+<li>Social sharing (Facebook, Twitter, LinkedIn)</li>
+<li>Link sharing (direct link to the <tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Claim</span> <span class="pre">Page</span></tt>)</li>
+</ul>
+<p><br>
+<br></p>
+<img alt="Advocate offer page" src="../_images/advocate-offer-page.png" />
+<p><br></p>
+<h3>Email sharing example:</h3><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-via-email-form&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="na">name=</span><span class="s">&quot;email_recipient_list&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="na">name=</span><span class="s">&quot;email_subject&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;share_message&quot;</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">checked=</span><span class="s">&quot;checked&quot;</span> <span class="na">name=</span><span class="s">&quot;share_email_reminder&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Send email&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<h3>Facebook sharing example:</h3><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="nt">&gt;</span>
+  Share on Facebook
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<h3>Twitter sharing example:</h3><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ twitter_share_link }}&quot;</span><span class="nt">&gt;</span>
+  Share on Twitter
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<h3>Share by link example:</h3><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-clipboard-text=</span><span class="s">&quot;{{ short_url }}&quot;</span>
+     <span class="na">data-copied-label=</span><span class="s">&quot;Copied!&quot;</span>
+     <span class="na">data-placement=</span><span class="s">&quot;top&quot;</span>
+     <span class="na">title=</span><span class="s">&quot;Click to Copy&quot;</span>
+     <span class="na">class=</span><span class="s">&quot;js-share-by-link&quot;</span><span class="nt">&gt;</span>
+  Copy and share by link
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">data-clipboard-text</span></tt> — data to be copied to a user clipboard on click.</li>
+<li><tt class="docutils literal"><span class="pre">data-copied-label</span></tt> — tooltip text after copying.</li>
+<li><tt class="docutils literal"><span class="pre">data-placement</span></tt> — tooltip placement. Possible values: <tt class="docutils literal"><span class="pre">top</span></tt>, <tt class="docutils literal"><span class="pre">right</span></tt>, <tt class="docutils literal"><span class="pre">bottom</span></tt>, <tt class="docutils literal"><span class="pre">left</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">title</span></tt> — tooltip text on hover.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">class</span></tt> attributes, otherwise functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used in Curebit API.</p>
+</div>
+<p><hr></p>
 </div>
 <div class="section" id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
