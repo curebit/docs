@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#advocate-share-page">Advocate Share Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advocate-offer-email">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-share-email">Friend Share Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friend-share-email-reminder">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
@@ -140,6 +141,8 @@ to Advocate and Friend, that both will receive an exclusive discount.</p>
 <span class="nt">&lt;/form&gt;</span>
 </pre></div>
 </div>
+<p>Note <tt class="docutils literal"><span class="pre">share_email_reminder</span></tt> checkbox — this is <a class="reference internal" href="#developer-friend-share-email-reminder"><em>Friend Share Email Reminder</em></a>
+trigger.</p>
 <p><br></p>
 <h4>Facebook sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="nt">&gt;</span>
   Share on Facebook
@@ -216,6 +219,25 @@ information about offer itself is recommended.</p>
 </ul>
 <p><br></p>
 <img alt="Friend Share Email" src="../_images/friend-share-email.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ideal email width is 480px. This is a most universal width for both
+mobile and desktop platforms.
+<a class="reference internal" href="designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="friend-share-email-reminder">
+<span id="developer-friend-share-email-reminder"></span><h2>Friend Share Email Reminder<a class="headerlink" href="#friend-share-email-reminder" title="Permalink to this headline">¶</a></h2>
+<p>This email is triggered only if Friend Share Email Reminder checkbox was checked
+on the <a class="reference internal" href="#developer-advocate-share-page"><em>Advocate Share Page</em></a> when sharing. <br>
+By default reminder email sends out in 72 hours after sharing if Friend didn&#8217;t
+use his Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
+<p>Main CTA should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
+To change email trigger delay open <tt class="docutils literal"><span class="pre">Editor</span></tt> / <tt class="docutils literal"><span class="pre">Extra</span> <span class="pre">fields</span></tt> for the
+particular email.</p>
+<p><br></p>
+<img alt="Friend Share Email Reminder" src="../_images/friend-share-email-reminder.png" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
