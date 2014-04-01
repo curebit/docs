@@ -124,7 +124,7 @@
 </pre></div>
 </div>
 <p>Split testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;Get %{referred_amount} off %{site_name}&quot;,
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;%{site_name}&quot;,
    &quot;Your friend %{referrer_email} shared this deal with you&quot; | interpolate }}
 </pre></div>
 </div>
