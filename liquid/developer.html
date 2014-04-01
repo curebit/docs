@@ -58,6 +58,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#advocate-offer-email">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-share-email">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-share-email-reminder">Friend Share Email Reminder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friend-claim-page">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
@@ -141,7 +142,7 @@ to Advocate and Friend, that both will receive an exclusive discount.</p>
 <span class="nt">&lt;/form&gt;</span>
 </pre></div>
 </div>
-<p>Note <tt class="docutils literal"><span class="pre">share_email_reminder</span></tt> checkbox — this is <a class="reference internal" href="#developer-friend-share-email-reminder"><em>Friend Share Email Reminder</em></a>
+<p id="developer-friend-share-email-reminder-checkbox">Note <tt class="docutils literal"><span class="pre">share_email_reminder</span></tt> checkbox — this is <a class="reference internal" href="#developer-friend-share-email-reminder"><em>Friend Share Email Reminder</em></a>
 trigger.</p>
 <p><br></p>
 <h4>Facebook sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="nt">&gt;</span>
@@ -214,7 +215,7 @@ Share Message from Advocate along with a unique Friend Claim Page link. Some
 information about offer itself is recommended.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>Main CTA should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>.</li>
+<li>Main CTA should point to a <a class="reference internal" href="#developer-friend-claim-page"><em>Friend Claim Page</em></a> — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>.</li>
 <li>To show Email Share Message from Advocate use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">custom_message_body</span> <span class="pre">}}</span></tt>.</li>
 </ul>
 <p><br></p>
@@ -244,6 +245,24 @@ particular email.</p>
 mobile and desktop platforms.
 <a class="reference internal" href="designer.html#designer-email"><em>Read more about email design</em></a>.</p>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="friend-claim-page">
+<span id="developer-friend-claim-page"></span><h2>Friend Claim Page<a class="headerlink" href="#friend-claim-page" title="Permalink to this headline">¶</a></h2>
+<p>Friend lands here from <a class="reference internal" href="#developer-friend-share-email"><em>Friend Share Email</em></a>. <br>
+Explain him what special discount he will get when using this link. <br>
+It&#8217;s recommended to show coupon code for the Friend on this page
+(and only on this page).</p>
+<p>Frequently used Variables:</p>
+<ul class="simple">
+<li>Main CTA should point to a merchant site to start shopping
+<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>. <br></li>
+<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
+<a class="reference internal" href="filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
+</ul>
+<p><br></p>
+<img alt="Friend Claim Page" src="../_images/friend-claim-page.png" />
 <p><hr></p>
 </div>
 <div class="section" id="variables">
