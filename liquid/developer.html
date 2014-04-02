@@ -59,6 +59,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#friend-share-email">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-share-email-reminder">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-claim-page">Friend Claim Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friend-claim-email">Friend Claim Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
@@ -189,7 +190,7 @@ functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used i
 </div>
 <div class="section" id="advocate-offer-email">
 <span id="developer-advocate-offer-email"></span><h2>Advocate Offer Email<a class="headerlink" href="#advocate-offer-email" title="Permalink to this headline">¶</a></h2>
-<p>This email is sent to Advocate on sign up. Explain the value proposition
+<p>Email is triggered to an Advocate on sign up. Explain the value proposition
 and encourage Advocate to share using the buttons.</p>
 <ul class="simple">
 <li>For Standalone Campaign it triggers when Advocate signs up.</li>
@@ -209,7 +210,7 @@ mobile and desktop platforms.
 </div>
 <div class="section" id="friend-share-email">
 <span id="developer-friend-share-email"></span><h2>Friend Share Email<a class="headerlink" href="#friend-share-email" title="Permalink to this headline">¶</a></h2>
-<p>This email is sent by Advocate to his Friends from the
+<p>Email is triggered by an Advocate to his Friends from the
 <a class="reference internal" href="#developer-advocate-share-page"><em>Advocate Share Page</em></a>. <br>
 The main purpose of this email is to invite a Friend by showing a personal
 Share Message from Advocate along with a unique Friend Claim Page link. Some
@@ -231,7 +232,7 @@ mobile and desktop platforms.
 </div>
 <div class="section" id="friend-share-email-reminder">
 <span id="developer-friend-share-email-reminder"></span><h2>Friend Share Email Reminder<a class="headerlink" href="#friend-share-email-reminder" title="Permalink to this headline">¶</a></h2>
-<p>This email is triggered only if Friend Share Email Reminder checkbox was checked
+<p>Email is triggered only if Friend Share Email Reminder checkbox was checked
 on the <a class="reference internal" href="#developer-advocate-share-page"><em>Advocate Share Page</em></a> when sharing. <br>
 By default reminder email sends out in 72 hours after sharing if Friend didn&#8217;t
 use his Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
@@ -285,6 +286,39 @@ functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used i
 <li><a class="reference internal" href="views/offers_claim.html#tutorials-like-gating"><em>Like Gating</em></a></li>
 <li><a class="reference internal" href="views/global.html#tutorials-zeroclipboard"><em>ZeroClipboard</em></a></li>
 </ul>
+<p><hr></p>
+</div>
+<div class="section" id="friend-claim-email">
+<span id="developer-friend-claim-email"></span><h2>Friend Claim Email<a class="headerlink" href="#friend-claim-email" title="Permalink to this headline">¶</a></h2>
+<p>Main purpose of this email is to send a Reward via email, and remind about
+it in the future. <br>
+Email is triggered to a Friend who passed Email Gating and received Reward
+(i.e. coupon code). <br>
+Friend Claim Email is a good fit for email capture: reward Friend for
+getting his email. See <a class="reference internal" href="views/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
+<p>Frequently used Variables:</p>
+<ul class="simple">
+<li>Main CTA should point to a merchant site to start shopping
+<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
+<a class="reference internal" href="filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
+</ul>
+<p><br></p>
+<img alt="Friend Claim Email" src="../_images/friend-claim-email.png" />
+<p><br></p>
+<div class="highlight-html"><div class="highlight"><pre>Here is your {{ incentives.click.description }} OFF deal you just claimed!
+Use it on any purchase by {{ valid_until }}
+Coupon code: {{ coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ideal email width is 480px. This is a most universal width for both
+mobile and desktop platforms.
+<a class="reference internal" href="designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+</div>
 <p><hr></p>
 </div>
 <div class="section" id="variables">
