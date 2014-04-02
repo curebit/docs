@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Origins &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Curebit docs</a>
+          <form class="header-search" action="../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="http://curebit.com" target="_blank">www.curebit.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../liquid.html">Liquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Origins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="api-v2-origins"></span><div class="section" id="origins">
+<h1>Origins<a class="headerlink" href="#origins" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to create origins. See examples below.</p>
+<div class="highlight-url"><div class="highlight"><pre>POST /origins
+</pre></div>
+</div>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Curebit Site ID. You can get this from your Curebit
+dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td>Type of origin to create (<em>&#8220;Purchase&#8221;</em> or <em>&#8220;AffiliateMember&#8221;</em>)</td>
+</tr>
+<tr class="row-even"><td>data</td>
+<td><p class="first">JSON object with following properties:</p>
+<p>For Purchase:</p>
+<ul class="simple">
+<li>email</li>
+<li>subtotal</li>
+<li>order_number</li>
+<li>order_date (in UTC time zone, or as a timestamp with
+timezone information)</li>
+<li>items (optional)</li>
+<li>customer_id (optional)</li>
+<li>coupon_code (optional)</li>
+</ul>
+<p>For AffiliateMember:</p>
+<ul class="last simple">
+<li>email</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-purchase">
+<h3>Create a purchase<a class="headerlink" href="#create-a-purchase" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@mail.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14 05:49:54&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;quantity&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="o">:</span> <span class="s2">&quot;TSHIRT&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@mail.com&quot;,&quot;order_number&quot;:12,&quot;order_date&quot;:&quot;2014-03-14 05:49:54&quot;,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
+     https://curebit.com/api/v2/origins
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">31386398</span><span class="p">,</span>
+      <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;100.0&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14T05:49:54.000-07:00&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/iXh4Je&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/LSKEAX&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-an-affiliate-member">
+<h3>Create an affiliate member<a class="headerlink" href="#create-an-affiliate-member" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@mail.com&quot;}}&#39;</span> <span class="se">\</span>
+     https://curebit.com/api/v2/origins
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">31386400</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;Jp8qY9&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/5BN5h7&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/TM2OhR&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="hidden container">
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>

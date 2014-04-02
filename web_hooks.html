@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Curebit Documentation" href="index.html" />
     <link rel="next" title="Create Coupon Web Hook" href="web_hooks/create_coupon.html" />
-    <link rel="prev" title="Purchase API" href="api/purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="White-labeling Curebit" href="optional/white_labeling.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -52,7 +52,6 @@
 <li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Campaign</a></li>
 <li class="toctree-l1"><a class="reference internal" href="liquid.html">Liquid</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Web Hooks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/create_coupon.html">Create Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/referral.html">Referral</a></li>
@@ -61,6 +60,8 @@
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/claim_signup.html">Friend Email Gating</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference (v2)</a></li>
 </ul>
 
       </div>
@@ -99,7 +100,7 @@ a PHP parameter decode example:</p>
 </pre></div>
 </div>
 <h2>Parsing Timestamps</h2><p><strong>Timestamp data type</strong> is not a part of JSON standard. That is why timestamps
-are passed as strings in <a class="reference external" href="http://requestb.in/">ISO-8601</a> compatible format. You need to be sure that
+are passed as strings in <a class="reference external" href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> compatible format. You need to be sure that
 your date parser is compatible to this standard. Otherwise issues may appear.
 People that use Java need to look through: <br>
 <a class="reference external" href="http://stackoverflow.com/questions/2201925/converting-iso8601-compliant-string-to-java-util-date">http://stackoverflow.com/questions/2201925/converting-iso8601-compliant-string-to-java-util-date</a></p>

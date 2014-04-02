@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="next" title="Origins" href="origins.html" />
+    <link rel="prev" title="API Reference" href="../api_v2.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Curebit docs</a>
+          <form class="header-search" action="../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="http://curebit.com" target="_blank">www.curebit.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Campaign</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../liquid.html">Liquid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base-url">Base URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-format">Response Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date-format">Date Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="api-v2-intro"></span><div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Curebit API is built on HTTP. Our API is RESTful, returns JSON and responds
+with standard HTTP response codes to indicate errors.</p>
+<div class="section" id="base-url">
+<h2>Base URL<a class="headerlink" href="#base-url" title="Permalink to this headline">¶</a></h2>
+<p>All API URLs referenced in this documentation start with the following base part:</p>
+<div class="highlight-url"><div class="highlight"><pre>https://curebit.com/api/v2
+</pre></div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>You authenticate to the Curebit API by providing your <tt class="docutils literal"><span class="pre">api_key</span></tt> in the request.
+You can manage your API key in the Account Settings.</p>
+</div>
+<div class="section" id="response-format">
+<h2>Response Format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h2>
+<p>The API returns JSON-encoded objects (content-type: application/json).</p>
+<p>Responses vary according to the method used, but every successful response
+envelope includes these common parts:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">...}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-format">
+<h2>Date Format<a class="headerlink" href="#date-format" title="Permalink to this headline">¶</a></h2>
+<p>Curebit returns JSON for all API calls. JSON does not have a built-in date type,
+dates are passed as strings encoded according to <a class="reference external" href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a>.
+This format is supported by most programming languages out of the box:</p>
+<div class="code highlight-python"><div class="highlight"><pre>2014-04-02T02:43:58.797-07:00
+</pre></div>
+</div>
+</div>
+<div class="section" id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a common JSON error response resulting from a failed
+Curebit API call:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;error_message&quot;</span><span class="o">:</span> <span class="s2">&quot;Message describing the error&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Most error messages that Curebit API will return are not meant to be shown to
+the user. We expect your service to gracefully handle errors and only show
+meaningful information to the user.</p>
+<p>Curebit returns standard HTTP response codes.</p>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>200, 201</td>
+<td>Everything worked as expected</td>
+</tr>
+<tr class="row-odd"><td>400</td>
+<td>Bad Request - Often missing a required parameter</td>
+</tr>
+<tr class="row-even"><td>401</td>
+<td>Unauthorized - No valid API key provided</td>
+</tr>
+<tr class="row-odd"><td>404</td>
+<td>Not Found - The requested item doesn’t exist</td>
+</tr>
+<tr class="row-even"><td>422</td>
+<td>Unprocessable Entity - The requested create, update,
+or delete cannot be performed due to validation errors.
+<br> See the response body for more details.</td>
+</tr>
+<tr class="row-odd"><td>500, 502, 503, 504</td>
+<td>Server Errors - something is wrong on Curebit’s end</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="hidden container">
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>

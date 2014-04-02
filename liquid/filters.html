@@ -68,8 +68,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a></li>
 </ul>
 
       </div>
@@ -111,8 +112,10 @@
 </div>
 <div class="section" id="format-date">
 <span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
-<p>Format date for current localization.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
+<p>Format date for current localization.
+Default format: Apr 04, 2014</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date }}
+{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
 </pre></div>
 </div>
 <p><hr></p>
