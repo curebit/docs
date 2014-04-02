@@ -177,7 +177,7 @@ trigger.</p>
 <p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">class</span></tt> attributes, otherwise
 functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used in Curebit API.</p>
 </div>
-<p>Related tutorials for this view:</p>
+<p>Related tutorials for this View:</p>
 <ul class="simple">
 <li><a class="reference internal" href="views/offers_show.html#tutorials-instant-reward"><em>Instant Reward</em></a></li>
 <li><a class="reference internal" href="views/offers_show.html#tutorials-cloudsponge"><em>CloudSponge Integration</em></a></li>
@@ -263,6 +263,27 @@ It&#8217;s recommended to show coupon code for the Friend on this page
 </ul>
 <p><br></p>
 <img alt="Friend Claim Page" src="../_images/friend-claim-page.png" />
+<div class="highlight-html"><div class="highlight"><pre>{% if offer_active %}
+  Copy your code: {{ coupon_code }}
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
+  Offer is valid until {{ valid_until }}.
+{% else %}
+  Offer expired.
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Proceed without offer<span class="nt">&lt;/a&gt;</span>
+{% endif %}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">class</span></tt> attributes, otherwise
+functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used in Curebit API.</p>
+</div>
+<p>Related tutorials for this View:</p>
+<ul class="simple">
+<li><a class="reference internal" href="views/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a></li>
+<li><a class="reference internal" href="views/offers_claim.html#tutorials-like-gating"><em>Like Gating</em></a></li>
+<li><a class="reference internal" href="views/global.html#tutorials-zeroclipboard"><em>ZeroClipboard</em></a></li>
+</ul>
 <p><hr></p>
 </div>
 <div class="section" id="variables">
