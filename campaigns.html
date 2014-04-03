@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Curebit Campaigns &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="index.html" />
+    <link rel="next" title="Views" href="campaigns/views.html" />
+    <link rel="prev" title="Custom Integration" href="standalone/custom.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="_static/pygments-github.css" rel="stylesheet">
+  <link href="_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="index.html" class="header-logo">Curebit docs</a>
+          <form class="header-search" action="search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="http://curebit.com" target="_blank">www.curebit.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Curebit Campaigns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/designer.html">Designer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference (v2)</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns"></span><div class="section" id="curebit-campaigns">
+<h1>Curebit Campaigns<a class="headerlink" href="#curebit-campaigns" title="Permalink to this headline">¶</a></h1>
+<p>Curebit Campaign is based on interaction between <tt class="docutils literal"><span class="pre">Advocate</span></tt> and <tt class="docutils literal"><span class="pre">Friend</span></tt>:</p>
+<ul class="simple">
+<li>Advocate: person, who shares an offer with his Friend(s)</li>
+<li>Friend: person, who is invited to participate in Campaign by Advocate</li>
+</ul>
+<img alt="Sharing process" src="_images/sharing-process.png" />
+<p>Each step of this interaction has its own <tt class="docutils literal"><span class="pre">View</span></tt> so developer can easily
+change every singe step and customize its appearance and functionality based on
+campaign requirements.</p>
+<p>We use <a class="reference external" href="http://github.com/Shopify/liquid">Liquid</a> as a View template engine to provide a simple and quick way
+to change campaign functionality and appearance.
+<br> This choice was made mainly because of developers who are already
+familiar with Liquid templating in Shopify.</p>
+<p>To start editing Views simple visit <tt class="docutils literal"><span class="pre">Editor</span></tt> page from the Campaign dashboard.</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="campaigns/views.html">Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/affiliate_members_new.html">Advocate Signup Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/offers_show.html">Advocate Share Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_offers_email.html">Advocate Offer Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_offers_share_via_email.html">Friend Share Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/offers_claim.html">Friend Claim Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_offers_claim.html">Friend Claim Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/views/notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campaigns/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/tutorials/global.html">Global</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/global.html#zeroclipboard">ZeroClipboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/tutorials/offers_show.html">Advocate Share Page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_show.html#instant-reward">Instant Reward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_show.html#cloudsponge-integration">CloudSponge Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_show.html#multiple-email-fields">Multiple Email Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_show.html#linkedin">LinkedIn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/tutorials/offers_claim.html">Friend Claim Page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_claim.html#email-gating">Email Gating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/tutorials/offers_claim.html#like-gating">Like Gating</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campaigns/editor.html">Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html#files">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html#extra">Extra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/editor.html#filters">Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#asset-url">asset_url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#direct-asset-url">direct_asset_url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#interpolate">interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#format-date">format_date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#split-test">split_test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#simple-format">simple_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campaigns/editor.html#money">money</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campaigns/designer.html">Designer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/designer.html#web-view-size">Web view size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/designer.html#email-size">Email size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns/designer.html#fonts">Fonts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>

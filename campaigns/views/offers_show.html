@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advocate Share Page &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="up" title="Views" href="../views.html" />
+    <link rel="next" title="Advocate Offer Email" href="notifier_offers_email.html" />
+    <link rel="prev" title="Advocate Signup Page" href="affiliate_members_new.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Curebit docs</a>
+          <form class="header-search" action="../../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="http://curebit.com" target="_blank">www.curebit.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Curebit Campaigns</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../views.html">Views</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="affiliate_members_new.html">Advocate Signup Page</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Share Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_claim.html">Friend Claim Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns-views-offers-show"></span><div class="section" id="advocate-share-page">
+<h1>Advocate Share Page<a class="headerlink" href="#advocate-share-page" title="Permalink to this headline">¶</a></h1>
+<p>Here Advocate shares an offer with his friends. Explain the value proposition
+to Advocate and Friend, that both will receive an exclusive discount.</p>
+<p>Available sharing methods:</p>
+<ul class="simple">
+<li>Email sharing</li>
+<li>Social sharing (Facebook, Twitter, LinkedIn)</li>
+<li>Link sharing (direct link to the Friend Claim Page)</li>
+</ul>
+<p><br>
+<br></p>
+<img alt="Advocate Share Page" src="../../_images/advocate-offer-page.png" />
+<p><br></p>
+<h4>Email sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-via-email-form&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="na">name=</span><span class="s">&quot;email_recipient_list&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="na">name=</span><span class="s">&quot;email_subject&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;share_message&quot;</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">checked=</span><span class="s">&quot;checked&quot;</span> <span class="na">name=</span><span class="s">&quot;share_email_reminder&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Send email&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+</div>
+<p>Note <tt class="docutils literal"><span class="pre">share_email_reminder</span></tt> checkbox — this is <em class="xref std std-ref">developer_friend_share_email_reminder</em>
+trigger.</p>
+<p><br></p>
+<h4>Facebook sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="nt">&gt;</span>
+  Share on Facebook
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<h4>Twitter sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ twitter_share_link }}&quot;</span><span class="nt">&gt;</span>
+  Share on Twitter
+<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<h4>Share by link example:</h4><div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-clipboard-text=</span><span class="s">&quot;{{ short_url }}&quot;</span>
+     <span class="na">data-copied-label=</span><span class="s">&quot;Copied!&quot;</span>
+     <span class="na">data-placement=</span><span class="s">&quot;top&quot;</span>
+     <span class="na">title=</span><span class="s">&quot;Click to Copy&quot;</span>
+     <span class="na">class=</span><span class="s">&quot;js-share-by-link&quot;</span><span class="nt">&gt;</span>
+  Copy and share by link
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">data-clipboard-text</span></tt> — data to be copied to a user clipboard on click.</li>
+<li><tt class="docutils literal"><span class="pre">data-copied-label</span></tt> — tooltip text after copying.</li>
+<li><tt class="docutils literal"><span class="pre">data-placement</span></tt> — tooltip placement. Possible values: <tt class="docutils literal"><span class="pre">top</span></tt>, <tt class="docutils literal"><span class="pre">right</span></tt>, <tt class="docutils literal"><span class="pre">bottom</span></tt>, <tt class="docutils literal"><span class="pre">left</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">title</span></tt> — tooltip text on hover.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">class</span></tt> attributes, otherwise
+functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used in Curebit API.</p>
+</div>
+<p>Related tutorials for this View:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../tutorials/offers_show.html#tutorials-instant-reward"><em>Instant Reward</em></a></li>
+<li><a class="reference internal" href="../tutorials/offers_show.html#tutorials-cloudsponge"><em>CloudSponge Integration</em></a></li>
+<li><a class="reference internal" href="../tutorials/offers_show.html#tutorials-multiple-email-fields"><em>Multiple Email Fields</em></a></li>
+<li><a class="reference internal" href="../tutorials/offers_show.html#tutorials-linkedin"><em>LinkedIn</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>

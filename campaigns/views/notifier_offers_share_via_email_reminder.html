@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Friend Share Email Reminder &mdash; Curebit Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="up" title="Views" href="../views.html" />
+    <link rel="next" title="Friend Claim Page" href="offers_claim.html" />
+    <link rel="prev" title="Friend Share Email" href="notifier_offers_share_via_email.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Curebit docs</a>
+          <form class="header-search" action="../../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="http://curebit.com" target="_blank">www.curebit.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Curebit Campaigns</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../views.html">Views</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="affiliate_members_new.html">Advocate Signup Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offers_show.html">Advocate Share Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Friend Share Email Reminder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_claim.html">Friend Claim Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns-views-notifier-offers-share-via-email-reminder"></span><div class="section" id="friend-share-email-reminder">
+<h1>Friend Share Email Reminder<a class="headerlink" href="#friend-share-email-reminder" title="Permalink to this headline">¶</a></h1>
+<p>Email is triggered only if Friend Share Email Reminder checkbox was checked
+on the <em class="xref std std-ref">developer_advocate_share_page</em> when sharing. <br>
+By default reminder email sends out in 72 hours after sharing if Friend didn&#8217;t
+use his Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
+<p>Main <abbr title="Call to action">CTA</abbr> should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
+To change email trigger delay open <tt class="docutils literal"><span class="pre">Editor</span></tt> / <tt class="docutils literal"><span class="pre">Extra</span> <span class="pre">fields</span></tt> for the
+particular email.</p>
+<p><br></p>
+<img alt="Friend Share Email Reminder" src="../../_images/friend-share-email-reminder.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ideal email width is 480px. This is a most universal width for both
+mobile and desktop platforms.
+<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>
