@@ -61,6 +61,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#friend-claim-page">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#friend-claim-email">Friend Claim Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advocate-redemption-email">Advocate Redemption Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advocate-reward-paid-email">Advocate Reward Paid Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
@@ -198,7 +199,7 @@ and encourage Advocate to share using the buttons.</p>
 <li>For Post-Checkout Campaign it triggers when Advocate makes store purchase.
 It is not recommended to use this email here since it may look spammy.</li>
 </ul>
-<p>Main CTA should point to an Advocate Share Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">share_page_url</span> <span class="pre">}}</span></tt>.</p>
+<p>Main <abbr title="Call to action">CTA</abbr> should point to an Advocate Share Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">share_page_url</span> <span class="pre">}}</span></tt>.</p>
 <p><br></p>
 <img alt="../_images/advocate-offer-email.png" src="../_images/advocate-offer-email.png" />
 <div class="admonition note">
@@ -218,7 +219,7 @@ Share Message from Advocate along with a unique Friend Claim Page link. Some
 information about offer itself is recommended.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>Main CTA should point to a <a class="reference internal" href="#developer-friend-claim-page"><em>Friend Claim Page</em></a> — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a <a class="reference internal" href="#developer-friend-claim-page"><em>Friend Claim Page</em></a> — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>.</li>
 <li>To show Email Share Message from Advocate use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">custom_message_body</span> <span class="pre">}}</span></tt>.</li>
 </ul>
 <p><br></p>
@@ -237,7 +238,7 @@ mobile and desktop platforms.
 on the <a class="reference internal" href="#developer-advocate-share-page"><em>Advocate Share Page</em></a> when sharing. <br>
 By default reminder email sends out in 72 hours after sharing if Friend didn&#8217;t
 use his Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
-<p>Main CTA should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
+<p>Main <abbr title="Call to action">CTA</abbr> should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
 To change email trigger delay open <tt class="docutils literal"><span class="pre">Editor</span></tt> / <tt class="docutils literal"><span class="pre">Extra</span> <span class="pre">fields</span></tt> for the
 particular email.</p>
 <p><br></p>
@@ -258,7 +259,7 @@ It&#8217;s recommended to show coupon code for the Friend on this page
 (and only on this page).</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>Main CTA should point to a merchant site to start shopping
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
 <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>. <br></li>
 <li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
 <li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
@@ -299,7 +300,7 @@ Friend Claim Email is a good fit for email capture: reward Friend for
 getting his email. See <a class="reference internal" href="views/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>Main CTA should point to a merchant site to start shopping
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
 <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
 <li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
 <li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
@@ -330,8 +331,33 @@ Explain Advocate he is qualified for the offer and thank him for sharing.</p>
 <p><br></p>
 <img alt="Advocate Redemption Email" src="../_images/advocate-redemption-email.png" />
 <p><br></p>
-<p>For CTA use Standalone campaign integration URL.
+<p>For <abbr title="Call to action">CTA</abbr> use Standalone campaign integration URL.
 Example: <tt class="docutils literal"><span class="pre">http://site.com/share</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ideal email width is 480px. This is a most universal width for both
+mobile and desktop platforms.
+<a class="reference internal" href="designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="advocate-reward-paid-email">
+<span id="developer-advocate-reward-paid-email"></span><h2>Advocate Reward Paid Email<a class="headerlink" href="#advocate-reward-paid-email" title="Permalink to this headline">¶</a></h2>
+<p>Email is triggered to an Advocate when reward marked as <tt class="docutils literal"><span class="pre">Paid</span></tt>. <br>
+Let Advocate know his account has been credited or a partial refund has
+been issued.</p>
+<p>Frequently used Variables:</p>
+<ul class="simple">
+<li>To show Reward Coupon Code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">reward_coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+</ul>
+<p><br></p>
+<img alt="Advocate Reward Paid Email" src="../_images/advocate-reward-paid-email.png" />
+<p><br></p>
+<div class="highlight-html"><div class="highlight"><pre>Your credit code: {{ reward_coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="nt">&gt;</span>Spend your credit<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
