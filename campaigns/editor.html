@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Curebit Campaigns" href="../campaigns.html" />
-    <link rel="next" title="Designer" href="designer.html" />
+    <link rel="next" title="Variables" href="editor/variables.html" />
     <link rel="prev" title="Friend Claim Page" href="tutorials/offers_claim.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -55,11 +55,11 @@
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Editor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extra">Extra</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filters">Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editor/variables.html">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editor/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editor/history.html">History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editor/extra.html">Extra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editor/filters.html">Filters</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer</a></li>
@@ -81,115 +81,31 @@
             
   <span class="target" id="campaigns-editor"></span><div class="section" id="editor">
 <h1>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
-<p>Each Curebit view has its own set of Variables which can be used in template.</p>
-</div>
-<div class="section" id="files">
-<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
-<p>Allows to upload and use images, fonts, etc for campaign purposes.</p>
-</div>
-<div class="section" id="history">
-<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
-<p>Whenever view or stylesheet is updated editor saves changes in History.</p>
-</div>
-<div class="section" id="extra">
-<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
-<p>Allows to configure additional options for each view.</p>
-</div>
-<div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters">Standard liquid filters</a> that are available out of box.</p>
-<h3>Curebit Filters</h3><div class="section" id="asset-url">
-<h3>asset_url<a class="headerlink" href="#asset-url" title="Permalink to this headline">¶</a></h3>
-<p>Insert link for a uploaded asset.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;image.jpg&quot; | asset_url }}
-</pre></div>
-</div>
-<p>Example: <a class="reference external" href="http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg">http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg</a></p>
-<p><hr></p>
-</div>
-<div class="section" id="direct-asset-url">
-<h3>direct_asset_url<a class="headerlink" href="#direct-asset-url" title="Permalink to this headline">¶</a></h3>
-<p>Asset URL without CDN. Required only for custom fonts to work.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;font.woff&quot; | direct_asset_url }}
-</pre></div>
-</div>
-<p><hr></p>
-</div>
-<div class="section" id="interpolate">
-<h3>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h3>
-<p>Allows inline string interpolation using %{} syntax.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get %{referrer_amount} Off&quot; | interpolate }}
-</pre></div>
-</div>
-<p><hr></p>
-</div>
-<div class="section" id="format-date">
-<span id="liquid-filter-format-date"></span><h3>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h3>
-<p>Format date for current localization.
-Default format: Apr 04, 2014</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date }}
-{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
-</pre></div>
-</div>
-<p><hr></p>
-</div>
-<div class="section" id="split-test">
-<h3>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h3>
-<p>Split testing static text:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
-</pre></div>
-</div>
-<p>Split testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;%{site_name}&quot;,
-   &quot;Your friend %{referrer_email} shared this deal with you&quot; | interpolate }}
-</pre></div>
-</div>
-<p>Split testing an asset:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_background&quot; | split_test: &quot;background-green.jpg&quot;, &quot;background-red.jpg&quot; | asset_url }}
-</pre></div>
-</div>
-<p><hr></p>
-</div>
-<div class="section" id="simple-format">
-<h3>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h3>
-<p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello %{referrer_email}\nHere is your reward.&quot; | simple_format | interpolate }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
-<p><hr></p>
-</div>
-<div class="section" id="money">
-<h3>money<a class="headerlink" href="#money" title="Permalink to this headline">¶</a></h3>
-<p>Formats number using current currency.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;50&quot; | money }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$50.00</span></tt>.</p>
-<p>Avaliable options: <tt class="docutils literal"><span class="pre">int</span> <span class="pre">precision</span></tt>, <tt class="docutils literal"><span class="pre">bool</span> <span class="pre">strip_insignificant_zeros</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.11&quot; | money: precision: 0 }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: precision: 0 }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$101</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100.99</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.90&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100.9</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.00&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
-</div>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="editor/variables.html">Variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="editor/variables.html#interpolations">Interpolations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/variables.html#view-setup-variables">View Setup Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="editor/files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor/history.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editor/extra.html">Extra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="editor/extra.html#delayed-email-sending">Delayed email sending</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="editor/filters.html">Filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#asset-url">asset_url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#direct-asset-url">direct_asset_url</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#interpolate">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#format-date">format_date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#split-test">split_test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#simple-format">simple_format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor/filters.html#money">money</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
