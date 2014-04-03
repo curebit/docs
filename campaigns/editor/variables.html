@@ -82,23 +82,7 @@
   <span class="target" id="campaigns-editor-variables"></span><div class="section" id="variables">
 <span id="editor-variables"></span><h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
 <p>Each Curebit view has its own set of Variables which can be used in template.</p>
-<div class="section" id="interpolations">
-<h2>Interpolations<a class="headerlink" href="#interpolations" title="Permalink to this headline">¶</a></h2>
 <p>List of available interpolations is displayed in <tt class="docutils literal"><span class="pre">Variables</span></tt> editor menu.</p>
-</div>
-<div class="section" id="view-setup-variables">
-<h2>View Setup Variables<a class="headerlink" href="#view-setup-variables" title="Permalink to this headline">¶</a></h2>
-<p>This is available for emails with multiple sending delays, see <a class="reference internal" href="extra.html#editor-delayed-emails"><em>Delayed email sending</em></a>.</p>
-<p><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay</span> <span class="pre">}}</span></tt> — number, contains exact value of current delay interval.</p>
-<p><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay_index</span> <span class="pre">}}</span></tt> — number, contains index of current delay interval, starting from <tt class="docutils literal"><span class="pre">0</span></tt>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You have email which has following delays: <tt class="docutils literal"><span class="pre">0,</span> <span class="pre">24,</span> <span class="pre">72</span></tt>.</p>
-<p>When it is sent immediately both <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay</span> <span class="pre">}}</span></tt> and <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay_index</span> <span class="pre">}}</span></tt> will be equal <tt class="docutils literal"><span class="pre">0</span></tt>.</p>
-<p>After 24 hours, when it is send second time, <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay</span> <span class="pre">}}</span></tt> will be equal <tt class="docutils literal"><span class="pre">24</span></tt> and <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay_index</span> <span class="pre">}}</span></tt> will be equal <tt class="docutils literal"><span class="pre">1</span></tt>.</p>
-<p class="last">And finally, after 48 hours more, <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay</span> <span class="pre">}}</span></tt> will be equal <tt class="docutils literal"><span class="pre">72</span></tt> and <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">view_setup.delay_index</span> <span class="pre">}}</span></tt> will be equal <tt class="docutils literal"><span class="pre">2</span></tt>.</p>
-</div>
-</div>
 </div>
 
 
