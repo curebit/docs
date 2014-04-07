@@ -200,6 +200,16 @@ won&#8217;t see anything).</p>
 <p class="last">You must turn on auto-redirection to your thank you page for Curebit to work.
 <a class="reference internal" href="paypal_auto_redirect.html#ecommerce-paypal-auto-redirect"><em>Learn How</em></a></p>
 </div>
+<h2>Asynchronous Integration</h2><p>You can trigger Curebit initialization whenever needed like so:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, _curebit_order_details]);&quot;</span><span class="nt">&gt;</span>Init Curebit<span class="nt">&lt;/button&gt;</span>
+</pre></div>
+</div>
+<p>Note <tt class="docutils literal"><span class="pre">iframe</span></tt> object:</p>
+<ul class="simple">
+<li>You can pass any HTML attributes</li>
+<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Curebit iframe to be inserted</li>
+</ul>
+<p><a class="reference external" href="http://jsfiddle.net/p32R6/30">Example integration</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
