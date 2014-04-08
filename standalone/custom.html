@@ -52,7 +52,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../standalone.html">Standalone Integrations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="standard.html">Standard Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Custom Integration</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Custom Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sign-up">Sign Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-a-coupon-code">Get a Coupon Code</a></li>
 </ul>
 </li>
 </ul>
@@ -74,7 +76,9 @@
             
   <span class="target" id="standalone-custom"></span><div class="section" id="custom-integration">
 <h1>Custom Integration<a class="headerlink" href="#custom-integration" title="Permalink to this headline">¶</a></h1>
-<h2>Sign Up</h2><p>Capture the email and make ajax request to Curebit with entered email, campaign
+<div class="section" id="sign-up">
+<h2>Sign Up<a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h2>
+<p>Capture the email and make ajax request to Curebit with entered email, campaign
 tags and possible any other data like first/last name or gender. We return back
 a json containing offer short code. Then redirect user to share page.</p>
 <div class="admonition note">
@@ -117,7 +121,11 @@ dashboard after you log in and create a site.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>Get a Coupon Code</h2><p>Use offer short code to get a Coupon Code after share.</p>
+<p><hr></p>
+</div>
+<div class="section" id="get-a-coupon-code">
+<h2>Get a Coupon Code<a class="headerlink" href="#get-a-coupon-code" title="Permalink to this headline">¶</a></h2>
+<p>Use offer short code to get a Coupon Code after share.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">offer_code</span> <span class="o">=</span> <span class="s1">&#39;OFFER-CODE&#39;</span><span class="p">;</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://www.curebit.com/o/&#39;</span> <span class="o">+</span> <span class="nx">offer_code</span> <span class="o">+</span> <span class="s1">&#39;/fire_event.json&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">event_name</span><span class="o">:</span> <span class="s1">&#39;share&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
@@ -151,6 +159,7 @@ dashboard after you log in and create a site.</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 </div>

@@ -51,7 +51,9 @@
         <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../standalone.html">Standalone Integrations</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Standard Integration</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Standard Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#optimizing-for-viewport">Optimizing for Viewport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-integration">Asynchronous Integration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="custom.html">Custom Integration</a></li>
@@ -134,7 +136,9 @@ The following code will register <a class="reference external" href="mailto:pers
 <div class="highlight-url"><div class="highlight"><pre>http://your-merchant.com/share?email=person@example.com&amp;campaign_tags=custom
 </pre></div>
 </div>
-<h2>Optimizing for Viewport</h2><p>Curebit provides flexibility for the merchant to decide how they want to
+<div class="section" id="optimizing-for-viewport">
+<h2>Optimizing for Viewport<a class="headerlink" href="#optimizing-for-viewport" title="Permalink to this headline">¶</a></h2>
+<p>Curebit provides flexibility for the merchant to decide how they want to
 optimize mobile.</p>
 <p>If your site is responsive, all you&#8217;ll want to do is set <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>.
 In your campaign, there are different views for mobile, tablet and desktop.
@@ -147,16 +151,59 @@ the three), you can leave <tt class="docutils literal"><span class="pre">respons
 campaign theme view to use. This will prevent Curebit from automatically
 assigning the theme view to use, but will allow us to resize within the screen
 to make sure all elements fit well.</p>
-<h2>Setup Your Theme</h2><p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
+<p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
 scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>)</p>
 <div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
 </pre></div>
 </div>
 <p><a class="reference external" href="http://jsfiddle.net/iurevych/sVtc8/">Demo integration link</a></p>
+</div>
+<div class="section" id="asynchronous-integration">
+<h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
+<p>You can trigger Curebit initialization whenever needed. For example, you can fire up Curebit on button click:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Curebit<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// order_number: &#39;100011&#39;,</span>
+    <span class="c1">// all common Curebit config properties</span>
+    <span class="c1">// ...</span>
+  <span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//cdn.curebit.com/assets/api/all-0.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</div>
+<p><br></p>
+<p>Also, you can append Curebit <tt class="docutils literal"><span class="pre">iframe</span></tt> into your custom container. Add <tt class="docutils literal"><span class="pre">iframe</span></tt> object like so:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;curebit-test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// order_number: &#39;100011&#39;,</span>
+    <span class="c1">// all common Curebit config properties</span>
+    <span class="c1">// ...</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">container</span><span class="o">:</span> <span class="s2">&quot;curebit-test&quot;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//cdn.curebit.com/assets/api/all-0.6.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>You can pass any HTML attributes.</li>
+<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Curebit iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
+</ul>
+<p><a class="reference external" href="http://jsfiddle.net/p32R6/30">Example integration</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 </div>
