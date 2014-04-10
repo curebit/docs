@@ -109,10 +109,12 @@
 </div>
 <div class="section" id="format-date">
 <span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
-<p>Format date for current localization.
-Default format: Apr 04, 2014</p>
+<p>Format date for current localization.</p>
+<p>Default format: Apr 04, 2014</p>
+<p>Reference to all available formatting can be found in <a class="reference external" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date }}
 {{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
+{{ current_time | format_date }}
 </pre></div>
 </div>
 <p><hr></p>
