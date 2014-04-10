@@ -81,8 +81,76 @@
             
   <span class="target" id="campaigns-editor-variables"></span><div class="section" id="variables">
 <span id="editor-variables"></span><h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
-<p>Each Curebit view has its own set of Variables which can be used in template.</p>
-<p>List of available interpolations is displayed in <tt class="docutils literal"><span class="pre">Variables</span></tt> editor menu.</p>
+<p>Variables are used to show dynamic data like Campaign tag, Advocate info, etc.
+<br>
+All Variables are enclosed into <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">}}</span></tt> which means
+<a class="reference external" href="http://docs.shopify.com/themes/liquid-basics/output">Liquid Output</a>.</p>
+<p>Each Campaign View has its own set of Variables located inside Editor
+navigation:</p>
+<img alt="Variables: menu item" src="../../_images/vars-menu-item.png" />
+<p><br></p>
+<p>Each Variable is represented with Name, Liquid notation, Value:</p>
+<img alt="Variables: variable" src="../../_images/vars-variable.png" />
+<ul class="simple">
+<li>Name describes meaning of the Variable</li>
+<li>Notation explains how to write Variable inside Template/Styles editor area</li>
+<li>Value shows what this particular Variable results with (Value may be
+different between preview and production scenarious)</li>
+</ul>
+<div class="section" id="advocate-info">
+<h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
+<p>Personal data for Advocate. <br>
+Type: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="30%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>email</td>
+<td>&#8220;<a class="reference external" href="mailto:affiliate&#37;&#52;&#48;example&#46;com">affiliate<span>&#64;</span>example<span>&#46;</span>com</a>&#8220;</td>
+<td>Advocate email he is registered with</td>
+</tr>
+<tr class="row-odd"><td>first_name</td>
+<td>&#8220;John&#8221;</td>
+<td>Advocate first name provided on Signup</td>
+</tr>
+<tr class="row-even"><td>last_name</td>
+<td>&#8220;Smith&#8221;</td>
+<td>Advocate last name provided on Signup</td>
+</tr>
+<tr class="row-odd"><td>gender</td>
+<td>null | &#8220;male&#8221; | &#8220;female&#8221;</td>
+<td>Advocate gender provided on Signup</td>
+</tr>
+<tr class="row-even"><td>external_customer_id</td>
+<td>&#8220;1jsh17136&#8221;</td>
+<td>Advocate unique ID passed by Merchnat
+to <a class="reference internal" href="../../ecommerce/custom.html#ecommerce-custom"><em>Curebit Integration</em></a> as <tt class="docutils literal"><span class="pre">customer_id</span></tt></td>
+</tr>
+<tr class="row-odd"><td>sub_choice</td>
+<td>&#8220;0&#8221; | &#8220;on&#8221;</td>
+<td>Advocate custom parameter which can be
+used to pass additional data to
+Advocate Share Page</td>
+</tr>
+<tr class="row-even"><td>purchases_count</td>
+<td>0</td>
+<td>Advocate number of tracked store
+purchases</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
