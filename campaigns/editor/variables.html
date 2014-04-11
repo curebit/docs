@@ -97,11 +97,13 @@ navigation:</p>
 <li>Value shows what this particular Variable results with (Value may be
 different between preview and production scenarious)</li>
 </ul>
+<p><br>
+<hr></p>
 <div class="section" id="advocate-info">
 <h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
-<p>Personal data for Advocate. <br>
-Available in: all Views. <br>
-Type: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<p><strong>Available in</strong>: all Views <br>
+<strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<p>Personal data for Advocate.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -156,15 +158,23 @@ purchases</td>
 </div>
 <div class="section" id="coupon-code">
 <h2>{{ coupon_code }}<a class="headerlink" href="#coupon-code" title="Permalink to this headline">¶</a></h2>
-<p>Reward Coupon Code. This Variable has a scope:</p>
+<p><strong>Available in</strong>: Friend Claim Page, Advocate Redemption Email, Advocate Reward
+Paid Email <br>
+<strong>Type</strong>: <tt class="docutils literal"><span class="pre">String</span></tt></p>
+<p>Coupon Code is given to a person as a Reward based on Incentive (condition of
+giving out the Reward).</p>
+<p>When you want to use this Variable always keep in mind who you want to
+show it to because it has a scope:</p>
 <ul class="simple">
-<li>for Views that start with <tt class="docutils literal"><span class="pre">Advocate</span></tt> it means Advocate Coupon Code</li>
-<li>for Views that start with <tt class="docutils literal"><span class="pre">Friend</span></tt> it means Friend Coupon Code</li>
+<li>for Views which name starts with <tt class="docutils literal"><span class="pre">Advocate</span></tt> it means Advocate Coupon Code</li>
+<li>for Views which name starts with <tt class="docutils literal"><span class="pre">Friend</span></tt> it means Friend Coupon Code</li>
 </ul>
+<img alt="Variables: friend coupon code" src="../../_images/vars-friend-coupon-code.png" />
+<p><br></p>
 <p>Make sure Incentives are correct:</p>
 <ul class="simple">
-<li>If its <tt class="docutils literal"><span class="pre">single-use</span></tt> Coupon Code, make sure Coupon List exist and it has enough
-coupons and they are valid in terms of uniqueness and validity</li>
+<li>If its <tt class="docutils literal"><span class="pre">single-use</span></tt> Coupon Code, make sure Coupon List exist and it has
+enough coupons and they are valid in terms of uniqueness and validity</li>
 <li>If its <tt class="docutils literal"><span class="pre">multi-use</span></tt> Coupon Code, make sure it has a correct value</li>
 </ul>
 <img alt="Variables: coupon list" src="../../_images/vars-coupon-list.png" />
