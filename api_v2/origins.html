@@ -129,7 +129,7 @@ dashboard after you log in and create a site.</td>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@mail.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14 05:49:54&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14T05:49:54-07:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
@@ -144,7 +144,7 @@ dashboard after you log in and create a site.</td>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@mail.com&quot;,&quot;order_number&quot;:12,&quot;order_date&quot;:&quot;2014-03-14 05:49:54&quot;,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@mail.com&quot;,&quot;order_number&quot;:12,&quot;order_date&quot;:&quot;2014-03-14T05:49:54-07:00&quot;,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
      https://curebit.com/api/v2/origins
 </pre></div>
 </div>
