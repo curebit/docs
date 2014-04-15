@@ -84,7 +84,7 @@ Curebit integration code can be asyncronous or syncronous depending on your deci
 <p>The parameters you will need to provide are:</p>
 <ul class="simple">
 <li>Order Number</li>
-<li>Order Date and Time (in UTC time zone, or as a timestamp with timezone information)</li>
+<li>Order Date and Time (<a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> formatted datetime)</li>
 <li>Customer Email Address</li>
 <li>Coupon code used at checkout</li>
 <li>Customer ID from your site (Optional)</li>
@@ -141,7 +141,7 @@ dashboard after you log in and create a site.</p>
 
     <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
-      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2010-10-09 03:18:08&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (in UTC time zone, or as a timestamp with timezone information)</span>
+      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
