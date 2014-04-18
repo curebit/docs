@@ -115,9 +115,9 @@ dashboard after you log in and create a site.</p>
     <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
     <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Curebit Site ID</span>
-      <span class="c1">//If you are using live ENV and test ENV you might need to switch over two sites based on current location host:</span>
-      <span class="c1">//site_id: window.location.host == &quot;www.site.com&quot; ? &#39;site&#39; : &#39;site-testing&#39;</span>
-      <span class="c1">//server: &#39;https://www.curebit.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to curebit.com (this option is only possible for Enterprise client)</span>
+      <span class="c1">// If you are using live ENV and test ENV you might need to switch over two sites based on current location host:</span>
+      <span class="c1">// site_id: window.location.host == &quot;www.site.com&quot; ? &#39;site&#39; : &#39;site-testing&#39;</span>
+      <span class="c1">// server: &#39;https://www.curebit.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to curebit.com (this option is only possible for Enterprise client)</span>
     <span class="p">}]);</span>
 
     <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
@@ -148,10 +148,14 @@ dashboard after you log in and create a site.</p>
       <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Set to your internal customer ID for tracking</span>
       <span class="nx">custom_field</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="c1">// OPTIONAL - Any custom order data you might need</span>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span><span class="p">,</span>
-      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell curebit that this purchase should not be redeemed</span>
+      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell Curebit that this purchase should not be redeemed</span>
       <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
       <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
-      <span class="c1">// iframe: { width: &#39;100%&#39;, height: &#39;400&#39; }, // OPTIONAL - display offer inline instead of popup</span>
+      <span class="c1">// iframe: { // OPTIONAL - display offer inline instead of popup</span>
+      <span class="c1">//   // container: &quot;id-example&quot;, // Tell Curebit where to insert the iframe (ID attribute). See Asynchronous Integration for more details.</span>
+      <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
+      <span class="c1">//   height: &#39;400&#39;</span>
+      <span class="c1">// },</span>
       <span class="c1">// loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39;, // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
       <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Curebit display mobile templates</span>
       <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Curebit choose corresponding template</span>
