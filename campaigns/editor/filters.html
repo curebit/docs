@@ -102,7 +102,7 @@
 <div class="section" id="interpolate">
 <h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
 <p>Allows inline string interpolation using %{} syntax.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get %{referrer_amount} Off&quot; | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get [[incentives.click.amount | money]] Off&quot; | interpolate }}
 </pre></div>
 </div>
 <p><hr></p>
@@ -126,8 +126,8 @@
 </pre></div>
 </div>
 <p>Split testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;%{site_name}&quot;,
-   &quot;Your friend %{referrer_email} shared this deal with you&quot; | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;[[site_name]]&quot;,
+   &quot;Your friend [[advocate_info.email]] shared this deal with you&quot; | interpolate }}
 </pre></div>
 </div>
 <p>Split testing an asset:</p>
@@ -139,7 +139,7 @@
 <div class="section" id="simple-format">
 <h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
 <p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello %{referrer_email}\nHere is your reward.&quot; | simple_format | interpolate }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
