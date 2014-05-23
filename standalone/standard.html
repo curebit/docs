@@ -162,14 +162,14 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="section" id="asynchronous-integration">
 <h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
 <p>You can trigger Curebit initialization whenever needed. For example, you can fire up Curebit on button click:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Curebit<span class="nt">&lt;/button&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_affiliate&#39;, _curebit_affiliate_details]);&quot;</span><span class="nt">&gt;</span>Init Curebit<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-    <span class="c1">// order_number: &#39;100011&#39;,</span>
+  <span class="kd">var</span> <span class="nx">_curebit_affiliate_details</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// all common Curebit config properties</span>
-    <span class="c1">// ...</span>
+    <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">}</span>
   <span class="p">};</span>
 <span class="nt">&lt;/script&gt;</span>
 
@@ -181,10 +181,12 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;curebit-test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">_curebit_affiliate_details</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// ...</span>
-    <span class="c1">// order_number: &#39;100011&#39;,</span>
     <span class="c1">// all common Curebit config properties</span>
+    <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">},</span>
     <span class="c1">// ...</span>
     <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">container</span><span class="o">:</span> <span class="s2">&quot;curebit-test&quot;</span>
@@ -199,7 +201,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <li>You can pass any HTML attributes.</li>
 <li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Curebit iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
 </ul>
-<p><a class="reference external" href="http://jsfiddle.net/p32R6/30">Example integration</a>.</p>
+<p><a class="reference external" href="http://jsfiddle.net/p32R6/73">Example integration</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
