@@ -78,7 +78,9 @@
             
   <span class="target" id="web-hooks-reward"></span><div class="section" id="reward-web-hook">
 <h1>Reward Web Hook<a class="headerlink" href="#reward-web-hook" title="Permalink to this headline">¶</a></h1>
-<p>Triggered when there is a new reward in Curebit.</p>
+<p>Triggered when there is a new paid reward in Curebit.</p>
+<p>Rewards are considered as paid just after they are created, except Referrer:
+it is getting paid after Referral is approved.</p>
 <h2>Payload parameters provided for Reward Web Hook</h2><ul class="simple">
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
@@ -87,7 +89,7 @@
 <li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
 </ul>
 </li>
-<li><strong>person</strong> — subhash of parameters describing the person that got reward<ul>
+<li><strong>person</strong> — subhash of parameters describing the person that got reward (note: might be <strong>null</strong>)<ul>
 <li><strong>email</strong></li>
 <li><strong>first_name</strong></li>
 <li><strong>last_name</strong></li>
