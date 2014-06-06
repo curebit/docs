@@ -100,6 +100,7 @@ it is getting paid after Referral is approved.</p>
 <li><strong>reward</strong> — subhash of parameters describing the reward itself<ul>
 <li><strong>reason</strong> — reason why this reward was given</li>
 <li><strong>incentive_type</strong> — type of incentive (rebate, discount_coupon, other)</li>
+<li><strong>incentive_description</strong> — description of incentive (human readable, equals to non monetary description if <strong>incentive_type</strong> is other)</li>
 <li><strong>amount</strong> — amount of money to reward (null when <strong>incentive_type</strong> is
 discount_coupon or other)</li>
 <li><strong>coupon_code</strong> — coupon code received by person as a reward (null when
@@ -156,13 +157,14 @@ its own database.</p>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00 back&quot;</span><span class="p">,</span>
     <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden container">
