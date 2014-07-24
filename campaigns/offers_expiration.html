@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Views &mdash; Curebit Documentation</title>
+    <title>Offers Expiration &mdash; Curebit Documentation</title>
     
     <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Curebit Documentation" href="../index.html" />
     <link rel="up" title="Curebit Campaigns" href="../campaigns.html" />
-    <link rel="next" title="Advocate Signup Page" href="views/affiliate_members_new.html" />
-    <link rel="prev" title="Curebit Campaigns" href="../campaigns.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Optional Features" href="../optional.html" />
+    <link rel="prev" title="Designer" href="designer.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -52,22 +52,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../campaigns.html">Curebit Campaigns</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Views</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="views/affiliate_members_new.html">Advocate Signup Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_show.html">Advocate Share Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_offers_email.html">Advocate Offer Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_offers_share_via_email.html">Friend Share Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_offers_claim.html">Friend Claim Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="views/notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="editor.html">Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="offers_expiration.html">Offers Expiration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Offers Expiration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advocate">Advocate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#friend">Friend</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
@@ -84,20 +77,27 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="campaigns-views"></span><div class="section" id="views">
-<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="views/affiliate_members_new.html">Advocate Signup Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/offers_show.html">Advocate Share Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_offers_email.html">Advocate Offer Email</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_offers_share_via_email.html">Friend Share Email</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_offers_claim.html">Friend Claim Email</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views/notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
+  <span class="target" id="campaigns"></span><div class="section" id="offers-expiration">
+<h1>Offers Expiration<a class="headerlink" href="#offers-expiration" title="Permalink to this headline">¶</a></h1>
+<p>Curebit Campaign allows to set offer expiration for Advocate and Friend
+by specifying specific date or set offer duration in hours</p>
+<div class="section" id="advocate">
+<h2>Advocate<a class="headerlink" href="#advocate" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - Advocate will no longer be able to share after this date.</li>
+<li><tt class="docutils literal"><span class="pre">offer</span> <span class="pre">duration</span></tt> - Unsupported</li>
+<li>Note: All existing offers are always affected in specified date is changed while campaign is live</li>
+<li>Deadline is not copied when campaign is copied</li>
+</ul>
+</div>
+<div class="section" id="friend">
+<h2>Friend<a class="headerlink" href="#friend" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - Friend will no longer be able to claim the offer after this date</li>
+<li><tt class="docutils literal"><span class="pre">offer</span> <span class="pre">duration</span></tt> - Friend will no longer be able to claim the offer after X hours after Advocate shared it with him</li>
+<li>All Friend offers will not be affected if specified date or offer duration is changed while campaign is live.</li>
+<li>If date and offer duration are specified friend offers will expire when the closest date will code</li>
+<li>When campaign is copied only offer duration gets copied, but not deadline.</li>
 </ul>
 </div>
 </div>
