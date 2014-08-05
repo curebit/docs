@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; Curebit Documentation</title>
+    <title>Introduction &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
     <link rel="next" title="Origins" href="origins.html" />
     <link rel="prev" title="API Reference" href="../api_v2.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -79,18 +79,18 @@
             
   <span class="target" id="api-v2-intro"></span><div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>The Curebit API is built on HTTP. Our API is RESTful, returns JSON and responds
+<p>The Talkable API is built on HTTP. Our API is RESTful, returns JSON and responds
 with standard HTTP response codes to indicate errors.</p>
 <div class="section" id="base-url">
 <h2>Base URL<a class="headerlink" href="#base-url" title="Permalink to this headline">¶</a></h2>
 <p>All API URLs referenced in this documentation start with the following base part:</p>
-<div class="highlight-url"><div class="highlight"><pre>https://curebit.com/api/v2
+<div class="highlight-url"><div class="highlight"><pre>https://www.talkable.com/api/v2
 </pre></div>
 </div>
 </div>
 <div class="section" id="authentication">
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
-<p>You authenticate to the Curebit API by providing your <tt class="docutils literal"><span class="pre">api_key</span></tt> in the request.
+<p>You authenticate to the Talkable API by providing your <tt class="docutils literal"><span class="pre">api_key</span></tt> in the request.
 You can manage your API key in the Account Settings.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -108,7 +108,7 @@ envelope includes these common parts:</p>
 </div>
 <div class="section" id="date-format">
 <h2>Date Format<a class="headerlink" href="#date-format" title="Permalink to this headline">¶</a></h2>
-<p>Curebit returns JSON for all API calls. JSON does not have a built-in date type,
+<p>Talkable returns JSON for all API calls. JSON does not have a built-in date type,
 dates are passed as strings encoded according to <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.
 This format is supported by most programming languages out of the box:</p>
 <div class="code highlight-python"><div class="highlight"><pre>2014-04-02T02:43:58.797-07:00
@@ -118,14 +118,14 @@ This format is supported by most programming languages out of the box:</p>
 <div class="section" id="errors">
 <h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
 <p>The following represents a common JSON error response resulting from a failed
-Curebit API call:</p>
+Talkable API call:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;error_message&quot;</span><span class="o">:</span> <span class="s2">&quot;Message describing the error&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Most error messages that Curebit API will return are not meant to be shown to
+<p>Most error messages that Talkable API will return are not meant to be shown to
 the user. We expect your service to gracefully handle errors and only show
 meaningful information to the user.</p>
-<p>Curebit returns standard HTTP response codes.</p>
+<p>Talkable returns standard HTTP response codes.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -156,7 +156,7 @@ or delete cannot be performed due to validation errors.
 <br> See the response body for more details.</td>
 </tr>
 <tr class="row-odd"><td>500, 502, 503, 504</td>
-<td>Server Errors - Something is wrong on Curebit’s end</td>
+<td>Server Errors - Something is wrong on Talkable’s end</td>
 </tr>
 </tbody>
 </table>

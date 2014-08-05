@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Purchase API &mdash; Curebit Documentation</title>
+    <title>Purchase API &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Documentation" href="../api.html" />
     <link rel="next" title="API Reference" href="../api_v2.html" />
     <link rel="prev" title="Customer API" href="customer.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -79,11 +79,11 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This is a preliminary API release and is subject to change.
-Please <a class="reference external" href="http://curebit.com/contact">contact us</a> if you are planning to use our API.</p>
+Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to use our API.</p>
 </div>
 <div class="section" id="approve-void-rewards-for-purchases">
 <h2>Approve/Void Rewards for Purchases<a class="headerlink" href="#approve-void-rewards-for-purchases" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>PUT https://curebit.com/api/v1/sites/&lt;site_slug&gt;/purchases/&lt;order_number&gt;/set_rewards_status?api_key=&lt;api_key&gt;&amp;status=&lt;status&gt;
+<div class="highlight-url"><div class="highlight"><pre>PUT https://www.talkable.com/api/v1/sites/&lt;site_slug&gt;/purchases/&lt;order_number&gt;/set_rewards_status?api_key=&lt;api_key&gt;&amp;status=&lt;status&gt;
 </pre></div>
 </div>
 <p>You can approve or void rewards for purchases that are waiting approval.</p>
@@ -104,8 +104,8 @@ Please <a class="reference external" href="http://curebit.com/contact">contact u
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>site_slug</td>
-<td>Your Curebit Site ID. You can get this from your Curebit
-dashboard after you log in and create a site.</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>api_key</td>
 <td>Your API key. You can manage your API key in the Account
@@ -210,7 +210,7 @@ paid (e.g. Coupon on Friend Claim Page for Friend)</em></td>
 </div>
 <div class="section" id="create-purchases">
 <h2>Create Purchases<a class="headerlink" href="#create-purchases" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>POST https://curebit.com/api/v1/sites/&lt;site_slug&gt;/purchases/create?api_key=&lt;api_key&gt;
+<div class="highlight-url"><div class="highlight"><pre>POST https://www.talkable.com/api/v1/sites/&lt;site_slug&gt;/purchases/create?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 <h3>Parameters</h3><div class="ptable container">
@@ -226,8 +226,8 @@ paid (e.g. Coupon on Friend Claim Page for Friend)</em></td>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>site_slug</td>
-<td>Your Curebit Site ID. You can get this from your Curebit
-dashboard after you log in and create a site.</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>api_key</td>
 <td>Your API key. You can manage your API key in the Account

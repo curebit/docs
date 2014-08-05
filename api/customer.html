@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Customer API &mdash; Curebit Documentation</title>
+    <title>Customer API &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Documentation" href="../api.html" />
     <link rel="next" title="Purchase API" href="purchase.html" />
     <link rel="prev" title="API Documentation" href="../api.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -78,11 +78,11 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This is a preliminary API release and is subject to change.
-Please <a class="reference external" href="http://curebit.com/contact">contact us</a> if you are planning to use our API.</p>
+Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to use our API.</p>
 </div>
 <div class="section" id="retrieving-customer-referral-information">
 <h2>Retrieving Customer Referral Information<a class="headerlink" href="#retrieving-customer-referral-information" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://curebit.com/api/v1/sites/&lt;site_slug&gt;/customers/&lt;customer_email&gt;/stats.json?api_key=&lt;api_key&gt;
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v1/sites/&lt;site_slug&gt;/customers/&lt;customer_email&gt;/stats.json?api_key=&lt;api_key&gt;
 </pre></div>
 </div>
 <p>Get information about a customer and the status of their referrals.</p>
@@ -99,8 +99,8 @@ Please <a class="reference external" href="http://curebit.com/contact">contact u
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>site_slug</td>
-<td>Your Curebit Site ID. You can get this from your Curebit
-dashboard after you log in and create a site.</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>api_key</td>
 <td>Your API key. You can manage your API key in the Account
@@ -117,7 +117,7 @@ Settings.</td>
 <li>404 Not Found - The requested item doesn&#8217;t exist</li>
 </ul>
 <h3>Sample request</h3><p>This is a sample request for a subscription that was referred from another subscriber.</p>
-<div class="highlight-url"><div class="highlight"><pre>GET https://curebit.com/api/v1/sites/my-store/customers/customer%40example.com/stats.json?api_key=CRljoG5Glb8xeNCv1NO
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v1/sites/my-store/customers/customer%40example.com/stats.json?api_key=CRljoG5Glb8xeNCv1NO
 </pre></div>
 </div>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>

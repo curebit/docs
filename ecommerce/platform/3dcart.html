@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3DCart Store Integration &mdash; Curebit Documentation</title>
+    <title>3DCart Store Integration &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Platform Integration" href="../platform.html" />
     <link rel="next" title="BigCommerce Store Integration" href="bigcommerce.html" />
     <link rel="prev" title="Platform Integration" href="../platform.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -100,7 +100,7 @@
 <li><p class="first">Click on <strong>Edit</strong> next to <em>&#8220;checkout-step4.html&#8221;</em>.</p>
 </li>
 <li><p class="first">Add the following code at the very beginning of the template:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
   <span class="kd">function</span> <span class="nx">correctTotalCost</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">)</span> <span class="p">{</span>
@@ -117,8 +117,8 @@
 
   <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
   <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">curebitSiteId</span> <span class="o">=</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">;</span> <span class="c1">// Curebit site id</span>
-    <span class="kd">var</span> <span class="nx">curebitJsUrl</span> <span class="o">=</span> <span class="s1">&#39;//www.curebit.com/public/&#39;</span> <span class="o">+</span> <span class="nx">curebitSiteId</span> <span class="o">+</span> <span class="s1">&#39;/purchases/create.js&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">curebitSiteId</span> <span class="o">=</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">;</span> <span class="c1">// Talkable Site ID</span>
+    <span class="kd">var</span> <span class="nx">curebitJsUrl</span> <span class="o">=</span> <span class="s1">&#39;//www.talkable.com/public/&#39;</span> <span class="o">+</span> <span class="nx">curebitSiteId</span> <span class="o">+</span> <span class="s1">&#39;/purchases/create.js&#39;</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">curebitVersion</span> <span class="o">=</span> <span class="s1">&#39;0.2&#39;</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">curebitOrderNumber</span> <span class="o">=</span> <span class="s1">&#39;[invoicenum]&#39;</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">curebitEmail</span> <span class="o">=</span> <span class="s1">&#39;[oemail]&#39;</span><span class="p">;</span>
@@ -169,12 +169,12 @@
     <span class="nx">curebitHeadID</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">curebitNewScript</span><span class="p">);</span>
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">You will need to replace &#8220;YOUR-CUREBIT-SITE-ID&#8221; with the site ID assigned
-to you on your Curebit dashboard after you log in and create a site.</p>
+<li><p class="first">You will need to replace &#8220;YOUR-TALKABLE-SITE-ID&#8221; with the site ID assigned
+to you on your Talkable dashboard after you log in and create a site.</p>
 </li>
 <li><p class="first">Click <strong>Save Changes</strong> and confirm the settings have been saved.</p>
 </li>

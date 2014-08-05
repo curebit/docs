@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Product Information Integration (Optional) &mdash; Curebit Documentation</title>
+    <title>Product Information Integration (Optional) &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Optional Features" href="../optional.html" />
     <link rel="next" title="Enabling PayPal Auto-Redirect" href="paypal_auto_redirect.html" />
     <link rel="prev" title="Automatic Coupon Creation" href="coupons.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -77,22 +77,22 @@
             
   <span class="target" id="optional-product-information"></span><div class="section" id="product-information-integration-optional">
 <h1>Product Information Integration (Optional)<a class="headerlink" href="#product-information-integration-optional" title="Permalink to this headline">¶</a></h1>
-<p>You can also add product specific tracking to Curebit, which will let your
+<p>You can also add product specific tracking to Talkable, which will let your
 customers share specific items that they&#8217;ve purchased. Customer shares with
 products have higher click through and conversion rates.</p>
-<p>To integrate products with Curebit, you will add an additional script include
+<p>To integrate products with Talkable, you will add an additional script include
 and call at the bottom of your checkout page. The parameters should be replaced
 accordingly with your products&#8217; information.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
-replaced with your Curebit Site ID. You can get this from your Curebit
+<p class="last">To get your personal integration code, YOUR-TALKABLE-SITE-ID needs to be
+replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit product integration code --&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable product integration code --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-  <span class="nx">curebit</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">});</span>
+  <span class="nx">curebit</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">});</span>
 
   <span class="kd">var</span> <span class="nx">products</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -113,7 +113,7 @@ dashboard after you log in and create a site.</p>
 
   <span class="nx">curebit</span><span class="p">.</span><span class="nx">register_products</span><span class="p">(</span><span class="nx">products</span><span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="c">&lt;!-- End Curebit product integration code --&gt;</span>
+<span class="c">&lt;!-- End Talkable product integration code --&gt;</span>
 </pre></div>
 </div>
 <p><br></p>

@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>VP-ASP 7.0 Store Integration &mdash; Curebit Documentation</title>
+    <title>VP-ASP 7.0 Store Integration &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Platform Integration" href="../platform.html" />
     <link rel="next" title="X-Cart Store Integration" href="x-cart.html" />
     <link rel="prev" title="Volusion Store Integration" href="volusion.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -100,20 +100,20 @@
 <li><p class="first">Directly below it, please insert this code:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
-replaced with your Curebit Site ID. You can get this from your Curebit
+<p class="last">To get your personal integration code, YOUR-TALKABLE-SITE-ID needs to be
+replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
-<div class="code highlight-python"><div class="highlight"><pre>    &#39;Begin Curebit integration code
+<div class="code highlight-python"><div class="highlight"><pre>    &#39;Begin Talkable integration code
 dim strordertime, strorderdate, xcurebiturl
 strordertime = rsorder(&quot;otime&quot;)
 strorderdate = formatdatetime(strordertime,vblongtime)
-xcurebiturl = &quot;https://curebit.com/public/YOUR-CUREBIT-SITE-ID/purchases/create.js&quot;
+xcurebiturl = &quot;https://www.talkable.com/public/YOUR-TALKABLE-SITE-ID/purchases/create.js&quot;
 %&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=xcurebiturl%&gt;?v=0.2&amp;purchase[order_number]=&lt;%=ordernumber%&gt;&amp;purchase[subtotal]=&lt;%=getsess(&quot;OrderTotal&quot;)%&gt;&amp;purchase[email]=&lt;%=GetSess(&quot;email&quot;)%&gt;&amp;purchase[order_date]=&lt;%=strorderdate%&gt;&quot;&amp; &gt;
 &lt;/script&gt;
 &lt;%
-&#39;End Curebit integration code
+&#39;End Talkable integration code
 </pre></div>
 </div>
 </li>

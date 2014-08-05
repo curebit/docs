@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>FastSpring Store Integration &mdash; Curebit Documentation</title>
+    <title>FastSpring Store Integration &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Platform Integration" href="../platform.html" />
     <link rel="next" title="Magento Store Integration" href="magento.html" />
     <link rel="prev" title="Demandware Store Integration" href="demandware.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -104,15 +104,15 @@
 <li><p class="first">In the <em>&#8220;Free-form XHTML Fragment&#8221;</em> text area, put this code:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
-replaced with your Curebit Site ID. You can get this from your Curebit
+<p class="last">To get your personal integration code, YOUR-TALKABLE-SITE-ID needs to be
+replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
 <div class="highlight-html"><div class="highlight"><pre>&lt;!-- Begin Curebit integration code --&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
   &lt;![CDATA[
-    var curebitSiteId = &#39;YOUR-CUREBIT-SITE-ID&#39;;
-    var curebitJsUrl = &#39;https://curebit.com/public/&#39; + curebitSiteId + &#39;/purchases/create_fastspring.js&#39;;
+    var curebitSiteId = &#39;YOUR-TALKABLE-SITE-ID&#39;;
+    var curebitJsUrl = &#39;https://www.talkable.com/public/&#39; + curebitSiteId + &#39;/purchases/create_fastspring.js&#39;;
     var curebitVersion = &#39;0.2&#39;;
     var curebitOrderNumber = &quot;#{order.reference}&quot;;
 

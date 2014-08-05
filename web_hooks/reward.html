@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reward Web Hook &mdash; Curebit Documentation</title>
+    <title>Reward Web Hook &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Web Hooks" href="../web_hooks.html" />
     <link rel="next" title="Post Share Web Hook" href="post_share.html" />
     <link rel="prev" title="Referral Web Hook" href="referral.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -78,7 +78,7 @@
             
   <span class="target" id="web-hooks-reward"></span><div class="section" id="reward-web-hook">
 <h1>Reward Web Hook<a class="headerlink" href="#reward-web-hook" title="Permalink to this headline">¶</a></h1>
-<p>Triggered when there is a new paid reward in Curebit.</p>
+<p>Triggered when there is a new paid reward in Talkable.</p>
 <p>Rewards are considered as paid just after they are created, except Referrer:
 it is getting paid after Referral is approved.</p>
 <h2>Payload parameters provided for Reward Web Hook</h2><ul class="simple">
@@ -122,9 +122,9 @@ discount_coupon or other)</li>
 <li><strong>rebate</strong> — monetary reward, certain amount of money that should be paid out
 to a customer with a given email. Payment should be handled by the merchants&#8217;
 payment systems. In the case of automatic rebate payment, the merchant can
-connect their PayPal account to Curebit.</li>
+connect their PayPal account to Talkable.</li>
 <li><strong>discount_coupon</strong> — discount coupon is issued to customer. This type of
-incentives is handled by Curebit.</li>
+incentives is handled by Talkable.</li>
 <li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>&#8220;Free T-shirt&#8221;</em>
 or <em>&#8220;One Month Free&#8221;</em>. This should be handled on the merchant&#8217;s side. More
 information on the reward is specified in <em>incentive_description</em>.</li>
@@ -132,9 +132,9 @@ information on the reward is specified in <em>incentive_description</em>.</li>
 <h2>Coupon codes as a reward</h2><div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">Any code sent via this web hook doesn&#8217;t need to be created on merchant site.
-When Curebit needs more coupons — it always calls
+When Talkable needs more coupons — it always calls
 <a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><em>Create Coupon Web Hook</em></a>.
-In this web hook Curebit just sends the information to merchant that coupon
+In this web hook Talkable just sends the information to merchant that coupon
 was given as the reward in case merchant want to store this infomation in
 its own database.</p>
 </div>

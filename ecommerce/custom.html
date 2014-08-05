@@ -5,9 +5,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Default Integration &mdash; Curebit Documentation</title>
+    <title>Default Integration &mdash; Talkable Documentation</title>
     
-    <link rel="stylesheet" href="../_static/curebit.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Curebit Documentation" href="../index.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Integration Options" href="../ecommerce.html" />
     <link rel="next" title="Platform Integration" href="platform.html" />
     <link rel="prev" title="Integration Options" href="../ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -81,12 +81,12 @@
 <p class="first admonition-title">Note</p>
 <p>We offer separate integration script for each <strong>Enterprise</strong> site.
 This allows us to better support integration individually.</p>
-<p class="last">Please <a class="reference external" href="http://curebit.com/contact">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
+<p class="last">Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
 <p>On your final checkout receipt page (which includes things like the customer&#8217;s
 order number or confirmation code), you will include a Javascript snippet
 containing the order and purchased product information. This version of the
-Curebit integration code can be asyncronous or syncronous depending on your decision.</p>
+Talkable integration code can be asyncronous or syncronous depending on your decision.</p>
 <p>The parameters you will need to provide are:</p>
 <ul class="simple">
 <li>Order Number</li>
@@ -108,21 +108,21 @@ Curebit integration code can be asyncronous or syncronous depending on your deci
 <p>Below is the sample code for a purchase with two items.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To get your personal integration code, YOUR-CUREBIT-SITE-ID needs to be
-replaced with your Curebit Site ID. You can get this from your Curebit
+<p class="last">To get your personal integration code, YOUR-TALKABLE-SITE-ID needs to be
+replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
 <div class="section" id="main-integration-code">
 <h2>Main Integration Code<a class="headerlink" href="#main-integration-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">//&lt;![CDATA[</span>
     <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
     <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-CUREBIT-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Curebit Site ID</span>
+      <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Talkable Site ID</span>
       <span class="c1">// If you are using live ENV and test ENV you might need to switch over two sites based on current location host:</span>
       <span class="c1">// site_id: window.location.host == &quot;www.site.com&quot; ? &#39;site&#39; : &#39;site-testing&#39;</span>
-      <span class="c1">// server: &#39;https://www.curebit.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to curebit.com (this option is only possible for Enterprise client)</span>
+      <span class="c1">// server: &#39;https://www.talkable.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to talkable.com (this option is only possible for Enterprise client)</span>
     <span class="p">}]);</span>
 
     <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
@@ -152,17 +152,17 @@ dashboard after you log in and create a site.</p>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
       <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Set to your internal customer ID for tracking</span>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span><span class="p">,</span>
-      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell Curebit that this purchase should not be redeemed</span>
+      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell Talkable that this purchase should not be redeemed</span>
       <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
       <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
       <span class="c1">// iframe: { // OPTIONAL - display offer inline instead of popup</span>
-      <span class="c1">//   // container: &quot;id-example&quot;, // Tell Curebit where to insert the iframe (ID attribute). See Asynchronous Integration for more details.</span>
+      <span class="c1">//   // container: &quot;id-example&quot;, // Tell Talkable where to insert the iframe (ID attribute). See Asynchronous Integration for more details.</span>
       <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
       <span class="c1">//   height: &#39;400&#39;</span>
       <span class="c1">// },</span>
       <span class="c1">// loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39;, // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
-      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Curebit display mobile templates</span>
-      <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Curebit choose corresponding template</span>
+      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Talkable display mobile templates</span>
+      <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Talkable choose corresponding template</span>
       <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;Post-checkout&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
       <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
     <span class="p">};</span>
@@ -171,21 +171,21 @@ dashboard after you log in and create a site.</p>
   <span class="c1">//]]&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="c">&lt;!-- End Curebit integration code --&gt;</span>
+<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
 <p><hr></p>
-<h2>Optimizing for Viewport</h2><p>Curebit provides flexibility for the merchant to decide how they want to
+<h2>Optimizing for Viewport</h2><p>Talkable provides flexibility for the merchant to decide how they want to
 optimize mobile.</p>
 <p>If your site is responsive, all you&#8217;ll want to do is set <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>.
 In your campaign, there are different views for mobile, tablet and desktop.
 We&#8217;ll automatically pull the correct theme view based on the user&#8217;s device
 once we detect the viewport. We&#8217;ll use our responsive engine to size the
-Curebit iframe to the right size. Like Magic! You&#8217;ll also want to comment out
+Talkable iframe to the right size. Like Magic! You&#8217;ll also want to comment out
 <tt class="docutils literal"><span class="pre">device:</span> <span class="pre">'desktop'</span></tt> line.</p>
 <p>If you have separate mobile, tablet and desktop sites (or any combination of
 the three), you can leave <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt> on but also specifically set the
-campaign theme view to use. This will prevent Curebit from automatically
+campaign theme view to use. This will prevent Talkable from automatically
 assigning the theme view to use, but will allow us to resize within the screen
 to make sure all elements fit well.</p>
 <p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
@@ -198,14 +198,14 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 </div>
 <div class="section" id="asynchronous-integration">
 <h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
-<p>You can trigger Curebit initialization whenever needed. For example, you can fire up Curebit on button click:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Curebit<span class="nt">&lt;/button&gt;</span>
+<p>You can trigger Talkable initialization whenever needed. For example, you can fire up Talkable on button click:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Talkable<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// ...</span>
     <span class="c1">// order_number: &#39;100011&#39;,</span>
-    <span class="c1">// all common Curebit config properties</span>
+    <span class="c1">// all common Talkable config properties</span>
     <span class="c1">// ...</span>
   <span class="p">};</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -214,7 +214,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 </pre></div>
 </div>
 <p><br></p>
-<p>Also, you can append Curebit <tt class="docutils literal"><span class="pre">iframe</span></tt> into your custom container. Add <tt class="docutils literal"><span class="pre">iframe</span></tt> object like so:</p>
+<p>Also, you can append Talkable <tt class="docutils literal"><span class="pre">iframe</span></tt> into your custom container. Add <tt class="docutils literal"><span class="pre">iframe</span></tt> object like so:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;curebit-test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
@@ -234,7 +234,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 </div>
 <ul class="simple">
 <li>You can pass any HTML attributes.</li>
-<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Curebit iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
+<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Talkable iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
 </ul>
 <p><a class="reference external" href="http://jsfiddle.net/p32R6/71">Example integration</a>.</p>
 <div class="hidden container">
