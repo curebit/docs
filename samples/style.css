@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font: inherit;
+  outline: none;
+}
+
+a img, iframe {
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+th, h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+button, input, select, textarea {
+  vertical-align: middle;
+}
+
+button, input {
+  *overflow: visible;
+  line-height: normal;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+
+
