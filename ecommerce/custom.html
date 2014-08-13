@@ -83,6 +83,9 @@
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
+<p>To ensure the campaign is loaded as fast as possible with no delay, it is important that you place your integration script inside the HEAD tag.
+In order to make sure your campaign will load properly from the HEAD tag we will have to enable/uncomment the &#8220;container&#8221; option in the integration script (<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+<p>Once you have placed your integration script inside the HEAD tag, and you have defined the iframe container parameter, then you will be able to set up an empty block with id = container parameter from integration script. Now that you have defined the campaign Container ID, your campaign will be inserted anywhere on your page where the container id is identified.</p>
 <p>On your final checkout receipt page (which includes things like the customer&#8217;s
 order number or confirmation code), you will include a Javascript snippet
 containing the order and purchased product information. This version of the
@@ -163,8 +166,12 @@ dashboard after you log in and create a site.</p>
       <span class="c1">// loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39;, // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
       <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Talkable display mobile templates</span>
       <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Talkable choose corresponding template</span>
+      <span class="c1">// person_custom_properties: { // OPTIONAL - Additional customer properties</span>
+      <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
+      <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
+      <span class="c1">// },</span>
       <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;Post-checkout&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
-      <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
+      <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
     <span class="p">};</span>
 
     <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
@@ -193,7 +200,8 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
 </pre></div>
 </div>
-<p><a class="reference external" href="http://jsfiddle.net/iurevych/sVtc8/">Demo integration link</a></p>
+<p><a class="reference external" href="http://docs.talkable.com/samples/viewport-pp.html">Example integration</a>.</p>
+<p><a class="reference external" href="https://github.com/curebit/docs/blob/gh-pages/samples/viewport-pp.html">Source integration</a>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="asynchronous-integration">
@@ -236,7 +244,8 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <li>You can pass any HTML attributes.</li>
 <li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Talkable iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
 </ul>
-<p><a class="reference external" href="http://jsfiddle.net/p32R6/71">Example integration</a>.</p>
+<p><a class="reference external" href="http://docs.talkable.com/samples/pp.html">Example integration</a>.</p>
+<p><a class="reference external" href="https://github.com/curebit/docs/blob/gh-pages/samples/pp.html">Source integration</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
