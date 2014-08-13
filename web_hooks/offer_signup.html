@@ -100,6 +100,8 @@ additional parameters will be present:</p>
 <li><strong>first_name</strong> — affiliate member&#8217;s first name</li>
 <li><strong>last_name</strong> — affiliate member&#8217;s last name</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
+<li><strong>subscribed_at</strong> - date affiliate member has subscribed</li>
+<li><strong>unsubscribed_at</strong> - date affiliate member has unsubscribed</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -116,7 +118,9 @@ additional parameters will be present:</p>
   <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
   <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
   <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span><span class="kc">null</span><span class="p">,</span>
+  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span><span class="kc">null</span>
 <span class="p">}</span>
 </pre></div>
 </div>

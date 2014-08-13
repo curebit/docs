@@ -91,15 +91,8 @@ dashboard after you log in and create a site.</p>
 <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://www.talkable.com/public/&#39;</span> <span class="o">+</span> <span class="nx">site_id</span> <span class="o">+</span> <span class="s1">&#39;/affiliate_members/create.json&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">campaign_tag</span><span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
   <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;YOUR-USER-EMAIL&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - customer email</span>
-    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer first name</span>
-    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer last name</span>
-    <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
-    <span class="c1">// person_custom_properties: { // OPTIONAL - additional customer properties</span>
-    <span class="c1">//     key1: &#39;value1&#39;, // string value</span>
-    <span class="c1">//     key2: &#39;123.2&#39; // numeric value</span>
-    <span class="c1">// },</span>
-    <span class="nx">gender</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL - customer gender (&#39;male&#39; or &#39;female&#39;)</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;YOUR-USER-EMAIL&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL</span>
   <span class="p">}</span>
 <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">success</span><span class="p">)</span> <span class="p">{</span>

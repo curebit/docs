@@ -81,9 +81,6 @@
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
-<p>To ensure the campaign is loaded as fast as possible with no delay, it is important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we will have to enable/uncomment the &#8220;container&#8221; option in the integration script (<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
-<p>Once you have placed your integration script inside the HEAD tag, and you have defined the iframe container parameter, then you will be able to set up an empty block with id = container parameter from integration script. Now that you have defined the campaign Container ID, your campaign will be inserted anywhere on your page where the container id is identified.</p>
 <p>Standalone campaign can be integrated to the page with the following code:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
@@ -106,13 +103,8 @@ In order to make sure your campaign will load properly from the HEAD tag we will
         <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer email</span>
         <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer first name</span>
         <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer last name</span>
-        <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
-        <span class="nx">gender</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer gender (&#39;male&#39; or &#39;female&#39;)</span>
-        <span class="c1">// person_custom_properties: { // OPTIONAL - additional customer properties</span>
-        <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
-        <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
-        <span class="c1">// },</span>
-        <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
+        <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
+        <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
       <span class="p">},</span>
       <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Talkable display mobile templates</span>
       <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Talkable choose corresponding template</span>
@@ -166,8 +158,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
 </pre></div>
 </div>
-<p><a class="reference external" href="http://docs.talkable.com/samples/viewport-sa.html">Example integration</a>.</p>
-<p><a class="reference external" href="https://github.com/curebit/docs/blob/gh-pages/samples/viewport-sa.html">Source integration</a>.</p>
+<p><a class="reference external" href="http://jsfiddle.net/iurevych/sVtc8/">Demo integration link</a></p>
 <div class="section" id="asynchronous-integration">
 <h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
 <p>You can trigger Talkable initialization whenever needed. For example, you can fire up Talkable on button click:</p>
@@ -210,8 +201,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <li>You can pass any HTML attributes.</li>
 <li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Talkable iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
 </ul>
-<p><a class="reference external" href="http://docs.talkable.com/samples/sa.html">Example integration</a>.</p>
-<p><a class="reference external" href="https://github.com/curebit/docs/blob/gh-pages/samples/sa.html">Source integration</a>.</p>
+<p><a class="reference external" href="http://jsfiddle.net/p32R6/73">Example integration</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
