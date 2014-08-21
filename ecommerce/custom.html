@@ -252,16 +252,27 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 </ul>
 </div>
 </div>
-<h2>Passing Custom Person Data</h2><p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data to Talkable in the form of Key-Value pairs via integration. <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass any key value pairs you wish. The values you define for some key should be JSON Key-Value pairs themselves, this means complex data structures can be passed through. Any <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> data passed through is tied to the Person (Advocate or Friend), that means there is only one instance of each field in existence at any time: the most recently passed data.</p>
-<p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use across all Campaign Views. Accessing this data beings by creating a variable to store your custom_properties:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span><span class="o">%</span> <span class="nx">assign</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">advocate_info</span><span class="p">.</span><span class="nx">custom_properties</span> <span class="o">%</span><span class="p">}</span>
+<h2>Passing Custom Person Data</h2><p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data
+to Talkable in the form of Key-Value pairs via integration.</p>
+<p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass
+any key value pairs you wish.</p>
+<p>The values you define for some key should be JSON Key-Value pairs themselves,
+this means complex data structures can be passed through.</p>
+<p>Any <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> data passed through is tied to the Person
+(Advocate or Friend), that means there is only one instance of each field in
+existence at any time: the most recently passed data.</p>
+<p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use
+across all Campaign Views. Accessing this data beings by creating a variable
+to store your custom_properties:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign data = advocate_info.custom_properties %}
 </pre></div>
 </div>
-<p>Key Value pairs can be referenced through your newly created object by referencing the value name such as:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{{</span> <span class="nx">data</span><span class="p">.</span><span class="nx">favorite_color</span> <span class="p">}}</span>
+<p>Key Value pairs can be referenced through your newly created object by referencing
+the value name such as:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ data.favorite_color }}
 </pre></div>
 </div>
-<p>Defining person_custom_properties in your integration might look something like this:</p>
+<p>Defining <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> in your integration might look something like this:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="nx">person_custom_properties</span><span class="o">:</span> <span class="p">{</span>
