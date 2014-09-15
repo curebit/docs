@@ -24,7 +24,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
-    <link rel="next" title="Campaigns" href="campaigns.html" />
     <link rel="prev" title="Origins" href="origins.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -57,13 +56,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">People</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 </ul>
 </li>
 </ul>
@@ -147,7 +147,7 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="find-a-person-by-email">
 <h3>Find a person by email<a class="headerlink" href="#find-a-person-by-email" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/people/customer@email.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/people/customer@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
@@ -175,7 +175,7 @@ Talkable dashboard after you log in and create a site.</td>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@email.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard_king&quot;</span>
   <span class="p">}</span>
@@ -184,7 +184,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@email.com&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/people
 </pre></div>
 </div>

@@ -25,7 +25,7 @@
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
     <link rel="next" title="People" href="people.html" />
-    <link rel="prev" title="Introduction" href="intro.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Offers" href="offers.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -57,13 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Origins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
-<li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 </ul>
 </li>
 </ul>
@@ -132,7 +133,7 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@mail.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
     <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-03-14T05:49:54-07:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
@@ -149,7 +150,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@mail.com&quot;,&quot;order_number&quot;:12,&quot;order_date&quot;:&quot;2014-03-14T05:49:54-07:00&quot;,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@example.com&quot;,&quot;order_number&quot;:12,&quot;order_date&quot;:&quot;2014-03-14T05:49:54-07:00&quot;,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
@@ -168,7 +169,7 @@ Talkable dashboard after you log in and create a site.</td>
     <span class="p">},</span>
     <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/iXh4Je&quot;</span><span class="p">,</span>
       <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/LSKEAX&quot;</span>
     <span class="p">}</span>
@@ -184,14 +185,14 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@example.com&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@mail.com&quot;}}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@example.com&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
@@ -201,13 +202,13 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">31386400</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;Jp8qY9&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@mail.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/5BN5h7&quot;</span><span class="p">,</span>
       <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://curebit.com/x/TM2OhR&quot;</span>
     <span class="p">}</span>
