@@ -101,24 +101,39 @@
 </div>
 <p><hr></p>
 </div>
-<div class="section" id="interpolate">
-<h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
-<p>Allows inline string interpolation using [[ ]] syntax.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get [[incentives.click.amount | money]] Off&quot; | interpolate }}
+<div class="section" id="simple-format">
+<h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
+<p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
 </div>
+<p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
 <p><hr></p>
 </div>
-<div class="section" id="format-date">
-<span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
-<p>Format date for current localization.</p>
-<p>Default format: Apr 04, 2014</p>
-<p>Reference to all available formatting can be found in <a class="reference external" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date }}
-{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
-{{ current_time | format_date }}
+<div class="section" id="encode-query-argument">
+<h2>encode_query_argument<a class="headerlink" href="#encode-query-argument" title="Permalink to this headline">¶</a></h2>
+<p>Encodes a string to be included in a URL.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>http://example.com/?utm_campaign={{ &quot;Campaign Name&quot; | encode_query_argument }}
 </pre></div>
 </div>
+<p>Returns <tt class="docutils literal"><span class="pre">Campaign%20Name</span></tt>, so the URL will be
+<tt class="docutils literal"><span class="pre">http://example.com/?utm_campaign=Campaign%20Name</span></tt>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="rand-by">
+<h2>rand_by<a class="headerlink" href="#rand-by" title="Permalink to this headline">¶</a></h2>
+<p>Produces a random value which is always the same for specific parameters passed.
+First parameter is a maximum random number.</p>
+<p>Simple example:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100&quot; | rand_by: &quot;param1&quot;, &quot;param2&quot; }}
+</pre></div>
+</div>
+<p>Always returns <tt class="docutils literal"><span class="pre">29</span></tt>.</p>
+<p>Interpolation as a parameter:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;10&quot; | rand_by: advocate_info.email }}
+</pre></div>
+</div>
+<p>Always returns the same number for a specific email, between 0 and 10.</p>
 <p><hr></p>
 </div>
 <div class="section" id="split-test">
@@ -138,13 +153,24 @@
 </div>
 <p><hr></p>
 </div>
-<div class="section" id="simple-format">
-<h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
-<p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
+<div class="section" id="format-date">
+<span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
+<p>Format date for current localization.</p>
+<p>Default format: Apr 04, 2014</p>
+<p>Reference to all available formatting can be found in <a class="reference external" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | format_date }}
+{{ valid_until | format_date: &quot;%Y-%m-%d&quot; }}
+{{ current_time | format_date }}
 </pre></div>
 </div>
-<p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="interpolate">
+<h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
+<p>Allows inline string interpolation using [[ ]] syntax.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Get [[incentives.click.amount | money]] Off&quot; | interpolate }}
+</pre></div>
+</div>
 <p><hr></p>
 </div>
 <div class="section" id="money">
@@ -175,6 +201,24 @@
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="strip">
+<h2>strip<a class="headerlink" href="#strip" title="Permalink to this headline">¶</a></h2>
+<p>Removes leading and trailing blank symbols from the string.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;    strip me &quot; | strip }}
+</pre></div>
+</div>
+<p>Returns <tt class="docutils literal"><span class="pre">strip</span> <span class="pre">me</span></tt>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="tweet-length">
+<h2>tweet_length<a class="headerlink" href="#tweet-length" title="Permalink to this headline">¶</a></h2>
+<p>Calculates a tweet length for the string.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;wow this is a tweet http://example.com&quot; | tweet_length }}
+</pre></div>
+</div>
+<p>Returns <tt class="docutils literal"><span class="pre">42</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="parse-json">
