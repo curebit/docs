@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advocate Reward Paid Email &mdash; Talkable Documentation</title>
+    <title>Advocate/Friend Reward Confirmation Email &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Views" href="../views.html" />
-    <link rel="next" title="Tutorials" href="../tutorials.html" />
-    <link rel="prev" title="Advocate/Friend Reward Confirmation Email" href="notifier_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Advocate Reward Paid Email" href="notifier_rewards_paid.html" />
+    <link rel="prev" title="Friend Claim Page" href="offers_claim.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -59,8 +59,8 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_confirmation.html">Advocate/Friend Reward Confirmation Email</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Paid Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate/Friend Reward Confirmation Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
@@ -83,21 +83,35 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="campaigns-views-notifier-rewards-paid"></span><div class="section" id="advocate-reward-paid-email">
-<h1>Advocate Reward Paid Email<a class="headerlink" href="#advocate-reward-paid-email" title="Permalink to this headline">¶</a></h1>
-<p>Email is triggered to an Advocate when Referral marked as <tt class="docutils literal"><span class="pre">Approved</span></tt>. <br>
-Let Advocate know his account has been credited or a partial refund has
-been issued.</p>
+  <span class="target" id="campaigns-views-notifier-rewards-confirmation"></span><div class="section" id="advocate-friend-reward-confirmation-email">
+<span id="notifier-rewards-confirmation"></span><h1>Advocate/Friend Reward Confirmation Email<a class="headerlink" href="#advocate-friend-reward-confirmation-email" title="Permalink to this headline">¶</a></h1>
+<p>Main purpose of this email is to send a Reward via email, and remind about
+it in the future. <br>
+Email is triggered to a Advocate or a Friend who passed Email Gating, and received Reward
+(i.e. coupon code). <br></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <cite>Email sending condition</cite> to differentiate Advocate/Friend emails.
+<br>
+Example: <cite>{% if reward.incentive.identifier == &#8216;click&#8217; %}true{% endif %}</cite></p>
+</div>
+<p>Reward Confirmation Email for Friend is a good fit for email capture: reward Friend for
+getting his email. See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>To show Reward Coupon Code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
-<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
+<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
+<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
 </ul>
 <p><br></p>
-<img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
+<img alt="Friend Claim Email" src="../../_images/friend-claim-email.png" />
 <p><br></p>
-<div class="highlight-html"><div class="highlight"><pre>Your credit code: {{ coupon_code }}
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="nt">&gt;</span>Spend your credit<span class="nt">&lt;/a&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>Here is your {{ incentives.click.description }} OFF deal you just claimed!
+Use it on any purchase by {{ valid_until }}
+Coupon code: {{ coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
