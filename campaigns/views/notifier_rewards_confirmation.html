@@ -86,15 +86,15 @@
 <span id="notifier-rewards-confirmation"></span><h1>Advocate/Friend Reward Confirmation Email<a class="headerlink" href="#advocate-friend-reward-confirmation-email" title="Permalink to this headline">¶</a></h1>
 <p>Main purpose of this email is to send a Reward via email, and remind about
 it in the future. <br>
-Email is triggered to a Advocate or a Friend who passed Email Gating, and received Reward
+Email is triggered to a <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> who passed Email Gating, and received Reward
 (i.e. coupon code). <br></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Use <cite>Email sending condition</cite> to differentiate Advocate/Friend emails.
+<p class="last">Use <cite>Email sending condition</cite> to differentiate <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr>/<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> emails.
 <br>
 Example: <cite>{% if reward.incentive.identifier == &#8216;click&#8217; %}true{% endif %}</cite></p>
 </div>
-<p>Reward Confirmation Email for Friend is a good fit for email capture: reward Friend for
+<p>Reward Confirmation Email for Friend is a good fit for email capture: reward <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> for
 getting his email. See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">

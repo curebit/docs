@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Flow &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="next" title="Campaigns" href="campaigns.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="header-search" action="../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-origin">Initial Origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#share-screen">Share Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claim-screen">Claim Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closing-origin">Closing Origin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="api-v2-flow"></span><div class="section" id="flow">
+<h1>Flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-origin">
+<h2>Initial Origin<a class="headerlink" href="#initial-origin" title="Permalink to this headline">¶</a></h2>
+<p>Invite <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> to referral program at some point by creating an <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a> and obtaining <a class="reference internal" href="offers.html#api-v2-offers"><em>Offer</em></a> to share.</p>
+</div>
+<div class="section" id="share-screen">
+<h2>Share Screen<a class="headerlink" href="#share-screen" title="Permalink to this headline">¶</a></h2>
+<p>Display options for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> to share with their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>s.</p>
+<p><strong>For Social Share</strong></p>
+<ul class="simple">
+<li>Retrieve unique links for each channel for <a class="reference internal" href="offers.html#api-v2-offers"><em>Offer</em></a> (<cite>claim_urls</cite> interpolation)</li>
+<li>After <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> have shared, make corresponding request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
+</ul>
+<p><strong>For Email Share</strong></p>
+<ul class="simple">
+<li>Ask <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> for recipients (and additional information) and make request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
+</ul>
+</div>
+<div class="section" id="claim-screen">
+<h2>Claim Screen<a class="headerlink" href="#claim-screen" title="Permalink to this headline">¶</a></h2>
+<p>In order for <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> to get referred, they go to the Claim (or Landing) page by following the share URL.</p>
+<p>This is last step before <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> proceeds to your site or app.</p>
+<ul class="simple">
+<li>Edit your <a class="reference internal" href="../campaigns/views/offers_claim.html#campaigns-views-offers-claim"><em>Friend Claim Page</em></a> template or disable it for immediate redirect</li>
+<li>Edit the Destination URL in <em>Extra</em> window</li>
+</ul>
+<p>Tips:</p>
+<ul class="simple">
+<li>You may pass any data through GET parameters of URL</li>
+<li>You may want to pass the <cite>visitor_uuid</cite> variable to your site or app and store it somewhere in order to later pass it with <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a></li>
+</ul>
+</div>
+<div class="section" id="closing-origin">
+<h2>Closing Origin<a class="headerlink" href="#closing-origin" title="Permalink to this headline">¶</a></h2>
+<p>Once any user makes an action which implies possible close of a referral chain, send an <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a>. Please include <cite>uuid</cite> in this request if possible.</p>
+<p>For example, if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> makes a purchase on your site or installs your app — <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> needs to be rewarded, and this is achieved with creating <a class="reference internal" href="origins.html#api-v2-origins"><em>Purchase or Event</em></a> which gets linked to previously created <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offer.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>
