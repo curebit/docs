@@ -63,7 +63,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a></li>
 </ul>
 
       </div>
@@ -82,16 +83,9 @@
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
-<p>To ensure the campaign is loaded as fast as possible with no delay, it is
-important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we
-will have to enable/uncomment the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
-<p>Once you have placed your integration script inside the HEAD tag, and you have
-defined the iframe container parameter, then you will be able to set up an empty
-block with id = container parameter from integration script. Now that you have
-defined the campaign Container ID, your campaign will be inserted anywhere on
-your page where the container id is identified.</p>
+<p>To ensure the campaign is loaded as fast as possible with no delay, it is important that you place your integration script inside the HEAD tag.
+In order to make sure your campaign will load properly from the HEAD tag we will have to enable/uncomment the &#8220;container&#8221; option in the integration script (<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+<p>Once you have placed your integration script inside the HEAD tag, and you have defined the iframe container parameter, then you will be able to set up an empty block with id = container parameter from integration script. Now that you have defined the campaign Container ID, your campaign will be inserted anywhere on your page where the container id is identified.</p>
 <p>On your final checkout receipt page (which includes things like the customer&#8217;s
 order number or confirmation code), you will include a Javascript snippet
 containing the order and purchased product information. This version of the
@@ -161,6 +155,7 @@ dashboard after you log in and create a site.</p>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
       <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Set to your internal customer ID for tracking</span>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span><span class="p">,</span>
+      <span class="nx">dont_redeem</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Tell Talkable that this purchase should not be redeemed</span>
       <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
       <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
       <span class="c1">// iframe: { // OPTIONAL - display offer inline instead of popup</span>
@@ -170,7 +165,6 @@ dashboard after you log in and create a site.</p>
       <span class="c1">// },</span>
       <span class="c1">// loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39;, // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
       <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Talkable display mobile templates</span>
-      <span class="c1">// device: &#39;desktop&#39;, // OPTIONAL - enforce mobile/tablet/desktop view or skip this to allow Talkable choose corresponding template</span>
       <span class="c1">// person_custom_properties: { // OPTIONAL - Additional customer properties</span>
       <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
       <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
@@ -193,8 +187,7 @@ optimize mobile.</p>
 In your campaign, there are different views for mobile, tablet and desktop.
 We&#8217;ll automatically pull the correct theme view based on the user&#8217;s device
 once we detect the viewport. We&#8217;ll use our responsive engine to size the
-Talkable iframe to the right size. Like Magic! You&#8217;ll also want to comment out
-<tt class="docutils literal"><span class="pre">device:</span> <span class="pre">'desktop'</span></tt> line.</p>
+Talkable iframe to the right size. Like Magic!</p>
 <p>If you have separate mobile, tablet and desktop sites (or any combination of
 the three), you can leave <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt> on but also specifically set the
 campaign theme view to use. This will prevent Talkable from automatically
@@ -264,7 +257,7 @@ any key value pairs you wish.</p>
 <p>The values you define for some key should be JSON Key-Value pairs themselves,
 this means complex data structures can be passed through.</p>
 <p>Any <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> data passed through is tied to the Person
-(<abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>), that means there is only one instance of each field in
+(Advocate or Friend), that means there is only one instance of each field in
 existence at any time: the most recently passed data.</p>
 <p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use
 across all Campaign Views. Accessing this data beings by creating a variable

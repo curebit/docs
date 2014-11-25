@@ -67,7 +67,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
 </ul>
 
       </div>
@@ -80,16 +81,16 @@
             
   <span class="target" id="campaigns-tutorials-incentive-criteria"></span><div class="section" id="incentive-criteria">
 <h1>Incentive Criteria<a class="headerlink" href="#incentive-criteria" title="Permalink to this headline">¶</a></h1>
-<p>When you create an incentive for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>, you can set its trigger condition.</p>
+<p>When you create an incentive for Advocate or Friend, you can set its trigger condition.</p>
 <p>Condition is processed by <a href="http://github.com/Shopify/liquid" target="_blank">Liquid</a> and the result should evaluate to <tt class="docutils literal"><span class="pre">true</span></tt>
 for incentive to be triggered.</p>
 <p>If condition is left blank, it is assumed to be <tt class="docutils literal"><span class="pre">true</span></tt>.</p>
-<h4>Example</h4><p>If you want to reward <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> only if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> is a new customer and used <br>
+<h4>Example</h4><p>If you want to reward Advocate only if Friend is a new customer and used <br>
 Talkable single-use coupon at checkout, the right trigger condition would be:</p>
 <img alt="Incentive Trigger Criteria" src="../../_images/incentive-criteria-1.png" />
 <p>If condition evaluates to anything else than <tt class="docutils literal"><span class="pre">true</span></tt> or <tt class="docutils literal"><span class="pre">false</span></tt>, the value
 it returns will be visible in Referrals Report.</p>
-<p>This way, you can know which part of a condition was the reason <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> didn&#8217;t
+<p>This way, you can know which part of a condition was the reason Advocate didn&#8217;t
 get a reward:</p>
 <img alt="Incentive Trigger Criteria" src="../../_images/incentive-criteria-2.png" />
 <img alt="Referrals Report" src="../../_images/incentive-criteria-3.png" />

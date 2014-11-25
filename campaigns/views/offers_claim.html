@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Views" href="../views.html" />
-    <link rel="next" title="Advocate/Friend Reward Confirmation Email" href="notifier_rewards_confirmation.html" />
+    <link rel="next" title="Friend Claim Email" href="notifier_offers_claim.html" />
     <link rel="prev" title="Friend Share Email Reminder" href="notifier_offers_share_via_email_reminder.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
@@ -59,7 +59,8 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_confirmation.html">Advocate/Friend Reward Confirmation Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_claim.html">Friend Claim Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
 </ul>
 </li>
@@ -71,7 +72,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
 </ul>
 
       </div>
@@ -84,9 +86,9 @@
             
   <span class="target" id="campaigns-views-offers-claim"></span><div class="section" id="friend-claim-page">
 <span id="friend-claim-page-view"></span><h1>Friend Claim Page<a class="headerlink" href="#friend-claim-page" title="Permalink to this headline">¶</a></h1>
-<p><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> lands here from <a class="reference internal" href="notifier_offers_share_via_email.html#friend-share-email-view"><em>Friend Share Email</em></a>. <br>
+<p>Friend lands here from <a class="reference internal" href="notifier_offers_share_via_email.html#friend-share-email-view"><em>Friend Share Email</em></a>. <br>
 Explain him what special discount he will get when using this link. <br>
-It&#8217;s recommended to show coupon code for the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> on this page
+It&#8217;s recommended to show coupon code for the Friend on this page
 (and only on this page).</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
@@ -101,7 +103,7 @@ It&#8217;s recommended to show coupon code for the <abbr title="Person, who is i
 <div class="highlight-html"><div class="highlight"><pre>{% if offer_active %}
   Copy your code: {{ coupon_code }}
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
-  Offer is valid until {{ friend_offer.valid_until | format_date }}.
+  Offer is valid until {{ valid_until }}.
 {% else %}
   Offer expired.
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Proceed without offer<span class="nt">&lt;/a&gt;</span>

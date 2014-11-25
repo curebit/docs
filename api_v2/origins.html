@@ -54,9 +54,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow.html">Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
@@ -66,7 +66,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
-<li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
 </ul>
 </li>
 </ul>
@@ -114,7 +113,6 @@ Talkable dashboard after you log in and create a site.</td>
 <li>first_name (optional)</li>
 <li>last_name (optional)</li>
 <li>person_custom_properties (optional)</li>
-<li>uuid (optional)</li>
 </ul>
 <p>For Purchase:</p>
 <ul class="simple">
@@ -134,7 +132,8 @@ Talkable dashboard after you log in and create a site.</td>
 </td>
 </tr>
 <tr class="row-odd"><td>interpolations</td>
-<td>Optional: array of interpolations to return in response</td>
+<td>Optional: set to <cite>true</cite> to include origin interpolation
+variables in response</td>
 </tr>
 </tbody>
 </table>

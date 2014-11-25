@@ -54,9 +54,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference (v1)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference (v2)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow.html">Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
@@ -66,7 +66,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
-<li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
 </ul>
 </li>
 </ul>
@@ -205,44 +204,6 @@ Talkable dashboard after you log in and create a site.</td>
       <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
       <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="unsubscribe-a-person-from-receiving-emails">
-<h3>Unsubscribe a person from receiving emails<a class="headerlink" href="#unsubscribe-a-person-from-receiving-emails" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;unsubscribed&quot;</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;unsubscribed&quot;:true}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/people
-</pre></div>
-</div>
-<p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://share.mystore.com/by/customer@example.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-11-18T05:49:54.000-07:00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">}</span>
   <span class="p">}</span>
