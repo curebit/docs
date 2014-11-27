@@ -25,7 +25,7 @@
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Editor" href="../editor.html" />
     <link rel="next" title="Videos" href="videos.html" />
-    <link rel="prev" title="Extra" href="extra.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="History" href="history.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -58,7 +58,6 @@
 <li class="toctree-l3"><a class="reference internal" href="variables.html">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="files.html">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l3"><a class="reference internal" href="extra.html">Extra</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="videos.html">Videos</a></li>
 </ul>
@@ -69,8 +68,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
 </ul>
 
       </div>
@@ -229,6 +227,16 @@ First parameter is a maximum random number.</p>
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">value</span></tt>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="claim-url">
+<h2>claim_url<a class="headerlink" href="#claim-url" title="Permalink to this headline">¶</a></h2>
+<p>Returns channel-specific claim URL.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;facebook&quot; | claim_url }}
+{{ &quot;linkedin&quot; | claim_url }}
+{{ &quot;twitter&quot; | claim_url }}
+</pre></div>
+</div>
 </div>
 </div>
 

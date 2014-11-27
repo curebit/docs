@@ -59,8 +59,7 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifier_offers_claim.html">Friend Claim Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_origins_referrer_confirmation.html">Advocate Redemption Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_confirmation.html">Advocate/Friend Reward Confirmation Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_rewards_paid.html">Advocate Reward Paid Email</a></li>
 </ul>
 </li>
@@ -72,8 +71,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference (v1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference (v2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
 </ul>
 
       </div>
@@ -88,7 +86,7 @@
 <span id="friend-share-email-reminder-view"></span><h1>Friend Share Email Reminder<a class="headerlink" href="#friend-share-email-reminder" title="Permalink to this headline">¶</a></h1>
 <p>Email is triggered only if Friend Share Email Reminder checkbox was checked
 on the <a class="reference internal" href="offers_show.html#advocate-share-page-view"><em>Advocate Share Page</em></a> when sharing. <br>
-By default reminder email sends out in 72 hours after sharing if Friend didn&#8217;t
+By default reminder email sends out in 72 hours after sharing if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> didn&#8217;t
 use his Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
 <p>Main <abbr title="Call to action">CTA</abbr> should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
 To change email trigger delay open <tt class="docutils literal"><span class="pre">Editor</span></tt> / <tt class="docutils literal"><span class="pre">Extra</span> <span class="pre">fields</span></tt> for the
