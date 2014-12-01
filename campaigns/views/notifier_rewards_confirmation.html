@@ -88,14 +88,14 @@
 it in the future. <br>
 Email is triggered to a <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> who passed Email Gating, and received Reward
 (i.e. coupon code). <br></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Use <cite>Email sending condition</cite> to differentiate <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr>/<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> emails.
-<br>
-Example: <cite>{% if reward.incentive.identifier == &#8216;click&#8217; %}true{% endif %}</cite></p>
-</div>
-<p>Reward Confirmation Email for Friend is a good fit for email capture: reward <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> for
-getting his email. See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
+<p>Use Email sending condition to differentiate <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> from <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> email.</p>
+<p>Here is an example of a Friend Reward Confirmation Email:</p>
+<pre>{% if reward.incentive.identifier == 'click' %}
+  true
+{% endif %}</pre><img alt="../../_images/friend_confirmation_sending_criteria.png" src="../../_images/friend_confirmation_sending_criteria.png" />
+<p>The email will be sent once Talkable knows Friend&#8217;s email which they provides on the Friend Claim Page (such technique works great for email capturing). See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
+<p>You can see your Incentive identifier inside Campaign Rules:</p>
+<img alt="../../_images/incentive_identifier.png" src="../../_images/incentive_identifier.png" />
 <p>Frequently used Variables:</p>
 <ul class="simple">
 <li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
@@ -119,6 +119,17 @@ Coupon code: {{ coupon_code }}
 mobile and desktop platforms.
 <a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
 </div>
+<h2>Email sending conditions for Advocate</h2><p>By default is sent immediately after the reward is created, but can be delayed by configuration.</p>
+<h2>Email sending conditions for Friend</h2><p>Main email sending criteria (unable to change):</p>
+<ul class="simple">
+<li>The Email <strong>will not</strong> be sent only if all three conditions meet:<ol class="arabic">
+<li>Reward type is Click</li>
+<li>‘Allow coupon in the Friend Share Email&#8217; is enabled inside Campaign Rules</li>
+<li>Friend Share Email is already sent</li>
+</ol>
+</li>
+</ul>
+<p>In all other scenarious the email will be sent immediately unless delayed by configuration.</p>
 </div>
 
 
