@@ -88,8 +88,30 @@
 step of the refer-a-friend campaign. Such page or email is called a View. You can also
 control appearance of each View by visiting Appearance:</p>
 <img alt="Campaign Appearance" src="../_images/subnav.png" />
-<p>Views glossary:</p>
-<div class="toctree-wrapper compound">
+<p><br>
+<br>
+Understanding Page-Views is easy, just go through the glossary and learn who lands on
+what Page-View and where. Email-Views are more tricky in terms of understanding when
+they are sent. All Email-Views must go through a pre-validation step before they are
+sent:</p>
+<p>1. Check if the Campaign View is in use (controlled inside Campaign Rules). Otherwise
+the email will never be sent.</p>
+<img alt="../_images/rules-views.png" src="../_images/rules-views.png" />
+<p><br>
+2. Is the recipient email in a valid email format (i.e. Talkable mail servers can deliver an email to a real recipient)? If so, we move on to campaign specific rules
+to determine whether or not the email should be sent (see <cite>Email sending conditions</cite> sectopn inside each Email-View).</p>
+<p>After pre-validation Talkable campaign level validation kicks in:</p>
+<ol class="arabic simple">
+<li>Who is the recipient? <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>?</li>
+<li>What are the email sending conditions for the campaign?</li>
+<li>Time Conditional &rarr; send an email in 3 days</li>
+<li>Action Conditional &rarr; send email after friend purchases</li>
+<li>Inaction Conditional &rarr; send 2nd email if friend does not purchase</li>
+<li>Offer State Conditional &rarr; send email only if offer still valid / send email is
+offer is expired</li>
+<li>Customer Attribute Conditional &rarr; send email if user is new customer</li>
+</ol>
+<h2>Views glossary</h2><div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="views/affiliate_members_new.html">Advocate Signup Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="views/offers_show.html">Advocate Share Page</a></li>
