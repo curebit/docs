@@ -149,6 +149,17 @@ First parameter is a maximum random number.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_background&quot; | split_test: &quot;background-green.jpg&quot;, &quot;background-red.jpg&quot; | asset_url }}
 </pre></div>
 </div>
+<p>Split testing style:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&quot;background-color: {{ &#39;offer_background&#39; | split_test: &#39;#d3d3d3&#39;, &#39;#ff0000&#39; }}&quot;</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/body&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">&quot;font-size: {{ &#39;title_size&#39; | split_test: &#39;24px&#39;, &#39;30px&#39; }}&quot;</span><span class="nt">&gt;</span>
+  Sample Title
+<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+</div>
 <p><hr></p>
 </div>
 <div class="section" id="format-date">
