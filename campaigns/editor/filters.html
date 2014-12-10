@@ -162,6 +162,16 @@ First parameter is a maximum random number.</p>
 </div>
 <p><hr></p>
 </div>
+<div class="section" id="split-test-with-probability">
+<h2>split_test_with_probability<a class="headerlink" href="#split-test-with-probability" title="Permalink to this headline">¶</a></h2>
+<p>Split testing static text with different probabilities:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test_with_probability: &quot;Label 1&quot;, 25,  &quot;Label 2&quot;, 25,  &quot;Label N&quot;, 50 }}
+
+{{ &quot;split_test_identifier&quot; | split_test_with_probability: &quot;Label 1&quot;, 25,  &quot;Label 2&quot;, 75 }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
 <div class="section" id="format-date">
 <span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
 <p>Format date for current localization.</p>
