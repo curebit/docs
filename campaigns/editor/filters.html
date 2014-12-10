@@ -135,7 +135,7 @@ First parameter is a maximum random number.</p>
 <p><hr></p>
 </div>
 <div class="section" id="split-test">
-<h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
+<span id="liquid-filter-split-test"></span><h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
 <p>Split testing static text:</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
 </pre></div>
@@ -170,6 +170,8 @@ First parameter is a maximum random number.</p>
 {{ &quot;split_test_identifier&quot; | split_test_with_probability: &quot;Label 1&quot;, 25,  &quot;Label 2&quot;, 75 }}
 </pre></div>
 </div>
+<p>Probability - integer value between 1 and 100</p>
+<p>Split testing for text with interpolations or image assets works similar to the standard <a class="reference internal" href="#liquid-filter-split-test"><em>split_test</em></a></p>
 <p><hr></p>
 </div>
 <div class="section" id="format-date">
