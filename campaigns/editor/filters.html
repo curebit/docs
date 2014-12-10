@@ -118,6 +118,22 @@
 <tt class="docutils literal"><span class="pre">http://example.com/?utm_campaign=Campaign%20Name</span></tt>.</p>
 <p><hr></p>
 </div>
+<div class="section" id="probability-by">
+<h2>probability_by<a class="headerlink" href="#probability-by" title="Permalink to this headline">¶</a></h2>
+<p>Return <tt class="docutils literal"><span class="pre">false</span></tt> or <tt class="docutils literal"><span class="pre">true</span></tt> value which is always the same for specific parameters passed.
+First parameter is a probability that should be integer value between 1 and 100</p>
+<p>Simple example:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ 100 | probability_by: &quot;param1&quot;, &quot;param2&quot; }}
+</pre></div>
+</div>
+<p>Always returns <tt class="docutils literal"><span class="pre">true</span></tt>.</p>
+<p>Interpolation as a parameter:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ assign condition = 10 | probability_by: advocate_info.email }}
+</pre></div>
+</div>
+<p>Always returns the same result for a specific email.</p>
+<p><hr></p>
+</div>
 <div class="section" id="rand-by">
 <h2>rand_by<a class="headerlink" href="#rand-by" title="Permalink to this headline">¶</a></h2>
 <p>Produces a random value which is always the same for specific parameters passed.
