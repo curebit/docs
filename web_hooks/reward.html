@@ -98,6 +98,16 @@ it is getting paid after Referral is approved.</p>
 <li><strong>unsubscribed_at</strong></li>
 </ul>
 </li>
+<li><strong>origin</strong> — subhash of data related to the event that issued an offer<ul>
+<li><strong>type</strong><ul>
+<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
+<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+</ul>
+</li>
+<li><strong>id</strong> — unique identifier of the origin event</li>
+<li><strong>email</strong> — e-mail address of the referrer person</li>
+</ul>
+</li>
 <li><strong>reward</strong> — subhash of parameters describing the reward itself<ul>
 <li><strong>reason</strong> — reason why this reward was given</li>
 <li><strong>incentive_type</strong> — type of incentive (rebate, discount_coupon, other)</li>
@@ -149,6 +159,14 @@ its own database.</p>
     <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">},</span>
+  <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">543208538</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">381177444</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-14T02:01:16.824-07:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;22726076&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT60000&quot;</span>
+  <span class="p">},</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">146331555</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
@@ -165,7 +183,7 @@ its own database.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;order_date&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden container">
