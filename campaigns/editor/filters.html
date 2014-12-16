@@ -134,9 +134,16 @@ dataset.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ 10 | probability_by: advocate_info.email }}
 </pre></div>
 </div>
-<p>This example can be used in <tt class="docutils literal"><span class="pre">Email</span> <span class="pre">sending</span> <span class="pre">condition</span></tt> of email template to send email only in 10% cases</p>
 <p>You can ommit passing any parameters and the result will be based on the Advocate offer. Also you may use <tt class="docutils literal"><span class="pre">probability</span></tt> as an alias which is a little shorter to write:</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ 50 | probability }}
+</pre></div>
+</div>
+<p>This example can be used in <tt class="docutils literal"><span class="pre">Email</span> <span class="pre">sending</span> <span class="pre">condition</span></tt> of Advocate Offer Email template to send email only in 33% cases:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign send_email = 33 | probability %}
+
+{% if send_email %}
+  true
+{% endif %}
 </pre></div>
 </div>
 <p><hr></p>
