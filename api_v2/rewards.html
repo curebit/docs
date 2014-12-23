@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Offers &mdash; Talkable Documentation</title>
+    <title>Rewards &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
-    <link rel="next" title="Origins" href="origins.html" />
-    <link rel="prev" title="Metrics" href="metrics.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Referrals" href="referrals.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -59,15 +58,15 @@
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Referral Program via API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Offers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="offers.html">Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Rewards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -80,14 +79,14 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="api-v2-offers"></span><div class="section" id="offers">
-<h1>Offers<a class="headerlink" href="#offers" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to access offers.</p>
+  <span class="target" id="api-v2-rewards"></span><div class="section" id="rewards">
+<h1>Rewards<a class="headerlink" href="#rewards" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to access rewards.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre>GET /offers/&lt;short_url_code&gt;
+<div class="highlight-url"><div class="highlight"><pre>GET /rewards
 </pre></div>
 </div>
-<p>Returns offer.</p>
+<p>Returns rewards.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -104,31 +103,44 @@
 <td>Your Talkable Site ID. You can get this from your
 Talkable dashboard after you log in and create a site.</td>
 </tr>
-<tr class="row-odd"><td>short_url_code</td>
-<td>Offer short code obtained with
-<a class="reference internal" href="origins.html#api-v2-origins"><em>origin creation</em></a>.</td>
-</tr>
-<tr class="row-even"><td>interpolations</td>
-<td>Optional: array of interpolations to return in response</td>
+<tr class="row-odd"><td>status (optional)</td>
+<td><p class="first">Filter by rewards status.
+By default API returns only <cite>Paid</cite> rewards.</p>
+<p class="last">Options: <cite>Paid</cite>, <cite>Unpaid</cite>, <cite>Voided</cite>, <cite>All</cite></p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/offers/dZpBwd?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/rewards?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/iEov9g&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/5B3xO1&quot;</span>
-    <span class="p">}</span>
+    <span class="s2">&quot;rewards&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">22017</span><span class="p">,</span>
+        <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;shared coupon \&quot;10_OFF\&quot; for $10.00 off&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;10_OFF&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Paid&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">22018</span><span class="p">,</span>
+        <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00 back&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
+        <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Paid&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
