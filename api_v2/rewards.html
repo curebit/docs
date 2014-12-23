@@ -81,7 +81,7 @@
             
   <span class="target" id="api-v2-rewards"></span><div class="section" id="rewards">
 <h1>Rewards<a class="headerlink" href="#rewards" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to access rewards.</p>
+<p>This API allows you to access visitor rewards.</p>
 <p><br></p>
 <div class="highlight-url"><div class="highlight"><pre>GET /rewards
 </pre></div>
@@ -103,8 +103,11 @@
 <td>Your Talkable Site ID. You can get this from your
 Talkable dashboard after you log in and create a site.</td>
 </tr>
-<tr class="row-odd"><td>status (optional)</td>
-<td><p class="first">Filter by rewards status.
+<tr class="row-odd"><td>visitor_uuid</td>
+<td>Visitor uuid</td>
+</tr>
+<tr class="row-even"><td>status (optional)</td>
+<td><p class="first">Filter rewards by status.
 By default API returns only <cite>Paid</cite> rewards.</p>
 <p class="last">Options: <cite>Paid</cite>, <cite>Unpaid</cite>, <cite>Voided</cite>, <cite>All</cite></p>
 </td>
@@ -114,7 +117,7 @@ By default API returns only <cite>Paid</cite> rewards.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/rewards?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/rewards?site_slug=my-store&amp;visitor_uuid=8a55ef82-82c1-4596-babb-e989fd717965&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
