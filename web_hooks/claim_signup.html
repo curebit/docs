@@ -78,7 +78,7 @@
   <span class="target" id="web-hooks-claim-signup"></span><div class="section" id="friend-email-gating-web-hook">
 <h1>Friend Email Gating Web Hook<a class="headerlink" href="#friend-email-gating-web-hook" title="Permalink to this headline">¶</a></h1>
 <p>Triggered when Friend Email Gating form is submitted (on Friend Claim Page).</p>
-<h2>Payload parameters provided for Advocate Signup Web Hook</h2><ul class="simple">
+<h2>Payload parameters provided </h2><ul class="simple">
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
 <li><strong>email</strong> — referrer&#8217;s email address</li>
 <li><strong>short_url_code</strong></li>
@@ -91,12 +91,12 @@
 <li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
 </ul>
 </li>
-<li><strong>email</strong> — affiliate member&#8217;s email address</li>
-<li><strong>first_name</strong> — affiliate member&#8217;s first name</li>
-<li><strong>last_name</strong> — affiliate member&#8217;s last name</li>
+<li><strong>email</strong> — friend&#8217;s email address</li>
+<li><strong>first_name</strong> — friend&#8217;s first name</li>
+<li><strong>last_name</strong> — friend&#8217;s last name</li>
 <li><strong>sub_choice</strong> — subscription choice (optional, present only if the form included subscription checkbox)</li>
-<li><strong>subscribed_at</strong> — date affiliate member has subscribed (optional)</li>
-<li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed (optional)</li>
+<li><strong>subscribed_at</strong> — date friend has subscribed (optional)</li>
+<li><strong>unsubscribed_at</strong> — date friend has unsubscribed (optional)</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
