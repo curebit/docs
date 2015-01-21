@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SaaS Integrations &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="index.html" />
+    <link rel="next" title="Talkable Campaigns" href="campaigns.html" />
+    <link rel="prev" title="Standalone Integrations" href="standalone.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="_static/pygments-github.css" rel="stylesheet">
+  <link href="_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="index.html" class="header-logo">Talkable docs</a>
+          <form class="header-search" action="search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">SaaS Integrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-integration">Basic Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-integration">Advanced Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="saas"></span><div class="section" id="saas-integrations">
+<h1>SaaS Integrations<a class="headerlink" href="#saas-integrations" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>We offer separate integration script for each <strong>Enterprise</strong> site.
+This allows us to better support integration individually.</p>
+<p class="last">Please <a href="https://www.talkable.com/#contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
+</div>
+<p>SaaS integration is abstracted from E-Commerce since you need to create referrals based on your specific business logics while E-Commerce can work only with store purchases. With such abstraction you can register Talkable Event with just a few parameters:</p>
+<ul class="simple">
+<li><strong>Event Category</strong> to describe what type of action was made. For example: &#8220;User Registered&#8221;. All Events appear inside Events Report where you can sort/filter/segment them based on the Event Category or based on any other data you pass along.</li>
+<li><strong>Event Number</strong>. This is a unique action ID that will be stored in Talkable.</li>
+</ul>
+<div class="section" id="basic-integration">
+<h2>Basic Integration<a class="headerlink" href="#basic-integration" title="Permalink to this headline">¶</a></h2>
+<p>Below is the basic sample code for registering an Event with only required fields:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script&gt;</span>
+  <span class="c1">// Globally available Talkable queue array that you populate all data to</span>
+  <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+
+  <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
+  <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
+    <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Registering an Event at Talkable</span>
+  <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="p">}],</span>
+    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span>
+  <span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</div>
+<p>Keep in mind to set your Talkable site ID/slug and simply place the script into your page between opening and closing <tt class="docutils literal"><span class="pre">BODY</span></tt> tag. <br>
+You can find a site slug right in the URL, it usually looks like talkable.com/sites/<tt class="docutils literal"><span class="pre">your-site-slug</span></tt>. <br>
+The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><em>Advocate Signup Page</em></a> as a result. <br>
+When the Event is registered successfully it appears inside Events Report. <br></p>
+<p>To ensure the campaign is loaded as fast as possible with no delay, it is
+important that you place your integration script inside the HEAD tag.
+In order to make sure your campaign will load properly from the HEAD tag we
+will have to enable/uncomment the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+<p>Once you have placed your integration script inside the HEAD tag, and you have
+defined the iframe container parameter, then you will be able to set up an empty
+block with id = container parameter from integration script. Now that you have
+defined the campaign Container ID, your campaign will be inserted anywhere on
+your page where the container id is identified.</p>
+<p><hr></p>
+</div>
+<div class="section" id="advanced-integration">
+<h2>Advanced Integration<a class="headerlink" href="#advanced-integration" title="Permalink to this headline">¶</a></h2>
+<p>In addition to our basic required dataset we allow you to pass us a lot more data and parameters you might need. Learn what each parameters does from the comment lines bellow:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="c1">// Globally available Talkable queue array that you populate all data to</span>
+  <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+
+  <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
+  <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - a unique ID of the Event</span>
+    <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Event Category that the Event will belong to</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@gmail.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL, RECOMMENDED - customer email the Event is associated with. If you pass an email the customer will be logged in with it immediately and as a result they will see Advocate Share Page instead of a Signup. It is a good practice to always pass an email not to ask customers to login themselves.</span>
+    <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for the offer</span>
+    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - if the Event has a value (paid subscription for example) always pass it along, you can then analyze your total sales numbers inside Talkable Reports</span>
+    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - provide a coupon code if the customer applied it</span>
+    <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - internal customer ID, for tracking</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
+    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
+    <span class="c1">// OPTIONAL - show an offer inline instead of a popup</span>
+    <span class="c1">// iframe: {</span>
+    <span class="c1">//   // container: &quot;id-example&quot;, // Tell Talkable where to insert the iframe (ID attribute)</span>
+    <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
+    <span class="c1">//   height: &#39;400&#39;</span>
+    <span class="c1">// },</span>
+    <span class="c1">// loader: &#39;display: none;&#39;, // OPTIONAL - change a popup preloader style with CSS, or hide it completely</span>
+    <span class="c1">// OPTIONAL - additional customer properties, in case you want to use some additional data inside Campaign Views</span>
+    <span class="c1">// person_custom_properties: {</span>
+    <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
+    <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
+    <span class="c1">// },</span>
+    <span class="c1">// traffic_source: &#39;Signup page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reports.</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Registering an Event at Talkable</span>
+  <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+    <span class="p">[</span>
+      <span class="s1">&#39;init&#39;</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="c1">// REQUIRED - Talkable Site ID/slug.</span>
+        <span class="c1">// If you are using live ENV and test ENV you might need to switch between two sites based on a current location host:</span>
+        <span class="c1">// site_id: window.location.host == &#39;www.site.com&#39; ? &#39;site&#39; : &#39;site-testing&#39;</span>
+        <span class="c1">// ,server: &#39;https://www.talkable.com&#39; // OPTIONAL - your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>
+  <span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
+</pre></div>
+</div>
+<p>To ensure the campaign is loaded as fast as possible with no delay, it is
+important that you place your integration script inside the HEAD tag.
+In order to make sure your campaign will load properly from the HEAD tag we
+will have to enable/uncomment the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+<p>Once you have placed your integration script inside the HEAD tag, and you have
+defined the iframe container parameter, then you will be able to set up an empty
+block with id = container parameter from integration script. Now that you have
+defined the campaign Container ID, your campaign will be inserted anywhere on
+your page where the container id is identified.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>
