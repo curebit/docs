@@ -300,6 +300,32 @@ First parameter is a maximum random number.</p>
 {{ &quot;twitter&quot; | claim_url }}
 </pre></div>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="group-by">
+<h2>group_by<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h2>
+<p>Group an array&#8217;s items by a given property.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ incentives | group_by: &quot;amount&quot; }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="sort">
+<h2>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
+<p>Sort an array. Optional arguments for hashes: 1. property name 2. nils order (first or last).</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ campaign_tags | sort }}
+{{ incentives | sort: &quot;amount&quot; }}
+{{ incentives | sort: &quot;amount&quot;, &quot;first&quot; }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="where">
+<h2>where<a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h2>
+<p>Select all the objects in an array where the key has the given value.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ incentives | where: &quot;amount&quot;, 10 }}
+</pre></div>
+</div>
 </div>
 </div>
 
