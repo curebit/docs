@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Verification Digest &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="E-Commerce Integrations" href="../ecommerce.html" />
+    <link rel="next" title="Standalone Integrations" href="../standalone.html" />
+    <link rel="prev" title="Verifying Integration" href="verify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="header-search" action="../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="custom.html">Default Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verify.html">Verifying Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Verification Digest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="ecommerce-verification-digest"></span><div class="section" id="verification-digest">
+<h1>Verification Digest<a class="headerlink" href="#verification-digest" title="Permalink to this headline">¶</a></h1>
+<p>Talkable is able to verificate each request comming from web browser.
+It prevents fraud request from a potential attacker that can form a request to Talkable
+platform to register a purchase that doesn&#8217;t exist on Merchant Side.</p>
+<p>JS requests don&#8217;t have any security by default and can be easily faked.
+In order to verify each request there is a need to attach a &#8220;control sum&#8221; to each purchase registration request
+with <cite>verification_digest</cite> parameter.</p>
+<p>In order to do that merchant need to pass us a control sum of the the request parameters that only matches only current paramters:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
+   <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
+   <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
+   <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
+   <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
+   <span class="p">...</span>
+   <span class="nx">verification_digest</span><span class="o">:</span> <span class="s1">&#39;60a511b9d8d45fe2ea8568e21138f517761be05ffda693135c68c2ec551ee507&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Control sum generation algorithm needs to be kept in secret from potential attacker.
+That is why verifiction_digest should be generated only in backend.</p>
+<p>In order to generate it: Merchant needs to form a request verification string with request paramters and a &#8220;salt&#8221; and encode it with SHA-256 algorithm.
+Salt is a secret key that can be obtained in site setting after enabling &#8220;Verification Digest&#8221; feature.
+Example salt looks like:</p>
+<p>3c34e72917aba5885f75f8ae300d195e</p>
+<p>Here is example:
+Suppose we have a purchase creation request with the following parameters:</p>
+<ul class="simple">
+<li>event_category: &#8216;purchase&#8217;</li>
+<li>order_number: &#8216;100011&#8217;</li>
+<li>email: <a class="reference external" href="mailto:example&#37;&#52;&#48;customer&#46;com">example<span>&#64;</span>customer<span>&#46;</span>com</a></li>
+<li>subtotal: 83.32</li>
+<li>order_date: 2014-01-01T15:30:24+00:00</li>
+<li>coupon_code: EFF-32 and FREE-SHIPPING (2 code for single purchase)</li>
+</ul>
+<p>In this case:</p>
+<ul class="simple">
+<li>Verification String: <cite>3c34e72917aba5885f75f8ae300d195e|100011|purchase|example&#64;customer.com|83.32|2014-01-01T15:30:24+00:00|EFF-32,FREE-SHIPPING</cite></li>
+<li>Verfication Digest:  <cite>23872240ee24867de082ce26c3baef821100e89be43d4d359f5c52fb4bad75b6</cite></li>
+</ul>
+<p>If some of the parameters above is blank, than it should not be included in request verification string:</p>
+<p>For example: if order_date is null, the request verification string looks like:</p>
+<ul class="simple">
+<li>Verification String: <cite>3c34e72917aba5885f75f8ae300d195e|100011|purchase|example&#64;customer.com|83.32|EFF-32,FREE-SHIPPING</cite></li>
+<li>Verfication Digest:  <cite>a5dc18fcb8f53f20d935b1cd1e83b9967d51fc6297cfe1d90af4f6d78a7a484b</cite></li>
+</ul>
+<p>If there is no coupons associated with a purchase, the request verification string looks like:</p>
+<ul class="simple">
+<li>Verification String: <cite>3c34e72917aba5885f75f8ae300d195e|100011|purchase|example&#64;customer.com|83.32|2014-01-01T15:30:24+00:00</cite></li>
+<li>Verfication Digest:  <cite>9fb8c6ecfa1eb82a4ea91fe67cd1866ffda6271d956ddf2ce22b48b47fdaf53c</cite></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  </body>
+</html>
