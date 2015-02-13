@@ -76,11 +76,11 @@
 <h1>Verification Digest<a class="headerlink" href="#verification-digest" title="Permalink to this headline">¶</a></h1>
 <p>Talkable is able to verificate each request comming from web browser.
 It prevents fraud request from a potential attacker that can form a request to Talkable
-platform to register a purchase that doesn&#8217;t exist on Merchant Side.</p>
+platform to register a event that doesn&#8217;t exist on Merchant Side.</p>
 <p>JS requests don&#8217;t have any security by default and can be easily faked.
-In order to verify each request there is a need to attach a &#8220;control sum&#8221; to each purchase registration request
+In order to verify each request there is a need to attach a &#8220;control sum&#8221; to each event registration request
 with <cite>verification_digest</cite> parameter.</p>
-<p>In order to do that merchant need to pass us a control sum of the the request parameters that only matches only current paramters:</p>
+<p>In order to do that merchant needs to pass us a control sum of the the request parameters that only matches only current parameters:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
    <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
@@ -94,7 +94,7 @@ with <cite>verification_digest</cite> parameter.</p>
 </div>
 <p>Control sum generation algorithm needs to be kept in secret from potential attacker.
 That is why verifiction_digest should be generated only in backend.</p>
-<p>In order to generate it: Merchant needs to form a request verification string with request paramters and a &#8220;salt&#8221; and encode it with SHA-256 algorithm.
+<p>In order to generate it, merchant needs to form a request verification string with request parameters and a &#8220;salt&#8221; and encode it with SHA-256 algorithm.
 Salt is a secret key that can be obtained in site setting after enabling &#8220;Verification Digest&#8221; feature.
 Example salt looks like:</p>
 <p>3c34e72917aba5885f75f8ae300d195e</p>
