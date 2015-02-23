@@ -241,27 +241,60 @@ First parameter is a maximum random number.</p>
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$50.00</span></tt>.</p>
-<p>Avaliable options: <tt class="docutils literal"><span class="pre">int</span> <span class="pre">precision</span></tt>, <tt class="docutils literal"><span class="pre">bool</span> <span class="pre">strip_insignificant_zeros</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.11&quot; | money: precision: 0 }}
-</pre></div>
+<p>Available options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">unit</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">separator</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">delimiter</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">format</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">precision</span> <span class="pre">(integer)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">strip_insignificant_zeros</span> <span class="pre">(boolean)</span></tt></li>
+</ul>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="82%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Example</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.11&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$101</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100.99</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.90&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100.9</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.00&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;€&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">€100.00</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">100.00</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">separator:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$10,049_99</span></tt></td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">delimiter:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$10_049.99</span></tt></td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">format:</span> <span class="pre">&quot;%n</span> <span class="pre">%u&quot;,</span> <span class="pre">unit:</span> <span class="pre">&quot;zł&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">100.00</span> <span class="pre">zł</span></tt></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: precision: 0 }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$101</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.99&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100.99</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.90&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100.9</span></tt>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;100.00&quot; | money: strip_insignificant_zeros: true }}
-</pre></div>
-</div>
-<p>Returns <tt class="docutils literal"><span class="pre">$100</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="strip">
