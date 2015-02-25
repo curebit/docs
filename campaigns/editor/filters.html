@@ -65,6 +65,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../offers_expiration.html">Offers Expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization.html">Localization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
@@ -359,6 +360,18 @@ First parameter is a maximum random number.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ incentives | where: &quot;amount&quot;, 10 }}
 </pre></div>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="localize">
+<h2>localize<a class="headerlink" href="#localize" title="Permalink to this headline">¶</a></h2>
+<p>Returns a localized version of string from campaign localization.
+Has optional argument that specifies a default value if campaign has no defined localization yet.
+Supports nested interpolation with <cite>[[  ]]</cite></p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;welcome_message&quot; | localize }}
+{{ &quot;offer_title&quot; | localize: &quot;Get [[incentives.referrer.description]]&quot; }}
+</pre></div>
+</div>
+<p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
 </div>
 </div>
 

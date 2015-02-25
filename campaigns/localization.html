@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Tutorials &mdash; Talkable Documentation</title>
+    <title>Localization &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Talkable Campaigns" href="../campaigns.html" />
-    <link rel="next" title="Global" href="tutorials/global.html" />
-    <link rel="prev" title="Advocate Reward Paid Email" href="views/notifier_rewards_paid.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Optional Features" href="../optional.html" />
+    <link rel="prev" title="Offers Expiration" href="offers_expiration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -54,17 +54,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Tutorials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorials/global.html">Global</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorials/offers_show.html">Advocate Share Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorials/offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorials/incentive_criteria.html">Incentive Criteria</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="editor.html">Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers_expiration.html">Offers Expiration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Localization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
@@ -80,30 +74,25 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="campaigns-tutorials"></span><div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/global.html">Global</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/global.html#zeroclipboard">ZeroClipboard</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/offers_show.html">Advocate Share Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_show.html#instant-reward">Instant Reward</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_show.html#cloudsponge-integration">CloudSponge Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_show.html#multiple-email-fields">Multiple Email Fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_show.html#linkedin">LinkedIn</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/offers_claim.html">Friend Claim Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_claim.html#email-gating">Email Gating</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/offers_claim.html#like-gating">Like Gating</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/incentive_criteria.html">Incentive Criteria</a></li>
-</ul>
+  <span class="target" id="campaigns-localization"></span><div class="section" id="localization">
+<h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
+<p>Each template can be localized.
+Localization is not a part of the view template. It is stored in campaign allowing multiple campaign to use same template with different locazation.</p>
+<p>Campaign localization is done using a liquid filter <cite>localize</cite>:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_title&quot; | localize: &#39;Get [[incentives.referrer.descrition]]&#39; }}
+</pre></div>
 </div>
+<p>After adding this filter call to the template, go to campaign page and click &#8220;Localization&#8221; from the navigation menu:</p>
+<img alt="../_images/campaign-localization.jpg" src="../_images/campaign-localization.jpg" />
+<p>Any campaign that uses view with <cite>localize</cite> call have this data appeared.
+Now you are able to change the default value to something else like <cite>Obten [[incentives.referrer.descrition]]</cite> (Spanish)</p>
+<p>Campaign Localization is copied when campaign is copied, so you are able to use the following flow:</p>
+<ol class="arabic simple">
+<li>Create Campaign</li>
+<li>Build templates with localization support</li>
+<li>Make a copy of the compaign</li>
+<li>Translate lozalization in a copy to different language.</li>
+</ol>
 </div>
 
 
