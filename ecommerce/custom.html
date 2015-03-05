@@ -128,8 +128,8 @@ dashboard after you log in and create a site.</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">//&lt;![CDATA[</span>
-    <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
-    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Talkable Site ID</span>
       <span class="c1">// If you are using live ENV and test ENV you might need to switch over two sites based on current location host:</span>
       <span class="c1">// site_id: window.location.host == &quot;www.site.com&quot; ? &#39;site&#39; : &#39;site-testing&#39;</span>
@@ -180,10 +180,10 @@ dashboard after you log in and create a site.</p>
       <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for offer</span>
     <span class="p">};</span>
 
-    <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
   <span class="c1">//]]&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -212,7 +212,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="section" id="asynchronous-integration">
 <h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
 <p>You can trigger Talkable initialization whenever needed. For example, you can fire up Talkable on button click:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_curebitq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Talkable<span class="nt">&lt;/button&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_talkableq.push([&#39;register_purchase&#39;, curebit_details]);&quot;</span><span class="nt">&gt;</span>Init Talkable<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">curebit_details</span> <span class="o">=</span> <span class="p">{</span>
@@ -223,7 +223,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
   <span class="p">};</span>
 <span class="nt">&lt;/script&gt;</span>
 
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
 <p><br></p>
@@ -242,7 +242,7 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
   <span class="p">};</span>
 <span class="nt">&lt;/script&gt;</span>
 
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">

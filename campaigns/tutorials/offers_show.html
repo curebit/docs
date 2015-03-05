@@ -100,7 +100,7 @@ Also make sure <strong>RR social sharing incentive</strong> is set.</p>
 </pre></div>
 </div>
 <p><strong>JS:</strong></p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Curebit</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;facebook_share_succeeded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;facebook_share_succeeded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span> <span class="c1">// Insert coupon code as a text</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -124,7 +124,7 @@ click here is more advanced setup:</p>
 </pre></div>
 </div>
 <p><strong>JS:</strong></p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Curebit</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;facebook_share_succeeded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;facebook_share_succeeded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span> <span class="c1">// Insert coupon code as a text</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-clipboard-text&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span> <span class="c1">// Copy coupon code on click</span>
@@ -195,7 +195,7 @@ custom domain you&#8217;ll need to obtain separate <tt class="docutils literal">
 </div>
 <p><strong>JS:</strong></p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">fireOnLinkedInShare</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">Curebit</span><span class="p">.</span><span class="nx">share_succeeded</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">);</span>
+  <span class="nx">Talkable</span><span class="p">.</span><span class="nx">share_succeeded</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -212,7 +212,7 @@ container which is hidden by default not to show LinkedIn custom button
 until it is loaded.</p>
 <p><strong>JS:</strong></p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">function</span> <span class="nx">fireOnLinkedInShare</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">Curebit</span><span class="p">.</span><span class="nx">share_succeeded</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">);</span>
+  <span class="nx">Talkable</span><span class="p">.</span><span class="nx">share_succeeded</span><span class="p">(</span><span class="s1">&#39;linkedin&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">configureShareOnLinkedIn</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>

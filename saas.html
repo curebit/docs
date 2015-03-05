@@ -87,7 +87,7 @@ This allows us to better support integration individually.</p>
 <p>Below is the basic sample code for registering an Event with only required fields:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script&gt;</span>
   <span class="c1">// Globally available Talkable queue array that you populate all data to</span>
-  <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
 
   <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
   <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
@@ -96,12 +96,12 @@ This allows us to better support integration individually.</p>
   <span class="p">};</span>
 
   <span class="c1">// Registering an Event at Talkable</span>
-  <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
     <span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="p">}],</span>
     <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span>
   <span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
 <p>Keep in mind to set your Talkable site ID/slug and simply place the script into your page between opening and closing <tt class="docutils literal"><span class="pre">BODY</span></tt> tag. <br>
@@ -126,7 +126,7 @@ your page where the container id is identified.</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">// Globally available Talkable queue array that you populate all data to</span>
-  <span class="kd">var</span> <span class="nx">_curebitq</span> <span class="o">=</span> <span class="nx">_curebitq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
 
   <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
   <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
@@ -155,7 +155,7 @@ your page where the container id is identified.</p>
   <span class="p">};</span>
 
   <span class="c1">// Registering an Event at Talkable</span>
-  <span class="nx">_curebitq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
     <span class="p">[</span>
       <span class="s1">&#39;init&#39;</span><span class="p">,</span>
       <span class="p">{</span>
@@ -168,7 +168,7 @@ your page where the container id is identified.</p>
     <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>
   <span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/curebit-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
