@@ -53,7 +53,14 @@
 <li class="toctree-l2"><a class="reference internal" href="custom.html">Default Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform.html">Platform Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="verify.html">Verifying Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Verification Digest</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Verification Digest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instruction">Instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-a-digest">Generating a digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-a-digest">Passing a digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digest-generation-algorithm">Digest generation algorithm</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
@@ -74,13 +81,33 @@
             
   <span class="target" id="ecommerce-verification-digest"></span><div class="section" id="verification-digest">
 <h1>Verification Digest<a class="headerlink" href="#verification-digest" title="Permalink to this headline">¶</a></h1>
-<p>Talkable is able to verify each request comming from web browser.
-It prevents fraud request from a potential attacker that can form a request to Talkable
-platform to register a event that doesn&#8217;t exist on Merchant Side.</p>
-<p>JS requests don&#8217;t have any security by default and can be easily faked.
-In order to verify each request there is a need to attach a &#8220;control sum&#8221; to each event registration request
-with <cite>verification_digest</cite> parameter.</p>
-<p>In order to do that merchant needs to pass us a control sum of the the request parameters that only matches only current parameters:</p>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Purchases and events are passed via JavaScript to Talkable. It is possible to secure this data transmission by using Talkable&#8217;s Verification Digest. The Verification Digest acts as a checksum which will ensure that any event or purchase that’s being registered is coming from the authorized source only. This process includes hashing a <strong>salt</strong> <a class="reference external" href="http://en.wikipedia.org/wiki/Salt_(cryptography">http://en.wikipedia.org/wiki/Salt_(cryptography</a>) with the ordinary purchase data that’s being passed over. The salt will be a random string that is shared between the two parties and is kept private. Talkable provides a method that will allow you to encrypt your (salt + purchase data) combo via SHA-256 which will output the encrypted Verification Digest string which can then be passed freely over JavaScript which Talkable will use to authorize requests. Only when Talkable is able to successfully decrypt the verification digest with the shared salt will the data be registered.</p>
+<div class="line-block">
+<div class="line">Documentation: <a class="reference external" href="http://docs.talkable.com/ecommerce/verification_digest.html">http://docs.talkable.com/ecommerce/verification_digest.html</a></div>
+<div class="line">Java Source: <a class="reference external" href="https://gist.github.com/bogdan/811591b1c7f36f3a28fb">https://gist.github.com/bogdan/811591b1c7f36f3a28fb</a></div>
+</div>
+</div>
+<div class="section" id="instruction">
+<h2>Instruction<a class="headerlink" href="#instruction" title="Permalink to this headline">¶</a></h2>
+<p>In order to take advantage of the verification digest, you will need to import the Java source above, or copy &amp; make use of the public methods included.  The example Java Source above also contains an example on how to create the verification digest. As demonstrated below, you will call the verification_digest method and provide the salt + purchase order details. The returned digest can now be safely passed via JS to the verification_digest parameter which is passed as part of the order details object [as seen in <a href="#id1"><span class="problematic" id="id2">`EXAMPLE (PASSING)`_</span></a>].</p>
+</div>
+<div class="section" id="generating-a-digest">
+<h2>Generating a digest<a class="headerlink" href="#generating-a-digest" title="Permalink to this headline">¶</a></h2>
+<p>In the example code below we are simply calling the verification_digest method which takes parameters {salt/key, event type, order #, email, amount, coupons} and returns the hashed checksum which is used as the verification digest.</p>
+<div class="highlight-java"><div class="highlight"><pre>public static void main(String []args)
+throws UnsupportedEncodingException, NoSuchAlgorithmException {
+  String[] codes = { &quot;ONE&quot;, &quot;TWO&quot; };
+  String digest = verification_digest(&quot;ef591fbbc527d77402d9a10dba92c195&quot;, &quot;purchase&quot;,
+      &quot;100011&quot;, ”customer@example.com&quot;, &quot;200.00&quot;, &quot;2014-01-01T00:00:00+00:00&quot;, codes);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-a-digest">
+<h2>Passing a digest<a class="headerlink" href="#passing-a-digest" title="Permalink to this headline">¶</a></h2>
+<p>In the example code below we are passing Verification Digest string to Talkable in verification_digest parameter.</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
    <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
@@ -92,6 +119,9 @@ with <cite>verification_digest</cite> parameter.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="digest-generation-algorithm">
+<h2>Digest generation algorithm<a class="headerlink" href="#digest-generation-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>Control sum generation algorithm needs to be kept in secret from potential attacker.
 That is why verifiction_digest should be generated only in backend.</p>
 <p>In order to generate it, merchant needs to form a request verification string with request parameters and a &#8220;salt&#8221; and encode it with SHA-256 algorithm.
@@ -124,6 +154,7 @@ Suppose we have a purchase creation request with the following parameters:</p>
 <li>Verification String: <cite>3c34e72917aba5885f75f8ae300d195e|100011|purchase|example&#64;customer.com|83.32|2014-01-01T15:30:24+00:00</cite></li>
 <li>Verfication Digest:  <cite>9fb8c6ecfa1eb82a4ea91fe67cd1866ffda6271d956ddf2ce22b48b47fdaf53c</cite></li>
 </ul>
+</div>
 </div>
 
 
