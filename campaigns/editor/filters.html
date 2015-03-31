@@ -218,17 +218,17 @@ First parameter is a maximum random number.</p>
 </div>
 <p><hr></p>
 </div>
-<div class="section" id="hours-from-now">
-<span id="liquid-filter-hours-from-time"></span><h2>hours_from_now<a class="headerlink" href="#hours-from-now" title="Permalink to this headline">¶</a></h2>
-<p>Calculate difference between two dates.</p>
-<p>By default calculates between specified time and current time.</p>
+<div class="section" id="hours-from-time">
+<span id="liquid-filter-hours-from-time"></span><h2>hours_from_time<a class="headerlink" href="#hours-from-time" title="Permalink to this headline">¶</a></h2>
+<p>Alias <cite>hours_from_now</cite></p>
+<p>Calculate difference between two dates. By default calculates between specified time and current time.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Sun, 02 Jan 2000 10:00:00 PST&quot; | hours_from_time: &quot;Sat, 01 Jan 2000 10:00:00 PST&quot;}}
 {{ &quot;2015-03-27 17:53&quot; | hours_from_time: &quot;2015-03-27 15:53&quot;}}
 </pre></div>
 </div>
 <p>Next two examples is equivalent.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ valid_until | hours_from_time: current_time }}
-{{ valid_until | hours_from_time }}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ friend_offer.valid_until | hours_from_time: current_time }}
+{{ friend_offer.valid_until | hours_from_now }}
 </pre></div>
 </div>
 <p><hr></p>
