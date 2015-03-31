@@ -231,7 +231,7 @@ First parameter is a maximum random number.</p>
 {{ friend_offer.valid_until | hours_from_now }}
 </pre></div>
 </div>
-<p>Example for email sending criteria</p>
+<p>Pretty useful example for email sending criteria to prevent sending mail when offer is about to expire.</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{% if friend_offer.valid_until %}
   {% assign difference = friend_offer.valid_until | hours_from_now %}
   {% if difference &gt; 24 %}
