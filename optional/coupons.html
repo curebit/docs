@@ -54,7 +54,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Optional Features</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Coupons</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Coupons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-use-coupons">Multi-use Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-use-coupons">Single-use Coupons</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="product_information.html">Product Information</a></li>
@@ -81,12 +83,31 @@
 one-time-use coupons as well as multi-use coupons. If you are using one-time-use
 coupons there is a need to refill a list of coupons within Talkable. You will need
 to export a list of coupons or provide a multi-use coupon code creation end point.</p>
-<h2>Manual Coupon Import</h2><p>Add your coupon codes on your campaign settings coupons page.</p>
-<h2>REST API to Create Coupons</h2><p><a class="reference external" href="http://help.talkable.com/questions/54519-Using-Webhooks-to-create-Single-Use-Coupon-Codes">Read this guide</a> for details on the REST API you need to implement.</p>
+<div class="section" id="multi-use-coupons">
+<h2>Multi-use Coupons<a class="headerlink" href="#multi-use-coupons" title="Permalink to this headline">¶</a></h2>
+<p>Multi-use Coupons can be given to talkable customers as a reward by create an Incentive with reward type &#8220;Coupon&#8221;.
+It can be done from Campaign Rules page.</p>
+<p>Multi-use coupon will be given to any customer that perfomed action that matcher Incentive Reward Criteria.</p>
+</div>
+<div class="section" id="single-use-coupons">
+<h2>Single-use Coupons<a class="headerlink" href="#single-use-coupons" title="Permalink to this headline">¶</a></h2>
+<p>In case you want to give a unique coupon to each customer, you may attach a coupon list to campaign incentive.
+In this case each, customer will receive unique coupon code from the pool available in coupon list.</p>
+<p>There are several steps that need to be taken for this scenario:</p>
+<ol class="arabic simple">
+<li>Create a coupon list at &#8220;Manage Coupon Lists&#8221; page</li>
+<li>Generate a list of coupons on the merchant site using mass coupon generation tool</li>
+<li>Upload generated coupons to coupon list</li>
+<li>Use a coupon list in the Incentive with &#8220;Coupon Code&#8221; reward type</li>
+</ol>
+<h2>REST API to Create Coupons</h2><p>Talkable can create coupons via a webhook using your REST API end point.
+Read <a class="reference internal" href="../web_hooks/create_coupon.html#web-hooks-create-coupon"><em>Coupon Webhook Documentation</em></a> for details how to implement the API end point
+Read <a class="reference external" href="http://help.talkable.com/questions/54519-Using-Webhooks-to-create-Single-Use-Coupon-Codes">User Guide</a> for details ho to make talkable use your API end point.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 </div>
