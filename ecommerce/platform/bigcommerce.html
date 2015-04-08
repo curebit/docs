@@ -114,13 +114,13 @@ dashboard after you log in and create a site.</p>
     <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="p">}]);</span> <span class="cm">/* REQUIRED - Talkable Site ID */</span>
 
-    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_ID%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_EMAIL%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_SUBTOTAL_DISCOUNTED%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
     <span class="p">};</span>
 
-    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_order_details</span><span class="p">]);</span>
   <span class="c1">//]]&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>

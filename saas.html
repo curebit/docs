@@ -159,10 +159,10 @@ your page where the container id is identified.</p>
     <span class="p">[</span>
       <span class="s1">&#39;init&#39;</span><span class="p">,</span>
       <span class="p">{</span>
-        <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="c1">// REQUIRED - Talkable Site ID/slug.</span>
+        <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Talkable Site ID/slug.</span>
         <span class="c1">// If you are using live ENV and test ENV you might need to switch between two sites based on a current location host:</span>
         <span class="c1">// site_id: window.location.host == &#39;www.site.com&#39; ? &#39;site&#39; : &#39;site-testing&#39;</span>
-        <span class="c1">// ,server: &#39;https://www.talkable.com&#39; // OPTIONAL - your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
+        <span class="nx">server</span><span class="o">:</span> <span class="s1">&#39;https://www.talkable.com&#39;</span> <span class="c1">// REQUIRED - default Talkable domain or your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
       <span class="p">}</span>
     <span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>

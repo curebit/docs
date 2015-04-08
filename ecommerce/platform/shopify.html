@@ -113,9 +113,9 @@ dashboard after you log in and create a site.</p>
 
     <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="p">}]);</span> <span class="cm">/* REQUIRED - Replace with your Talkable Site ID */</span>
-    <span class="kd">var</span> <span class="nx">_curebit_order_items</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">_talkable_order_items</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">line</span> <span class="k">in</span> <span class="nx">line_items</span> <span class="o">%</span><span class="p">}</span>
-      <span class="nx">_curebit_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="nx">_talkable_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
         <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;{% if line.sku and line.sku != &quot;&quot; %}{{ line.sku }}{% else %}{{ line.product.id }}{% endif %}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Product ID */</span>
         <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;{{ line.price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Unit Price */</span>
         <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;{{ line.quantity }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Quantity */</span>
@@ -130,17 +130,17 @@ dashboard after you log in and create a site.</p>
       <span class="nx">couponCodes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;{{ discount.code }}&#39;</span><span class="p">);</span>
     <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
 
-    <span class="kd">var</span> <span class="nx">_curebit_order_details</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;{{ order_name }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
       <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;{{ created_at }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order Date and Time (ISO 8601 formatted datetime) */</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;{{ customer.email }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
       <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Set to your internal customer ID for tracking */</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;{{ subtotal_price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">couponCodes</span><span class="p">,</span>
-      <span class="nx">items</span><span class="o">:</span> <span class="nx">_curebit_order_items</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_order_items</span>
     <span class="p">};</span>
 
-    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_curebit_order_details</span><span class="p">]);</span>
+    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_order_details</span><span class="p">]);</span>
   <span class="c1">//]]&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
