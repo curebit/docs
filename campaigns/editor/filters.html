@@ -166,8 +166,18 @@ First parameter is a maximum random number.</p>
 <p>Always returns the same number for a specific email, between 0 and 9.</p>
 <p><hr></p>
 </div>
+<div class="section" id="regexp-captures">
+<span id="liquid-filter-split-test"></span><h2>regexp_captures<a class="headerlink" href="#regexp-captures" title="Permalink to this headline">¶</a></h2>
+<p>Parses input with a given regexp and returning
+<a class="reference external" href="http://www.regular-expressions.info/brackets.html">regular expression captures</a>
+as an array.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &#39;12345678&#39; | regexp_captures: &#39;(....)(....)&#39; | join: &#39;-&#39; }}
+{{ &#39;bogdan@example.com&#39; | regexp_captures: &#39;^([a-z]+)\@([a-z]+)\.([a-z]+)&#39; | json }}
+</pre></div>
+</div>
+</div>
 <div class="section" id="split-test">
-<span id="liquid-filter-split-test"></span><h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
+<h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
 <p>Split testing static text:</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
 </pre></div>
