@@ -50,9 +50,7 @@
       <div class="nav">
         <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Default Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#main-integration-code">Main Integration Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#asynchronous-integration">Asynchronous Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Default Integration</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="platform.html">Platform Integration</a></li>
@@ -86,9 +84,9 @@ This allows us to better support integration individually.</p>
 </div>
 <p>To ensure the campaign is loaded as fast as possible with no delay, it is
 important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we
-will have to enable/uncomment the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+In order to make sure your campaign will load properly from the HEAD tag you
+will have to use the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
 <p>Once you have placed your integration script inside the HEAD tag, and you have
 defined the iframe container parameter, then you will be able to set up an empty
 block with id = container parameter from integration script. Now that you have
@@ -123,9 +121,7 @@ Talkable integration code can be asynchronous or synchronous depending on your d
 replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
-<div class="section" id="main-integration-code">
-<h2>Main Integration Code<a class="headerlink" href="#main-integration-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<h2>Main Integration Code</h2><div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">//&lt;![CDATA[</span>
     <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
@@ -165,11 +161,11 @@ dashboard after you log in and create a site.</p>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_order_items</span><span class="p">,</span>
       <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
       <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
-      <span class="c1">// iframe: { // OPTIONAL - display offer inline instead of popup</span>
-      <span class="c1">//   // container: &quot;id-example&quot;, // Tell Talkable where to insert the iframe (ID attribute). See Asynchronous Integration for more details.</span>
-      <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
+      <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
+         <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;id-example&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Tell Talkable where to insert the iframe (this is HTML id attribute value).</span>
+      <span class="c1">//   width: &#39;100%&#39;, // OPTIONAL - These are standard HTML attributes, feel free to add as many you need</span>
       <span class="c1">//   height: &#39;400&#39;</span>
-      <span class="c1">// },</span>
+      <span class="p">},</span> <span class="c1">// OPTIONAL - display offer inline instead of popup</span>
       <span class="c1">// loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39;, // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
       <span class="c1">// person_custom_properties: { // OPTIONAL - Additional customer properties</span>
       <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
@@ -186,6 +182,8 @@ dashboard after you log in and create a site.</p>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="http://jsbin.com/doqihasivuce/4">Example post-purchase integration</a></p>
+<p><a class="reference external" href="http://jsbin.com/doqihasivuce/4/edit?html,js,output">Source for post-purchase integration</a></p>
 <p><hr></p>
 <h2>Optimizing for Viewport</h2><p>Talkable provides flexibility for the merchant to decide how they want to
 optimize mobile.</p>
@@ -207,49 +205,6 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <p><a class="reference external" href="http://jsbin.com/ludusikevude/2">Example integration</a></p>
 <p><a class="reference external" href="http://jsbin.com/ludusikevude/2/edit?html,output">Source integration</a></p>
 <p><hr></p>
-</div>
-<div class="section" id="asynchronous-integration">
-<h2>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h2>
-<p>You can trigger Talkable initialization whenever needed. For example, you can fire up Talkable on button click:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_talkableq.push([&#39;register_purchase&#39;, talkable_details]);&quot;</span><span class="nt">&gt;</span>Init Talkable<span class="nt">&lt;/button&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">talkable_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-    <span class="c1">// order_number: &#39;100011&#39;,</span>
-    <span class="c1">// all common Talkable config properties</span>
-    <span class="c1">// ...</span>
-  <span class="p">};</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.25.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</div>
-<p><br></p>
-<p>Also, you can append Talkable <tt class="docutils literal"><span class="pre">iframe</span></tt> into your custom container. Add <tt class="docutils literal"><span class="pre">iframe</span></tt> object like so:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">talkable_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-    <span class="c1">// order_number: &#39;100011&#39;,</span>
-    <span class="c1">// all common Talkable config properties</span>
-    <span class="c1">// ...</span>
-    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">container</span><span class="o">:</span> <span class="s2">&quot;talkable-test&quot;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.25.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>You can pass any HTML attributes.</li>
-<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Talkable iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
-</ul>
-<p><a class="reference external" href="http://jsbin.com/doqihasivuce/4">Example post-purchase integration</a></p>
-<p><a class="reference external" href="http://jsbin.com/doqihasivuce/4/edit?html,js,output">Source for post-purchase integration</a></p>
 <h2>Passing Custom Person Data</h2><p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data
 to Talkable in the form of Key-Value pairs via integration.</p>
 <p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass
@@ -287,7 +242,6 @@ the value name such as:</p>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
-</div>
 </div>
 </div>
 </div>

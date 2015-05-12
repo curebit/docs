@@ -110,9 +110,9 @@ The code above registers an Event and shows <a class="reference internal" href="
 When the Event is registered successfully it appears inside Events Report. <br></p>
 <p>To ensure the campaign is loaded as fast as possible with no delay, it is
 important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we
-will have to enable/uncomment the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+In order to make sure your campaign will load properly from the HEAD tag you
+will have to use the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
 <p>Once you have placed your integration script inside the HEAD tag, and you have
 defined the iframe container parameter, then you will be able to set up an empty
 block with id = container parameter from integration script. Now that you have
@@ -139,12 +139,11 @@ your page where the container id is identified.</p>
     <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - internal customer ID, for tracking</span>
     <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
-    <span class="c1">// OPTIONAL - show an offer inline instead of a popup</span>
-    <span class="c1">// iframe: {</span>
-    <span class="c1">//   // container: &quot;id-example&quot;, // Tell Talkable where to insert the iframe (ID attribute)</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;id-example&#39;</span><span class="p">,</span> <span class="c1">// Tell Talkable where to insert the iframe (this is HTML id attribute value)</span>
     <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
     <span class="c1">//   height: &#39;400&#39;</span>
-    <span class="c1">// },</span>
+    <span class="p">},</span> <span class="c1">// OPTIONAL - show an offer inline instead of a popup</span>
     <span class="c1">// loader: &#39;display: none;&#39;, // OPTIONAL - change a popup preloader style with CSS, or hide it completely</span>
     <span class="c1">// OPTIONAL - additional customer properties, in case you want to use some additional data inside Campaign Views</span>
     <span class="c1">// person_custom_properties: {</span>
@@ -174,9 +173,9 @@ your page where the container id is identified.</p>
 </div>
 <p>To ensure the campaign is loaded as fast as possible with no delay, it is
 important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we
-will have to enable/uncomment the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+In order to make sure your campaign will load properly from the HEAD tag you
+will have to use the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
 <p>Once you have placed your integration script inside the HEAD tag, and you have
 defined the iframe container parameter, then you will be able to set up an empty
 block with id = container parameter from integration script. Now that you have
