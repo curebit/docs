@@ -123,7 +123,10 @@ your page where the container id is identified.</p>
 <div class="section" id="advanced-integration">
 <h2>Advanced Integration<a class="headerlink" href="#advanced-integration" title="Permalink to this headline">¶</a></h2>
 <p>In addition to our basic required dataset we allow you to pass us a lot more data and parameters you might need. Learn what each parameters does from the comment lines bellow:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Talkable iframe container, you are free to control its place in the DOM --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-sa-container&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="c1">// Globally available Talkable queue array that you populate all data to</span>
   <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
@@ -139,18 +142,17 @@ your page where the container id is identified.</p>
     <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - internal customer ID, for tracking</span>
     <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
-    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;id-example&#39;</span><span class="p">,</span> <span class="c1">// Tell Talkable where to insert the iframe (this is HTML id attribute value)</span>
-    <span class="c1">//   width: &#39;100%&#39;, // These are standard HTML attributes, feel free to add as many you need</span>
-    <span class="c1">//   height: &#39;400&#39;</span>
-    <span class="p">},</span> <span class="c1">// OPTIONAL - show an offer inline instead of a popup</span>
-    <span class="c1">// loader: &#39;display: none;&#39;, // OPTIONAL - change a popup preloader style with CSS, or hide it completely</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// REQUIRED - any valid HTML attributes can go in here</span>
+      <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;talkable-sa-container&#39;</span><span class="p">,</span> <span class="c1">// Tell Talkable where to insert the iframe (this is HTML id attribute value)</span>
+      <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span> <span class="c1">// These are standard HTML attributes, feel free to add as many you need</span>
+    <span class="p">},</span>
+    <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span> <span class="c1">// OPTIONAL - fit iframe into any viewport (iframe height will be changed on window resize as well) which allows Talkable to make web pages responsive. &#39;false&#39; disables it.</span>
     <span class="c1">// OPTIONAL - additional customer properties, in case you want to use some additional data inside Campaign Views</span>
-    <span class="c1">// person_custom_properties: {</span>
+    <span class="c1">// , person_custom_properties: {</span>
     <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
     <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
-    <span class="c1">// },</span>
-    <span class="c1">// traffic_source: &#39;Signup page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reports.</span>
+    <span class="c1">// }</span>
+    <span class="c1">// , traffic_source: &#39;Signup page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reports.</span>
   <span class="p">};</span>
 
   <span class="c1">// Registering an Event at Talkable</span>
@@ -158,10 +160,10 @@ your page where the container id is identified.</p>
     <span class="p">[</span>
       <span class="s1">&#39;init&#39;</span><span class="p">,</span>
       <span class="p">{</span>
-        <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Talkable Site ID/slug.</span>
+        <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="c1">// REQUIRED - Talkable Site ID/slug.</span>
         <span class="c1">// If you are using live ENV and test ENV you might need to switch between two sites based on a current location host:</span>
-        <span class="c1">// site_id: window.location.host == &#39;www.site.com&#39; ? &#39;site&#39; : &#39;site-testing&#39;</span>
-        <span class="c1">// server: &#39;https://www.talkable.com&#39; // OPTIONAL - your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
+        <span class="c1">// , site_id: window.location.host == &#39;www.site.com&#39; ? &#39;site&#39; : &#39;site-testing&#39;,</span>
+        <span class="c1">// , server: &#39;https://www.talkable.com&#39; // OPTIONAL - your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
       <span class="p">}</span>
     <span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>
