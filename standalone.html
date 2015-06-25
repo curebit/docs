@@ -50,10 +50,7 @@
         <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Standalone Integrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-integration">Basic Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#asynchronous-integration">Asynchronous Integration</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-integration">Basic Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#custom-integration">Custom Integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sign-up">Sign Up</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-a-coupon-code">Get a Coupon Code</a></li>
@@ -86,9 +83,9 @@ This allows us to better support integration individually.</p>
 </div>
 <p>To ensure the campaign is loaded as fast as possible with no delay, it is
 important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag we
-will have to enable/uncomment the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://monosnap.com/image/wqwOGo7tvIMQlkwoLfUoAs6Hf1E4Iz">image</a>).</p>
+In order to make sure your campaign will load properly from the HEAD tag you
+will have to use the &#8220;container&#8221; option in the integration script
+(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
 <p>Once you have placed your integration script inside the HEAD tag, and you have
 defined the iframe container parameter, then you will be able to set up an empty
 block with id = container parameter from integration script. Now that you have
@@ -97,44 +94,48 @@ your page where the container id is identified.</p>
 <div class="section" id="basic-integration">
 <h2>Basic Integration<a class="headerlink" href="#basic-integration" title="Permalink to this headline">¶</a></h2>
 <p>Standalone campaign can be integrated to the page with the following code:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Talkable iframe container, you are free to control its place in the DOM --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-sa-container&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
-  <span class="c1">//&lt;![CDATA[</span>
-    <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
-    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Talkable Site ID</span>
-      <span class="c1">// server: &#39;https://www.talkable.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to talkable.com (this option is only possible for Enterprise client)</span>
-    <span class="p">}]);</span>
+  <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// REQUIRED - Talkable Site ID</span>
+    <span class="c1">// , server: &#39;https://www.talkable.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to talkable.com (this option is only possible for Enterprise client)</span>
+  <span class="p">}]);</span>
 
-    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// REQUIRED - html attributes for iframe tag to fit page design</span>
-        <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - width of the iframe</span>
-        <span class="nx">height</span><span class="o">:</span> <span class="mi">960</span><span class="p">,</span> <span class="c1">// REQUIRED - initial height of the iframe. Will be automatically updated if responsive option is set to true.</span>
-        <span class="c1">// container: &quot;id-example&quot;, // OPTIONAL - Tell Talkable where to insert the iframe (ID attribute). See Asynchronous Integration for more details.</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;new_talkable_affiliate_member&#39;</span> <span class="c1">// OPTIONAL - any other HTML attribute</span>
-      <span class="p">},</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// REQUIRED - campaign tags for offer targeting</span>
 
-      <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// OPTIONAL - Talkable will ask person to signup in case when his email is not given by merchant</span>
-        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer email</span>
-        <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer first name</span>
-        <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer last name</span>
-        <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
-        <span class="nx">gender</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer gender (&#39;male&#39; or &#39;female&#39;)</span>
-        <span class="c1">// person_custom_properties: { // OPTIONAL - additional customer properties</span>
-        <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
-        <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
-        <span class="c1">// },</span>
-        <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
-      <span class="p">},</span>
-      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// OPTIONAL - fit iframe into viewport (also on resize) and allow Talkable display mobile templates</span>
-      <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]</span> <span class="c1">// OPTIONAL - campaign tags for offer targeting</span>
-    <span class="p">}]);</span>
-  <span class="c1">//]]&gt;</span>
+    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// REQUIRED - any valid HTML attributes can go in here</span>
+      <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;talkable-sa-container&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Tell Talkable where to insert the iframe (the value represents an HTML id attribute of a container)</span>
+      <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - width of the iframe</span>
+      <span class="nx">height</span><span class="o">:</span> <span class="mi">960</span><span class="p">,</span> <span class="c1">// REQUIRED - initial height of the iframe. Will be automatically updated if responsive option is set to true.</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;new_talkable_affiliate_member&#39;</span> <span class="c1">// OPTIONAL - any other HTML attribute</span>
+    <span class="p">},</span>
+
+    <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// OPTIONAL - Talkable will ask person to signup in case when his email is not given by merchant</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer email</span>
+      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer first name</span>
+      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer last name</span>
+      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - customer ID from your site</span>
+      <span class="nx">gender</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="c1">// OPTIONAL - customer gender (&#39;male&#39; or &#39;female&#39;)</span>
+      <span class="c1">// , person_custom_properties: { // OPTIONAL - additional customer properties</span>
+      <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
+      <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
+      <span class="c1">// }</span>
+      <span class="c1">// , traffic_source: &#39;Signup Page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
+    <span class="p">}</span>
+    <span class="c1">// , responsive: false // OPTIONAL - fit iframe into any viewport (iframe height will be changed on window resize as well) which allows Talkable to make web pages responsive. &#39;false&#39; disables it.</span>
+  <span class="p">}]);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.22.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.29.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="http://jsbin.com/cepayesiza/1">Example standalone integration</a></p>
+<p><a class="reference external" href="http://jsbin.com/cepayesiza/1/edit?html,js,output">Source for standalone integration</a></p>
 <h2>Passing Custom Person Data</h2><p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data
 to Talkable in the form of Key-Value pairs via integration.</p>
 <p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass
@@ -209,54 +210,9 @@ scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsi
 <div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
 </pre></div>
 </div>
-<p><a class="reference external" href="http://jsbin.com/jipoqotaheri/1">Example integration</a>.</p>
-<p><a class="reference external" href="http://jsbin.com/jipoqotaheri/1/edit?html,output">Source integration</a>.</p>
-<div class="section" id="asynchronous-integration">
-<h3>Asynchronous Integration<a class="headerlink" href="#asynchronous-integration" title="Permalink to this headline">¶</a></h3>
-<p>You can trigger Talkable initialization whenever needed. For example, you can fire up Talkable on button click:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">&quot;_talkableq.push([&#39;register_affiliate&#39;, _talkable_affiliate_details]);&quot;</span><span class="nt">&gt;</span>Init Talkable<span class="nt">&lt;/button&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">_talkable_affiliate_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// all common Talkable config properties</span>
-    <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.22.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</div>
-<p><br></p>
-<p>Also, you can append Talkable <tt class="docutils literal"><span class="pre">iframe</span></tt> into your custom container. Add <tt class="docutils literal"><span class="pre">iframe</span></tt> object like so:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-
-<span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">_talkable_affiliate_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-    <span class="c1">// all common Talkable config properties</span>
-    <span class="nx">affiliate_member</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
-    <span class="p">},</span>
-    <span class="c1">// ...</span>
-    <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">container</span><span class="o">:</span> <span class="s2">&quot;talkable-test&quot;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.22.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>You can pass any HTML attributes.</li>
-<li>Pass <tt class="docutils literal"><span class="pre">container</span></tt> option to set where you want Talkable iframe to be inserted (this is HTML <tt class="docutils literal"><span class="pre">id</span></tt> attribute value).</li>
-</ul>
-<p><a class="reference external" href="http://jsbin.com/qawicuceqexe/2">Example standalone integration</a></p>
-<p><a class="reference external" href="http://jsbin.com/qawicuceqexe/2/edit?html,js,output">Source for standalone integration</a></p>
+<p><a class="reference external" href="http://jsbin.com/zucayikoxo/1">Example integration</a>.</p>
+<p><a class="reference external" href="http://jsbin.com/zucayikoxo/1/edit?html,output">Source integration</a>.</p>
 <p><hr></p>
-</div>
 </div>
 <div class="section" id="custom-integration">
 <h2>Custom Integration<a class="headerlink" href="#custom-integration" title="Permalink to this headline">¶</a></h2>
@@ -396,5 +352,14 @@ the value name such as:</p>
       <div class="clearer"></div>
     </div>
   </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>
