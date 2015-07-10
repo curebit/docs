@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced Usage &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Talkable iOS SDK" href="../ios_sdk.html" />
+    <link rel="next" title="Example" href="example.html" />
+    <link rel="prev" title="Post Purchase Campaign" href="integration/post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="header-search" action="../search.html" method="get">
+            <input type="text" class="textfield header-search-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button header-search-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implement-talkabledelegate">Implement TalkableDelegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debuging">Debuging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example.html">Example</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="ios-sdk-advanced"></span><div class="section" id="advanced-usage">
+<h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="implement-talkabledelegate">
+<h2>Implement TalkableDelegate<a class="headerlink" href="#implement-talkabledelegate" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by following code:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>[[Talkable manager] setDelegate: yourObjectConformsTalkableDelegateProtocol];
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Take control of presenting offers to your users. Use next two delegate methods to prevent or give an instruction where you want that offer will be displayed:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>- (BOOL)shouldPresentTalkableOfferViewController:(UIViewController*)controller;
+- (UIViewController*)viewControllerForPresentingTalkableOfferViewController;
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Customize ViewContoller title by implementing method below. By default title of offer page is used.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>- (NSString*)titleForTalkableOfferViewController:(UIViewController*)controller;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can modify page title on Talkable Site during campaign developing.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Present offers to your users by yourself by handling request url or webView after origin was created.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>- (void)didRegisterOrigin:(TKBLOriginType)type withURL:(NSURL*)url;
+- (void)didRegisterOrigin:(TKBLOriginType)type withWebView:(UIWebView*)webView;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Talkable SDK assigns itself to UIWebView delegate. Changing UIWebView delegate may brokes some functionality so we strictly not recommend to do this.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="notifications">
+<h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<p>Subscribe to notifications that Talkable SDK publish and be aware of everything that happens around your campaigns.</p>
+<ol class="arabic simple">
+<li>Receive the coupon given to your users:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>#import &lt;TalkableSDK/Talkable.h&gt;
+...
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(couponReceived:) name:TKBLDidReceiveCouponCode object:nil];
+...
+- (void)couponReceived:(NSNotification*)ntf {
+  // Your logic here
+}
+...
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Catch every message from presented offer:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>#import &lt;TalkableSDK/Talkable.h&gt;
+...
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(publishMessageNotification:) name:TKBLDidPublishMessageNotification object:nil];
+...
+- (void)publishMessageNotification:(NSNotification*)ntf {
+  if ([[[ntf userInfo] objectForKey:TKBLMessageNameKey] isEqualToString:TKBLMessageOfferLoaded]) {
+    // Your logic here
+  }
+}
+...
+</pre></div>
+</div>
+<p>Available messages:</p>
+<ul class="simple">
+<li>TKBLMessageOfferLoaded</li>
+<li>TKBLMessageOfferClose</li>
+<li>TKBLMessageCouponIssued</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="debuging">
+<h2>Debuging<a class="headerlink" href="#debuging" title="Permalink to this headline">¶</a></h2>
+<p>See all debugging information in your console which can help you to realise what is going wrong:</p>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>#import &lt;TalkableSDK/Talkable.h&gt;
+...
+[Talkable manager].debug = YES;
+</pre></div>
+</div>
+</div></blockquote>
+<div class="hidden container">
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
