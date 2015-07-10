@@ -82,26 +82,26 @@
 <p>Now that we know what a Standalone campaign is, let’s take a look at one more type of Talkable campaign — Post Purchase. It is used to convert your existing customers into Advocates after they make a purchase.  It has the same flow as a basic Standalone campaign except this is gated by a purchase and shown to a customer immediately after.</p>
 <p>Post Purchase campaign usually looks like a pop up right after a user made a purchase. This campaign initializes on the order confirmation page and captures order details parameters. You need to pass order data that includes your customer’s email address, order id, subtotal, coupon code used at checkout in order to close a referral loop. This allows talkable to detect and close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
-<div class="highlight-html"><div class="highlight"><pre>#import &lt;TalkableSDK/Talkable.h&gt;
-...
-NSDictionary* params = @{
-  TKBLPurchaseKey: @{
-    TKBLPurchaseOrderNumberKey: @&quot;100130&quot;, // REQUIRED - Order number
-    TKBLPurchaseOrderDateKey: [NSDate date], // REQUIRED - Order Date and Time (ISO 8601 formatted datetime)
-    TKBLPurchaseEmailKey: @&quot;customer@example.com&quot;, // REQUIRED - Customer Email
-    TKBLPurchaseSubtotalKey: [NSNumber numberWithDouble:22.33], // REQUIRED - Purchase Subtotal
-    TKBLPurchaseCouponCodeKey: @&quot;TEST25&quot;, // REQUIRED - Coupon code used at checkout, pass multiple as an array: @[@&quot;SAVE20&quot;,   @&quot;FREE-SHIPPING&quot;]. Pass @&quot;&quot; if there is no coupon code.
-    TKBLPurchaseOrderItemsKey:@[
-      @{
-        TKBLPurchaseOrderItemProductIDKey: @&quot;sku3&quot;, /* Item Product ID */
-        TKBLPurchaseOrderItemPriceKey: [NSNumber numberWithDouble:4.99], /* Item Unit Price */
-        TKBLPurchaseOrderItemQuantityKey: [NSNumber numberWithUnsignedInt:5], /* Item Quantity */
-      }
-    ]
-  }
-};
-...
-[[Talkable manager] registerOrigin:TKBLPurchase params:params];
+<div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<span class="p">...</span>
+<span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">params</span> <span class="o">=</span> <span class="l">@{</span>
+  <span class="nl">TKBLPurchaseKey</span><span class="p">:</span> <span class="l">@{</span>
+    <span class="nl">TKBLPurchaseOrderNumberKey</span><span class="p">:</span> <span class="s">@&quot;100130&quot;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
+    <span class="nl">TKBLPurchaseOrderDateKey</span><span class="p">:</span> <span class="p">[</span><span class="bp">NSDate</span> <span class="n">date</span><span class="p">],</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
+    <span class="nl">TKBLPurchaseEmailKey</span><span class="p">:</span> <span class="s">@&quot;customer@example.com&quot;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email</span>
+    <span class="nl">TKBLPurchaseSubtotalKey</span><span class="p">:</span> <span class="p">[</span><span class="bp">NSNumber</span> <span class="nl">numberWithDouble</span><span class="p">:</span><span class="mf">22.33</span><span class="p">],</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
+    <span class="nl">TKBLPurchaseCouponCodeKey</span><span class="p">:</span> <span class="s">@&quot;TEST25&quot;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, pass multiple as an array: @[@&quot;SAVE20&quot;,   @&quot;FREE-SHIPPING&quot;]. Pass @&quot;&quot; if there is no coupon code.</span>
+    <span class="nl">TKBLPurchaseOrderItemsKey</span><span class="p">:</span><span class="l">@[</span>
+      <span class="l">@{</span>
+        <span class="nl">TKBLPurchaseOrderItemProductIDKey</span><span class="p">:</span> <span class="s">@&quot;sku3&quot;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
+        <span class="nl">TKBLPurchaseOrderItemPriceKey</span><span class="p">:</span> <span class="p">[</span><span class="bp">NSNumber</span> <span class="nl">numberWithDouble</span><span class="p">:</span><span class="mf">4.99</span><span class="p">],</span> <span class="cm">/* Item Unit Price */</span>
+        <span class="nl">TKBLPurchaseOrderItemQuantityKey</span><span class="p">:</span> <span class="p">[</span><span class="bp">NSNumber</span> <span class="nl">numberWithUnsignedInt</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="cm">/* Item Quantity */</span>
+      <span class="l">}</span>
+    <span class="l">]</span>
+  <span class="l">}</span>
+<span class="l">}</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">registerOrigin</span><span class="p">:</span><span class="n">TKBLPurchase</span> <span class="nl">params</span><span class="p">:</span><span class="n">params</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -106,7 +106,7 @@
 <li>Add the following import statement to any Objective-C header (.h) or implementation (.m) file in which you wish to use the Talkable SDK.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre>#import &lt;TalkableSDK/Talkable.h&gt;
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -117,7 +117,7 @@
 <li>Initialize Talkable in your <cite>application:didFinishLaunchingWithOptions:</cite> method, like so:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre>[[Talkable manager] setApiKey:@&quot;YOUR_TALKABLE_API_KEY&quot; andSiteSlug:@&quot;YOUR_SITE_SLUG&quot;];
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -133,7 +133,7 @@
 <li>Add following lines to <cite>application:handleOpenURL:</cite> or <cite>application:openURL:sourceApplication:annotation:</cite></li>
 </ol>
 <blockquote>
-<div><div class="highlight-html"><div class="highlight"><pre>[[Talkable manager] handleOpenURL:url];
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">handleOpenURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
