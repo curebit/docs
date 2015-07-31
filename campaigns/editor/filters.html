@@ -399,6 +399,36 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 </pre></div>
 </div>
 <p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
+<p><hr></p>
+</div>
+<div class="section" id="leaderboard">
+<h2>leaderboard<a class="headerlink" href="#leaderboard" title="Permalink to this headline">¶</a></h2>
+<p>Returns array of top advocates for specified period of time. Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
+<p>If parameter is &#8216;advocate&#8217; it will return rank info for current advocate.</p>
+<p>Required options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">tag</span></tt> - Campaigns tag</li>
+<li><tt class="docutils literal"><span class="pre">start</span></tt> - Beginning date</li>
+<li><tt class="docutils literal"><span class="pre">end</span></tt> - Ending date</li>
+</ul>
+<p>It returns objects with next fields:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">leaderboard_rank</span></tt> - Advocate rank</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_count</span></tt> - Number of approved referrals for specified period</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_subtotal</span></tt> - Sum of advocate purchase subtotals for specified period</li>
+<li>also all fields from <a class="reference internal" href="variables.html#editor-variables-advocate-info"><em>advocate_info</em></a> variable</li>
+</ul>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign leaders = &quot;3&quot; | leaderboard: tag: &quot;leaderboard&quot;, start: &quot;2014-06-01&quot;, end: &quot;2015-06-30&quot; %}
+{% for leader in leaders %}
+   &lt;td&gt;{{ leader.leaderboard_rank }}&lt;/td&gt;
+   &lt;td&gt;{{ leader.leaderboard_count }}&lt;/td&gt;
+{% endfor %}
+</pre></div>
+</div>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign leader = &quot;advocate&quot; | leaderboard: tag: &quot;default&quot;, start: &quot;2015-06-01&quot;, end: &quot;2015-06-30&quot; %}
+{{ leader.email }} - {{ leader.leaderboard_count }} - {{ leader.leaderboard_rank }}
+</pre></div>
+</div>
 </div>
 </div>
 
