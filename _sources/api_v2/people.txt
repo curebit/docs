@@ -69,12 +69,11 @@ Sample response:
      "result": {
        "person": {
          "personal_claim_url": "http://share.mystore.com/by/customer@example.com",
-         "events_count": 0,
          "first_name": "John",
          "last_name": "Smith",
          "email": "customer@example.com",
          "username": null,
-         "gender": null,
+         "gender": "male",
          "subscribed_at": null,
          "unsubscribed_at": null,
          "sub_choice": false
@@ -112,12 +111,11 @@ Sample response:
      "result": {
        "person": {
          "personal_claim_url": "http://share.mystore.com/by/lizard_king",
-         "events_count": 0,
          "first_name": "John",
          "last_name": "Smith",
          "email": "customer@example.com",
          "username": "lizard_king",
-         "gender": null,
+         "gender": "male",
          "subscribed_at": null,
          "unsubscribed_at": null,
          "sub_choice": false
@@ -155,12 +153,11 @@ Sample response:
      "result": {
        "person": {
          "personal_claim_url": "http://share.mystore.com/by/customer@example.com",
-         "events_count": 0,
          "first_name": "John",
          "last_name": "Smith",
          "email": "customer@example.com",
          "username": null,
-         "gender": null,
+         "gender": "male",
          "subscribed_at": null,
          "unsubscribed_at": "2014-11-18T05:49:54.000-07:00",
          "sub_choice": false

@@ -54,11 +54,11 @@ The following code will register person@example.com in campaign with tag "custom
 
 .. include:: /partials/optimizing_for_viewport.rst
 
-.. include:: /partials/traffic_source.rst
+`Example integration <http://jsbin.com/jipoqotaheri/1>`_.
 
-`Example integration <http://jsbin.com/zucayikoxo/1>`_.
+`Source integration <http://jsbin.com/jipoqotaheri/1/edit?html,output>`_.
 
-`Source integration <http://jsbin.com/zucayikoxo/1/edit?html,output>`_.
+.. include:: /partials/for_modern_sa_js_apps.rst
 
 |hr|
 
@@ -69,7 +69,7 @@ Sign Up
 -------
 
 Capture the email and make ajax request to Talkable with entered email, campaign
-tags and possible any other data like first/last name. We return back
+tags and possible any other data like first/last name or gender. We return back
 a json containing offer short code. Then redirect user to share page.
 
 .. include:: /partials/note_sample_code.rst
@@ -85,8 +85,8 @@ a json containing offer short code. Then redirect user to share page.
    {
      "success": true,
      "offer_code": "pLs495",
-     "offer_link": "http://talkable.com/o/pLs495/show",
-     "facebook_offer_link": "http://talkable.com/x/PiqkTF"
+     "offer_link": "http://curebit.com/o/pLs495/show",
+     "facebook_offer_link": "http://curebit.com/x/PiqkTF"
    }
 
 .. raw:: html
