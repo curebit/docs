@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
       </div>
@@ -202,18 +203,6 @@ as an array.</p>
 <span class="nt">&lt;/h1&gt;</span>
 </pre></div>
 </div>
-<p><hr></p>
-</div>
-<div class="section" id="split-test-with-probability">
-<h2>split_test_with_probability<a class="headerlink" href="#split-test-with-probability" title="Permalink to this headline">¶</a></h2>
-<p>Split testing static text with different probabilities:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test_with_probability: &quot;Label 1&quot;, 25,  &quot;Label 2&quot;, 25,  &quot;Label N&quot;, 50 }}
-
-{{ &quot;split_test_identifier&quot; | split_test_with_probability: &quot;Label 1&quot;, 25,  &quot;Label 2&quot;, 75 }}
-</pre></div>
-</div>
-<p>Probability - integer value between 1 and 100</p>
-<p>Split testing for text with interpolations or image assets works similar to the standard <a class="reference internal" href="#liquid-filter-split-test"><em>split_test</em></a></p>
 <p><hr></p>
 </div>
 <div class="section" id="format-date">
@@ -410,6 +399,36 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 </pre></div>
 </div>
 <p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
+<p><hr></p>
+</div>
+<div class="section" id="leaderboard">
+<h2>leaderboard<a class="headerlink" href="#leaderboard" title="Permalink to this headline">¶</a></h2>
+<p>Returns array of top advocates for specified period of time. Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
+<p>If parameter is &#8216;advocate&#8217; it will return rank info for current advocate.</p>
+<p>Required options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">tag</span></tt> - Campaigns tag</li>
+<li><tt class="docutils literal"><span class="pre">start</span></tt> - Beginning date</li>
+<li><tt class="docutils literal"><span class="pre">end</span></tt> - Ending date</li>
+</ul>
+<p>It returns objects with next fields:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">leaderboard_rank</span></tt> - Advocate rank</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_count</span></tt> - Number of approved referrals for specified period</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_subtotal</span></tt> - Sum of advocate purchase subtotals for specified period</li>
+<li>also all fields from <a class="reference internal" href="variables.html#editor-variables-advocate-info"><em>advocate_info</em></a> variable</li>
+</ul>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign leaders = &quot;3&quot; | leaderboard: tag: &quot;leaderboard&quot;, start: &quot;2014-06-01&quot;, end: &quot;2015-06-30&quot; %}
+{% for leader in leaders %}
+   &lt;td&gt;{{ leader.leaderboard_rank }}&lt;/td&gt;
+   &lt;td&gt;{{ leader.leaderboard_count }}&lt;/td&gt;
+{% endfor %}
+</pre></div>
+</div>
+<div class="highlight-liquid"><div class="highlight"><pre>{% assign leader = &quot;advocate&quot; | leaderboard: tag: &quot;default&quot;, start: &quot;2015-06-01&quot;, end: &quot;2015-06-30&quot; %}
+{{ leader.email }} - {{ leader.leaderboard_count }} - {{ leader.leaderboard_rank }}
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -420,5 +439,14 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
       <div class="clearer"></div>
     </div>
   </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>

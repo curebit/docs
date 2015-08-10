@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Platform Integration" href="../platform.html" />
-    <link rel="next" title="Ubercart (Drupal) Store Integration" href="ubercart.html" />
-    <link rel="prev" title="osCommerce Store Integration" href="oscommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="3DCart Store Integration" href="3dcart.html" />
+    <link rel="prev" title="Magento Store Integration" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -52,22 +52,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../custom.html">Default Integration</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../platform.html">Platform Integration</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="3dcart.html">3DCart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bigcommerce.html">BigCommerce</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cre-loaded.html">CRE Loaded</a></li>
-<li class="toctree-l3"><a class="reference internal" href="demandware.html">Demandware</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fastspring.html">FastSpring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="magento.html">Magento</a></li>
-<li class="toctree-l3"><a class="reference internal" href="magento-go.html">Magento Go</a></li>
-<li class="toctree-l3"><a class="reference internal" href="opencart.html">OpenCart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oscommerce.html">osCommerce</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Shopify</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ubercart.html">Ubercart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="volusion.html">Volusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vp-asp.html">VP-ASP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="x-cart.html">X-Cart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yahoo.html">Yahoo!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zen-cart.html">Zen Cart</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../verify.html">Verifying Integration</a></li>
@@ -80,6 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
       </div>
@@ -92,8 +79,37 @@
             
   <span class="target" id="ecommerce-platform-shopify"></span><div class="section" id="shopify-store-integration">
 <h1>Shopify Store Integration<a class="headerlink" href="#shopify-store-integration" title="Permalink to this headline">¶</a></h1>
-<p>To integrate your Shopify store, you will install the Talkable application and
-then add a code snippet to your checkout page.</p>
+<p>To integrate your Shopify store, you can install the <a class="reference external" href="https://apps.shopify.com/talkable">Shopify Talkable application</a>
+from App Store or manually add a code snippet to your checkout page.</p>
+<div class="section" id="automatic-integration">
+<h2>Automatic integration<a class="headerlink" href="#automatic-integration" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have previosuly integrated with Talkable, make sure you remove the manual
+Talkable integration script located in the Additional Content &amp; Scripts section before
+you start the Automatic integration process. See <a class="reference internal" href="#manual-integration">Manual integration</a> for details.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>In your Talkable administration panel, go to
+<strong>Dashboard</strong> &rarr; <strong>Shopify Integration</strong>.</li>
+<li>Then click <strong>Install Talkable</strong> in your Shopify administration panel.</li>
+<li>Modify existing integration script if needed.</li>
+<li>Activate Post Purchase or Standalone Campaign.</li>
+<li>Verify your integration using <a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a>.</li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Post Purchase campaign is located at the Thank you page after Checkout.</p>
+<p class="last">To check how Standalone Campaign looks visit <em>/pages/share</em> or <em>/pages/invite</em> links of your store.
+You can edit these links in Administrative panel of your store.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="manual-integration">
+<h2>Manual integration<a class="headerlink" href="#manual-integration" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">In your Shopify administration panel, go to
 <strong>Settings</strong> &rarr; <strong>Checkout &amp; Payment</strong>.</p>
@@ -108,54 +124,56 @@ dashboard after you log in and create a site.</p>
 </div>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-  <span class="c1">//&lt;![CDATA[</span>
-    <span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="kd">function</span> <span class="nx">load_js</span><span class="p">(){</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">&#39;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.23.min.js&#39;</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="nx">x</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="nx">x</span><span class="p">)}</span> <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">)</span><span class="nb">window</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;onload&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">);</span><span class="k">else</span> <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span><span class="nx">load_js</span><span class="p">,</span><span class="kc">false</span><span class="p">)})();</span>
+  <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">site_id</span><span class="o">:</span> <span class="s2">&quot;YOUR-TALKABLE-SITE-ID&quot;</span><span class="p">}]);</span> <span class="cm">/* REQUIRED - Replace with your Talkable Site ID */</span>
 
-    <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
-    <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="p">}]);</span> <span class="cm">/* REQUIRED - Replace with your Talkable Site ID */</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Shopify</span> <span class="o">&amp;&amp;</span> <span class="nx">Shopify</span><span class="p">.</span><span class="nx">checkout</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">checkout</span> <span class="o">=</span> <span class="nx">Shopify</span><span class="p">.</span><span class="nx">checkout</span>
     <span class="kd">var</span> <span class="nx">_talkable_order_items</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">line</span> <span class="k">in</span> <span class="nx">line_items</span> <span class="o">%</span><span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">idx</span> <span class="k">in</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">line_items</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">line</span> <span class="o">=</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">line_items</span><span class="p">[</span><span class="nx">idx</span><span class="p">];</span>
       <span class="nx">_talkable_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-        <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;{% if line.sku and line.sku != &quot;&quot; %}{{ line.sku }}{% else %}{{ line.product.id }}{% endif %}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Product ID */</span>
-        <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;{{ line.price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Unit Price */</span>
-        <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;{{ line.quantity }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Quantity */</span>
-        <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;{{ line.title }}&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Name of product */</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{ shop.url }}{{ line.product.url }}&#39;</span><span class="p">,</span> <span class="cm">/* Optional - URL for product */</span>
-        <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;{{ line.product.featured_image | product_img_url }}&#39;</span> <span class="cm">/* Optional - URL for product image */</span>
+        <span class="nx">product_id</span><span class="o">:</span> <span class="nx">line</span><span class="p">.</span><span class="nx">sku</span> <span class="o">||</span> <span class="nx">line</span><span class="p">.</span><span class="nx">product_id</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Product ID */</span>
+        <span class="nx">price</span><span class="o">:</span> <span class="nx">line</span><span class="p">.</span><span class="nx">price</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Unit Price */</span>
+        <span class="nx">quantity</span><span class="o">:</span> <span class="nx">line</span><span class="p">.</span><span class="nx">quantity</span><span class="p">,</span> <span class="cm">/* REQUIRED - First Item Quantity */</span>
+        <span class="nx">title</span><span class="o">:</span> <span class="nx">line</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="cm">/* Optional - Name of product */</span>
       <span class="p">});</span>
-    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
-
-    <span class="kd">var</span> <span class="nx">couponCodes</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">discount</span> <span class="k">in</span> <span class="nx">discounts</span> <span class="o">%</span><span class="p">}</span>
-      <span class="nx">couponCodes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;{{ discount.code }}&#39;</span><span class="p">);</span>
-    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">}</span>
 
     <span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;{{ order_name }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
-      <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;{{ created_at }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order Date and Time (ISO 8601 formatted datetime) */</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;{{ customer.email }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
-      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="cm">/* Optional - Set to your internal customer ID for tracking */</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;{{ subtotal_price | money_without_currency }}&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
-      <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">couponCodes</span><span class="p">,</span>
-      <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_order_items</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">order_id</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
+      <span class="nx">order_date</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">created_at</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order Date and Time (ISO 8601 formatted datetime) */</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">total_price</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">discount</span> <span class="o">?</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">discount</span><span class="p">.</span><span class="nx">code</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_order_items</span><span class="p">,</span>
+      <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="p">};</span>
 
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_order_details</span><span class="p">]);</span>
-  <span class="c1">//]]&gt;</span>
+  <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.32.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Click <strong>Apply these settings</strong>.</p>
 </li>
+<li><p class="first">Verify your integration using <a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a>.</p>
+</li>
 </ol>
 <p><br></p>
-<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
+<h2>Passing traffic_source through the URL</h2><p>When driving traffic to one of your campaigns, you can include a traffic source parameter as a URL query string to help segment your reporting.  This is helpful when you are driving traffic from many different sources to the same campaign.  This makes sense to do for both on-site and off-site call to actions where you want to specifically want to track your traffic source.  For example, if you are driving traffic on-site to your Standalone campaign both from your home page navigation bar and from your footer template, and you wanted to see which one is more high value and driving more traffic to your campaign you could look at the different traffic sources in reporting to clearly see this.</p>
+<p>How to use the traffic_source parameter in a call to action:</p>
+<p>Say you have a Standalone integration displaying a campaign on www.yoursite.com/share.
+You could append the traffic_source parameter on to your footer call to action as seen below:</p>
+<p><tt class="docutils literal"><span class="pre">www.yoursite.com/share?traffic_source=footer</span></tt></p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -167,5 +185,14 @@ dashboard after you log in and create a site.</p>
       <div class="clearer"></div>
     </div>
   </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>

@@ -64,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
       </div>
@@ -77,7 +78,7 @@
   <span class="target" id="campaigns-localization"></span><div class="section" id="localization">
 <h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
 <p>Each template can be localized.
-Localization is not a part of the view template. It is stored in campaign allowing multiple campaign to use same template with different locazation.</p>
+Localization is not a part of the view template. Default talkable campaigns are comming with localization now. It is stored in campaign allowing multiple campaign to use same template with different locazation and ability to edit Copy of a campaign outside of liquid editor (making interface significatly easier for marketer).</p>
 <p>Campaign localization is done using a liquid filter <cite>localize</cite>:</p>
 <div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_title&quot; | localize: &#39;Get [[incentives.referrer.descrition]]&#39; }}
 </pre></div>
@@ -85,7 +86,7 @@ Localization is not a part of the view template. It is stored in campaign allowi
 <p>After adding this filter call to the template, go to campaign page and click &#8220;Localization&#8221; from the navigation menu:</p>
 <img alt="../_images/campaign-localization.jpg" src="../_images/campaign-localization.jpg" />
 <p>Any campaign that uses view with <cite>localize</cite> call have this data appeared.
-Now you are able to change the default value to something else like <cite>Obten [[incentives.referrer.descrition]]</cite> (Spanish)</p>
+Now you are able to change the default value to something else like <cite>Obten {{incentives.referrer.descrition}}</cite> (Spanish)</p>
 <p>Campaign Localization is copied when campaign is copied, so you are able to use the following flow:</p>
 <ol class="arabic simple">
 <li>Create Campaign</li>
@@ -102,5 +103,14 @@ Now you are able to change the default value to something else like <cite>Obten 
       <div class="clearer"></div>
     </div>
   </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>

@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
       </div>
@@ -102,7 +103,7 @@ different between preview and production scenarious)</li>
 <p><br>
 <hr></p>
 <div class="section" id="advocate-info">
-<h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
+<span id="editor-variables-advocate-info"></span><h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: all Views <br>
 <strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
 <p>Personal data for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr>.</p>
@@ -132,20 +133,16 @@ different between preview and production scenarious)</li>
 <td>&#8220;Smith&#8221;</td>
 <td>Advocate last name provided on Signup</td>
 </tr>
-<tr class="row-odd"><td>gender</td>
-<td>null | &#8220;male&#8221; | &#8220;female&#8221;</td>
-<td>Advocate gender provided on Signup</td>
-</tr>
-<tr class="row-even"><td>external_customer_id</td>
+<tr class="row-odd"><td>external_customer_id</td>
 <td>&#8220;1jsh17136&#8221;</td>
 <td>Advocate unique ID passed by Merchant to <a class="reference internal" href="../../ecommerce/custom.html#ecommerce-custom"><em>Talkable Integration</em></a> as <tt class="docutils literal"><span class="pre">customer_id</span></tt></td>
 </tr>
-<tr class="row-odd"><td>sub_choice</td>
+<tr class="row-even"><td>sub_choice</td>
 <td>false | true</td>
 <td>Advocate custom parameter which can be used to pass additional
 data to Advocate Share Page.</td>
 </tr>
-<tr class="row-even"><td>purchases_count</td>
+<tr class="row-odd"><td>purchases_count</td>
 <td>0</td>
 <td>Advocate number of tracked store purchases</td>
 </tr>
@@ -254,5 +251,14 @@ needed to trigger reward)</td>
       <div class="clearer"></div>
     </div>
   </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>
