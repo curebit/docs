@@ -429,6 +429,32 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 {{ leader.email }} - {{ leader.leaderboard_count }} - {{ leader.leaderboard_rank }}
 </pre></div>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="url2png">
+<h2>url2png<a class="headerlink" href="#url2png" title="Permalink to this headline">¶</a></h2>
+<p>Captures a snapshot of a website URL you pass to it. In case you need to
+embed a snapshot of your website into Talkable campaign it is way better
+to use this liquid filter instead of embedding an iframe since an image
+is always lighter in size and takes less CPU performance to render on
+a screen. Also, some websites restrict themselves from embedding through
+an iframe so you can take <tt class="docutils literal"><span class="pre">url2png</span></tt> as a bulletproof solution for a
+website snapshot.</p>
+<p>Available options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ttl</span></tt> - &#8220;time to live&#8221; period for a screenshot before it gets refreshed, in seconds. Value example: <tt class="docutils literal"><span class="pre">86400</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">viewport</span></tt> - Viewport dimensions. Value example: <tt class="docutils literal"><span class="pre">&quot;640x480&quot;</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">custom_css_url</span></tt> - Custom CSS file that will be injected into a website in case you need to change a screenshot. Value example: <tt class="docutils literal"><span class="pre">&quot;http://url2png.com/tests/css/test.css&quot;</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">fullpage</span></tt> - Attempts to capture entire document canvas. Value example: <tt class="docutils literal"><span class="pre">true</span></tt>.</li>
+</ul>
+<p>Here is how you can embed a screenshot of your website into a campaign view (<tt class="docutils literal"><span class="pre">site_url</span></tt> returns your website URL that you set inside Site Settings):</p>
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;img src=&quot;{{ site_url | url2png }}&quot; class=&quot;campaign-site-on-the-back&quot; /&gt;
+</pre></div>
+</div>
+<p>Refresh the screenshot every week:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;img src=&quot;{{ &#39;www.example.com&#39; | url2png: ttl: 604800 }}&quot; /&gt;
+</pre></div>
+</div>
 </div>
 </div>
 
