@@ -86,7 +86,7 @@
 <li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by following code:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate</span><span class="p">:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -94,8 +94,8 @@
 <li>Take control of presenting offers to your users. Use next two delegate methods to prevent or give an instruction where you want that offer will be displayed:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">shouldPresentTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nf">viewControllerForPresentingTalkableOfferViewController</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">shouldPresentTalkableOfferViewController:</span><span class="p">(</span><span class="n">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nf">viewControllerForPresentingTalkableOfferViewController</span><span class="p">;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -103,7 +103,7 @@
 <li>Customize ViewContoller title by implementing method below. By default title of offer page is used.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">titleForTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">titleForTalkableOfferViewController:</span><span class="p">(</span><span class="n">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -115,8 +115,8 @@
 <li>Present offers to your users by yourself by handling request url or webView after origin was created.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withWebView:</span><span class="p">(</span><span class="bp">UIWebView</span><span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withURL:</span><span class="p">(</span><span class="n">NSURL</span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withWebView:</span><span class="p">(</span><span class="n">UIWebView</span><span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -134,9 +134,9 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">couponReceived</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">TKBLDidReceiveCouponCode</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver:</span><span class="n">self</span> <span class="nl">selector:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">couponReceived:</span><span class="p">)</span> <span class="nl">name:</span><span class="n">TKBLDidReceiveCouponCode</span> <span class="nl">object:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">couponReceived</span><span class="p">:(</span><span class="bp">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">couponReceived:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
   <span class="c1">// Your logic here</span>
 <span class="p">}</span>
 <span class="p">...</span>
@@ -149,10 +149,10 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">publishMessageNotification</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">TKBLDidPublishMessageNotification</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver:</span><span class="n">self</span> <span class="nl">selector:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">publishMessageNotification:</span><span class="p">)</span> <span class="nl">name:</span><span class="n">TKBLDidPublishMessageNotification</span> <span class="nl">object:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">publishMessageNotification</span><span class="p">:(</span><span class="bp">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">([[[</span><span class="n">ntf</span> <span class="n">userInfo</span><span class="p">]</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">TKBLMessageNameKey</span><span class="p">]</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="n">TKBLMessageOfferLoaded</span><span class="p">])</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">publishMessageNotification:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">([[[</span><span class="n">ntf</span> <span class="n">userInfo</span><span class="p">]</span> <span class="nl">objectForKey:</span><span class="n">TKBLMessageNameKey</span><span class="p">]</span> <span class="nl">isEqualToString:</span><span class="n">TKBLMessageOfferLoaded</span><span class="p">])</span> <span class="p">{</span>
     <span class="c1">// Your logic here</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -173,7 +173,7 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">].</span><span class="n">debug</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">].</span><span class="n">debug</span> <span class="o">=</span> <span class="n">YES</span><span class="p">;</span>
 </pre></div>
 </div>
 </div></blockquote>
