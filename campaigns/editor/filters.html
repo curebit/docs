@@ -160,7 +160,7 @@ First parameter is a maximum random number.</p>
 <p><hr></p>
 </div>
 <div class="section" id="regexp-captures">
-<span id="liquid-filter-split-test"></span><h2>regexp_captures<a class="headerlink" href="#regexp-captures" title="Permalink to this headline">¶</a></h2>
+<h2>regexp_captures<a class="headerlink" href="#regexp-captures" title="Permalink to this headline">¶</a></h2>
 <p>Parses input with a given regexp and returning
 <a class="reference external" href="http://www.regular-expressions.info/brackets.html">regular expression captures</a>
 as an array.</p>
@@ -168,29 +168,30 @@ as an array.</p>
 {{ &#39;bogdan@example.com&#39; | regexp_captures: &#39;^([a-z]+)\@([a-z]+)\.([a-z]+)&#39; | json }}
 </pre></div>
 </div>
+<p><hr></p>
 </div>
-<div class="section" id="split-test">
-<h2>split_test<a class="headerlink" href="#split-test" title="Permalink to this headline">¶</a></h2>
-<p>Split testing static text:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;split_test_identifier&quot; | split_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
+<div class="section" id="ab-test">
+<h2>ab_test<a class="headerlink" href="#ab-test" title="Permalink to this headline">¶</a></h2>
+<p>A/B testing static text:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;ab_test_identifier&quot; | ab_test: &quot;Label 1&quot;, &quot;Label 2&quot;, &quot;Label N&quot; }}
 </pre></div>
 </div>
-<p>Split testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | split_test: &quot;[[site_name]]&quot;,
+<p>A/B testing text with interpolation:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;share_via_email_subject&quot; | ab_test: &quot;[[site_name]]&quot;,
    &quot;Your friend [[advocate_info.email]] shared this deal with you&quot; | interpolate }}
 </pre></div>
 </div>
-<p>Split testing an asset:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_background&quot; | split_test: &quot;background-green.jpg&quot;, &quot;background-red.jpg&quot; | asset_url }}
+<p>A/B testing an asset:</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_background&quot; | ab_test: &quot;background-green.jpg&quot;, &quot;background-red.jpg&quot; | asset_url }}
 </pre></div>
 </div>
-<p>Split testing style:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&quot;background-color: {{ &#39;offer_background&#39; | split_test: &#39;#d3d3d3&#39;, &#39;#ff0000&#39; }}&quot;</span><span class="nt">&gt;</span>
+<p>A/B testing style:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&quot;background-color: {{ &#39;offer_background&#39; | ab_test: &#39;#d3d3d3&#39;, &#39;#ff0000&#39; }}&quot;</span><span class="nt">&gt;</span>
   ...
 <span class="nt">&lt;/body&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">&quot;font-size: {{ &#39;title_size&#39; | split_test: &#39;24px&#39;, &#39;30px&#39; }}&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">&quot;font-size: {{ &#39;title_size&#39; | ab_test: &#39;24px&#39;, &#39;30px&#39; }}&quot;</span><span class="nt">&gt;</span>
   Sample Title
 <span class="nt">&lt;/h1&gt;</span>
 </pre></div>
@@ -210,11 +211,11 @@ as an array.</p>
 <p><hr></p>
 </div>
 <div class="section" id="hours-from-time">
-<span id="liquid-filter-hours-from-time"></span><h2>hours_from_time<a class="headerlink" href="#hours-from-time" title="Permalink to this headline">¶</a></h2>
+<h2>hours_from_time<a class="headerlink" href="#hours-from-time" title="Permalink to this headline">¶</a></h2>
 <p>Alias <cite>hours_from_now</cite></p>
 <p>Calculate difference between two dates. By default calculates between specified time and current time.</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Sun, 02 Jan 2000 10:00:00 PST&quot; | hours_from_time: &quot;Sat, 01 Jan 2000 10:00:00 PST&quot;}}
-{{ &quot;2015-03-27 17:53&quot; | hours_from_time: &quot;2015-03-27 15:53&quot;}}
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;Sun, 02 Jan 2000 10:00:00 PST&quot; | hours_from_time: &quot;Sat, 01 Jan 2000 10:00:00 PST&quot; }}
+{{ &quot;2015-03-27 17:53&quot; | hours_from_time: &quot;2015-03-27 15:53&quot; }}
 </pre></div>
 </div>
 <p>Next two examples is equivalent.</p>
