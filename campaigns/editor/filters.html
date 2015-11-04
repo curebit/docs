@@ -394,6 +394,34 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 <p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
 <p><hr></p>
 </div>
+<div class="section" id="scale-color">
+<h2>scale_color<a class="headerlink" href="#scale-color" title="Permalink to this headline">¶</a></h2>
+<p>Returns a new adjusted color with scaled attributes.
+Available attributes: <cite>red</cite>, <cite>green</cite>, <cite>blue</cite>, <cite>saturation</cite>, <cite>lightness</cite>, <cite>alpha</cite></p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;black&quot; | scale_color: lightness: 50 }}
+{{ &quot;256, 128, 0&quot; | scale_color: saturation: -10 }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="adjust-color">
+<h2>adjust_color<a class="headerlink" href="#adjust-color" title="Permalink to this headline">¶</a></h2>
+<p>Returns a new adjusted color based on the following attributes:</p>
+<ul class="simple">
+<li><cite>red</cite> — changes only the Red color channel saturation. Allowed values: <cite>-255</cite>-<cite>255</cite>.</li>
+<li><cite>green</cite> — changes only the Green color channel saturation. Allowed values: <cite>-255</cite>-<cite>255</cite>.</li>
+<li><cite>blue</cite> — changes only the Blue color channel saturation. Allowed values: <cite>-255</cite>-<cite>255</cite>.</li>
+<li><cite>hue</cite> — changes the hue of a color. Allowed values: <cite>0</cite>-<cite>360</cite>.</li>
+<li><cite>saturation</cite> — changes the saturation of a color. Allowed values: <cite>-100</cite>-<cite>100</cite>.</li>
+<li><cite>lightness</cite> — changes the lightness of a color. Allowed values: <cite>-100</cite>-<cite>100</cite>.</li>
+<li><cite>alpha</cite> — changes the opacity of a color. Allowed values: <cite>-1</cite>-<cite>1</cite>.</li>
+</ul>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;red&quot; | adjust_color: blue: 255 }}
+{{ &quot;#000000&quot; | adjust_color: alpha: -0.5 }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
 <div class="section" id="leaderboard">
 <h2>leaderboard<a class="headerlink" href="#leaderboard" title="Permalink to this headline">¶</a></h2>
 <p>Returns array of top advocates for specified period of time. Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
