@@ -391,6 +391,12 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 {{ &quot;offer_title&quot; | localize: &quot;Get [[incentives.referrer.description]]&quot; }}
 </pre></div>
 </div>
+<p>Supports fixed variants for localization, user will be able to set localization value only from this list.
+First value will be a default value, or you can set it using <tt class="docutils literal"><span class="pre">default</span></tt> option.</p>
+<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;campaign_layout&quot; | localize: &quot;left&quot;, &quot;right&quot; }}
+{{ &quot;header_size&quot; | localize: &quot;h1&quot;, &quot;h2&quot;, &quot;h3&quot;, &quot;h4&quot;, default: &quot;h2&quot; }}
+</pre></div>
+</div>
 <p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
 <p><hr></p>
 </div>
