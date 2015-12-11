@@ -48,12 +48,22 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../web_hooks.html">Web Hooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="create_coupon.html">Create Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
@@ -65,7 +75,8 @@
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -79,7 +90,7 @@
             
   <span class="target" id="web-hooks-post-share"></span><div class="section" id="post-share-web-hook">
 <h1>Post Share Web Hook<a class="headerlink" href="#post-share-web-hook" title="Permalink to this headline">¶</a></h1>
-<p>Triggered when a <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> person shares offer details with referred persons via
+<p>Triggered when a <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person shares offer details with referred persons via
 corresponding form provided by campaign workflow.</p>
 <h2>Payload parameters provided for Post Share Web Hook</h2><ul class="simple">
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>

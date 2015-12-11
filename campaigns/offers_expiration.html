@@ -48,10 +48,16 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
@@ -61,9 +67,14 @@
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -77,28 +88,28 @@
             
   <span class="target" id="campaigns"></span><div class="section" id="offers-expiration">
 <h1>Offers Expiration<a class="headerlink" href="#offers-expiration" title="Permalink to this headline">¶</a></h1>
-<p>Talkable Campaign allows to set offer expiration for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+<p>Talkable Campaign allows to set offer expiration for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
 by specifying specific date or setting offer duration in hours.</p>
 <h2>Advocate</h2><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
-<li>All existing <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offers are always affected if specified date is changed
+<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
+<li>All existing <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers are always affected if specified date is changed
 while campaign is live.</li>
 <li>Deadline is not copied when campaign is copied.</li>
-<li>When campaign is deactivated, all <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offers instantly become expired because deactivating a campaign is equal to set <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offer deadline to now.</li>
-<li>When <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offer is expired, Advocate and Friend are still eligible for reward.
-In other words advocate offer expiration only prevents <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> from sharing but not from getting rewarded</li>
+<li>When campaign is deactivated, all <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers instantly become expired because deactivating a campaign is equal to set <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline to now.</li>
+<li>When <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer is expired, Advocate and Friend are still eligible for reward.
+In other words advocate offer expiration only prevents <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> from sharing but not from getting rewarded</li>
 </ul>
 <h2>Friend</h2><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">deadline</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
 <li><tt class="docutils literal"><span class="pre">offer</span> <span class="pre">duration</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
-hours after <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> shared it with him. Leave blank to disable expiration at all.</li>
+hours after <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> shared it with him. Leave blank to disable expiration at all.</li>
 <li>All existing <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offers will be affected if specified date or offer duration is
 changed while campaign is live.</li>
 <li>If date and offer duration are specified, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer will be expired on
 the closest date calculated from offer duration or specified in deadline.</li>
-<li><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer deadline should never be earlier than <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offer deadline
+<li><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer deadline should never be earlier than <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline
 (because there is no sense to share offer that cannot be claimed).</li>
-<li>When <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer is expired, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> and <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> are not able to receive any rewards.
+<li>When <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer is expired, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> and <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> are not able to receive any rewards.
 But they still may try to use coupon they received earlier because talkable platform doesn&#8217;t control coupon expiration. Only merchant site does that.</li>
 <li>When campaign is copied only offer duration gets copied, but not deadline.</li>
 </ul>

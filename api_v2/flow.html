@@ -48,13 +48,19 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api_v2.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Referral Program via API</a><ul>
@@ -74,6 +80,11 @@
 <li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -98,19 +109,19 @@ It shows how you can do the following actions via API:</p>
 <p>Each of this steps can be done individualy or all together to achive API integration</p>
 <div class="section" id="initial-origin">
 <h2>Initial Origin<a class="headerlink" href="#initial-origin" title="Permalink to this headline">¶</a></h2>
-<p>Invite <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> to referral program at some point by creating an <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a> and obtaining <a class="reference internal" href="offers.html#api-v2-offers"><em>Offer</em></a> to share.</p>
+<p>Invite <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> to referral program at some point by creating an <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a> and obtaining <a class="reference internal" href="offers.html#api-v2-offers"><em>Offer</em></a> to share.</p>
 </div>
 <div class="section" id="displaying-and-sharing-the-offer">
 <h2>Displaying and Sharing the offer<a class="headerlink" href="#displaying-and-sharing-the-offer" title="Permalink to this headline">¶</a></h2>
-<p>Display options for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> to share with their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>s.</p>
+<p>Display options for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> to share with their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>s.</p>
 <p><strong>For Social Share</strong></p>
 <ul class="simple">
 <li>Retrieve unique links for each channel for <a class="reference internal" href="offers.html#api-v2-offers"><em>Offer</em></a> (<cite>claim_urls</cite> interpolation)</li>
-<li>After <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> have shared, make corresponding request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
+<li>After <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> have shared, make corresponding request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
 </ul>
 <p><strong>For Email Share</strong></p>
 <ul class="simple">
-<li>Ask <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> for recipients (and additional information) and make request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
+<li>Ask <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> for recipients (and additional information) and make request to <a class="reference internal" href="shares.html#api-v2-shares"><em>Shares</em></a> endpoint</li>
 </ul>
 </div>
 <div class="section" id="claiming-an-offer">
@@ -128,7 +139,7 @@ It shows how you can do the following actions via API:</p>
 <div class="section" id="submit-origin-data-to-talkable-to-generate-the-referral">
 <h2>Submit Origin data to talkable to generate the referral<a class="headerlink" href="#submit-origin-data-to-talkable-to-generate-the-referral" title="Permalink to this headline">¶</a></h2>
 <p>Once any user makes an action which implies possible close of a referral chain, send an <a class="reference internal" href="origins.html#api-v2-origins"><em>Origin</em></a>. Please include <cite>uuid</cite> in this request if possible.</p>
-<p>For example, if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> makes a purchase on your site or installs your app — <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> needs to be rewarded, and this is achieved with creating <a class="reference internal" href="origins.html#api-v2-origins"><em>Purchase or Event</em></a> which gets linked to previously created <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> offer.</p>
+<p>For example, if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> makes a purchase on your site or installs your app — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> needs to be rewarded, and this is achieved with creating <a class="reference internal" href="origins.html#api-v2-origins"><em>Purchase or Event</em></a> which gets linked to previously created <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer.</p>
 </div>
 </div>
 

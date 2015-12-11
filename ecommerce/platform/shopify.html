@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Shopify Store Integration &mdash; Talkable Documentation</title>
+    <title>Shopify &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Platform Integration" href="../platform.html" />
     <link rel="next" title="3DCart Store Integration" href="3dcart.html" />
-    <link rel="prev" title="Magento Store Integration" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Magento" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -49,23 +49,33 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../custom.html">Default Integration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../platform.html">Platform Integration</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="magento.html">Magento</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Shopify</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integration</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Shopify</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#automatic-integration">Automatic integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-integration">Manual integration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../verify.html">Verifying Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="magento.html">Magento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom.html">Other Platform</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Integrations</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -77,8 +87,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="ecommerce-platform-shopify"></span><div class="section" id="shopify-store-integration">
-<h1>Shopify Store Integration<a class="headerlink" href="#shopify-store-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce-platform-shopify"></span><div class="section" id="shopify">
+<h1>Shopify<a class="headerlink" href="#shopify" title="Permalink to this headline">¶</a></h1>
 <p>To integrate your Shopify store, you can install the <a class="reference external" href="https://apps.shopify.com/talkable">Shopify Talkable application</a>
 from App Store or manually add a code snippet to your checkout page.</p>
 <div class="section" id="automatic-integration">
@@ -169,12 +179,6 @@ dashboard after you log in and create a site.</p>
 <p>Say you have a Standalone integration displaying a campaign on www.yoursite.com/share.
 You could append the traffic_source parameter on to your footer call to action as seen below:</p>
 <p><tt class="docutils literal"><span class="pre">www.yoursite.com/share?traffic_source=footer</span></tt></p>
-<div class="hidden container">
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
-</div>
 </div>
 </div>
 

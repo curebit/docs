@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>E-Commerce Integrations &mdash; Talkable Documentation</title>
+    <title>E-Commerce Integration &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="index.html" />
-    <link rel="next" title="Default Integration" href="ecommerce/custom.html" />
-    <link rel="prev" title="Integrating Talkable on Your Site" href="index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Shopify" href="ecommerce/platform/shopify.html" />
+    <link rel="prev" title="Talkable JS Integration" href="index.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -48,19 +48,29 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">E-Commerce Integrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html">Default Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform.html">Platform Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verify.html">Verifying Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">E-Commerce Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html">Other Platform</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -72,56 +82,112 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="ecommerce"></span><div class="section" id="e-commerce-integrations">
-<h1>E-Commerce Integrations<a class="headerlink" href="#e-commerce-integrations" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce"></span><div class="section" id="e-commerce-integration">
+<h1>E-Commerce Integration<a class="headerlink" href="#e-commerce-integration" title="Permalink to this headline">¶</a></h1>
+<h2>How It Works?</h2><img alt="Integration," class="is-minimal" src="_images/integration.png" />
 <p>Talkable integrates with e-commerce platforms or custom web sites through
-JavaScript calls to our API. But most customers can integrate quickly without
+JavaScript calls to Talkable API. But most customers can integrate quickly without
 knowing how to code.</p>
-<p>The standard integration provides end-to-end referral tracking and displays
-offers via popup after purchase. Other features are optional.</p>
-<h2>E-commerce Platform Integration</h2><p>If you use one of the shopping carts listed in <a class="reference internal" href="ecommerce/platform.html#ecommerce-platform"><em>platform integration</em></a> section, you can use a supported
-extension to integrate Talkable. It&#8217;s often as easy as copying and pasting code,
-and we provide instructions.</p>
-<h2>E-commerce Custom Integration</h2><p>If you&#8217;re not using one these shopping carts, you can still use Talkable.
-With our <a class="reference internal" href="ecommerce/custom.html#ecommerce-custom"><em>custom integration</em></a> option, you just copy
-a few lines of JavaScript to your order confirmation page and you&#8217;re ready to go.</p>
-<h2>Tag Managers</h2><p>If you are using <a href="https://segment.io/" target="_blank">Segment.io</a> as your tag manager, it can be used to &#8220;toggle&#8221;
-Talkable on.</p>
-<p>Instructions can be found at:
-<a href="http://customer.io/docs/basic-integration.html" target="_blank">http://customer.io/docs/basic-integration.html</a></p>
-<h2>Getting Additional Help</h2><p>If you would like help integrating Talkable, or you&#8217;re an enterprise client
+<p>The standard integration provides end-to-end referral tracking that has two steps:</p>
+<ol class="arabic simple">
+<li>Opening the referral loop — this is a place from where <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> invites their
+<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>. This step is a starting point of the referral program. It can be either
+a standalone page somewhere on your website from where all the sharing is done or
+a post purchase popup on the order confirmation page so that each customer who
+buys can participate in the referral program as <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>.</li>
+<li>Closing the referral loop — it is not customer facing piece, it only creates
+<abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> relation which is called &#8220;Referral&#8221;. At this point
+Talkable checks the referral for fraud and makes decision as to rewarding
+<abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> for successful referral or blocking it, based on fraud setup.</li>
+</ol>
+<h2>Getting Started</h2><p>First of all please choose your platform, we make things really easy if you integrate
+via official Talkable extension:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="ecommerce/platform/shopify.html#ecommerce-platform-shopify"><em>Shopify</em></a></li>
+<li><a class="reference internal" href="ecommerce/platform/magento.html#ecommerce-platform-magento"><em>Magento</em></a></li>
+<li><a class="reference internal" href="ecommerce/custom.html#ecommerce-custom"><em>Custom platform</em></a></li>
+</ol>
+<h2>Getting Additional Help</h2><p>If you need help integrating Talkable, or you&#8217;re an enterprise client
 looking for integration services, feel free to <a href="https://www.talkable.com/contact" target="_blank">contact us</a>.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce/custom.html">Default Integration</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="ecommerce/platform/shopify.html">Shopify</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/shopify.html#automatic-integration">Automatic integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/shopify.html#manual-integration">Manual integration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce/platform.html">Platform Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/magento.html">Magento</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecommerce/custom.html">Other Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html#site-placements">Site Placements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html#basic-integration">Basic Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ecommerce/custom.html#post-purchase-site-placement">Post Purchase Site Placement</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/shopify.html">Shopify</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ecommerce/platform/shopify.html#automatic-integration">Automatic integration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ecommerce/platform/shopify.html#manual-integration">Manual integration</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce/verify.html">Verifying Integration</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce/verification_digest.html">Verification Digest</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html#instruction">Instruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html#generating-a-digest">Generating a digest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html#passing-a-digest">Passing a digest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html#digest-generation-algorithm">Digest generation algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optional/coupons.html">Automatic Coupon Creation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optional/coupons.html#multi-use-coupons">Multi-use Coupons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="optional/coupons.html#single-use-coupons">Single-use Coupons</a><ul class="simple">
 </ul>
 </li>
 </ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/passing_custom_data.html">Pass Custom Person Data</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/site_placements.html">Site Placements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optional/site_placements/invite.html">Invite</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/invite.html#flow">Flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/invite.html#basic-integration">Basic Integration</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="optional/site_placements/invite.html#authorizing-advocate">Authorizing Advocate</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="optional/site_placements/post_purchase.html">Post Purchase</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/post_purchase.html#flow">Flow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/post_purchase.html#basic-integration">Basic Integration</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/post_purchase.html#including-product-items">Including Product Items</a></li>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/post_purchase.html#hiding-campaign-preloader">Hiding Campaign Preloader</a></li>
+<li class="toctree-l5"><a class="reference internal" href="optional/site_placements/post_purchase.html#embedding-as-inline-widget">Embedding as Inline Widget</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optional/subscribing_to_events.html#talkable-events">Talkable Events</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/traffic_source.html">Segment With Traffic Source</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/verification_digest.html">Verification Digest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optional/verification_digest.html#summary">Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="optional/verification_digest.html#instruction">Instruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="optional/verification_digest.html#generating-a-digest">Generating a digest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="optional/verification_digest.html#passing-a-digest">Passing a digest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="optional/verification_digest.html#digest-generation-algorithm">Digest generation algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 </div>

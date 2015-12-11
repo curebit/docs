@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Integrating Talkable on Your Site &mdash; Talkable Documentation</title>
+    <title>Talkable JS Integration &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="#" />
-    <link rel="next" title="E-Commerce Integrations" href="ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="E-Commerce Integration" href="ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -47,13 +47,24 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -65,28 +76,55 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="integrating-talkable-on-your-site">
-<h1>Integrating Talkable on Your Site<a class="headerlink" href="#integrating-talkable-on-your-site" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="talkable-js-integration">
+<h1>Talkable JS Integration<a class="headerlink" href="#talkable-js-integration" title="Permalink to this headline">¶</a></h1>
+<p>This section comes with full documentation for Talkable integration into E-Commerce store as well as into any SaaS product.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="toctree-wrapper first last compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html">Default Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform.html">Platform Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verify.html">Verifying Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ecommerce/verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ecommerce/custom.html">Other Platform</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="standalone.html#basic-integration">Basic Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="standalone.html#custom-integration">Custom Integration</a></li>
 </ul>
-</li>
+</div>
+</td>
+<td><div class="toctree-wrapper first last compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="saas.html">SaaS Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="saas.html#basic-integration">Basic Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="saas.html#advanced-integration">Advanced Integration</a></li>
 </ul>
 </li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="toctree-wrapper first last compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optional/coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/site_placements.html">Site Placements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+<td><div class="toctree-wrapper first last compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="campaigns/views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns/tutorials.html">Tutorials</a></li>
@@ -96,23 +134,24 @@
 <li class="toctree-l2"><a class="reference internal" href="campaigns/localization.html">Localization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="optional/coupons.html">Coupons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/product_information.html">Product Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/paypal_auto_redirect.html">PayPal Auto-Redirect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/reward_fulfillment.html">Reward Fulfillment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/white_labeling.html">White Labeling</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/create_coupon.html">Create Coupons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/referral.html">Referral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/reward.html">Reward</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/post_share.html">Post Share</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/offer_signup.html">Advocate Signup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="web_hooks/claim_signup.html">Friend Email Gating</a></li>
-</ul>
-</li>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p></div>
+<div class="section" id="talkable-back-end-integration">
+<h1>Talkable Back-end Integration<a class="headerlink" href="#talkable-back-end-integration" title="Permalink to this headline">¶</a></h1>
+<p>Follow one of these sections in case you need to get or send data from/to Talkable.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="toctree-wrapper first last compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_v2/intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_v2/flow.html">Referral Program via API</a></li>
@@ -126,6 +165,38 @@
 <li class="toctree-l2"><a class="reference internal" href="api_v2/rewards.html">Rewards</a></li>
 </ul>
 </li>
+</ul>
+</div>
+</td>
+<td><div class="toctree-wrapper first last compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/create_coupon.html">Create Coupons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/referral.html">Referral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/reward.html">Reward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/post_share.html">Post Share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/offer_signup.html">Advocate Signup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_hooks/claim_signup.html">Friend Email Gating</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p></div>
+<div class="section" id="talkable-for-mobile">
+<h1>Talkable For Mobile<a class="headerlink" href="#talkable-for-mobile" title="Permalink to this headline">¶</a></h1>
+<p>Follow our instructions on how to integrate Talkable into your native mobile app.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="toctree-wrapper first last compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="ios_sdk.html">Talkable iOS SDK</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ios_sdk/getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ios_sdk/integration.html">Integration</a></li>
@@ -135,6 +206,11 @@
 </li>
 </ul>
 </div>
+</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

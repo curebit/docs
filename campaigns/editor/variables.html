@@ -48,10 +48,16 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../standalone.html">Standalone Integrations</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
@@ -68,9 +74,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../localization.html">Localization</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -106,7 +117,7 @@ different between preview and production scenarious)</li>
 <span id="editor-variables-advocate-info"></span><h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: all Views <br>
 <strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
-<p>Personal data for <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr>.</p>
+<p>Personal data for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -161,7 +172,7 @@ giving out the Reward).</p>
 <p>When you want to use this Variable always keep in mind who you want to
 show it to because it has a scope:</p>
 <ul class="simple">
-<li>for Views which name starts with <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> it means Advocate Coupon Code</li>
+<li>for Views which name starts with <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> it means Advocate Coupon Code</li>
 <li>for Views which name starts with <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> it means Friend Coupon Code</li>
 </ul>
 <img alt="Variables: friend coupon code" src="../../_images/vars-friend-coupon-code.png" />
@@ -182,7 +193,7 @@ enough coupons and they are valid in terms of uniqueness and validity</li>
 <p>Reflects entire Campaign Incentives list including. This object can include
 several Incentives which are also objects.</p>
 <p>Here is an example of <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> Variable with two incentives:
-<abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>:</p>
+<abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="nx">advocate</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">amount</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>

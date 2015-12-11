@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Default Integration &mdash; Talkable Documentation</title>
+    <title>Other Platform &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="E-Commerce Integrations" href="../ecommerce.html" />
-    <link rel="next" title="Platform Integration" href="platform.html" />
-    <link rel="prev" title="E-Commerce Integrations" href="../ecommerce.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="up" title="E-Commerce Integration" href="../ecommerce.html" />
+    <link rel="next" title="Automatic Coupon Creation" href="../optional/coupons.html" />
+    <link rel="prev" title="Magento" href="platform/magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -49,21 +49,34 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Default Integration</a><ul class="simple">
+<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform/magento.html">Magento</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Other Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#site-placements">Site Placements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-integration">Basic Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-features">Advanced Features</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="verify.html">Verifying Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="verification_digest.html">Verification Digest</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -75,176 +88,80 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="ecommerce-custom"></span><div class="section" id="default-integration">
-<h1>Default Integration<a class="headerlink" href="#default-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ecommerce-custom"></span><div class="section" id="other-platform">
+<h1>Other Platform<a class="headerlink" href="#other-platform" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>We offer separate integration script for each <strong>Enterprise</strong> site.
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
-<p>To ensure the campaign is loaded as fast as possible with no delay, it is
-important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag you
-will have to use the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
-<p>Once you have placed your integration script inside the HEAD tag, and you have
-defined the iframe container parameter, then you will be able to set up an empty
-block with id = container parameter from integration script. Now that you have
-defined the campaign Container ID, your campaign will be inserted anywhere on
-your page where the container id is identified.</p>
-<p>On your final checkout receipt page (which includes things like the customer&#8217;s
-order number or confirmation code), you will include a Javascript snippet
-containing the order and purchased product information. This version of the
-Talkable integration code can be asynchronous or synchronous depending on your decision.</p>
-<p>The parameters you will need to provide are:</p>
-<ul class="simple">
-<li>Order Number</li>
-<li>Order Date and Time (<a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> formatted datetime)</li>
-<li>Customer Email Address</li>
-<li>Coupon code used at checkout</li>
-<li>Customer ID from your site (Optional)</li>
-<li>Purchase Subtotal</li>
-<li>Cart items are OPTIONAL. If provided, then for each item:<ul>
-<li>Product ID</li>
-<li>Item Unit Price</li>
-<li>Quantity</li>
-<li>Product Name/Title (Optional)</li>
-<li>Product URL (Optional)</li>
-<li>Product Image URL (Optional)</li>
-</ul>
-</li>
-</ul>
-<p>Below is the sample code for a purchase with two items.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">To get your personal integration code, YOUR-TALKABLE-SITE-ID needs to be
-replaced with your Talkable Site ID. You can get this from your Talkable
-dashboard after you log in and create a site.</p>
+<div class="section" id="site-placements">
+<h2>Site Placements<a class="headerlink" href="#site-placements" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>It is all about the referral loop. Define a place where do you want your customers see Talkable campaign at. This is a place from where they will be inviting their friends — we call it &#8220;opening the loop&#8221;:</dt>
+<dd><ol class="first last arabic simple">
+<li><a class="reference internal" href="../optional/site_placements/post_purchase.html#optional-site-placements-post-purchase"><em>Post Purchase</em></a> — on the order confirmation page after checkout</li>
+<li><a class="reference internal" href="../optional/site_placements/invite.html#optional-site-placements-invite"><em>Invite</em></a> — on the standalone page that&#8217;s always available to anyone</li>
+<li>On the homepage as an email capture popup to everyone who visits</li>
+<li>Inside user account section as a dashboard which includes tracking history and reminder functionality</li>
+<li>On every page as a floating button in a corner of the screen so customers are able to access Talkable campaign from anywhere on the site without being distracted from what they are looking for</li>
+<li>All of the above <strong>(recommended)</strong>. The more places you integrate Talkable into the more boost you get from referrals channel.</li>
+</ol>
+</dd>
+</dl>
+<p><hr></p>
 </div>
-<h2>Main Integration Code</h2><div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<div class="section" id="basic-integration">
+<h2>Basic Integration<a class="headerlink" href="#basic-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="post-purchase-site-placement">
+<h3>Post Purchase Site Placement<a class="headerlink" href="#post-purchase-site-placement" title="Permalink to this headline">¶</a></h3>
+<p>This is a <strong>required</strong> placement because it acts as both opener and closer of the referral loop. On your final checkout receipt page (which includes things like the customer&#8217;s
+order number or confirmation code) you will pass customer order data to Talkable. Passing order data is required in order to verify validity of referrals and exclude any possibility of fraud.</p>
+<p>Below is an example of the very basic Post Purchase integration.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-post-purchase-container&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// REQUIRED - Talkable Site ID</span>
-    <span class="c1">// If you are using live ENV and test ENV you might need to switch over two sites based on current location host:</span>
-    <span class="c1">// , site_id: window.location.host == &quot;www.site.com&quot; ? &#39;site&#39; : &#39;site-testing&#39;</span>
-    <span class="c1">// , server: &#39;https://www.talkable.com&#39; // OPTIONAL - use your own domain, that suppose to be setup as alias to talkable.com (this option is only possible for Enterprise client)</span>
+    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// Required - Talkable Site ID, you can find it on the Dashboard inside Talkable upon login</span>
   <span class="p">}]);</span>
 
-  <span class="kd">var</span> <span class="nx">_talkable_order_items</span> <span class="o">=</span> <span class="p">[];</span>
-  <span class="nx">_talkable_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-    <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku1&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
-    <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;199.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
-    <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
-    <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
-  <span class="p">});</span>
-
-  <span class="nx">_talkable_order_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-    <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku2&#39;</span><span class="p">,</span> <span class="cm">/* Item Product ID */</span>
-    <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;6.00&#39;</span><span class="p">,</span> <span class="cm">/* Item Unit Price */</span>
-    <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="cm">/* Item Quantity */</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Amazing Product&#39;</span><span class="p">,</span> <span class="cm">/* Name of product */</span>
-    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2&#39;</span><span class="p">,</span> <span class="cm">/* URL for product */</span>
-    <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product2/image.jpg&#39;</span> <span class="cm">/* URL for product image */</span>
-  <span class="p">});</span>
-
-  <span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
-    <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
-    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
-    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
-    <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// REQUIRED - Tag(s) of a campaign that should be shown on a screen as a result of successfully registered purchase</span>
-    <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_order_items</span><span class="p">,</span> <span class="c1">// OPTIONAL - Pass an array with produc items that were included in a shopping cart at checkout</span>
-    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Customer First Name</span>
-    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - Customer Last Name</span>
-    <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;Post-checkout&#39;</span> <span class="c1">// OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reporting.</span>
-    <span class="c1">// , customer_id: &#39;1234567890&#39; // OPTIONAL - Set to your internal customer ID for tracking</span>
-    <span class="c1">// , iframe: { // OPTIONAL - make iframe to be placed inline instead of a popup. This gives you ability to style it however needed</span>
-    <span class="c1">//     container: &#39;id-example&#39;, // OPTIONAL - Tell Talkable where to insert the iframe (this is HTML id attribute value).</span>
-    <span class="c1">//     width: &#39;100%&#39;, // OPTIONAL - These are standard HTML attributes, feel free to add as many you need</span>
-    <span class="c1">//     height: &#39;800&#39;</span>
-    <span class="c1">// , } // OPTIONAL - display offer inline instead of popup</span>
-    <span class="c1">// , loader: &#39;background: rgba(0, 0, 0, .85) url(&quot;//d2jjzw81hqbuqv.cloudfront.net/assets/api/loader.gif&quot;) no-repeat center center;&#39; // OPTIONAL - change CSS of loading overlay or disable it completely by using &#39;display: none;&#39;</span>
-    <span class="c1">// , person_custom_properties: { // OPTIONAL - Additional customer properties</span>
-    <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
-    <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
-    <span class="c1">// }</span>
+  <span class="kd">var</span> <span class="nx">_talkable_purchase</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - Order number</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// Required - Customer Email Address</span>
+    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// Required - Purchase Subtotal</span>
+    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="p">},</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer First Name</span>
+    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer Last Name</span>
   <span class="p">};</span>
 
-  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_order_details</span><span class="p">]);</span> <span class="c1">// Pass Purchase to Talkable</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_purchase</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-1.0.42.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://jsbin.com/sedopalalu/1">Example post-purchase integration</a></p>
-<p><a class="reference external" href="http://jsbin.com/sedopalalu/1/edit?html,js,output">Source for post-purchase integration</a></p>
+<p><a class="reference external" href="http://learn.talkable.com/docs/pp-basic">Integration example</a></p>
+<p><a class="reference internal" href="../optional/site_placements/post_purchase.html#optional-site-placements-post-purchase"><em>Learn more</em></a> about more advanced features of Post Purchase integration.</p>
 <p><hr></p>
-<h2>Optimizing for Viewport</h2><p>Talkable provides flexibility for the merchant to decide how they want to
-optimize mobile.</p>
-<p>If your site is responsive, all you&#8217;ll want to do is set <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>.
-In your campaign, there are different views for mobile, tablet and desktop.
-We&#8217;ll automatically pull the correct theme view based on the user&#8217;s device
-once we detect the viewport. We&#8217;ll use our responsive engine to size the
-Talkable iframe to the right size. Like Magic!</p>
-<p>If you have separate mobile, tablet and desktop sites (or any combination of
-the three), you can leave <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt> on but also specifically set the
-campaign theme view to use. This will prevent Talkable from automatically
-assigning the theme view to use, but will allow us to resize within the screen
-to make sure all elements fit well.</p>
-<p>Make sure you have this CSS in your campaign theme so it won&#8217;t have a double
-scrollbars on resize (if <tt class="docutils literal"><span class="pre">responsive:</span> <span class="pre">true</span></tt>)</p>
-<div class="code css highlight-python"><div class="highlight"><pre>body { overflow: hidden; }
-</pre></div>
 </div>
-<p><a class="reference external" href="http://jsbin.com/jowoxozoro/1">Example integration</a></p>
-<p><a class="reference external" href="http://jsbin.com/jowoxozoro/1/edit?html,output">Source integration</a></p>
-<p><hr></p>
-<h2>Passing Custom Person Data</h2><p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data
-to Talkable in the form of Key-Value pairs via integration.</p>
-<p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass
-any key value pairs you wish.</p>
-<p>The values you define for some key should be JSON Key-Value pairs themselves,
-this means complex data structures can be passed through.</p>
-<p>Any <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> data passed through is tied to the Person
-(<abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> or <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>), that means there is only one instance of each field in
-existence at any time: the most recently passed data.</p>
-<p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use
-across all Campaign Views. Accessing this data beings by creating a variable
-to store your custom_properties:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{% assign data = advocate_info.custom_properties %}
-</pre></div>
 </div>
-<p>Key Value pairs can be referenced through your newly created object by referencing
-the value name such as:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ data.favorite_color }}
-</pre></div>
-</div>
-<p>Defining <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> in your integration might look something like this:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">...</span>
-  <span class="nx">person_custom_properties</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>
-    <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;72 inches&#39;</span><span class="p">,</span>
-    <span class="nx">eye_color</span><span class="o">:</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span>
-    <span class="nx">birthday</span><span class="o">:</span> <span class="s1">&#39;07/03/1983&#39;</span>
-  <span class="p">}</span>
-  <span class="p">...</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<h2>Passing traffic_source through the URL</h2><p>When driving traffic to one of your campaigns, you can include a traffic source parameter as a URL query string to help segment your reporting.  This is helpful when you are driving traffic from many different sources to the same campaign.  This makes sense to do for both on-site and off-site call to actions where you want to specifically want to track your traffic source.  For example, if you are driving traffic on-site to your Standalone campaign both from your home page navigation bar and from your footer template, and you wanted to see which one is more high value and driving more traffic to your campaign you could look at the different traffic sources in reporting to clearly see this.</p>
-<p>How to use the traffic_source parameter in a call to action:</p>
-<p>Say you have a Standalone integration displaying a campaign on www.yoursite.com/share.
-You could append the traffic_source parameter on to your footer call to action as seen below:</p>
-<p><tt class="docutils literal"><span class="pre">www.yoursite.com/share?traffic_source=footer</span></tt></p>
-<div class="hidden container">
+<div class="section" id="advanced-features">
+<h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h2>
+<p>Here is a full list of things you can do with Talkable:</p>
 <div class="toctree-wrapper compound">
-<ul class="simple">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional/coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/site_placements.html">Site Placements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optional/white_labeling.html">White-labeling</a></li>
 </ul>
 </div>
 </div>

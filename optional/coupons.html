@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Optional Features" href="../optional.html" />
-    <link rel="next" title="Product Information Integration (Optional)" href="product_information.html" />
-    <link rel="prev" title="Optional Features" href="../optional.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="up" title="Advanced Features" href="../optional.html" />
+    <link rel="next" title="Pass Custom Person Data" href="passing_custom_data.html" />
+    <link rel="prev" title="Advanced Features" href="../optional.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -49,24 +49,48 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ecommerce/custom.html">Other Platform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#site-placements">Site Placements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#basic-integration">Basic Integration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../ecommerce/custom.html#advanced-features">Advanced Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Optional Features</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Coupons</a><ul>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Automatic Coupon Creation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multi-use-coupons">Multi-use Coupons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#single-use-coupons">Single-use Coupons</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="product_information.html">Product Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paypal_auto_redirect.html">PayPal Auto-Redirect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reward_fulfillment.html">Reward Fulfillment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White Labeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site_placements.html">Site Placements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -80,7 +104,7 @@
             
   <span class="target" id="optional-coupons"></span><div class="section" id="automatic-coupon-creation">
 <h1>Automatic Coupon Creation<a class="headerlink" href="#automatic-coupon-creation" title="Permalink to this headline">¶</a></h1>
-<p>You can reward <abbr title="Person, who shares an offer with his Friend(s)">Advocate</abbr> and their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> with coupons. Talkable supports both
+<p>You can reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> with coupons. Talkable supports both
 one-time-use coupons as well as multi-use coupons. If you are using one-time-use
 coupons there is a need to refill a list of coupons within Talkable. You will need
 to export a list of coupons or provide a multi-use coupon code creation end point.</p>

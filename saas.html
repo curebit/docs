@@ -23,8 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="index.html" />
-    <link rel="next" title="Talkable Campaigns" href="campaigns.html" />
-    <link rel="prev" title="Standalone Integrations" href="standalone.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Advanced Features" href="optional.html" />
+    <link rel="prev" title="Verifying Integration" href="ecommerce/verify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -47,18 +47,29 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="standalone.html">Standalone Integrations</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">SaaS Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-integration">Basic Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#advanced-integration">Advanced Integration</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -109,16 +120,6 @@ This allows us to better support integration individually.</p>
 You can find a site slug right in the URL, it usually looks like talkable.com/sites/<tt class="docutils literal"><span class="pre">your-site-slug</span></tt>. <br>
 The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><em>Advocate Signup Page</em></a> as a result. <br>
 When the Event is registered successfully it appears inside Events Report. <br></p>
-<p>To ensure the campaign is loaded as fast as possible with no delay, it is
-important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag you
-will have to use the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
-<p>Once you have placed your integration script inside the HEAD tag, and you have
-defined the iframe container parameter, then you will be able to set up an empty
-block with id = container parameter from integration script. Now that you have
-defined the campaign Container ID, your campaign will be inserted anywhere on
-your page where the container id is identified.</p>
 <p><hr></p>
 </div>
 <div class="section" id="advanced-integration">
@@ -174,16 +175,6 @@ your page where the container id is identified.</p>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
-<p>To ensure the campaign is loaded as fast as possible with no delay, it is
-important that you place your integration script inside the HEAD tag.
-In order to make sure your campaign will load properly from the HEAD tag you
-will have to use the &#8220;container&#8221; option in the integration script
-(<a class="reference external" href="http://take.ms/nW6YL">image</a>).</p>
-<p>Once you have placed your integration script inside the HEAD tag, and you have
-defined the iframe container parameter, then you will be able to set up an empty
-block with id = container parameter from integration script. Now that you have
-defined the campaign Container ID, your campaign will be inserted anywhere on
-your page where the container id is identified.</p>
 <h2>Passing traffic_source through the URL</h2><p>When driving traffic to one of your campaigns, you can include a traffic source parameter as a URL query string to help segment your reporting.  This is helpful when you are driving traffic from many different sources to the same campaign.  This makes sense to do for both on-site and off-site call to actions where you want to specifically want to track your traffic source.  For example, if you are driving traffic on-site to your Standalone campaign both from your home page navigation bar and from your footer template, and you wanted to see which one is more high value and driving more traffic to your campaign you could look at the different traffic sources in reporting to clearly see this.</p>
 <p>How to use the traffic_source parameter in a call to action:</p>
 <p>Say you have a Standalone integration displaying a campaign on www.yoursite.com/share.

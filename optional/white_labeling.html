@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>White-labeling Talkable &mdash; Talkable Documentation</title>
+    <title>White-labeling &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Optional Features" href="../optional.html" />
-    <link rel="next" title="Web Hooks" href="../web_hooks.html" />
-    <link rel="prev" title="Reward Fulfillment" href="reward_fulfillment.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="up" title="Advanced Features" href="../optional.html" />
+    <link rel="next" title="Talkable Campaigns" href="../campaigns.html" />
+    <link rel="prev" title="Verification Digest" href="verification_digest.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -49,22 +49,46 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integrations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../standalone.html">Standalone Integrations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ecommerce/custom.html">Other Platform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#site-placements">Site Placements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#basic-integration">Basic Integration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../ecommerce/custom.html#advanced-features">Advanced Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="site_placements.html">Site Placements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">White-labeling</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Optional Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="coupons.html">Coupons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="product_information.html">Product Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paypal_auto_redirect.html">PayPal Auto-Redirect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reward_fulfillment.html">Reward Fulfillment</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">White Labeling</a><ul class="simple">
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 
@@ -76,8 +100,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="optional-white-labeling"></span><div class="section" id="white-labeling-talkable">
-<h1>White-labeling Talkable<a class="headerlink" href="#white-labeling-talkable" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="optional-white-labeling"></span><div class="section" id="white-labeling">
+<h1>White-labeling<a class="headerlink" href="#white-labeling" title="Permalink to this headline">¶</a></h1>
 <p>Talkable can be white-labeled so that links and urls point to your domain
 instead of curebit.com. This is currently an Enterprise plan-only feature.
 Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> for more information.</p>
