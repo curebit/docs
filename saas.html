@@ -102,18 +102,20 @@ This allows us to better support integration individually.</p>
   <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
 
   <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
-  <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
-    <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span>
+  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
+      <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span>
+    <span class="p">}</span>
   <span class="p">};</span>
 
   <span class="c1">// Registering an Event at Talkable</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
     <span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR_TALKABLE_SITE_ID&#39;</span> <span class="p">}],</span>
-    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span>
+    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]</span>
   <span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.1.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 </div>
 <p>Keep in mind to set your Talkable site ID/slug and simply place the script into your page between opening and closing <tt class="docutils literal"><span class="pre">BODY</span></tt> tag. <br>
@@ -134,16 +136,19 @@ When the Event is registered successfully it appears inside Events Report. <br><
   <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
 
   <span class="c1">// Talkable Event Data object where you set the data you are going to pass</span>
-  <span class="kd">var</span> <span class="nx">talkableEventData</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - a unique ID of the Event</span>
-    <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Event Category that the Event will belong to</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@gmail.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL, RECOMMENDED - customer email the Event is associated with. If you pass an email the customer will be logged in with it immediately and as a result they will see Advocate Share Page instead of a Signup. It is a good practice to always pass an email not to ask customers to login themselves.</span>
+  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - a unique ID of the Event</span>
+      <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Event Category that the Event will belong to</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@gmail.com&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL, RECOMMENDED - customer email the Event is associated with. If you pass an email the customer will be logged in with it immediately and as a result they will see Advocate Share Page instead of a Signup. It is a good practice to always pass an email not to ask customers to login themselves.</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - if the Event has a value (paid subscription for example) always pass it along, you can then analyze your total sales numbers inside Talkable Reports</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - provide a coupon code if the customer applied it</span>
+      <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - internal customer ID, for tracking</span>
+      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
+      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
+      <span class="c1">// , traffic_source: &#39;Signup page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reports.</span>
+    <span class="p">},</span>
     <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span> <span class="c1">// OPTIONAL - Campaign tags used to target specific campaign for the offer</span>
-    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - if the Event has a value (paid subscription for example) always pass it along, you can then analyze your total sales numbers inside Talkable Reports</span>
-    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - provide a coupon code if the customer applied it</span>
-    <span class="nx">customer_id</span><span class="o">:</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="c1">// OPTIONAL - internal customer ID, for tracking</span>
-    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer First Name</span>
-    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span><span class="p">,</span>  <span class="c1">// OPTIONAL - Customer Last Name</span>
     <span class="nx">iframe</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// REQUIRED - any valid HTML attributes can go in here</span>
       <span class="nx">container</span><span class="o">:</span> <span class="s1">&#39;talkable-sa-container&#39;</span><span class="p">,</span> <span class="c1">// Tell Talkable where to insert the iframe (this is HTML id attribute value)</span>
       <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;100%&#39;</span> <span class="c1">// These are standard HTML attributes, feel free to add as many you need</span>
@@ -154,7 +159,6 @@ When the Event is registered successfully it appears inside Events Report. <br><
     <span class="c1">//     key1: &#39;value1&#39;, // String value</span>
     <span class="c1">//     key2: &#39;123.2&#39; // Numeric value</span>
     <span class="c1">// }</span>
-    <span class="c1">// , traffic_source: &#39;Signup page&#39; // OPTIONAL - indicate person traffic source. Can be used as segmentation parameter in reports.</span>
   <span class="p">};</span>
 
   <span class="c1">// Registering an Event at Talkable</span>
@@ -168,10 +172,10 @@ When the Event is registered successfully it appears inside Events Report. <br><
         <span class="c1">// , server: &#39;https://www.talkable.com&#39; // OPTIONAL - your custom domain, needs to be setup as an alias to talkable.com (Enterprise clients only)</span>
       <span class="p">}</span>
     <span class="p">],</span>
-    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">talkableEventData</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>
+    <span class="p">[</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]</span> <span class="c1">// Pass Event to Talkable</span>
   <span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.1.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>

@@ -134,14 +134,16 @@ throws UnsupportedEncodingException, NoSuchAlgorithmException {
 <div class="section" id="passing-a-digest">
 <h2>Passing a digest<a class="headerlink" href="#passing-a-digest" title="Permalink to this headline">¶</a></h2>
 <p>In the example code below we are passing Verification Digest string to Talkable in verification_digest parameter.</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_order_details</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
-   <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
-   <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
-   <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
-   <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
-   <span class="p">...</span>
-   <span class="nx">verification_digest</span><span class="o">:</span> <span class="s1">&#39;60a511b9d8d45fe2ea8568e21138f517761be05ffda693135c68c2ec551ee507&#39;</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order number</span>
+    <span class="nx">order_date</span><span class="o">:</span> <span class="s1">&#39;2014-04-15T08:18:44+00:00&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Order Date and Time (ISO 8601 formatted datetime)</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Customer Email Address</span>
+    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Purchase Subtotal</span>
+    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// REQUIRED - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if there is no coupon code.</span>
+  <span class="p">},</span>
+  <span class="p">...</span>
+  <span class="nx">verification_digest</span><span class="o">:</span> <span class="s1">&#39;60a511b9d8d45fe2ea8568e21138f517761be05ffda693135c68c2ec551ee507&#39;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

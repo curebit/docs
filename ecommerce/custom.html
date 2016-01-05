@@ -128,19 +128,21 @@ order number or confirmation code) you will pass customer order data to Talkable
     <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// Required - Talkable Site ID, you can find it on the Dashboard inside Talkable upon login</span>
   <span class="p">}]);</span>
 
-  <span class="kd">var</span> <span class="nx">_talkable_purchase</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - Order number</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// Required - Customer Email Address</span>
-    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// Required - Purchase Subtotal</span>
-    <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
+  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - Order number</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// Required - Customer Email Address</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// Required - Purchase Subtotal</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
+      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer First Name</span>
+      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer Last Name</span>
+    <span class="p">},</span>
     <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="p">},</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
-    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer First Name</span>
-    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer Last Name</span>
   <span class="p">};</span>
 
-  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_purchase</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.1.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
