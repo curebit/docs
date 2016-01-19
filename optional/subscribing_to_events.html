@@ -25,7 +25,7 @@
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Advanced Features" href="../optional.html" />
     <link rel="next" title="Using URL Parameters" href="url_parameters.html" />
-    <link rel="prev" title="Post Purchase" href="site_placements/post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Segment With Traffic Source" href="traffic_source.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -53,16 +53,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/shopify.html">Shopify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/magento.html">Magento</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../ecommerce/custom.html">Other Platform</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#site-placements">Site Placements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#basic-integration">Basic Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../ecommerce/custom.html#advanced-features">Advanced Features</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../saas.html">SaaS Integrations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../saas.html#advanced-features">Advanced Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Subscribing to Iframe Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="verification_digest.html">Verification Digest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
@@ -70,7 +85,6 @@
 <li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="site_placements.html">Site Placements</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Subscribing to Iframe Events</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#talkable-events">Talkable Events</a></li>
 </ul>
@@ -107,7 +121,7 @@
 <p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#optional-white-labeling"><em>white-labeling</em></a> is setup).</p>
 <p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
 <p>In order to subscribe to an iframe event you need to know <cite>id</cite> HTML attribute of the container that holds it, and the event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe event.</p>
-<p>Given we have integrated <a class="reference internal" href="site_placements/invite.html#optional-site-placements-invite"><em>Invite</em></a> Talkable campaign iframe, its JS-generated HTML tag looks similar to the following:</p>
+<p>Given we have integrated <a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a> Talkable campaign iframe, its JS-generated HTML tag looks similar to the following:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;iframe</span> <span class="na">name=</span><span class="s">&quot;talkable-invite&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">src=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
 <span class="nt">&lt;/div&gt;</span>

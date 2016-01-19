@@ -53,8 +53,8 @@
 <li class="toctree-l2"><a class="reference internal" href="platform/shopify.html">Shopify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/magento.html">Magento</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Other Platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#site-placements">Site Placements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basic-integration">Basic Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-features">Advanced Features</a></li>
 </ul>
 </li>
@@ -96,60 +96,59 @@
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
-<div class="section" id="site-placements">
-<h2>Site Placements<a class="headerlink" href="#site-placements" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>It is all about the referral loop. Define a place where do you want your customers see Talkable campaign at. This is a place from where they will be inviting their friends — we call it &#8220;opening the loop&#8221;:</dt>
-<dd><ol class="first last arabic simple">
-<li><a class="reference internal" href="../optional/site_placements/post_purchase.html#optional-site-placements-post-purchase"><em>Post Purchase</em></a> — on the order confirmation page after checkout</li>
-<li><a class="reference internal" href="../optional/site_placements/invite.html#optional-site-placements-invite"><em>Invite</em></a> — on the standalone page that&#8217;s always available to anyone</li>
-<li>On the homepage as an email capture popup to everyone who visits</li>
-<li>Inside user account section as a dashboard which includes tracking history and reminder functionality</li>
-<li>On every page as a floating button in a corner of the screen so customers are able to access Talkable campaign from anywhere on the site without being distracted from what they are looking for</li>
-<li>All of the above <strong>(recommended)</strong>. The more places you integrate Talkable into the more boost you get from referrals channel.</li>
-</ol>
-</dd>
-</dl>
-<p><hr></p>
-</div>
-<div class="section" id="basic-integration">
-<h2>Basic Integration<a class="headerlink" href="#basic-integration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="post-purchase-site-placement">
-<h3>Post Purchase Site Placement<a class="headerlink" href="#post-purchase-site-placement" title="Permalink to this headline">¶</a></h3>
-<p>This is a <strong>required</strong> placement because it acts as both opener and closer of the referral loop. On your final checkout receipt page (which includes things like the customer&#8217;s
-order number or confirmation code) you will pass customer order data to Talkable. Passing order data is required in order to verify validity of referrals and exclude any possibility of fraud.</p>
-<p>Below is an example of the very basic Post Purchase integration.</p>
+<div class="section" id="add-talkable-to-your-site">
+<h2>1. Add Talkable to Your Site<a class="headerlink" href="#add-talkable-to-your-site" title="Permalink to this headline">¶</a></h2>
+<p>In order to integrate Talkable campaign(s) on your site you need to set the following script into HEAD tag inside
+your main layout which is used on every page. This is initialization of the Talkable JS integration library:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-post-purchase-container&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-
 <span class="nt">&lt;script&gt;</span>
-  <span class="kd">var</span> <span class="nx">_talkableq</span> <span class="o">=</span> <span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// Required - Talkable Site ID, you can find it on the Dashboard inside Talkable upon login</span>
   <span class="p">}]);</span>
 
-  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - Order number</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// Required - Customer Email Address</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// Required - Purchase Subtotal</span>
-      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
-      <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer First Name</span>
-      <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer Last Name</span>
-    <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="p">},</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
-  <span class="p">};</span>
-
-  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer email, it is recommended to always pass it when available</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer first name</span>
+    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer last name</span>
+  <span class="p">}]);</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.0.1.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://learn.talkable.com/docs/pp-basic">Integration example</a></p>
-<p><a class="reference internal" href="../optional/site_placements/post_purchase.html#optional-site-placements-post-purchase"><em>Learn more</em></a> about more advanced features of Post Purchase integration.</p>
-<p><hr></p>
 </div>
+<div class="section" id="add-talkable-campaigns">
+<h2>2. Add Talkable Campaigns<a class="headerlink" href="#add-talkable-campaigns" title="Permalink to this headline">¶</a></h2>
+<p>Define a place where do you want your customers see Talkable campaign at. This is a place from where they will be inviting their friends — we call it &#8220;opening the loop&#8221;:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a></td>
+<td>On the order confirmation page after checkout</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a></td>
+<td>On the standalone page that&#8217;s always available to anyone</td>
+</tr>
+<tr class="row-odd"><td>Every Visitor Popup</td>
+<td>On every page as an email capture popup to everyone who visits your site</td>
+</tr>
+<tr class="row-even"><td>Dashboard</td>
+<td>Inside user account section as a dashboard which includes tracking history and reminder functionality</td>
+</tr>
+<tr class="row-odd"><td>Floating Widget Popup</td>
+<td>On every page as a floating button in a corner of the screen so customers are able to access Talkable campaign from anywhere on the site without being distracted from what they are looking for</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The more places you integrate Talkable into the more boost you get from Referral as a marketing channel.</p>
+</div>
+<p><hr></p>
 </div>
 <div class="section" id="advanced-features">
 <h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h2>
@@ -159,7 +158,6 @@ order number or confirmation code) you will pass customer order data to Talkable
 <li class="toctree-l1"><a class="reference internal" href="../optional/coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/passing_custom_data.html">Pass Custom Person Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/referrals_approval.html">Referrals Approval</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../optional/site_placements.html">Site Placements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/traffic_source.html">Segment With Traffic Source</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/url_parameters.html">Using URL Parameters</a></li>

@@ -105,8 +105,10 @@ dashboard after you log in and create a site.</p>
     <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_ID%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Order number */</span>
-        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_EMAIL%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
         <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_SUBTOTAL_DISCOUNTED%%&#39;</span><span class="p">,</span> <span class="cm">/* REQUIRED - Purchase Subtotal */</span>
+      <span class="p">},</span>
+      <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;%%ORDER_EMAIL%%&#39;</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
       <span class="p">}</span>
     <span class="p">};</span>
 
