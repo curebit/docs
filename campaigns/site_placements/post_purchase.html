@@ -118,7 +118,7 @@ order number or confirmation code) you will pass customer order data to Talkable
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span> <span class="c1">// Required - customer email</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="p">}</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
@@ -168,7 +168,7 @@ order number or confirmation code) you will pass customer order data to Talkable
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
       <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_purchase_items</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="p">},</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>

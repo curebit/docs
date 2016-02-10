@@ -128,7 +128,7 @@ your main layout which is used on every page. This is initialization of the Talk
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer last name</span>
   <span class="p">}]);</span>
 <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.1.6.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.2.0.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -145,9 +145,7 @@ your main layout which is used on every page. This is initialization of the Talk
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span> <span class="c1">// Required - Event category</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
-    <span class="p">}</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
   <span class="p">};</span>
 
   <span class="c1">// Passing Event to Talkable</span>
@@ -172,9 +170,7 @@ Here is an example how to show <a class="reference internal" href="campaigns/sit
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;Signups&#39;</span> <span class="c1">// Required - Event category</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
-    <span class="p">}</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
   <span class="p">};</span>
 
   <span class="c1">// Passing Event to Talkable</span>
@@ -184,10 +180,10 @@ Here is an example how to show <a class="reference internal" href="campaigns/sit
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure that the Container (the DIV tag where Talkable iframe inserts to) ID corresponds to <cite>campaign_template.name</cite> value.
+<p class="last">Make sure that the Container (the DIV tag where Talkable iframe inserts to) ID corresponds to <cite>campaign_template</cite> value.
 Otherwise Talkable Campaign will be shown below your page content at the very bottom.</p>
 </div>
-<p>Correspondence between Container ID and <cite>campaign_template.name</cite>:</p>
+<p>Correspondence between Container ID and <cite>campaign_template</cite>:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="33%" />
@@ -197,7 +193,7 @@ Otherwise Talkable Campaign will be shown below your page content at the very bo
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Talkable Campaign</th>
 <th class="head">Container ID</th>
-<th class="head">campaign_template.name</th>
+<th class="head">campaign_template</th>
 </tr>
 </thead>
 <tbody valign="top">

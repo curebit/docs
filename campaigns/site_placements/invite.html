@@ -114,7 +114,7 @@ Invite campaign integration does not require any data to be passed to Talkable s
 <span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="p">}</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
+    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Invite campaign as a result</span>
@@ -135,9 +135,7 @@ Invite campaign integration does not require any data to be passed to Talkable s
 
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">// campaign_template: {</span>
-    <span class="c1">// ...</span>
-    <span class="c1">// },</span>
+    <span class="c1">// campaign_template: &#39;invite&#39;,</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;overridden@example.com&#39;</span><span class="p">,</span>
       <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;OverriddenName&#39;</span><span class="p">,</span>
