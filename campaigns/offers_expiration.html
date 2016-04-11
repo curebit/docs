@@ -95,21 +95,22 @@
 <p>Talkable Campaign allows to set offer expiration for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
 by specifying specific date or setting offer duration in hours.</p>
 <h2>Advocate</h2><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
+<li><tt class="docutils literal"><span class="pre">Advocate</span> <span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
 <li>All existing <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers are always affected if specified date is changed
 while campaign is live.</li>
-<li>Deadline is not copied when campaign is copied.</li>
+<li><abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> Deadline is not copied when campaign is copied.</li>
 <li>When campaign is deactivated, all <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers instantly become expired because deactivating a campaign is equal to set <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline to now.</li>
-<li>When <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer is expired, Advocate and Friend are still eligible for reward.
-In other words advocate offer expiration only prevents <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> from sharing but not from getting rewarded</li>
+<li>When <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer is expired, <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> is still eligible for reward.
+In other words Advocate offer expiration only prevents <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> from sharing but not from getting rewarded.</li>
+<li>This setting doesn&#8217;t affect <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> reward in any way.</li>
 </ul>
 <h2>Friend</h2><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">deadline</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
-<li><tt class="docutils literal"><span class="pre">offer</span> <span class="pre">duration</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
+<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Deadline</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
+<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Offer</span> <span class="pre">Duration</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
 hours after <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> shared it with him. Leave blank to disable expiration at all.</li>
 <li>All existing <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offers will be affected if specified date or offer duration is
 changed while campaign is live.</li>
-<li>If date and offer duration are specified, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer will be expired on
+<li>If a deadline and an offer duration are both specified, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer will be expired on
 the closest date calculated from offer duration or specified in deadline.</li>
 <li><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer deadline should never be earlier than <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline
 (because there is no sense to share offer that cannot be claimed).</li>
