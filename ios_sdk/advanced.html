@@ -100,7 +100,7 @@
 <li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by following code:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="n">setDelegate</span><span class="o">:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -148,9 +148,9 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver:</span><span class="n">self</span> <span class="nl">selector:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">couponReceived:</span><span class="p">)</span> <span class="nl">name:</span><span class="n">TKBLDidReceiveCouponCode</span> <span class="nl">object:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="n">addObserver</span><span class="o">:</span><span class="n">self</span> <span class="n">selector</span><span class="o">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">couponReceived</span><span class="o">:</span><span class="p">)</span> <span class="n">name</span><span class="o">:</span><span class="n">TKBLDidReceiveCouponCode</span> <span class="n">object</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">couponReceived:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">couponReceived</span><span class="o">:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
   <span class="c1">// Your logic here</span>
 <span class="p">}</span>
 <span class="p">...</span>
@@ -163,10 +163,10 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver:</span><span class="n">self</span> <span class="nl">selector:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">publishMessageNotification:</span><span class="p">)</span> <span class="nl">name:</span><span class="n">TKBLDidPublishMessageNotification</span> <span class="nl">object:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="n">addObserver</span><span class="o">:</span><span class="n">self</span> <span class="n">selector</span><span class="o">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">publishMessageNotification</span><span class="o">:</span><span class="p">)</span> <span class="n">name</span><span class="o">:</span><span class="n">TKBLDidPublishMessageNotification</span> <span class="n">object</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">publishMessageNotification:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">([[[</span><span class="n">ntf</span> <span class="n">userInfo</span><span class="p">]</span> <span class="nl">objectForKey:</span><span class="n">TKBLMessageNameKey</span><span class="p">]</span> <span class="nl">isEqualToString:</span><span class="n">TKBLMessageOfferLoaded</span><span class="p">])</span> <span class="p">{</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">publishMessageNotification</span><span class="o">:</span><span class="p">(</span><span class="n">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">([[[</span><span class="n">ntf</span> <span class="n">userInfo</span><span class="p">]</span> <span class="n">objectForKey</span><span class="o">:</span><span class="n">TKBLMessageNameKey</span><span class="p">]</span> <span class="n">isEqualToString</span><span class="o">:</span><span class="n">TKBLMessageOfferLoaded</span><span class="p">])</span> <span class="p">{</span>
     <span class="c1">// Your logic here</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -187,7 +187,7 @@
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
-<span class="p">[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">].</span><span class="n">debug</span> <span class="o">=</span> <span class="n">YES</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">].</span><span class="n">debug</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </pre></div>
 </div>
 </div></blockquote>
