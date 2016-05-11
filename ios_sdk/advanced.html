@@ -71,6 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#specify-a-custom-campaign-tag">Specify a custom campaign tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-talkabledelegate">Implement TalkableDelegate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#debuging">Debuging</a></li>
@@ -94,6 +95,19 @@
             
   <span class="target" id="ios-sdk-advanced"></span><div class="section" id="advanced-usage">
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="specify-a-custom-campaign-tag">
+<h2>Specify a custom campaign tag<a class="headerlink" href="#specify-a-custom-campaign-tag" title="Permalink to this headline">¶</a></h2>
+<p>By default if no campaign tag was specified SDK uses <cite>invite</cite> and <cite>post-purchase</cite> tags for <a class="reference internal" href="integration/standalone.html#ios-sdk-integration-standalone"><em>Standalone</em></a> and
+<a class="reference internal" href="integration/post_purchase.html#ios-sdk-integration-post-purchase"><em>Post Purchase</em></a> campaigns. But you can explicitly specify your own tag in this way:</p>
+<blockquote>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<span class="p">...</span>
+<span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">registerOrigin</span><span class="p">:</span><span class="n">TKBLAffiliateMember</span> <span class="nl">params</span><span class="p">:</span><span class="l">@{</span><span class="nl">TKBLCampaignTags</span><span class="p">:</span> <span class="s">@&quot;your-custom-tag&quot;</span><span class="l">}</span><span class="p">];</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="implement-talkabledelegate">
 <h2>Implement TalkableDelegate<a class="headerlink" href="#implement-talkabledelegate" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
