@@ -133,8 +133,8 @@
 <li>Initialize Talkable in your <cite>application:didFinishLaunchingWithOptions:</cite> method, like so:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
-<span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">registerURLScheme</span><span class="p">:</span><span class="s">@&quot;YOUR_APPLICATION_URL_SCHEME&quot;</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="n">setApiKey</span><span class="o">:</span><span class="s">@&quot;YOUR_TALKABLE_API_KEY&quot;</span> <span class="n">andSiteSlug</span><span class="o">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="n">registerURLScheme</span><span class="o">:</span><span class="s">@&quot;YOUR_APPLICATION_URL_SCHEME&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -150,7 +150,7 @@
 <li>Add following lines to <cite>application:handleOpenURL:</cite> or <cite>application:openURL:sourceApplication:annotation:</cite></li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">handleOpenURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="n">handleOpenURL</span><span class="o">:</span><span class="n">url</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
