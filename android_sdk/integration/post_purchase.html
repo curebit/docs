@@ -24,6 +24,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Integration" href="../integration.html" />
+    <link rel="next" title="Overriding default behaviour" href="../overriding_defaults.html" />
     <link rel="prev" title="Standalone Campaign" href="standalone.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
@@ -76,6 +77,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="">Post Purchase Campaign</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../overriding_defaults.html">Overriding default behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html">API</a></li>
 </ul>
 </li>
 </ul>
@@ -100,41 +103,33 @@ need to pass order data that includes your customer’s email address, order id,
 code used at checkout in order to close a referral loop. This allows Talkable to detect and
 close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.*</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
-<span class="n">String</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="s">&quot;100130&quot;</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">orderDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
-<span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;customer@example.com&quot;</span><span class="o">;</span>
-<span class="kt">double</span> <span class="n">subtotal</span> <span class="o">=</span> <span class="mf">24.95</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">couponCode</span> <span class="o">=</span> <span class="s">&quot;TEST25&quot;</span><span class="o">;</span>
+<span class="n">Double</span> <span class="n">price</span> <span class="o">=</span> <span class="mf">10.99</span><span class="o">;</span>
+<span class="n">Integer</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">productId</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="o">;</span>
+<span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">quantity</span><span class="o">,</span> <span class="n">productId</span><span class="o">);</span>
 
-<span class="n">String</span> <span class="n">productID</span> <span class="o">=</span> <span class="s">&quot;sku3&quot;</span><span class="o">;</span>
-<span class="kt">double</span> <span class="n">priceKey</span> <span class="o">=</span> <span class="mf">4.99</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-<span class="n">OrderItem</span><span class="o">[]</span> <span class="n">orderItems</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="n">OrderItem</span><span class="o">(</span><span class="n">productID</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">quantity</span><span class="o">)};</span>
-<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">subtotal</span><span class="o">,</span> <span class="n">coupon</span><span class="o">,</span> <span class="n">orderItems</span><span class="o">)</span>
+<span class="n">Double</span> <span class="n">subtotal</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span><span class="o">;</span> <span class="c1">// Required</span>
+<span class="n">Integer</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Required</span>
+<span class="n">Date</span> <span class="n">orderDate</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getTime</span><span class="o">();</span> <span class="c1">// Required</span>
+<span class="n">String</span> <span class="n">coupon</span> <span class="o">=</span> <span class="s">&quot;EXAMPLE-CODE&quot;</span><span class="o">;</span> <span class="c1">// Optional</span>
 
-<span class="n">RegisteredOrigin</span> <span class="n">registeredOrigin</span> <span class="o">=</span> <span class="n">Talkable</span><span class="o">.</span><span class="na">registerOrigin</span><span class="o">(</span><span class="n">purchase</span><span class="o">);</span>
+<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupon</span><span class="o">);</span>
+<span class="n">purchase</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
+<span class="n">purchase</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
+
+<span class="n">String</span> <span class="n">campaignTag</span> <span class="o">=</span> <span class="s">&quot;android-post-purchase&quot;</span><span class="o">;</span>
+<span class="n">purchase</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="n">campaignTag</span><span class="o">);</span> <span class="c1">// Optional</span>
+
+<span class="n">Activity</span> <span class="n">activity</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+<span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">purchase</span><span class="o">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If Post Purchase campaign does not show up when testing make sure you have it live with a
 default tag on the Campaigns listing.</p>
-</div>
-<h2>Show offer</h2><p>When you have <cite>registeredOrigin</cite> you can show offer for user from <cite>activity</cite>.
-You can do this in two ways:</p>
-<ol class="arabic simple">
-<li>Show full screen offer</li>
-</ol>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">registeredOrigin</span><span class="o">.</span><span class="na">showFullScreenOffer</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li>Get fragment with offer and place into container in your activity</li>
-</ol>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">registeredOrigin</span><span class="o">.</span><span class="na">getOfferFragment</span><span class="o">();</span>
-</pre></div>
 </div>
 <div class="hidden container">
 <div class="toctree-wrapper compound">

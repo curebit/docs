@@ -77,6 +77,8 @@
 <li class="toctree-l3"><a class="reference internal" href="post_purchase.html">Post Purchase Campaign</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../overriding_defaults.html">Overriding default behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html">API</a></li>
 </ul>
 </li>
 </ul>
@@ -98,47 +100,40 @@ without being gated by a purchase beforehand.</p>
 the “Invite friends” button inside app navigation.</p>
 <p>Once you’ve got a Standalone campaign set up inside Talkable you can integrate the campaign
 with the following line of code:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.*</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
 
-<span class="n">AffiliateMember</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
-<span class="n">RegisteredOrigin</span> <span class="n">registeredOrigin</span> <span class="o">=</span> <span class="n">Talkable</span><span class="o">.</span><span class="na">registerOrigin</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+<span class="n">Activity</span> <span class="n">activity</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+<span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
+<span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">);</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure you have at least one live “SA” campaign with a default tag inside Talkable Site</p>
+<p class="last">Make sure you have at least one live “SA” campaign with a specified tag inside Talkable Site</p>
 </div>
-<p>Note that <cite>member</cite> is empty, in this case user will see the
+<p>Note that <cite>customer</cite> is empty, in this case user will see the
 <a class="reference internal" href="../../campaigns/views/affiliate_members_new.html#campaigns-views-affiliate-members-new"><em>Advocate Signup Page</em></a>, which is used to collect
 the user’s email address. Your application may already know/have access to the user’s email,
 if so, you should pass this parameter which will automatically skip the SignUp Page in the
 flow and show the <a class="reference internal" href="../../campaigns/views/offers_show.html#campaigns-views-offers-show"><em>Advocate Share Page</em></a>.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.*</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
 
-<span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;advocate@example.com&quot;</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="s">&quot;John&quot;</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">lastName</span> <span class="o">=</span> <span class="s">&quot;Smith&quot;</span><span class="o">;</span>
-<span class="n">AffiliateMember</span> <span class="n">member</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">lastName</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;advocate@example.com&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
+<span class="n">String</span> <span class="n">idInYourApp</span> <span class="o">=</span> <span class="s">&quot;a8db7683-0f7f-407e-8d12-af2d501035c8&quot;</span><span class="o">;</span> <span class="c1">// Use unique identifier from your system, optional</span>
+<span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="s">&quot;John&quot;</span><span class="o">;</span> <span class="c1">// Optional</span>
+<span class="n">String</span> <span class="n">lastName</span> <span class="o">=</span> <span class="s">&quot;Smith&quot;</span><span class="o">;</span> <span class="c1">// Optional</span>
+<span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="n">idInYourApp</span><span class="o">,</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">email</span><span class="o">);</span>
 
-<span class="n">RegisteredOrigin</span> <span class="n">registeredOrigin</span> <span class="o">=</span> <span class="n">Talkable</span><span class="o">.</span><span class="na">registerOrigin</span><span class="o">(</span><span class="n">member</span><span class="o">);</span>
+<span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">campaignTag</span> <span class="o">=</span> <span class="s">&quot;android-invite&quot;</span><span class="o">;</span>
+<span class="n">affiliateMember</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="n">campaignTag</span><span class="o">);</span>
+
+<span class="n">Activity</span> <span class="n">activity</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+<span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">);</span>
 <span class="o">...</span>
-</pre></div>
-</div>
-<h2>Show offer</h2><p>When you have <cite>registeredOrigin</cite> you can show offer for user from <cite>activity</cite>.
-You can do this in two ways:</p>
-<ol class="arabic simple">
-<li>Show full screen offer</li>
-</ol>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">registeredOrigin</span><span class="o">.</span><span class="na">showFullScreenOffer</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li>Get fragment with offer and place into container in your activity</li>
-</ol>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">registeredOrigin</span><span class="o">.</span><span class="na">getOfferFragment</span><span class="o">();</span>
 </pre></div>
 </div>
 <div class="hidden container">
