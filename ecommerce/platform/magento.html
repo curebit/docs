@@ -99,43 +99,43 @@ integration. The extension currently supports Magento versions 1.5+</p>
 <a class="reference external" href="http://your-site.com/index.php/admin">http://your-site.com/index.php/admin</a>). We will install the Talkable extension
 using Magento Connect Manager. Go to
 <strong>System</strong> &rarr; <strong>Magento Connect</strong> &rarr; <strong>Magento Connect Manager</strong>.
-You may be required to log in again.</p>
+You may be required to log in again:</p>
+<img alt="../../_images/magento-flow-1.jpg" src="../../_images/magento-flow-1.jpg" />
 </li>
-<li><p class="first">Enter the extension name and click <strong>Install</strong>:</p>
-<div class="line-block">
-<div class="line"><em>http://connect20.magentocommerce.com/community/talkable</em></div>
-</div>
-<img alt="Magento Connect Manager" src="../../_images/magento_connect.png" />
+<li><p class="first">Copy the extension key: <strong>http://connect20.magentocommerce.com/community/talkable</strong>, then paste it into an extension key input field (2) and click <strong>Install</strong> (3). In the table below you should see a status &#8220;Ready to install&#8221;, hit <strong>Proceed</strong> (4):</p>
+<img alt="../../_images/magento-flow-2.jpg" src="../../_images/magento-flow-2.jpg" />
 <p>You should see the console window indicate successful installation.</p>
 </li>
 <li><p class="first">After the extension has been installed, you must enable the extension and set
-your Talkable Site ID.</p>
-<ul>
-<li><p class="first">Click the <strong>Return to Admin</strong> link and navigate to
-<strong>System</strong> &rarr; <strong>Configuration</strong>. If you have more than one store, set
-the <strong>Current Configuration Scope</strong> on the top left to the store you want
-to enable Talkable on. Note this must be a Magento &#8220;Website&#8221;, not a &#8220;Store view&#8221;.</p>
+your Talkable Site ID. Click the <strong>Return to Admin</strong> link and navigate to
+<strong>System</strong> &rarr; <strong>Configuration</strong>:</p>
+<img alt="../../_images/magento-flow-3.jpg" src="../../_images/magento-flow-3.jpg" />
+<p>Note: If you have more than one store, set the <strong>Current Configuration Scope</strong>
+on the top left to the store you want to enable Talkable on. Note this must be
+a Magento &#8220;Website&#8221;, not a &#8220;Store view&#8221;.</p>
 </li>
-<li><p class="first">Open the <strong>Talkable</strong> tab and under Talkable Campaigns set the Post Purchase
-state to <strong>Enabled</strong>. Then, enter your Talkable Site ID.</p>
-<p>You will need to get your Talkable Site ID from your dashboard after you
-have created the site.</p>
+<li><p class="first">In the left sidebar navigation click on <strong>Talkable</strong> &rarr; <strong>Extension Options</strong> tab:</p>
+<img alt="../../_images/magento-flow-4.jpg" src="../../_images/magento-flow-4.jpg" />
+</li>
+<li><p class="first">Then, enter your Talkable Site ID. You can copy it from the integration page
+inside Talkable, or on your Talkable Site Dashboard:</p>
+<img alt="../../_images/magento-flow-5.jpg" src="../../_images/magento-flow-5.jpg" />
 <p>Note: If you see an error opening Talkable extension settings, please
 re-login to Admin Panel and try again.</p>
-</li>
-</ul>
 <p>Click <strong>Save Config</strong> to save your changes.</p>
 </li>
-<li><p class="first">Flush the caches:</p>
-<ul class="simple">
+<li><p class="first">Go back to Talkable Integration page and click &#8220;Verify Integration&#8221; button:</p>
+<img alt="../../_images/magento-flow-6.jpg" src="../../_images/magento-flow-6.jpg" />
+</li>
+</ol>
+<h2>Troubleshooting</h2><p>In case you cannot find Talkable extension in the sidebar try clearing cache:</p>
+<blockquote>
+<div><ul class="simple">
 <li>In Admin Panel, go to <strong>System</strong> &rarr; <strong>Cache Management</strong>.</li>
 <li>Click <strong>Flush Magento Cache</strong>.</li>
 <li>Then click <strong>Select All</strong>, select action <em>&#8220;Refresh&#8221;</em> and click <strong>Submit</strong>.</li>
 </ul>
-</li>
-</ol>
-<p><br></p>
-<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
+</div></blockquote>
 </div>
 
 
