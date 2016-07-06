@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Friend Share Email Reminder &mdash; Talkable Documentation</title>
+    <title>Advocate Reward Paid Email &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Views" href="../views.html" />
-    <link rel="next" title="Friend Claim Page" href="offers_claim.html" />
-    <link rel="prev" title="Friend Share Email" href="notifier_offers_share_via_email.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Tutorials" href="../tutorials.html" />
+    <link rel="prev" title="Advocate/Friend Reward Confirmation Email" href="notifier_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -65,10 +65,10 @@
 <li class="toctree-l3"><a class="reference internal" href="offers_show.html">Advocate Share Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Friend Share Email Reminder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_rewards_confirmation.html">Advocate/Friend Reward Confirmation Email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="advocate_rewards_paid.html">Advocate Reward Paid Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Paid Email</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
@@ -100,34 +100,30 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="campaigns-views-notifier-offers-share-via-email-reminder"></span><div class="section" id="friend-share-email-reminder">
-<span id="friend-share-email-reminder-view"></span><h1>Friend Share Email Reminder<a class="headerlink" href="#friend-share-email-reminder" title="Permalink to this headline">¶</a></h1>
-<p>Email is triggered only if Friend Share Email Reminder checkbox was checked
-on the <a class="reference internal" href="offers_show.html#advocate-share-page-view"><em>Advocate Share Page</em></a> when sharing. <br>
-By default reminder email sends out in 72 hours after sharing if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> didn&#8217;t
-use their Offer (i.e. didn&#8217;t make a store purchase using coupon code).</p>
-<p>Main <abbr title="Call to action">CTA</abbr> should point to a Friend Claim Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>. <br>
-To change email trigger delay open <tt class="docutils literal"><span class="pre">Editor</span></tt> / <tt class="docutils literal"><span class="pre">Extra</span> <span class="pre">fields</span></tt> for the
-particular email.</p>
+  <span class="target" id="campaigns-views-notifier-rewards-paid"></span><div class="section" id="advocate-reward-paid-email">
+<h1>Advocate Reward Paid Email<a class="headerlink" href="#advocate-reward-paid-email" title="Permalink to this headline">¶</a></h1>
+<p>Email is triggered to an Advocate when Referral marked as <tt class="docutils literal"><span class="pre">Approved</span></tt>. <br>
+Let Advocate know their account has been credited or a partial refund has
+been issued.</p>
+<p>Frequently used Variables:</p>
+<ul class="simple">
+<li>To show Reward Coupon Code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+</ul>
 <p><br></p>
-<img alt="Friend Share Email Reminder" src="../../_images/friend-share-email-reminder.png" />
+<img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
+<p><br></p>
+<div class="highlight-html"><div class="highlight"><pre>Your credit code: {{ coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="nt">&gt;</span>Spend your credit<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
 <a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
 </div>
-<h2>Email sending conditions</h2><p>By default the email is sent in 72 hours after the offer is shared.</p>
-<ol class="arabic simple">
-<li>Main email sending criteria (unable to change):</li>
-</ol>
-<blockquote>
-<div><ul class="simple">
-<li>If <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer is active</li>
-<li>Recipient (<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>) was not referred by this offer yet</li>
-<li>Current offer is the last one shared with the recipient (if were delayed few reminders Talkable sends the last one)</li>
-</ul>
-</div></blockquote>
+<h2>Email sending conditions</h2><p>By default is sent immediately after the reward status turns into <cite>Paid</cite>, but can be delayed by configuration. This View is available only for <strong>Advocate Incentive</strong> where <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> is rewarded after <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> buys using their coupon code.</p>
 </div>
 
 
