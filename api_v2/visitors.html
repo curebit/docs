@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Metrics &mdash; Talkable Documentation</title>
+    <title>Visitors &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
-    <link rel="next" title="Web Hooks" href="../web_hooks.html" />
-    <link rel="prev" title="Rewards" href="rewards.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Origins" href="origins.html" />
+    <link rel="prev" title="Campaigns" href="campaigns.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -65,17 +65,17 @@
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Referral Program via API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Visitors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Metrics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 </ul>
 </li>
 </ul>
@@ -97,15 +97,13 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="api-v2-metrics"></span><div class="section" id="metrics">
-<h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to access Talkable metrics. Go to Reports -&gt; Metric
-descriptions to see the list of available metrics.</p>
+  <span class="target" id="api-v2-visitors"></span><div class="section" id="visitors">
+<h1>Visitors<a class="headerlink" href="#visitors" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to create visitors. See examples below.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre>GET /metrics/&lt;metric&gt;
+<div class="highlight-url"><div class="highlight"><pre>POST /visitors
 </pre></div>
 </div>
-<p>Returns a metric value.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -118,40 +116,27 @@ descriptions to see the list of available metrics.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>site_slug</td>
-<td>Your Talkable Site ID. You can get this from your
-Talkable dashboard after you log in and create a site.</td>
-</tr>
-<tr class="row-odd"><td>metric</td>
-<td>Specific metric name.</td>
-</tr>
-<tr class="row-even"><td>start_date</td>
-<td>Start of the period for which data is pulled, inclusively.</td>
-</tr>
-<tr class="row-odd"><td>end_date</td>
-<td>End of the period for which data is pulled, inclusively.</td>
-</tr>
-<tr class="row-even"><td>campaign_slugs</td>
-<td>Optional: array of campaign slugs for which data
-is pulled. See the
-<a class="reference internal" href="campaigns.html#api-v2-campaigns"><em>Campaigns API</em></a>.</td>
+<tr class="row-even"><td>data</td>
+<td><p class="first">Hash or JSON object with following properties:</p>
+<ul class="last simple">
+<li>uuid - UUID of new visitor that will be created</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_slugs[]=35944-api-campaign&amp;api_key=i9uil7nQgDjucCiTJu
-</pre></div>
-</div>
-<p>Sample response:</p>
+<div class="section" id="create-a-visitor">
+<h3>Create a visitor<a class="headerlink" href="#create-a-visitor" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;metric&quot;</span><span class="o">:</span> <span class="mi">12345</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+   <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="s2">&quot;b3967d36-4e7f-46bc-92b3-57344347cd6a&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

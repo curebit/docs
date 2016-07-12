@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Offers &mdash; Talkable Documentation</title>
+    <title>Advocate Offers &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="API Reference" href="../api_v2.html" />
-    <link rel="next" title="Origins" href="origins.html" />
-    <link rel="prev" title="Metrics" href="metrics.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Shares" href="shares.html" />
+    <link rel="prev" title="People" href="people.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -65,16 +65,17 @@
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Referral Program via API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Offers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advocate Offers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 </ul>
 </li>
 </ul>
@@ -96,14 +97,14 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="api-v2-offers"></span><div class="section" id="offers">
-<h1>Offers<a class="headerlink" href="#offers" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to access offers.</p>
+  <span class="target" id="api-v2-offers"></span><div class="section" id="advocate-offers">
+<h1>Advocate Offers<a class="headerlink" href="#advocate-offers" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to access advocate offers.</p>
 <p><br></p>
 <div class="highlight-url"><div class="highlight"><pre>GET /offers/&lt;short_url_code&gt;
 </pre></div>
 </div>
-<p>Returns offer.</p>
+<p>Returns advocate offer.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -121,7 +122,7 @@
 Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>short_url_code</td>
-<td>Offer short code obtained with
+<td>Advocate offer short code obtained with
 <a class="reference internal" href="origins.html#api-v2-origins"><em>origin creation</em></a>.</td>
 </tr>
 <tr class="row-even"><td>interpolations</td>
