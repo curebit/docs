@@ -157,7 +157,7 @@ Talkable dashboard after you log in and create a site.</td>
 <td>Optional: array of interpolations to return in response</td>
 </tr>
 <tr class="row-even"><td>sharing_channels</td>
-<td><p class="first">Optional: array of sharing channels for which will be
+<td><p class="first">Optional: array of social sharing channels for which will be
 generated sharing links.</p>
 <p class="last">Options: <cite>facebook</cite>, <cite>twitter</cite>, <cite>linkedin</cite>, <cite>sms</cite>,
 <cite>other</cite> or custom, except <cite>email</cite>, <cite>reminder</cite>,
