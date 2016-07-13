@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Talkable Android SDK &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="index.html" />
+    <link rel="next" title="Getting Started" href="android_sdk/getting_started.html" />
+    <link rel="prev" title="Example" href="ios_sdk/example.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="_static/pygments-github.css" rel="stylesheet">
+  <link href="_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Talkable Android SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/getting_started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/integration.html">Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/overriding_defaults.html">Overriding default behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html">API</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="android-sdk"></span><div class="section" id="talkable-android-sdk">
+<h1>Talkable Android SDK<a class="headerlink" href="#talkable-android-sdk" title="Permalink to this headline">¶</a></h1>
+<p>Talkable has an Android framework enabling you to use Talkable in Andoid Apps. Once integrated you
+can use the following Talkable capabilities:</p>
+<ul class="simple">
+<li>Display Advocate Share Page (the page itself is built inside Talkable)</li>
+<li>Share Offer via:<ul>
+<li>Email</li>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>SMS</li>
+<li>by copying a direct Offer link</li>
+</ul>
+</li>
+<li>Track referral App download and reward Advocate as a result of it</li>
+<li>Track sales via the App and reward Advocate if a sale was driven through someone&#8217;s claim link</li>
+</ul>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="android_sdk/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/getting_started.html#installation">Installation</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android_sdk/integration.html">Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/integration/standalone.html">Standalone Campaign</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/integration/post_purchase.html">Post Purchase Campaign</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android_sdk/overriding_defaults.html">Overriding default behaviour</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android_sdk/api.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html#create-visitor">Create visitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html#create-origin">Create origin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="android_sdk/api.html#hierarchy">Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="android_sdk/api.html#building-origin">Building Origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="android_sdk/api.html#api-request">API request</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html#retrieve-rewards">Retrieve rewards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html#retrieve-offer">Retrieve offer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_sdk/api.html#create-offer-share">Create offer share</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

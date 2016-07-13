@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenCart Store Integration &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Platform Integration" href="../platform.html" />
+    <link rel="next" title="osCommerce Store Integration" href="oscommerce.html" />
+    <link rel="prev" title="Magento Go Store Integration" href="magento-go.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="ecommerce-platform-opencart"></span><div class="section" id="opencart-store-integration">
+<h1>OpenCart Store Integration<a class="headerlink" href="#opencart-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>After setting up a Curebit account, you need to create a site for each store you
+wish to integrate. Then, download the <a class="reference external" href="http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=15716">OpenCart Curebit Checkout Extension</a>.</p>
+<ol class="arabic">
+<li><p class="first">Extract the extension file in the root of your OpenCart directory
+(no files will be overwritten).</p>
+</li>
+<li><p class="first">Log in to the admin section of your OpenCart site and click
+<strong>Extensions</strong> &rarr; <strong>Modules</strong>.</p>
+</li>
+<li><p class="first">Locate the Curebit Checkout module and click <strong>Install</strong>.</p>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> action for Curebit Checkout.</p>
+</li>
+<li><p class="first">Set the status to <em>Enabled</em>, and enter your Curebit Site ID. You can get this
+from your Curebit dashboard after you log in and create a site.</p>
+</li>
+<li><p class="first">For OpenCart version 1.5+, edit:</p>
+<div class="line-block">
+<div class="line"><em>/catalog/controller/checkout/success.php</em></div>
+</div>
+<p>and merge in the 3 lines indicated:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+  <span class="k">class</span> <span class="nc">ControllerCheckoutSuccess</span> <span class="k">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// Begin Curebit social referral tracking</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;curebit_order_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">];</span>
+        <span class="c1">// End Curebit social referral tracking</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cart</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<h2>Reporting Problems with Integration</h2><div class="line-block">
+<div class="line">OpenCart Curebit Checkout Extension is open sourced and <a class="reference external" href="https://github.com/curebit/curebit-opencart-extension">available on GitHub</a>.</div>
+<div class="line">Please report any bugs and make any feature requests on the GitHub <a class="reference external" href="https://github.com/curebit/curebit-opencart-extension/issues">issue tracker</a>.</div>
+<div class="line">If you would like to contribute, please feel free to open a pull request.</div>
+</div>
+<p><br></p>
+<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
+<div class="hidden container">
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

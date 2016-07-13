@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Offers Expiration &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Talkable Campaigns" href="../campaigns.html" />
+    <link rel="next" title="Localization" href="localization.html" />
+    <link rel="prev" title="Incentive Criteria" href="tutorials/incentive_criteria.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="site_placements.html">Site Placements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Offers Expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="designer.html">Designer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns"></span><div class="section" id="offers-expiration">
+<h1>Offers Expiration<a class="headerlink" href="#offers-expiration" title="Permalink to this headline">¶</a></h1>
+<p>Talkable Campaign allows to set offer expiration for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+by specifying specific date or setting offer duration in hours.</p>
+<h2>Advocate</h2><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Advocate</span> <span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
+<li>All existing <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers are always affected if specified date is changed
+while campaign is live.</li>
+<li><abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> Deadline is not copied when campaign is copied.</li>
+<li>When campaign is deactivated, all <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers instantly become expired because deactivating a campaign is equal to set <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline to now.</li>
+<li>When <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer is expired, <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> is still eligible for reward.
+In other words Advocate offer expiration only prevents <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> from sharing but not from getting rewarded.</li>
+<li>This setting doesn&#8217;t affect <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> reward in any way.</li>
+</ul>
+<h2>Friend</h2><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Deadline</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
+<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Offer</span> <span class="pre">Duration</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
+hours after <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> shared it with him. Leave blank to disable expiration at all.</li>
+<li>All existing <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offers will be affected if specified date or offer duration is
+changed while campaign is live.</li>
+<li>If a deadline and an offer duration are both specified, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer will be expired on
+the closest date calculated from offer duration or specified in deadline.</li>
+<li><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer deadline should never be earlier than <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer deadline
+(because there is no sense to share offer that cannot be claimed).</li>
+<li>When <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offer is expired, <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> and <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> are not able to receive any rewards.
+But they still may try to use coupon they received earlier because talkable platform doesn&#8217;t control coupon expiration. Only merchant site does that.</li>
+<li>When campaign is copied only offer duration gets copied, but not deadline.</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

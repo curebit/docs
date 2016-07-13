@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Demandware Store Integration &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Platform Integration" href="../platform.html" />
+    <link rel="next" title="FastSpring Store Integration" href="fastspring.html" />
+    <link rel="prev" title="CRE Loaded Store Integration" href="cre-loaded.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="ecommerce-platform-demandware"></span><div class="section" id="demandware-store-integration">
+<h1>Demandware Store Integration<a class="headerlink" href="#demandware-store-integration" title="Permalink to this headline">¶</a></h1>
+<p>Curebit is a Demandware LINK partner and has easy integration into your
+Demandware store. You will need to download the <a class="reference external" href="https://www.talkable.com/demandware/curebit_integration_r1.0.0.zip">Demandware Curebit cartridge</a>
+and follow the instructions below.</p>
+<p>Add Curebit catridge and configuration settings</p>
+<ol class="arabic simple">
+<li>Login to your Demandware console with your administrator account.</li>
+<li>Navigate to
+<strong>Administration</strong> &rarr; <strong>Sites</strong> &rarr; <strong>Manage Sites</strong>
+and select your site.</li>
+<li>Under <strong>Settings</strong>, add the <em>int_curebitcartridge</em> cartridge to your
+Cartridges path.</li>
+<li>Navigate to
+<strong>Administration</strong> &rarr; <strong>Site Development</strong> &rarr; <strong>Import &amp; Export</strong>.</li>
+<li>Upload the <em>&#8216;meta_data_curebitcartridge.xml&#8217;</em> file and then proceed
+to import the settings.</li>
+<li>Navigate to
+<strong>Site</strong> &rarr; <strong>Site Preferences</strong> &rarr; <strong>Custom Preferences</strong> &rarr; <strong>Curebit</strong>.</li>
+<li>Enter your Curebit Site ID. You can get this from your Curebit dashboard
+after you log in and create a site.</li>
+<li>Check <strong>Enable Curebit</strong>.</li>
+</ol>
+<p>Integrate into order confirmation page</p>
+<ol class="arabic">
+<li><p class="first">In your Demandware UX Studio, locate your <em>pt_orderconfirmation</em> page.</p>
+</li>
+<li><p class="first">Near the bottom (immediately preceding <cite>&lt;/div&gt; &lt;!&#8211; END: container &#8211;&gt;</cite>),
+include this code:</p>
+<div class="code highlight-python"><div class="highlight"><pre>&lt;!-- Curebit : Code - start - Confirmation --&gt;
+&lt;isinclude template=&quot;curebit/curebit_salestrack&quot;/&gt;
+&lt;!-- Curebit : Code - ends - Confirmation --&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Save the file and upload it to your Demandware console.</p>
+</li>
+<li><p class="first">Invalidate the page caches (under
+<strong>Administration</strong> &rarr; <strong>Sites</strong> &rarr; <strong>Manage Sites</strong> &rarr; <strong>Site</strong> &rarr; <strong>Cache Tab</strong>)</p>
+</li>
+</ol>
+<p><br></p>
+<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
+<div class="hidden container">
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
