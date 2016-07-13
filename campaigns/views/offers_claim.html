@@ -116,13 +116,13 @@ It&#8217;s recommended to show coupon code for the <abbr title="Person, who is i
 </ul>
 <p><br></p>
 <img alt="Friend Claim Page" src="../../_images/friend-claim-page.png" />
-<div class="highlight-html"><div class="highlight"><pre>{% if offer_active %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% if offer_active %}
   Copy your code: {{ coupon_code }}
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Shop now<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
   Offer is valid until {{ friend_offer.valid_until | format_date }}.
 {% else %}
   Offer expired.
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Proceed without offer<span class="nt">&lt;/a&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Proceed without offer<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 {% endif %}
 </pre></div>
 </div>

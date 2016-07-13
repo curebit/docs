@@ -102,7 +102,7 @@
 <p>This API allows you to access Talkable metrics. Go to Reports -&gt; Metric
 descriptions to see the list of available metrics.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre>GET /metrics/&lt;metric&gt;
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET /metrics/&lt;metric&gt;
 </pre></div>
 </div>
 <p>Returns a metric value.</p>
@@ -141,11 +141,11 @@ is pulled. See the
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_slugs[]=35944-api-campaign&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_slugs[]=35944-api-campaign&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;metric&quot;</span><span class="o">:</span> <span class="mi">12345</span>

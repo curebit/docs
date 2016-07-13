@@ -96,7 +96,7 @@
 </div>
 </li>
 <li><p class="first">Add the following code at the end of the file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>{if $active_modules.Curebit}{include file=&quot;modules/Curebit/curebit.tpl&quot;}{/if}
+<div class="code highlight-python"><div class="highlight"><pre><span></span>{if $active_modules.Curebit}{include file=&quot;modules/Curebit/curebit.tpl&quot;}{/if}
 </pre></div>
 </div>
 </li>
