@@ -28,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -73,7 +73,7 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overriding_defaults.html">Overriding default behaviour</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-visitor">Create visitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-origin">Create origin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#retrieve-rewards">Retrieve rewards</a></li>
@@ -91,7 +91,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="android-sdk-api"></span><div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>

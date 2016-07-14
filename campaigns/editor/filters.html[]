@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -68,7 +68,7 @@
 <li class="toctree-l3"><a class="reference internal" href="variables.html">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="files.html">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Filters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="videos.html">Videos</a></li>
 </ul>
 </li>
@@ -95,7 +95,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-editor-filters"></span><div class="section" id="filters">
 <h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
@@ -111,11 +111,11 @@
 </div>
 <div class="section" id="simple-format">
 <h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
-<p>Formats plain text to have HTML formatting. E.g. replace <code class="docutils literal"><span class="pre">\n</span></code> with <code class="docutils literal"><span class="pre">&lt;br/&gt;</span></code>.</p>
+<p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="encode-query-argument">
@@ -124,31 +124,31 @@
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>http://example.com/?utm_campaign={{ &quot;Campaign Name&quot; | encode_query_argument }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">Campaign%20Name</span></code>, so the URL will be
-<code class="docutils literal"><span class="pre">http://example.com/?utm_campaign=Campaign%20Name</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">Campaign%20Name</span></tt>, so the URL will be
+<tt class="docutils literal"><span class="pre">http://example.com/?utm_campaign=Campaign%20Name</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="probability-by">
 <h2>probability_by<a class="headerlink" href="#probability-by" title="Permalink to this headline">¶</a></h2>
-<p>This filter returns <code class="docutils literal"><span class="pre">true</span></code> or <code class="docutils literal"><span class="pre">false</span></code> for a dataset based on the probability you request:</p>
+<p>This filter returns <tt class="docutils literal"><span class="pre">true</span></tt> or <tt class="docutils literal"><span class="pre">false</span></tt> for a dataset based on the probability you request:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ 50 | probability_by: &quot;param1&quot;, &quot;param2&quot;, &quot;param3&quot; }}
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">50</span></code> returns <code class="docutils literal"><span class="pre">true</span></code> in 50% cases for requested dataset. This filter provides the same result for a particular
+<p><tt class="docutils literal"><span class="pre">50</span></tt> returns <tt class="docutils literal"><span class="pre">true</span></tt> in 50% cases for requested dataset. This filter provides the same result for a particular
 dataset.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">probability should be always an integer value between <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">100</span></code>.</p>
+<p class="last">probability should be always an integer value between <tt class="docutils literal"><span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">100</span></tt>.</p>
 </div>
-<p>Here is another example that returns <code class="docutils literal"><span class="pre">true</span></code> only in 10% cases for the interpolation variable:</p>
+<p>Here is another example that returns <tt class="docutils literal"><span class="pre">true</span></tt> only in 10% cases for the interpolation variable:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ 10 | probability_by: advocate_info.email }}
 </pre></div>
 </div>
-<p>You can ommit passing any parameters and the result will be based on the Advocate offer. Also you may use <code class="docutils literal"><span class="pre">probability</span></code> as an alias which is a little shorter to write:</p>
+<p>You can ommit passing any parameters and the result will be based on the Advocate offer. Also you may use <tt class="docutils literal"><span class="pre">probability</span></tt> as an alias which is a little shorter to write:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ 50 | probability }}
 </pre></div>
 </div>
-<p>This example can be used in <code class="docutils literal"><span class="pre">Email</span> <span class="pre">sending</span> <span class="pre">condition</span></code> of Advocate Offer Email template to send email only in 33% cases:</p>
+<p>This example can be used in <tt class="docutils literal"><span class="pre">Email</span> <span class="pre">sending</span> <span class="pre">condition</span></tt> of Advocate Offer Email template to send email only in 33% cases:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{% assign send_email = 33 | probability %}
 
 {% if send_email %}
@@ -166,7 +166,7 @@ First parameter is a maximum random number.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;100&quot; | rand_by: &quot;param1&quot;, &quot;param2&quot; }}
 </pre></div>
 </div>
-<p>Always returns <code class="docutils literal"><span class="pre">29</span></code>.</p>
+<p>Always returns <tt class="docutils literal"><span class="pre">29</span></tt>.</p>
 <p>Interpolation as a parameter:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;10&quot; | rand_by: advocate_info.email }}
 </pre></div>
@@ -267,7 +267,7 @@ as an array.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;foo&quot; | md5 }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">acbd18db4cc2f85cedef654fccc4a4d8</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">acbd18db4cc2f85cedef654fccc4a4d8</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="money">
@@ -276,15 +276,15 @@ as an array.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;50&quot; | money }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">$50.00</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">$50.00</span></tt>.</p>
 <p>Available options:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">unit</span></code></li>
-<li><code class="docutils literal"><span class="pre">separator</span></code></li>
-<li><code class="docutils literal"><span class="pre">delimiter</span></code></li>
-<li><code class="docutils literal"><span class="pre">format</span></code></li>
-<li><code class="docutils literal"><span class="pre">precision</span> <span class="pre">(integer)</span></code></li>
-<li><code class="docutils literal"><span class="pre">strip_insignificant_zeros</span> <span class="pre">(boolean)</span></code></li>
+<li><tt class="docutils literal"><span class="pre">unit</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">separator</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">delimiter</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">format</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">precision</span> <span class="pre">(integer)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">strip_insignificant_zeros</span> <span class="pre">(boolean)</span></tt></li>
 </ul>
 <div class="ptable container">
 <table border="1" class="docutils">
@@ -298,35 +298,35 @@ as an array.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.11&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$100</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.11&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$101</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">precision:</span> <span class="pre">0</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$101</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$100.99</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100.99</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.90&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$100.9</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.90&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100.9</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.00&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$100</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100.00&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">strip_insignificant_zeros:</span> <span class="pre">true</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$100</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;€&quot;</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">€100.00</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;€&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">€100.00</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;&quot;</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">100.00</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">unit:</span> <span class="pre">&quot;&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">100.00</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">separator:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$10,049_99</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">separator:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$10,049_99</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">delimiter:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">$10_049.99</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;10049.99&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">delimiter:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">$10_049.99</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">format:</span> <span class="pre">&quot;%n</span> <span class="pre">%u&quot;,</span> <span class="pre">unit:</span> <span class="pre">&quot;zł&quot;</span> <span class="pre">}}</span></code></td>
-<td><code class="docutils literal"><span class="pre">100.00</span> <span class="pre">zł</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">format:</span> <span class="pre">&quot;%n</span> <span class="pre">%u&quot;,</span> <span class="pre">unit:</span> <span class="pre">&quot;zł&quot;</span> <span class="pre">}}</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">100.00</span> <span class="pre">zł</span></tt></td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +339,7 @@ as an array.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;    strip me &quot; | strip }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">strip</span> <span class="pre">me</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">strip</span> <span class="pre">me</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="tweet-length">
@@ -348,7 +348,7 @@ as an array.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;wow this is a tweet http://example.com&quot; | tweet_length }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">42</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">42</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="parse-json">
@@ -358,7 +358,7 @@ as an array.</p>
 {{ var.key }}
 </pre></div>
 </div>
-<p>Returns <code class="docutils literal"><span class="pre">value</span></code>.</p>
+<p>Returns <tt class="docutils literal"><span class="pre">value</span></tt>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="claim-url">
@@ -407,14 +407,14 @@ Supports nested interpolation with <cite>[[  ]]</cite></p>
 </pre></div>
 </div>
 <p>Supports fixed variants for localization, user will be able to set localization value only from this list.
-First value will be a default value, or you can set it using <code class="docutils literal"><span class="pre">default</span></code> option.</p>
+First value will be a default value, or you can set it using <tt class="docutils literal"><span class="pre">default</span></tt> option.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ &quot;campaign_layout&quot; | localize: &quot;left&quot;, &quot;right&quot; }}
 {{ &quot;header_size&quot; | localize: &quot;h1&quot;, &quot;h2&quot;, &quot;h3&quot;, &quot;h4&quot;, default: &quot;h2&quot; }}
 </pre></div>
 </div>
 <p>There is also boolean localization type. It has a strict requirement: exactly two variants which
-determines boolean logics. The first variant is associated with <code class="docutils literal"><span class="pre">true</span></code>, the last one — <code class="docutils literal"><span class="pre">false</span></code>.
-The first variant is set as default unless you change it to otherwise with a <code class="docutils literal"><span class="pre">default</span></code>
+determines boolean logics. The first variant is associated with <tt class="docutils literal"><span class="pre">true</span></tt>, the last one — <tt class="docutils literal"><span class="pre">false</span></tt>.
+The first variant is set as default unless you change it to otherwise with a <tt class="docutils literal"><span class="pre">default</span></tt>
 option (see above for an example). Here is an example of how to use boolean localization:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{% assign responsive_font = &#39;fonts_size&#39; | localize: &#39;Responsive&#39;, &#39;Fixed&#39;, trait: &#39;boolean&#39; %}
 {% if responsive_font %}
@@ -424,7 +424,7 @@ option (see above for an example). Here is an example of how to use boolean loca
 {% endif %}
 </pre></div>
 </div>
-<p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><span class="std std-ref">Localization</span></a> page.</p>
+<p>For more information see <a class="reference internal" href="../localization.html#campaigns-localization"><em>Localization</em></a> page.</p>
 <p><hr></p>
 </div>
 <div class="section" id="scale-color">
@@ -462,10 +462,10 @@ Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
 <p>If parameter is &#8216;advocate&#8217; it will return rank info for current advocate.</p>
 <p>It returns objects with next fields:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">leaderboard_rank</span></code> - Advocate rank</li>
-<li><code class="docutils literal"><span class="pre">leaderboard_count</span></code> - Number of approved referrals for specified period</li>
-<li><code class="docutils literal"><span class="pre">leaderboard_subtotal</span></code> - Sum of advocate purchase subtotals for specified period</li>
-<li>also all fields from <a class="reference internal" href="variables.html#editor-variables-advocate-info"><span class="std std-ref">advocate_info</span></a> variable</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_rank</span></tt> - Advocate rank</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_count</span></tt> - Number of approved referrals for specified period</li>
+<li><tt class="docutils literal"><span class="pre">leaderboard_subtotal</span></tt> - Sum of advocate purchase subtotals for specified period</li>
+<li>also all fields from <a class="reference internal" href="variables.html#editor-variables-advocate-info"><em>advocate_info</em></a> variable</li>
 </ul>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>{% assign leaders = &quot;3&quot; | leaderboard %}
 {% for leader in leaders %}
@@ -487,16 +487,16 @@ embed a snapshot of your website into Talkable campaign it is way better
 to use this liquid filter instead of embedding an iframe since an image
 is always lighter in size and takes less CPU performance to render on
 a screen. Also, some websites restrict themselves from embedding through
-an iframe so you can take <code class="docutils literal"><span class="pre">url2png</span></code> as a bulletproof solution for a
+an iframe so you can take <tt class="docutils literal"><span class="pre">url2png</span></tt> as a bulletproof solution for a
 website snapshot.</p>
 <p>Available options:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">ttl</span></code> - &#8220;time to live&#8221; period for a screenshot before it gets refreshed, in seconds. Value example: <code class="docutils literal"><span class="pre">86400</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">viewport</span></code> - Viewport dimensions. Value example: <code class="docutils literal"><span class="pre">&quot;640x480&quot;</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">custom_css_url</span></code> - Custom CSS file that will be injected into a website in case you need to change a screenshot. Value example: <code class="docutils literal"><span class="pre">&quot;http://url2png.com/tests/css/test.css&quot;</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">fullpage</span></code> - Attempts to capture entire document canvas. Value example: <code class="docutils literal"><span class="pre">true</span></code>.</li>
+<li><tt class="docutils literal"><span class="pre">ttl</span></tt> - &#8220;time to live&#8221; period for a screenshot before it gets refreshed, in seconds. Value example: <tt class="docutils literal"><span class="pre">86400</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">viewport</span></tt> - Viewport dimensions. Value example: <tt class="docutils literal"><span class="pre">&quot;640x480&quot;</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">custom_css_url</span></tt> - Custom CSS file that will be injected into a website in case you need to change a screenshot. Value example: <tt class="docutils literal"><span class="pre">&quot;http://url2png.com/tests/css/test.css&quot;</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">fullpage</span></tt> - Attempts to capture entire document canvas. Value example: <tt class="docutils literal"><span class="pre">true</span></tt>.</li>
 </ul>
-<p>Here is how you can embed a screenshot of your website into a campaign view (<code class="docutils literal"><span class="pre">site_url</span></code> returns your website URL that you set inside Site Settings):</p>
+<p>Here is how you can embed a screenshot of your website into a campaign view (<tt class="docutils literal"><span class="pre">site_url</span></tt> returns your website URL that you set inside Site Settings):</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;img src=&quot;{{ site_url | url2png }}&quot; class=&quot;campaign-site-on-the-back&quot; /&gt;
 </pre></div>
 </div>

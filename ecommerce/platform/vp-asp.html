@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -79,7 +79,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="ecommerce-platform-vp-asp"></span><div class="section" id="vp-asp-7-0-store-integration">
 <h1>VP-ASP 7.0 Store Integration<a class="headerlink" href="#vp-asp-7-0-store-integration" title="Permalink to this headline">¶</a></h1>
@@ -87,7 +87,7 @@
 <ol class="arabic">
 <li><p class="first">Open file <em>shopthanks.asp</em> in your chosen text editor.</p>
 </li>
-<li><p class="first">Locate this code: <code class="docutils literal"><span class="pre">SendSmsMerchant</span> <span class="pre">rsorder</span></code></p>
+<li><p class="first">Locate this code: <tt class="docutils literal"><span class="pre">SendSmsMerchant</span> <span class="pre">rsorder</span></tt></p>
 </li>
 <li><p class="first">Directly below it, please insert this code:</p>
 <div class="admonition note">
@@ -96,16 +96,16 @@
 replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
-<div class="code highlight-default"><div class="highlight"><pre><span></span>    <span class="s1">&#39;Begin Talkable integration code</span>
-<span class="n">dim</span> <span class="n">strordertime</span><span class="p">,</span> <span class="n">strorderdate</span><span class="p">,</span> <span class="n">xcurebiturl</span>
-<span class="n">strordertime</span> <span class="o">=</span> <span class="n">rsorder</span><span class="p">(</span><span class="s2">&quot;otime&quot;</span><span class="p">)</span>
-<span class="n">strorderdate</span> <span class="o">=</span> <span class="n">formatdatetime</span><span class="p">(</span><span class="n">strordertime</span><span class="p">,</span><span class="n">vblongtime</span><span class="p">)</span>
-<span class="n">xcurebiturl</span> <span class="o">=</span> <span class="s2">&quot;https://www.talkable.com/public/YOUR-TALKABLE-SITE-ID/purchases/create.js&quot;</span>
-<span class="o">%&gt;</span>
-<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;&lt;%=xcurebiturl%&gt;?v=0.2&amp;purchase[order_number]=&lt;%=ordernumber%&gt;&amp;purchase[subtotal]=&lt;%=getsess(&quot;</span><span class="n">OrderTotal</span><span class="s2">&quot;)%&gt;&amp;purchase[email]=&lt;%=GetSess(&quot;</span><span class="n">email</span><span class="s2">&quot;)%&gt;&amp;purchase[order_date]=&lt;%=strorderdate%&gt;&quot;</span><span class="o">&amp;</span> <span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-<span class="o">&lt;%</span>
-<span class="s1">&#39;End Talkable integration code</span>
+<div class="code highlight-python"><div class="highlight"><pre><span></span>    &#39;Begin Talkable integration code
+dim strordertime, strorderdate, xcurebiturl
+strordertime = rsorder(&quot;otime&quot;)
+strorderdate = formatdatetime(strordertime,vblongtime)
+xcurebiturl = &quot;https://www.talkable.com/public/YOUR-TALKABLE-SITE-ID/purchases/create.js&quot;
+%&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=xcurebiturl%&gt;?v=0.2&amp;purchase[order_number]=&lt;%=ordernumber%&gt;&amp;purchase[subtotal]=&lt;%=getsess(&quot;OrderTotal&quot;)%&gt;&amp;purchase[email]=&lt;%=GetSess(&quot;email&quot;)%&gt;&amp;purchase[order_date]=&lt;%=strorderdate%&gt;&quot;&amp; &gt;
+&lt;/script&gt;
+&lt;%
+&#39;End Talkable integration code
 </pre></div>
 </div>
 </li>
@@ -117,7 +117,7 @@ dashboard after you log in and create a site.</p>
 <p class="last">You can find additional help on the <a class="reference external" href="http://helpnotes.vpasp.com/kb/615-VP-ASP-70-Video-Tutorials/1012-Integrate-Curebit-into-VP-ASP-700/">VP-ASP page</a>.</p>
 </div>
 <p><br></p>
-<p><a class="reference internal" href="../verify.html#ecommerce-verify"><span class="std std-ref">Verifying Integration Instructions</span></a></p>
+<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">

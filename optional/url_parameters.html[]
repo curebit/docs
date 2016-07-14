@@ -23,13 +23,13 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Other Platform" href="../ecommerce/custom.html" />
+    <link rel="up" title="Advanced Features" href="../optional.html" />
     <link rel="next" title="White-labeling" href="white_labeling.html" />
-    <link rel="prev" title="Segment With Traffic Source" href="traffic_source.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Subscribing to Iframe Events" href="subscribing_to_events.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -48,11 +48,35 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/shopify.html">Shopify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/magento.html">Magento</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../ecommerce/custom.html">Other Platform</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../ecommerce/custom.html#advanced-features">Advanced Features</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../saas.html">SaaS Integrations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../saas.html#advanced-features">Advanced Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Using URL Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
@@ -61,7 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using URL Parameters</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Using URL Parameters</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
@@ -90,7 +114,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="optional-url-parameters"></span><div class="section" id="using-url-parameters">
 <h1>Using URL Parameters<a class="headerlink" href="#using-url-parameters" title="Permalink to this headline">¶</a></h1>
@@ -99,7 +123,7 @@
 <li>email - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> email address</li>
 <li>first_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> first name</li>
 <li>last_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> last name</li>
-<li>traffic_source - <a class="reference internal" href="traffic_source.html#optional-traffic-source"><span class="std std-ref">Traffic Source</span></a> value</li>
+<li>traffic_source - <a class="reference internal" href="traffic_source.html#optional-traffic-source"><em>Traffic Source</em></a> value</li>
 <li>campaign_tags - overrides campaign tag to be loaded</li>
 </ul>
 <p>Below is an example of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> authorization through URL. Given the URL of the page where Talkable campaign is integrated: <a class="reference external" href="http://example.com/invite">http://example.com/invite</a>:</p>

@@ -27,7 +27,7 @@
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="#" class="header-logo">Talkable docs</a>
@@ -77,7 +77,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="talkable-js-integration">
 <h1>Talkable JS Integration<a class="headerlink" href="#talkable-js-integration" title="Permalink to this headline">¶</a></h1>

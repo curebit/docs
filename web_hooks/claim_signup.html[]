@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -70,7 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offer_signup.html">Advocate Signup</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Friend Email Gating</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Friend Email Gating</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -89,7 +89,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="web-hooks-claim-signup"></span><div class="section" id="friend-email-gating-web-hook">
 <h1>Friend Email Gating Web Hook<a class="headerlink" href="#friend-email-gating-web-hook" title="Permalink to this headline">¶</a></h1>

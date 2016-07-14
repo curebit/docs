@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -68,7 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advocate Offers</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advocate Offers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -95,21 +95,21 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="api-v2-offers"></span><div class="section" id="advocate-offers">
 <h1>Advocate Offers<a class="headerlink" href="#advocate-offers" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access advocate offers.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre><span></span>GET /offers/&lt;short_url_code&gt;
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET /offers/&lt;id&gt;
 </pre></div>
 </div>
 <p>Returns advocate offer.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
-<col width="22%" />
-<col width="78%" />
+<col width="21%" />
+<col width="79%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Parameter</th>
@@ -121,9 +121,8 @@
 <td>Your Talkable Site ID. You can get this from your
 Talkable dashboard after you log in and create a site.</td>
 </tr>
-<tr class="row-odd"><td>short_url_code</td>
-<td>Advocate offer short code obtained with
-<a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">origin creation</span></a>.</td>
+<tr class="row-odd"><td>id</td>
+<td>Offer ID obtained with <a class="reference internal" href="origins.html#api-v2-origins"><em>origin creation</em></a>.</td>
 </tr>
 <tr class="row-even"><td>interpolations</td>
 <td>Optional: array of interpolations to return in response</td>
@@ -141,7 +140,7 @@ generated sharing links.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/offers/dZpBwd?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/offers/89238912?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
@@ -149,6 +148,7 @@ generated sharing links.</p>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">89238912</span><span class="p">,</span>
       <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/iEov9g&quot;</span><span class="p">,</span>
