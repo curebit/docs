@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -67,7 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate/Friend Reward Confirmation Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advocate/Friend Reward Confirmation Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_paid.html">Advocate Reward Paid Email</a></li>
 </ul>
 </li>
@@ -98,7 +98,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-views-notifier-rewards-confirmation"></span><div class="section" id="advocate-friend-reward-confirmation-email">
 <span id="notifier-rewards-confirmation"></span><h1>Advocate/Friend Reward Confirmation Email<a class="headerlink" href="#advocate-friend-reward-confirmation-email" title="Permalink to this headline">¶</a></h1>
@@ -111,16 +111,16 @@ Email is triggered to a <abbr title="Person, who shares an offer with their Frie
 <pre>{% if reward.incentive.identifier == 'click' %}
   true
 {% endif %}</pre><img alt="../../_images/friend_confirmation_sending_criteria.png" src="../../_images/friend_confirmation_sending_criteria.png" />
-<p>The email will be sent once Talkable knows Friend&#8217;s email which they provides on the Friend Claim Page (such technique works great for email capturing). See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
+<p>The email will be sent once Talkable knows Friend&#8217;s email which they provides on the Friend Claim Page (such technique works great for email capturing). See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><span class="std std-ref">Email Gating</span></a> for more details.</p>
 <p>You can see your Incentive identifier inside Campaign Rules:</p>
 <img alt="../../_images/incentive_identifier.png" src="../../_images/incentive_identifier.png" />
 <p>Frequently used Variables:</p>
 <ul class="simple">
 <li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
-<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
-<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
-<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
-<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
+<code class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></code>.</li>
+<li>To show coupon code use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></code>.</li>
+<li>To show expiration date use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></code>.
+<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><span class="std std-ref">Formatting options</span></a>.</li>
 </ul>
 <p><br></p>
 <img alt="Friend Claim Email" src="../../_images/friend-claim-email.png" />
@@ -135,7 +135,7 @@ Coupon code: {{ coupon_code }}
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><span class="std std-ref">Read more about email design</span></a>.</p>
 </div>
 <h2>Email sending conditions for Advocate</h2><p>By default is sent immediately after the reward is created, but can be delayed by configuration.</p>
 <h2>Email sending conditions for Friend</h2><p>Main email sending criteria (unable to change):</p>

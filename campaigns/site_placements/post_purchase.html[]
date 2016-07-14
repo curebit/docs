@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -61,7 +61,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../site_placements.html">Site Placements</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="invite.html">Invite</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Post Purchase</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Post Purchase</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../views.html">Views</a></li>
@@ -92,7 +92,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-site-placements-post-purchase"></span><div class="section" id="post-purchase">
 <span id="post-purchase-campaign"></span><h1>Post Purchase<a class="headerlink" href="#post-purchase" title="Permalink to this headline">¶</a></h1>
@@ -104,7 +104,7 @@ order number or confirmation code) you will pass customer order data to Talkable
 </div>
 <div class="section" id="basic-integration">
 <h2>Basic Integration<a class="headerlink" href="#basic-integration" title="Permalink to this headline">¶</a></h2>
-<p>When the Talkable JS integration library is all set (<a class="reference internal" href="../../ecommerce/custom.html#ecommerce-custom"><em>see 1 step here</em></a>) on the order confirmation page the following integration script needs to be included:</p>
+<p>When the Talkable JS integration library is all set (<a class="reference internal" href="../../ecommerce/custom.html#ecommerce-custom"><span class="std std-ref">see 1 step here</span></a>) on the order confirmation page the following integration script needs to be included:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-post-purchase&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 

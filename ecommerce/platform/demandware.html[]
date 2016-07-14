@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -79,7 +79,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="ecommerce-platform-demandware"></span><div class="section" id="demandware-store-integration">
 <h1>Demandware Store Integration<a class="headerlink" href="#demandware-store-integration" title="Permalink to this headline">¶</a></h1>
@@ -110,7 +110,7 @@ after you log in and create a site.</li>
 </li>
 <li><p class="first">Near the bottom (immediately preceding <cite>&lt;/div&gt; &lt;!&#8211; END: container &#8211;&gt;</cite>),
 include this code:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span></span>&lt;!-- Curebit : Code - start - Confirmation --&gt;
+<div class="code highlight-default"><div class="highlight"><pre><span></span>&lt;!-- Curebit : Code - start - Confirmation --&gt;
 &lt;isinclude template=&quot;curebit/curebit_salestrack&quot;/&gt;
 &lt;!-- Curebit : Code - ends - Confirmation --&gt;
 </pre></div>
@@ -123,7 +123,7 @@ include this code:</p>
 </li>
 </ol>
 <p><br></p>
-<p><a class="reference internal" href="../verify.html#ecommerce-verify"><em>Verifying Integration Instructions</em></a></p>
+<p><a class="reference internal" href="../verify.html#ecommerce-verify"><span class="std std-ref">Verifying Integration Instructions</span></a></p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">

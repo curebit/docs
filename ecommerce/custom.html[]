@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -52,7 +52,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="platform/shopify.html">Shopify</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platform/magento.html">Magento</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Other Platform</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Other Platform</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-features">Advanced Features</a></li>
@@ -89,7 +89,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="ecommerce-custom"></span><div class="section" id="other-platform">
 <h1>Other Platform<a class="headerlink" href="#other-platform" title="Permalink to this headline">¶</a></h1>
@@ -130,10 +130,10 @@ your main layout which is used on every page. This is initialization of the Talk
 <col width="65%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="../campaigns/site_placements/post_purchase.html#post-purchase-campaign"><span class="std std-ref">Post Purchase</span></a></td>
 <td>On the order confirmation page after checkout</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><span class="std std-ref">Invite</span></a></td>
 <td>On the standalone page that&#8217;s always available to anyone</td>
 </tr>
 <tr class="row-odd"><td>Every Visitor Popup</td>
