@@ -92,9 +92,9 @@
 <li><p class="first">Click on <strong>Edit</strong> next to <em>&#8220;checkout-step4.html&#8221;</em>.</p>
 </li>
 <li><p class="first">Add the following code at the very beginning of the template:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
   <span class="kd">function</span> <span class="nx">correctTotalCost</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">strValue</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="p">{</span>
@@ -160,7 +160,7 @@
     <span class="nx">curebitNewScript</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">curebitJsSrc</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\[&#39;/gi</span><span class="p">,</span> <span class="s2">&quot;[&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;\]/gi</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">);</span>
     <span class="nx">curebitHeadID</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">curebitNewScript</span><span class="p">);</span>
   <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>

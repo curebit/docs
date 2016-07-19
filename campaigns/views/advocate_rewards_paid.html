@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Views" href="../views.html" />
-    <link rel="next" title="Tutorials" href="../tutorials.html" />
-    <link rel="prev" title="Advocate/Friend Reward Confirmation Email" href="notifier_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Friend Reward Paid Email" href="friend_rewards_paid.html" />
+    <link rel="prev" title="Advocate Reward Confirmation Email" href="advocate_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -67,8 +67,9 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifier_rewards_confirmation.html">Advocate/Friend Reward Confirmation Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advocate_rewards_confirmation.html">Advocate Reward Confirmation Email</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Paid Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friend_rewards_paid.html">Friend Reward Paid Email</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
@@ -113,8 +114,8 @@ been issued.</p>
 <p><br></p>
 <img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
 <p><br></p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Your credit code: {{ coupon_code }}
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="p">&gt;</span>Spend your credit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>Your credit code: {{ coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="nt">&gt;</span>Spend your credit<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">

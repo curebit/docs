@@ -114,8 +114,8 @@ This allows us to better support integration individually.</p>
 <h2>1. Add Talkable to Your Site<a class="headerlink" href="#add-talkable-to-your-site" title="Permalink to this headline">¶</a></h2>
 <p>In order to integrate Talkable campaign(s) on your site you need to set the following script into HEAD tag inside
 your main layout which is used on every page. This is initialization of the Talkable JS integration library:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// Required - Talkable Site ID, you can find it on the Dashboard inside Talkable upon login</span>
@@ -126,8 +126,8 @@ your main layout which is used on every page. This is initialization of the Talk
     <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="c1">// Optional - Customer first name</span>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span> <span class="c1">// Optional - Customer last name</span>
   <span class="p">}]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.2.9.min.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-2.2.9.min.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -135,10 +135,10 @@ your main layout which is used on every page. This is initialization of the Talk
 <div class="section" id="add-talkable-campaigns">
 <h2>2. Add Talkable Campaigns<a class="headerlink" href="#add-talkable-campaigns" title="Permalink to this headline">¶</a></h2>
 <p>Below is an example of registering an Event and showing <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> campaign as a result:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-post-purchase&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-post-purchase&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
@@ -149,7 +149,7 @@ your main layout which is used on every page. This is initialization of the Talk
 
   <span class="c1">// Passing Event to Talkable</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 </div>
 <p>The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><em>Advocate Signup Page</em></a> as a result. <br>
@@ -160,10 +160,10 @@ When the Event is registered successfully it appears inside Events Report. <br><
 <p>In the example above we show <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> Campaign as a result of Event registration.
 However you can show any other Talkable Campaign instead since there are 8 of them.
 Here is an example how to show <a class="reference internal" href="campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a>:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-invite&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
@@ -174,7 +174,7 @@ Here is an example how to show <a class="reference internal" href="campaigns/sit
 
   <span class="c1">// Passing Event to Talkable</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
