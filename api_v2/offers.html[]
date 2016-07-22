@@ -124,10 +124,7 @@ Talkable dashboard after you log in and create a site.</td>
 <tr class="row-odd"><td>id</td>
 <td>Offer ID obtained with <a class="reference internal" href="origins.html#api-v2-origins"><em>origin creation</em></a>.</td>
 </tr>
-<tr class="row-even"><td>interpolations</td>
-<td>Optional: array of interpolations to return in response</td>
-</tr>
-<tr class="row-odd"><td>sharing_channels</td>
+<tr class="row-even"><td>sharing_channels</td>
 <td><p class="first">Optional: array of social sharing channels for which will be
 generated sharing links.</p>
 <p class="last">Options: <cite>facebook</cite>, <cite>twitter</cite>, <cite>linkedin</cite>, <cite>sms</cite>,
