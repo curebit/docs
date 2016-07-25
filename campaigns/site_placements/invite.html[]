@@ -108,17 +108,17 @@
 Invite campaign integration does not require any data to be passed to Talkable since it only acts as the referral loop opener (referral is not created at this point).</p>
 <p>The only requirement for it is a page on the site where it is going to placed. It is recommended that this page is always available to anyone on your site, even not logged in customers.</p>
 <p>Once you have created the page below is an example of the basic Invite campaign integration:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Place Talkable Container into appropriate place in the DOM --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Place Talkable Container into appropriate place in the DOM --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-invite&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 <span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;script&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Invite campaign as a result</span>
-<span class="nt">&lt;/script&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -130,10 +130,10 @@ Invite campaign integration does not require any data to be passed to Talkable s
 <div class="section" id="overriding-customer-data">
 <h2>Overriding Customer Data<a class="headerlink" href="#overriding-customer-data" title="Permalink to this headline">¶</a></h2>
 <p>In case you need to override customer data include <cite>customer</cite> object in addition to the rest of the data:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Place Talkable Container into appropriate place in the DOM --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Place Talkable Container into appropriate place in the DOM --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-invite&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="nt">&lt;script&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// campaign_template: &#39;invite&#39;,</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
@@ -144,7 +144,7 @@ Invite campaign integration does not require any data to be passed to Talkable s
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="nt">&lt;/script&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="hidden container">

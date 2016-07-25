@@ -102,10 +102,10 @@
 <p>This API allows you to access Talkable metrics. Go to Reports -&gt; Metric
 descriptions to see the list of available metrics.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre>GET /metrics/&lt;metric&gt;
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET /metrics/&lt;metric&gt;
 </pre></div>
 </div>
-<p>Returns a metric value.</p>
+<p>Returns a metric value which includes plain value, formatted value and result&#8217;s type.</p>
 <div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
@@ -131,27 +131,91 @@ Talkable dashboard after you log in and create a site.</td>
 <tr class="row-odd"><td>end_date</td>
 <td>End of the period for which data is pulled, inclusively.</td>
 </tr>
-<tr class="row-even"><td>campaign_slugs</td>
-<td>Optional: array of campaign slugs for which data
+<tr class="row-even"><td>campaign_ids</td>
+<td>Optional: array of campaign ids for which data
 is pulled. See the
 <a class="reference internal" href="campaigns.html#api-v2-campaigns"><em>Campaigns API</em></a>.</td>
+</tr>
+<tr class="row-odd"><td>campaign_tags</td>
+<td>Optional: array of campaign tags for which data
+is pulled. See the
+<a class="reference internal" href="campaigns.html#api-v2-campaigns"><em>Campaigns API</em></a>.</td>
+</tr>
+<tr class="row-even"><td>campaign_status</td>
+<td><p class="first">Optional: campaign status for which data is pulled.</p>
+<p class="last">Options: <cite>live</cite>, <cite>test</cite>, <cite>scheduled</cite>, <cite>disabled</cite>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>sharing_channels</td>
+<td><p class="first">Optional: array of specific sharing channels
+for which data is pulled.</p>
+<p class="last">Options: <cite>coupon</cite>, <cite>email</cite>, <cite>reminder</cite>, <cite>facebook</cite>,
+<cite>facebook_sponsored</cite>, <cite>twitter</cite>, <cite>sms</cite>, <cite>linkedin</cite>,
+<cite>other</cite> or custom.</p>
+</td>
+</tr>
+<tr class="row-even"><td>traffic_sources</td>
+<td>Optional: array of traffic sources for which data
+is pulled.</td>
+</tr>
+<tr class="row-odd"><td>precision</td>
+<td>Optional: integer value of precision for the result.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_slugs[]=35944-api-campaign&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="section" id="offers-metric">
+<h3>Offers metric<a class="headerlink" href="#offers-metric" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_ids=35944,12345&amp;campaign_tags=invite,test&amp;campaign_status=live&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;metric&quot;</span><span class="o">:</span> <span class="mi">12345</span>
+    <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">&quot;formatted&quot;</span><span class="o">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result_type&quot;</span><span class="o">:</span> <span class="s2">&quot;number&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="revenue-percentage-metric-with-precision">
+<h3>Revenue percentage metric with precision<a class="headerlink" href="#revenue-percentage-metric-with-precision" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;precision=2&amp;api_key=i9uil7nQgDjucCiTJu
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mf">34.35</span><span class="p">,</span>
+    <span class="s2">&quot;formatted&quot;</span><span class="o">:</span> <span class="s2">&quot;34.35%&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result_type&quot;</span><span class="o">:</span> <span class="s2">&quot;percent&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="average-order-value-metric">
+<h3>Average order value metric<a class="headerlink" href="#average-order-value-metric" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/average_order_value?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;api_key=i9uil7nQgDjucCiTJu
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mi">5432</span><span class="p">,</span>
+    <span class="s2">&quot;formatted&quot;</span><span class="o">:</span> <span class="s2">&quot;$5432&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result_type&quot;</span><span class="o">:</span> <span class="s2">&quot;money&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
