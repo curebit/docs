@@ -90,12 +90,12 @@ osCommerce catalog directory (eg /var/www/oscommerce/catalog).</p>
 <li><ul class="first">
 <li><p class="first">For <strong>version 2.3</strong>, in your catalog directory, edit <em>checkout_success.php</em>
 and replace this code:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;buttonSet&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;buttonAction&quot;</span><span class="p">&gt;</span><span class="cp">&lt;?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, &#39;triangle-1-e&#39;, null, &#39;primary&#39;); ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;buttonSet&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;buttonAction&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, &#39;triangle-1-e&#39;, null, &#39;primary&#39;); ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
 
 <span class="cp">&lt;?php</span>
 <span class="cp">  require(DIR_WS_INCLUDES . &#39;template_bottom.php&#39;);</span>
@@ -104,12 +104,12 @@ and replace this code:</p>
 </pre></div>
 </div>
 <p>With this code:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;buttonSet&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;buttonAction&quot;</span><span class="p">&gt;</span><span class="cp">&lt;?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, &#39;triangle-1-e&#39;, null, &#39;primary&#39;); ?&gt;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;buttonSet&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;buttonAction&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, &#39;triangle-1-e&#39;, null, &#39;primary&#39;); ?&gt;</span><span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 
-<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
 
 <span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
 <span class="cp">&lt;?php</span>
@@ -130,12 +130,12 @@ and replace this code:</p>
 </li>
 <li><p class="first">For <strong>version 2.2</strong>, in your catalog directory, edit <em>checkout_success.php</em>
 and replace this code:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- right_navigation //--&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- right_navigation //--&gt;</span>
 <span class="cp">&lt;?php require(DIR_WS_INCLUDES . &#39;column_right.php&#39;); ?&gt;</span>
 <span class="c">&lt;!-- right_navigation_eof //--&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="nt">&lt;/table&gt;&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
 <span class="c">&lt;!-- body_eof //--&gt;</span>
 
 <span class="c">&lt;!-- footer //--&gt;</span>
@@ -144,12 +144,12 @@ and replace this code:</p>
 </pre></div>
 </div>
 <p>With this code:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- right_navigation //--&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- right_navigation //--&gt;</span>
 <span class="cp">&lt;?php require(DIR_WS_INCLUDES . &#39;column_right.php&#39;); ?&gt;</span>
 <span class="c">&lt;!-- right_navigation_eof //--&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="nt">&lt;/table&gt;&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
 <span class="c">&lt;!-- Begin Curebit integration code --&gt;</span>
 <span class="cp">&lt;?php</span>
 <span class="cp">  include(DIR_WS_MODULES . &#39;order_total/curebit_checkout.php&#39;);</span>

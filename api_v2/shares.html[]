@@ -101,7 +101,7 @@
 <h1>Shares<a class="headerlink" href="#shares" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access offer shares.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre><span></span>POST /offers/&lt;short_url_code&gt;/shares
+<div class="highlight-url"><div class="highlight"><pre>POST /offers/&lt;short_url_code&gt;/shares
 </pre></div>
 </div>
 <p>Creates offer share.</p>
@@ -182,14 +182,14 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="create-a-facebook-share">
 <h3>Create a Facebook share<a class="headerlink" href="#create-a-facebook-share" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;channel&quot;:&quot;facebook&quot;}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/offers/dZpBwd/shares
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -205,14 +205,14 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="create-an-email-share">
 <h3>Create an Email share<a class="headerlink" href="#create-an-email-share" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;channel&quot;:&quot;email&quot;,&quot;recipients&quot;:&quot;friend1@example.com,friend2@example.com&quot;,&quot;email&quot;:{&quot;subject&quot;:&quot;Hello!&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/offers/dZpBwd/shares
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>

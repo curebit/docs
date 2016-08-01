@@ -114,8 +114,8 @@ been issued.</p>
 <p><br></p>
 <img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
 <p><br></p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Your credit code: {{ coupon_code }}
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="p">&gt;</span>Spend your credit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>Your credit code: {{ coupon_code }}
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://merchant-site.com/products&quot;</span><span class="nt">&gt;</span>Spend your credit<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">

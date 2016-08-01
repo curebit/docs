@@ -104,7 +104,7 @@ from your Curebit dashboard after you log in and create a site.</p>
 <div class="line"><em>/catalog/controller/checkout/success.php</em></div>
 </div>
 <p>and merge in the 3 lines indicated:</p>
-<div class="highlight-php"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+<div class="highlight-php"><div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
   <span class="k">class</span> <span class="nc">ControllerCheckoutSuccess</span> <span class="k">extends</span> <span class="nx">Controller</span> <span class="p">{</span>
     <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">))</span> <span class="p">{</span>

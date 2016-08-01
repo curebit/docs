@@ -166,6 +166,58 @@ data to Advocate Share Page.</td>
 </div>
 <p><br></p>
 </div>
+<div class="section" id="advocate-origin">
+<h2>{{ advocate_origin }}<a class="headerlink" href="#advocate-origin" title="Permalink to this headline">¶</a></h2>
+<p><strong>Available in</strong>: all Views <br>
+<strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<p><abbr title="Origin is the point where a referral loop begins (Standalone or Post Purchase campaign)">Origin</abbr> data for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>.</p>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="28%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>1234567890</td>
+<td>Advocate origin id</td>
+</tr>
+<tr class="row-odd"><td>new_customer</td>
+<td>false | true</td>
+<td>Advocate is a new customer or not</td>
+</tr>
+<tr class="row-even"><td>created_at</td>
+<td>&#8220;2016-07-27T00:00:00.000+03:00&#8221;</td>
+<td>Time when Advocate origin was created</td>
+</tr>
+<tr class="row-odd"><td>event_category</td>
+<td>&#8220;purchase&#8221;</td>
+<td>Advocate origin event category</td>
+</tr>
+<tr class="row-even"><td>coupon_codes</td>
+<td>[&#8220;AD_DISCOUNT&#8221;]</td>
+<td>Coupon codes that are used in Advocate origin</td>
+</tr>
+<tr class="row-odd"><td>location</td>
+<td>{
+&#8220;country&#8221;:&#8221;United States&#8221;,
+&#8220;city&#8221;:&#8221;San Jose&#8221;,
+&#8220;country_code&#8221;:&#8221;US&#8221;
+}</td>
+<td>Advocate geolocation based on their IP address</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
 <div class="section" id="coupon-code">
 <h2>{{ coupon_code }}<a class="headerlink" href="#coupon-code" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: Friend Claim Page, Advocate Redemption Email, Advocate Reward
@@ -198,7 +250,7 @@ enough coupons and they are valid in terms of uniqueness and validity</li>
 several Incentives which are also objects.</p>
 <p>Here is an example of <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> Variable with two incentives:
 <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="nx">advocate</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">amount</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
     <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;$10&quot;</span><span class="p">,</span>
@@ -213,11 +265,11 @@ several Incentives which are also objects.</p>
 </pre></div>
 </div>
 <p>And here is an example of using <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> values:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Give your friend {{ incentives.friend.description }} OFF!
+<div class="highlight-html"><div class="highlight"><pre>Give your friend {{ incentives.friend.description }} OFF!
 </pre></div>
 </div>
 <p>Which outputs:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Give your friend 100% OFF!
+<div class="highlight-html"><div class="highlight"><pre>Give your friend 100% OFF!
 </pre></div>
 </div>
 <table border="1" class="docutils">
