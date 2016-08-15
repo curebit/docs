@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="E-Commerce Integration" href="../ecommerce.html" />
-    <link rel="next" title="Automatic Coupon Creation" href="../optional/coupons.html" />
+    <link rel="next" title="Converting Static Copy Into Localization" href="../optional/converting_into_localization.html" />
     <link rel="prev" title="Magento" href="platform/magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -158,6 +158,7 @@ your main layout which is used on every page. This is initialization of the Talk
 <p>Here is a full list of things you can do with Talkable:</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/passing_custom_data.html">Pass Custom Person Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../optional/referrals_approval.html">Referrals Approval</a></li>

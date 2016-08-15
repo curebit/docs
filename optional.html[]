@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -123,6 +124,10 @@ and how to find a right Fraud Profile that works best for your site.</td>
 <td>Subscribe to Talkable Iframe events such as the campaign is loaded or closed and
 perform some updates to your site based on them.</td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="optional/converting_into_localization.html#optional-converting-into-localization"><em>Convert static copy into Localization</em></a></td>
+<td>Convert all static languange into a customizable copy that&#8217;s
+easy to AB test.</td>
+</tr>
 </tbody>
 </table>
 <div class="hidden container">
@@ -155,6 +160,12 @@ perform some updates to your site based on them.</td>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#few-important-things-to-remember">Few important things to remember</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
