@@ -65,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Converting Static Copy Into Localization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-as-localization">Color As Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -172,6 +173,36 @@
 </pre></div>
 </div>
 <p>The code snippet above checks if the Advocate provided any Subject at all. If not we take default Subject copy so Friend Share email does not come with a blank subject.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="color-as-localization">
+<h2>Color As Localization<a class="headerlink" href="#color-as-localization" title="Permalink to this headline">¶</a></h2>
+<p>Another example would be localizing font color of a headline, all copy at once, or a background color of a button. You can use <cite>color</cite> trait of a Localization for that.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Navigate to HTML &amp; CSS editor of the View you want to add a color Localization on:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/campaign_navigation_html_css_editor.png" src="../_images/campaign_navigation_html_css_editor.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>At the very bottom of the HTML area add <tt class="docutils literal"><span class="pre">&lt;style&gt;&lt;/style&gt;</span></tt> tag with CSS that will override default styling of the element you want to localize:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-css"><div class="highlight"><pre>.button {
+  background-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
+  border-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
+}
+</pre></div>
+</div>
+<p>In the code example above we created new Color Localization with default HEX color <cite>#f94d08</cite> which is used for <cite>background-color</cite> and <cite>border-color</cite> CSS properties of <cite>.button</cite> selector. Whenever you set a new color inside Campaign Editor it will be changed across both places because we&#8217;re using the same Localization identifier in both places.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>New Color Localization appears under &#8220;Color&#8221; tab inside Campaign Editor:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/editor_colors_tab.png" src="../_images/editor_colors_tab.png" />
 </div></blockquote>
 </div></blockquote>
 <div class="hidden container">
