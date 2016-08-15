@@ -48,36 +48,11 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/shopify.html">Shopify</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecommerce/platform/magento.html">Magento</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../ecommerce/custom.html">Other Platform</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ecommerce/custom.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../ecommerce/custom.html#advanced-features">Advanced Features</a></li>
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../saas.html">SaaS Integrations</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../saas.html#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../saas.html#advanced-features">Advanced Features</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Converting Static Copy Into Localization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
-<li class="toctree-l3"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
@@ -89,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Converting Static Copy Into Localization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#few-important-things-to-remember">Few important things to remember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +100,7 @@
 <p>Few benefits you get out of using Localizations:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>It is extremely easy to set up an AB test if your copy is coded up as a Localizatio</li>
+<li>It is extremely easy to set up an AB test if your copy is coded up as a Localization.</li>
 <li>For non-technical people it is easier to change the copy inside Localization Editor because they are afraid to code.</li>
 </ol>
 </div></blockquote>
@@ -152,7 +127,7 @@
 </div>
 <p>A piece that we are going to extract into Localizations is just a copy, without HTML tags. To do that, simply wrap the text into a variable notation like so:</p>
 <div class="highlight-javascript"><div class="highlight"><pre>&lt;h1&gt;
-  {{ &quot;headline&quot; | localize: &quot;Get [[ advocate_incentive.description ]].&quot; }}
+  {{ &quot;advocate_share_page_headline&quot; | localize: &quot;Get [[ advocate_incentive.description ]].&quot; }}
 &lt;/h1&gt;
 </pre></div>
 </div>
@@ -160,18 +135,45 @@
 <li>Go back to Editor to see newly created Localization:</li>
 </ol>
 <img alt="../_images/campaign_localization_sidebar.png" src="../_images/campaign_localization_sidebar.png" />
-<div class="section" id="few-important-things-to-remember">
-<h2>Few important things to remember<a class="headerlink" href="#few-important-things-to-remember" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<h2>Few important things to remember</h2><ol class="arabic simple">
 <li>Don&#8217;t forget to change <cite>{{</cite> into <cite>[[</cite> inside interpolation variables, otherwise variables will lose its function and become just a plain text.</li>
-<li>Keep in mind that <cite>identifier</cite> (&#8220;headline&#8221; in the example above) is a campaign-level Localization in fact, always remember to provide unique names for them, otherwise you will be overriding a value of one Localization.</li>
+<li>Keep in mind that <cite>identifier</cite> (&#8220;advocate_share_page_headline&#8221; in the example above) is a campaign-level Localization in fact, always remember to provide unique names for them, otherwise you will be overriding a value of one Localization.</li>
 </ol>
-</div></blockquote>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Talkable does not allow coding up Localizations within CSS area. If you want to move some CSS property into localizations use inline &lt;style&gt; tag inside HTML area.</p>
 </div>
+<div class="section" id="moving-subject-line-into-localization">
+<h2>Moving Subject Line Into Localization<a class="headerlink" href="#moving-subject-line-into-localization" title="Permalink to this headline">¶</a></h2>
+<p>It is highly unlikely that your campaign is not equipped with Subject line as a Localization, by default all newly created campaigns at Talkable already have it. In case your campaign does not please keep reading this section.</p>
+<p>Subject line is unique because its default value is set on the Advocate Share Page along with other email sharing fields (email body, reminder checkbox value), not Friend Share email as it might sounded logical. Here is the plan:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Create Subject Line as a Localization on the Advocate Share Page, provide its default value, it will be used inside <cite>value</cite> attribute of the &#8220;subject&#8221; form field:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/subject_line_setup_inside_share_page.png" src="../_images/subject_line_setup_inside_share_page.png" />
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;email_subject&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;textfield&quot;</span> <span class="na">value=</span><span class="s">&quot;{{ &#39;friend_share_email_subject&#39; | localize: &#39;Your friend [[ advocate_info.first_name ]] [[ advocate_info.last_name ]] gave you [[ friend_incentive.description ]]&#39; | replace: &#39;   &#39;, &#39; &#39; | replace: &#39;  &#39;, &#39; &#39; }}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>This code creates new Localization named &#8220;Friend share email subject&#8221; that you are able to change on the Advocate Share Page.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Navigate to Friend Share email &rarr; Extra fields to see Email Subject field:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/campaign_editor_subject.png" src="../_images/campaign_editor_subject.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Put the following code in there:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>{% if custom_message_subject == blank  %}{{ &#39;friend_share_email_subject&#39; | localize }}{% else %}{{ custom_message_subject }}{% endif %}
+</pre></div>
+</div>
+<p>The code snippet above checks if the Advocate provided any Subject at all. If not we take default Subject copy so Friend Share email does not come with a blank subject.</p>
+</div></blockquote>
+</div></blockquote>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
