@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#color-as-localization">Color As Localization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image-as-localization">Image As Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-option-configuration-localization">Custom Option (Configuration) Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -234,6 +235,61 @@
 <blockquote>
 <div><img alt="../_images/editor_images_tab.png" src="../_images/editor_images_tab.png" />
 </div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="custom-option-configuration-localization">
+<h2>Custom Option (Configuration) Localization<a class="headerlink" href="#custom-option-configuration-localization" title="Permalink to this headline">¶</a></h2>
+<p>In addition to localizing Images, Colors, and static copy Talkable allows you to build really advanced Localizations where you can AB test or switch between different visual layouts of campaign Views.</p>
+<p>An example can be to create an AB test for Equal Emphasis (all 3 sharing channels look visually equal) vs. Email Emphasis where email sharing form stands out:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/share_page_equal_emphasis.png"><img alt="../_images/share_page_equal_emphasis.png" src="../_images/share_page_equal_emphasis.png" style="height: 250px;" /></a>
+<a class="reference internal image-reference" href="../_images/share_page_email_emphasis.png"><img alt="../_images/share_page_email_emphasis.png" src="../_images/share_page_email_emphasis.png" style="height: 250px;" /></a>
+</div></blockquote>
+<p>In order to chieve this AB test we need to</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Build two separate layouts using CSS cascades to style all nested children within a container block that holds all the content:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>{% assign share_page_layout = &quot;share_page_layout&quot; | localize: &quot;Equal Emphasis&quot;, &quot;Email Emphasis&quot; %}
+&lt;div class=&quot;container is-{{ share_page_layout | downcase | split: &quot; &quot; | join: &quot;-&quot; }}&quot;&gt;
+  ...
+&lt;/div&gt;
+</pre></div>
+</div>
+<p>The code above creates a local Liquid variable named <cite>share_page_layout</cite> and assigns <cite>share_page_layout</cite> Configuration Localization to it.
+Then we optimize the variable value to be set as an HTML <cite>class</cite> attribute (downcase, replace spaces with hyphens) and set it as a part of a <cite>class</cite> attribute.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Now inside Campaign Editor we can see newly created Configuration Localization:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/editor_configuration_tab.png" src="../_images/editor_configuration_tab.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Let&#8217;s switch back to HTML &amp; CSS editor and start applying CSS styling to both layouts. Knowing their final classes inside HTML: <cite>class=&#8221;container is-equal-emphasis&#8221;</cite> and <cite>class=&#8221;container is-email-emphasis&#8221;</cite> we can easily style both layouts inside CSS area like so (SCSS is also allowed and is shown as an example for code simplicity):</li>
+</ol>
+<blockquote>
+<div><div class="highlight-css"><div class="highlight"><pre>.container {
+  &amp;.is-equal-emphasis {
+    h1 {
+      font-size: 48px;
+    }
+  }
+
+  &amp;.is-email-emphasis {
+    h1 {
+      font-size: 32px;
+    }
+  }
+}
+</pre></div>
+</div>
+<p>All other nested children can be styled following this pattern.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Once you&#8217;re done with styling it is very easy to set up an AB test, just go back to Campaign Editor and click &#8220;Add A/B test variant&#8221; link. Once a Campaign goes Live it will start rotating both variants following AB test distribution rules (50:50 by default).</li>
+</ol>
 </div></blockquote>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
