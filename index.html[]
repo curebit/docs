@@ -120,7 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html">Converting Into Localization</a></li>
 </ul>
 </li>
 </ul>

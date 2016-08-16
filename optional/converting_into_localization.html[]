@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Converting Static Copy Into Localization &mdash; Talkable Documentation</title>
+    <title>Converting Into Localization &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -63,9 +63,10 @@
 <li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Converting Static Copy Into Localization</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Converting Into Localization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#color-as-localization">Color As Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-as-localization">Image As Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -95,8 +96,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="optional-converting-into-localization"></span><div class="section" id="converting-static-copy-into-localization">
-<h1>Converting Static Copy Into Localization<a class="headerlink" href="#converting-static-copy-into-localization" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="optional-converting-into-localization"></span><div class="section" id="converting-into-localization">
+<h1>Converting Into Localization<a class="headerlink" href="#converting-into-localization" title="Permalink to this headline">¶</a></h1>
 <p>If you don&#8217;t know what is Localization inside Talkable <a class="reference internal" href="../campaigns/localization.html#campaigns-localization"><em>read this article</em></a>.</p>
 <p>Few benefits you get out of using Localizations:</p>
 <blockquote>
@@ -203,6 +204,35 @@
 </ol>
 <blockquote>
 <div><img alt="../_images/editor_colors_tab.png" src="../_images/editor_colors_tab.png" />
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="image-as-localization">
+<h2>Image As Localization<a class="headerlink" href="#image-as-localization" title="Permalink to this headline">¶</a></h2>
+<p>Localizing Image asset can be handy if you want to AB test it. Here is how to do that:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Navigate to HTML &amp; CSS editor of the View you want to add a color Localization on:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/campaign_navigation_html_css_editor.png" src="../_images/campaign_navigation_html_css_editor.png" />
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Inside HTML area find an image you want to localize. An image can be either within CSS or within HTML area (<cite>&lt;img /&gt;</cite>, inline styles, etc.). If the image is set within CSS you need to extract it into HTML area using inline styles:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-html"><div class="highlight"><pre>&lt;div class=&quot;container&quot; style=&quot;background-image: url(&#39;{{ &quot;share_page_background&quot; | localize: &quot;share-page-background.jpg&quot;, trait: &quot;asset&quot; }}&#39;);&quot;&gt;
+  ...
+&lt;/div&gt;
+</pre></div>
+</div>
+<p>In the example above <cite>share_page_background</cite> is a name of an Image Localization. <cite>share-page-background.jpg</cite> is a name of an Asset (Files tab within HTML &amp; CSS Editor).</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Now we can see newly created Image Localization under &#8220;Images&#8221; tab:</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/editor_images_tab.png" src="../_images/editor_images_tab.png" />
 </div></blockquote>
 </div></blockquote>
 <div class="hidden container">
