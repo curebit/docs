@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="index.html" />
     <link rel="next" title="Automatic Coupon Creation" href="optional/coupons.html" />
-    <link rel="prev" title="SaaS Integrations" href="saas.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="White-labeling" href="optional/white_labeling.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -62,7 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html">Converting Into Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
 </ul>
 </li>
 </ul>
@@ -162,11 +162,8 @@ easy to AB test.</td>
 <li class="toctree-l1"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="optional/converting_into_localization.html">Converting Into Localization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#color-as-localization">Color As Localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#image-as-localization">Image As Localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#custom-option-configuration-localization">Custom Option (Configuration) Localization</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optional/converting_into_localization.html#few-important-things-to-remember">Few important things to remember</a><ul class="simple">
 </ul>
 </li>
 </ul>

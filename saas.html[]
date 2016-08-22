@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="index.html" />
-    <link rel="next" title="Advanced Features" href="optional.html" />
+    <link rel="next" title="Converting Static Copy Into Localization" href="optional/converting_into_localization.html" />
     <link rel="prev" title="Verifying Integration" href="ecommerce/verify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
@@ -53,7 +53,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">SaaS Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-talkable-campaigns">2. Add Talkable Campaigns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#showing-different-campaign">Showing Different Campaign</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -142,7 +156,9 @@ your main layout which is used on every page. This is initialization of the Talk
 <p>The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><em>Advocate Signup Page</em></a> as a result. <br>
 When the Event is registered successfully it appears inside Events Report. <br></p>
 <p><hr></p>
-<h2>Showing Different Campaign</h2><p>In the example above we show <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> Campaign as a result of Event registration.
+<div class="section" id="showing-different-campaign">
+<h3>Showing Different Campaign<a class="headerlink" href="#showing-different-campaign" title="Permalink to this headline">¶</a></h3>
+<p>In the example above we show <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> Campaign as a result of Event registration.
 However you can show any other Talkable Campaign instead since there are 8 of them.
 Here is an example how to show <a class="reference internal" href="campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a>:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
@@ -215,7 +231,23 @@ Otherwise Talkable Campaign will be shown below your page content at the very bo
 </tr>
 </tbody>
 </table>
-<h2>Advanced Features</h2><p>Here is a full list of <a class="reference internal" href="optional.html#optional"><em>Advanced Talkable features</em></a>.</p>
+</div>
+</div>
+<div class="section" id="advanced-features">
+<h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h2>
+<p>Here is a full list of things you can do with Talkable:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optional/converting_into_localization.html">Converting Static Copy Into Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/subscribing_to_events.html">Subscribing to Iframe Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional/white_labeling.html">White-labeling</a></li>
+</ul>
+</div>
 </div>
 </div>
 

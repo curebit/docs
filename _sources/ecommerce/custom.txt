@@ -18,9 +18,14 @@ Other Platform
 
 |hr|
 
-.. raw:: html
+Advanced Features
+-----------------
 
-  <h2>Advanced Features</h2>
+Here is a full list of things you can do with Talkable:
 
-Here is a full list of :ref:`Advanced Talkable features <optional>`.
+.. toctree::
+  :maxdepth: 1
+  :glob:
+
+  /optional/*
 
