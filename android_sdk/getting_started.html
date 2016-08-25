@@ -97,7 +97,7 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Download the latest version of <a class="reference external" href="https://talkable-downloads.s3.amazonaws.com/android-sdk/talkable-sdk.aar">Talkable SDK framework</a>.</li>
-<li>Add <cite>talkable.aar</cite> and add it as project dependency in Android studio.</li>
+<li>Add <cite>talkable-sdk.aar</cite> and add it as project dependency in Android studio.</li>
 </ol>
 <blockquote>
 <div><div class="admonition note">
@@ -107,10 +107,10 @@
 </div></blockquote>
 <p>After this, add dependencies to <cite>build.gradle</cite></p>
 <blockquote>
-<div><div class="highlight-groovy"><div class="highlight"><pre><span class="n">compile</span> <span class="s1">&#39;com.android.support:appcompat-v7:23.4.0&#39;</span>
-<span class="n">compile</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
+<div><div class="highlight-groovy"><div class="highlight"><pre><span class="n">compile</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.facebook.android:facebook-android-sdk:[4,5)&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.google.code.gson:gson:2.4&#39;</span>
+<span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">&#39;:talkable-sdk&#39;</span><span class="o">)</span>
 </pre></div>
 </div>
 </div></blockquote>

@@ -25,7 +25,7 @@
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="E-Commerce Integration" href="../ecommerce.html" />
     <link rel="next" title="Magento" href="platform/magento.html" />
-    <link rel="prev" title="White-labeling" href="../optional/white_labeling.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Other Platform" href="custom.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
