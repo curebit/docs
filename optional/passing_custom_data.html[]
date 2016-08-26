@@ -107,16 +107,16 @@ existence at any time: the most recently passed data.</p>
 <p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use
 across all Campaign Views. Accessing this data beings by creating a variable
 to store your custom_properties:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{% assign data = advocate_info.custom_properties %}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>{% assign data = advocate_info.custom_properties %}
 </pre></div>
 </div>
 <p>Key Value pairs can be referenced through your newly created object by referencing
 the value name such as:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ data.favorite_color }}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ data.favorite_color }}
 </pre></div>
 </div>
 <p>Defining <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> in your integration might look something like this:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="nx">person_custom_properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>

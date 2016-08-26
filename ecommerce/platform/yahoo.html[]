@@ -99,9 +99,9 @@
 replaced with your Talkable Site ID. You can get this from your Talkable
 dashboard after you log in and create a site.</p>
 </div>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
   <span class="nx">jQuery</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">();</span>
   <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">curebitSiteId</span> <span class="o">=</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span><span class="p">;</span> <span class="c1">// Talkable Site ID</span>
@@ -135,7 +135,7 @@ dashboard after you log in and create a site.</p>
     <span class="nx">curebitNewScript</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">curebitJsSrc</span><span class="p">;</span>
     <span class="nx">curebitHeadID</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">curebitNewScript</span><span class="p">);</span>
   <span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
