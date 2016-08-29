@@ -163,8 +163,8 @@ dashboard after you log in and create a site.</p>
       <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span><span class="p">,</span>
       <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">email</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="cm">/* REQUIRED - Customer Email Address */</span>
-        <span class="nx">first_name</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">shipping_address</span><span class="p">.</span><span class="nx">first_name</span><span class="p">,</span> <span class="c1">// Optional - Customer first name</span>
-        <span class="nx">last_name</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">shipping_address</span><span class="p">.</span><span class="nx">last_name</span> <span class="c1">// Optional - Customer last name</span>
+        <span class="nx">first_name</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">billing_address</span> <span class="o">?</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">billing_address</span><span class="p">.</span><span class="nx">first_name</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="c1">// Optional - Customer first name</span>
+        <span class="nx">last_name</span><span class="o">:</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">billing_address</span> <span class="o">?</span> <span class="nx">checkout</span><span class="p">.</span><span class="nx">billing_address</span><span class="p">.</span><span class="nx">last_name</span> <span class="o">:</span> <span class="kc">null</span> <span class="c1">// Optional - Customer last name</span>
       <span class="p">}</span>
     <span class="p">};</span>
 
