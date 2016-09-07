@@ -101,7 +101,7 @@
 <h1>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access and update persons. See examples below.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre><span></span>GET /people/&lt;person_slug&gt;
+<div class="highlight-url"><div class="highlight"><pre>GET /people/&lt;person_slug&gt;
 </pre></div>
 </div>
 <p>Returns a person.</p>
@@ -128,7 +128,7 @@ Talkable dashboard after you log in and create a site.</td>
 </table>
 </div>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre><span></span>PUT /people/&lt;person_slug&gt;
+<div class="highlight-url"><div class="highlight"><pre>PUT /people/&lt;person_slug&gt;
 </pre></div>
 </div>
 <p>Updates existing person.</p>
@@ -169,11 +169,11 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="find-a-person-by-email">
 <h3>Find a person by email<a class="headerlink" href="#find-a-person-by-email" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/people/customer@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -195,7 +195,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="update-persons-username">
 <h3>Update person’s username<a class="headerlink" href="#update-persons-username" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
@@ -205,14 +205,14 @@ Talkable dashboard after you log in and create a site.</td>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/people
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -234,7 +234,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="unsubscribe-a-person-from-receiving-emails">
 <h3>Unsubscribe a person from receiving emails<a class="headerlink" href="#unsubscribe-a-person-from-receiving-emails" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
@@ -244,14 +244,14 @@ Talkable dashboard after you log in and create a site.</td>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;unsubscribed&quot;:true}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/people
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
