@@ -104,7 +104,7 @@
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Download the latest version of <a class="reference external" href="http://learn.talkable.com/downloads/talkable_ios_sdk.zip">Talkable SDK framework</a>.</li>
+<li>Download the latest version of <a class="reference external" href="https://talkable-downloads.s3.amazonaws.com/ios-sdk/talkable_ios_sdk.zip">Talkable SDK framework</a>.</li>
 <li>Drag and place the <cite>TalkableSDK.framework</cite> somewhere suitable into your Xcode project. Make sure to add the framework to the relevant targets.</li>
 <li>Add the following frameworks to your project:</li>
 </ol>
@@ -134,7 +134,6 @@
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
-<span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">registerURLScheme</span><span class="p">:</span><span class="s">@&quot;YOUR_APPLICATION_URL_SCHEME&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -147,6 +146,39 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="2">
+<li>Register talkable URL scheme:</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">Defines <cite>tkbl-&lt;your-site-slug&gt;</cite> as URL Scheme in your Info.plist file:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;key&gt;</span>CFBundleURLTypes<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+  <span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleURLSchemes<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+      <span class="nt">&lt;string&gt;</span>tkbl-<span class="nt">&lt;your-site-slug&gt;&lt;/string&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+  <span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add <cite>tkbl-&lt;your-site-slug&gt;</cite> scheme and <cite>fb-messenger</cite> sheme to the list of schemes are queried within application:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;key&gt;</span>LSApplicationQueriesSchemes<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+  <span class="nt">&lt;string&gt;</span>tkbl-your-site-slug<span class="nt">&lt;/string&gt;</span>
+  <span class="nt">&lt;string&gt;</span>fb-messenger<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please replace <cite>&lt;your-site-slug&gt;</cite> with your actual site slug, which you are able to find on your site <strong>Dashboard</strong> at <a class="reference external" href="https://www.talkable.com">https://www.talkable.com</a></p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
 <li>Add following lines to <cite>application:handleOpenURL:</cite> or <cite>application:openURL:sourceApplication:annotation:</cite></li>
 </ol>
 <blockquote>
