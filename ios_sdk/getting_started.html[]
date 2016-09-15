@@ -115,6 +115,7 @@
 <li><cite>SafariServices.framework</cite></li>
 <li><cite>Security.framework</cite></li>
 <li><cite>Social.framework</cite></li>
+<li><cite>WebKit.framework</cite></li>
 </ul>
 <p>To do this, click on your application&#8217;s target, then click on Build Phases and expand the Link Binary With Libraries group.</p>
 </div></blockquote>
@@ -190,7 +191,7 @@
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>The SDK supports iOS 7.0 and later.</p>
+<p>The SDK supports iOS 8.0 and later.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">

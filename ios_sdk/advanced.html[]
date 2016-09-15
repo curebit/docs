@@ -144,12 +144,12 @@
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withWebView:</span><span class="p">(</span><span class="bp">UIWebView</span><span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withWebView:</span><span class="p">(</span><span class="bp">WKWebView</span><span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Talkable SDK assigns itself to UIWebView delegate. Changing UIWebView delegate may brokes some functionality so we strictly not recommend to do this.</p>
+<p class="last">Talkable SDK assigns itself to WKWebView navigation delegate. Changing WKWebView navigation delegate may brokes some functionality so we strictly not recommend to do this.</p>
 </div>
 </div></blockquote>
 </div>
