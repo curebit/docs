@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -57,7 +57,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../optional.html">Advanced Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Pass Custom Person Data</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom Person Data</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
@@ -91,32 +91,32 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="optional-passing-custom-data"></span><div class="section" id="pass-custom-person-data">
 <h1>Pass Custom Person Data<a class="headerlink" href="#pass-custom-person-data" title="Permalink to this headline">¶</a></h1>
-<p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is a variable that allows you to pass custom data
+<p><code class="docutils literal"><span class="pre">person_custom_properties</span></code> is a variable that allows you to pass custom data
 to Talkable in the form of Key-Value pairs via integration.</p>
-<p><tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> has robust uses as you are able to define and pass
+<p><code class="docutils literal"><span class="pre">person_custom_properties</span></code> has robust uses as you are able to define and pass
 any key value pairs you wish.</p>
 <p>The values you define for some key should be JSON Key-Value pairs themselves,
 this means complex data structures can be passed through.</p>
-<p>Any <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> data passed through is tied to the Person
+<p>Any <code class="docutils literal"><span class="pre">person_custom_properties</span></code> data passed through is tied to the Person
 (<abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> or <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>), that means there is only one instance of each field in
 existence at any time: the most recently passed data.</p>
-<p>All data associated with <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> is available for use
+<p>All data associated with <code class="docutils literal"><span class="pre">person_custom_properties</span></code> is available for use
 across all Campaign Views. Accessing this data beings by creating a variable
 to store your custom_properties:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{% assign data = advocate_info.custom_properties %}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>{% assign data = advocate_info.custom_properties %}
 </pre></div>
 </div>
 <p>Key Value pairs can be referenced through your newly created object by referencing
 the value name such as:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ data.favorite_color }}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>{{ data.favorite_color }}
 </pre></div>
 </div>
-<p>Defining <tt class="docutils literal"><span class="pre">person_custom_properties</span></tt> in your integration might look something like this:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+<p>Defining <code class="docutils literal"><span class="pre">person_custom_properties</span></code> in your integration might look something like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="nx">person_custom_properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>

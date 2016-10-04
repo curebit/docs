@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -69,7 +69,7 @@
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_confirmation.html">Advocate Reward Confirmation Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_paid.html">Advocate Reward Paid Email</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Friend Reward Paid Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Friend Reward Paid Email</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
@@ -99,7 +99,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-views-friend-rewards-paid"></span><div class="section" id="friend-reward-paid-email">
 <span id="friend-rewards-paid"></span><h1>Friend Reward Paid Email<a class="headerlink" href="#friend-reward-paid-email" title="Permalink to this headline">¶</a></h1>
@@ -107,29 +107,29 @@
 it in the future. <br>
 Email is triggered to a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> who passed Email Gating, and received Reward
 (i.e. coupon code). <br></p>
-<p>The email will be sent once Talkable knows Friend&#8217;s email which they provides on the Friend Claim Page (such technique works great for email capturing). See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a> for more details.</p>
+<p>The email will be sent once Talkable knows Friend&#8217;s email which they provides on the Friend Claim Page (such technique works great for email capturing). See <a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><span class="std std-ref">Email Gating</span></a> for more details.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
 <li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
-<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
-<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
-<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
-<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
+<code class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></code>.</li>
+<li>To show coupon code use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></code>.</li>
+<li>To show expiration date use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></code>.
+<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><span class="std std-ref">Formatting options</span></a>.</li>
 </ul>
 <p><br></p>
 <img alt="Friend Claim Email" src="../../_images/friend-claim-email.png" />
 <p><br></p>
-<div class="highlight-html"><div class="highlight"><pre>Here is your {{ reward.incentive.description }} OFF deal you just claimed!
+<div class="highlight-html"><div class="highlight"><pre><span></span>Here is your {{ reward.incentive.description }} OFF deal you just claimed!
 Use it on any purchase by {{ valid_until }}
 Coupon code: {{ coupon_code }}
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Shop now<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><span class="std std-ref">Read more about email design</span></a>.</p>
 </div>
 <h2>Email sending conditions</h2><p>By default is sent immediately after the reward is created, but can be delayed by configuration.</p>
 <p>Main email sending criteria (unable to change):</p>

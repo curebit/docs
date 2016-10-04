@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../integration.html">Integration</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="standalone.html">Standalone Campaign</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Post Purchase Campaign</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Post Purchase Campaign</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced.html">Advanced Usage</a></li>
@@ -89,14 +89,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="ios-sdk-integration-post-purchase"></span><div class="section" id="post-purchase-campaign">
 <h1>Post Purchase Campaign<a class="headerlink" href="#post-purchase-campaign" title="Permalink to this headline">¶</a></h1>
 <p>Now that we know what a Standalone campaign is, let’s take a look at one more type of Talkable campaign — Post Purchase. It is used to convert your existing customers into Advocates after they make a purchase.  It has the same flow as a basic Standalone campaign except this is gated by a purchase and shown to a customer immediately after.</p>
 <p>Post Purchase campaign usually looks like a pop up right after a user made a purchase. This campaign initializes on the order confirmation page and captures order details parameters. You need to pass order data that includes your customer’s email address, order id, subtotal, coupon code used at checkout in order to close a referral loop. This allows talkable to detect and close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">params</span> <span class="o">=</span> <span class="l">@{</span>
   <span class="nl">TKBLPurchaseKey</span><span class="p">:</span> <span class="l">@{</span>

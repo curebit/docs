@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -73,7 +73,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Overriding default behaviour</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overriding default behaviour</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
@@ -88,7 +88,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-overriding-defaults"></span><div class="section" id="overriding-default-behaviour">
 <h1>Overriding default behaviour<a class="headerlink" href="#overriding-default-behaviour" title="Permalink to this headline">¶</a></h1>
@@ -96,7 +96,7 @@
 <li>Create new activity in your app which extends <cite>TalkableActivity</cite> and override methods there. Example:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableActivity</span><span class="o">;</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableActivity</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OverriddenTalkableActivity</span> <span class="kd">extends</span> <span class="n">TalkableActivity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -113,7 +113,7 @@
 <li>Change activity in manifest:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- From --&gt;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- From --&gt;</span>
 <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
 
 <span class="c">&lt;!-- To --&gt;</span>
@@ -125,7 +125,7 @@
 <li>If you need some features like full-screen or other, you can do it same as with regular activity.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OverriddenTalkableActivity</span> <span class="kd">extends</span> <span class="n">TalkableActivity</span> <span class="o">{</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OverriddenTalkableActivity</span> <span class="kd">extends</span> <span class="n">TalkableActivity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>

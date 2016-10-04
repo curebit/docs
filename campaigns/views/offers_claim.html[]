@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -66,7 +66,7 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Friend Claim Page</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_confirmation.html">Advocate Reward Confirmation Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_paid.html">Advocate Reward Paid Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friend_rewards_paid.html">Friend Reward Paid Email</a></li>
@@ -99,44 +99,44 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-views-offers-claim"></span><div class="section" id="friend-claim-page">
 <span id="friend-claim-page-view"></span><h1>Friend Claim Page<a class="headerlink" href="#friend-claim-page" title="Permalink to this headline">¶</a></h1>
-<p><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> lands here from <a class="reference internal" href="notifier_offers_share_via_email.html#friend-share-email-view"><em>Friend Share Email</em></a>. <br>
+<p><abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> lands here from <a class="reference internal" href="notifier_offers_share_via_email.html#friend-share-email-view"><span class="std std-ref">Friend Share Email</span></a>. <br>
 Explain him what special discount he will get when using this link. <br>
 It&#8217;s recommended to show coupon code for the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> on this page
 (and only on this page).</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
 <li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping
-<tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>. <br></li>
-<li>To show coupon code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
-<li>To show expiration date use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></tt>.
-<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><em>Formatting options</em></a>.</li>
+<code class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></code>. <br></li>
+<li>To show coupon code use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></code>.</li>
+<li>To show expiration date use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">valid_until</span> <span class="pre">}}</span></code>.
+<a class="reference internal" href="../editor/filters.html#liquid-filter-format-date"><span class="std std-ref">Formatting options</span></a>.</li>
 </ul>
 <p><br></p>
 <img alt="Friend Claim Page" src="../../_images/friend-claim-page.png" />
-<div class="highlight-html"><div class="highlight"><pre>{% if offer_active %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% if offer_active %}
   Copy your code: {{ coupon_code }}
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Shop now<span class="nt">&lt;/a&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Shop now<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
   Offer is valid until {{ friend_offer.valid_until | format_date }}.
 {% else %}
   Offer expired.
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="nt">&gt;</span>Proceed without offer<span class="nt">&lt;/a&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Proceed without offer<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 {% endif %}
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">class</span></tt> attributes, otherwise
+<p class="last">Do not change <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">class</span></code> attributes, otherwise
 functionality won&#8217;t work. <cite>js-</cite> class prefix means it is used in Talkable API.</p>
 </div>
 <p>Related tutorials for this View:</p>
 <ul class="simple">
-<li><a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><em>Email Gating</em></a></li>
-<li><a class="reference internal" href="../tutorials/offers_claim.html#tutorials-like-gating"><em>Like Gating</em></a></li>
-<li><a class="reference internal" href="../tutorials/global.html#tutorials-zeroclipboard"><em>ZeroClipboard</em></a></li>
+<li><a class="reference internal" href="../tutorials/offers_claim.html#tutorials-email-gating"><span class="std std-ref">Email Gating</span></a></li>
+<li><a class="reference internal" href="../tutorials/offers_claim.html#tutorials-like-gating"><span class="std std-ref">Like Gating</span></a></li>
+<li><a class="reference internal" href="../tutorials/global.html#tutorials-zeroclipboard"><span class="std std-ref">ZeroClipboard</span></a></li>
 </ul>
 </div>
 

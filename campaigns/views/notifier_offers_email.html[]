@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -63,7 +63,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../views.html">Views</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="affiliate_members_new.html">Advocate Signup Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_show.html">Advocate Share Page</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Offer Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
@@ -99,7 +99,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-views-notifier-offers-email"></span><div class="section" id="advocate-offer-email">
 <h1>Advocate Offer Email<a class="headerlink" href="#advocate-offer-email" title="Permalink to this headline">¶</a></h1>
@@ -110,7 +110,7 @@ and encourage <abbr title="Person, who shares an offer with their Friend(s)">Adv
 <li>For Post-Checkout Campaign it triggers when <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> makes store purchase.
 It is not recommended to use this email here since it may look spammy.</li>
 </ul>
-<p>Main <abbr title="Call to action">CTA</abbr> should point to an Advocate Share Page — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">share_page_url</span> <span class="pre">}}</span></tt>.</p>
+<p>Main <abbr title="Call to action">CTA</abbr> should point to an Advocate Share Page — <code class="docutils literal"><span class="pre">{{</span> <span class="pre">share_page_url</span> <span class="pre">}}</span></code>.</p>
 <p><br></p>
 <img alt="../../_images/advocate-offer-email.png" src="../../_images/advocate-offer-email.png" />
 <p><br></p>
@@ -118,7 +118,7 @@ It is not recommended to use this email here since it may look spammy.</li>
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><span class="std std-ref">Read more about email design</span></a>.</p>
 </div>
 <h2>Email sending conditions</h2><p>By default is sent immediately after the offer is created, but can be delayed by configuration.</p>
 <ol class="arabic simple">
