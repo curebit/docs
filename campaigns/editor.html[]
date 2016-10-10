@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -64,7 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers_expiration.html">Offers Expiration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Editor</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Editor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="editor/variables.html">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="editor/files.html">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="editor/history.html">History</a></li>
@@ -95,7 +95,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-editor"></span><div class="section" id="editor">
 <h1>Editor<a class="headerlink" href="#editor" title="Permalink to this headline">¶</a></h1>
@@ -104,13 +104,13 @@ developers:</p>
 <ol class="arabic simple">
 <li>Write <a href="http://github.com/Shopify/liquid" target="_blank">Liquid</a> markup for templates</li>
 <li>Write <a class="reference external" href="http://sass-lang.com">SCSS</a> for styles</li>
-<li>Upload static assets through <a class="reference internal" href="editor/files.html#campaigns-editor-files"><span class="std std-ref">File Uploader</span></a></li>
-<li>Track/rollback code changes through <a class="reference internal" href="editor/history.html#campaigns-editor-history"><span class="std std-ref">History</span></a></li>
-<li>Use <a class="reference internal" href="editor/variables.html#campaigns-editor-variables"><span class="std std-ref">Interpolation Variables</span></a> to automate
+<li>Upload static assets through <a class="reference internal" href="editor/files.html#campaigns-editor-files"><em>File Uploader</em></a></li>
+<li>Track/rollback code changes through <a class="reference internal" href="editor/history.html#campaigns-editor-history"><em>History</em></a></li>
+<li>Use <a class="reference internal" href="editor/variables.html#campaigns-editor-variables"><em>Interpolation Variables</em></a> to automate
 things</li>
-<li>Use powerful <a class="reference internal" href="editor/filters.html#campaigns-editor-filters"><span class="std std-ref">Liquid Filters</span></a> for mighty
+<li>Use powerful <a class="reference internal" href="editor/filters.html#campaigns-editor-filters"><em>Liquid Filters</em></a> for mighty
 templating</li>
-<li><a class="reference internal" href="editor/videos.html#campaigns-editor-videos"><span class="std std-ref">Watch</span></a> our video guides</li>
+<li><a class="reference internal" href="editor/videos.html#campaigns-editor-videos"><em>Watch</em></a> our video guides</li>
 </ol>
 <p><br></p>
 <img alt="Campaign Editor" src="../_images/editor.png" />

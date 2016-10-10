@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -61,7 +61,7 @@
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using URL Parameters</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Using URL Parameters</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
@@ -91,7 +91,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="optional-url-parameters"></span><div class="section" id="using-url-parameters">
 <h1>Using URL Parameters<a class="headerlink" href="#using-url-parameters" title="Permalink to this headline">¶</a></h1>
@@ -100,11 +100,11 @@
 <li>email - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> email address</li>
 <li>first_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> first name</li>
 <li>last_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> last name</li>
-<li>traffic_source - <a class="reference internal" href="traffic_source.html#optional-traffic-source"><span class="std std-ref">Traffic Source</span></a> value</li>
+<li>traffic_source - <a class="reference internal" href="traffic_source.html#optional-traffic-source"><em>Traffic Source</em></a> value</li>
 <li>campaign_tags - overrides campaign tag to be loaded</li>
 </ul>
 <p>Below is an example of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> authorization through URL. Given the URL of the page where Talkable campaign is integrated: <a class="reference external" href="http://example.com/invite">http://example.com/invite</a>:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>http://example.com/invite?email=advocate%40example.com
+<div class="highlight-html"><div class="highlight"><pre>http://example.com/invite?email=advocate%40example.com
 </pre></div>
 </div>
 <p>Location parameters have higher priority than explicit parameters passed in the integration.</p>

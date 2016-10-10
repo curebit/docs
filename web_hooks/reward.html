@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -67,7 +67,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../web_hooks.html">Web Hooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="create_coupon.html">Create Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Reward</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Reward</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
@@ -89,7 +89,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="web-hooks-reward"></span><div class="section" id="reward-web-hook">
 <h1>Reward Web Hook<a class="headerlink" href="#reward-web-hook" title="Permalink to this headline">¶</a></h1>
@@ -158,12 +158,12 @@ information on the reward is specified in <em>incentive_description</em>.</li>
 <p class="first admonition-title">Important</p>
 <p class="last">Any code sent via this web hook doesn&#8217;t need to be created on merchant site.
 When Talkable needs more coupons — it always calls
-<a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><span class="std std-ref">Create Coupon Web Hook</span></a>.
+<a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><em>Create Coupon Web Hook</em></a>.
 In this web hook Talkable just sends the information to merchant that coupon
 was given as the reward in case merchant want to store this infomation in
 its own database.</p>
 </div>
-<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
@@ -177,7 +177,6 @@ its own database.</p>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">543208538</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="mi">381177444</span><span class="p">,</span>
-    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-14T02:01:16.824-07:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;22726076&quot;</span><span class="p">,</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT60000&quot;</span>
   <span class="p">},</span>
@@ -199,7 +198,7 @@ its own database.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;order_date&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden container">

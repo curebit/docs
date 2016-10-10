@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -67,7 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Advocate Reward Confirmation Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Confirmation Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_paid.html">Advocate Reward Paid Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friend_rewards_paid.html">Friend Reward Paid Email</a></li>
 </ul>
@@ -99,7 +99,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-views-advocate-rewards-confirmation"></span><div class="section" id="advocate-reward-confirmation-email">
 <span id="advocate-rewards-confirmation"></span><h1>Advocate Reward Confirmation Email<a class="headerlink" href="#advocate-reward-confirmation-email" title="Permalink to this headline">¶</a></h1>
@@ -109,7 +109,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><span class="std std-ref">Read more about email design</span></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
 </div>
 </div>
 

@@ -28,7 +28,7 @@
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="index.html" class="header-logo">Talkable docs</a>
@@ -54,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="saas.html">SaaS Integrations</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Features</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Advanced Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="optional/coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/passing_custom_data.html">Pass Custom Person Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional/referrals_approval.html">Referrals Approval</a></li>
@@ -88,7 +88,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="optional"></span><div class="section" id="advanced-features">
 <h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
@@ -101,30 +101,30 @@ each with links to integration details.</p>
 <col width="65%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="optional/coupons.html#optional-coupons"><span class="std std-ref">Automatic Coupon Creation</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="optional/coupons.html#optional-coupons"><em>Automatic Coupon Creation</em></a></td>
 <td>Issue single and multi-use coupons automatically for your campaigns</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="optional/passing_custom_data.html#optional-passing-custom-data"><span class="std std-ref">Pass custom user data</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="optional/passing_custom_data.html#optional-passing-custom-data"><em>Pass custom user data</em></a></td>
 <td>Pass additional data to Talkable to operate with it inside campaigns</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="optional/referrals_approval.html#optional-referrals-approval"><span class="std std-ref">Referrals Approval</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="optional/referrals_approval.html#optional-referrals-approval"><em>Referrals Approval</em></a></td>
 <td>Learn about Talkable Fraud settings, why they are important
 and how to find a right Fraud Profile that works best for your site.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="optional/traffic_source.html#optional-traffic-source"><span class="std std-ref">Segment with Traffic Source</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="optional/traffic_source.html#optional-traffic-source"><em>Segment with Traffic Source</em></a></td>
 <td>Brings more power and flexibility into segmenting your reporting</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="optional/url_parameters.html#optional-url-parameters"><span class="std std-ref">Using URL Parameters</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="optional/url_parameters.html#optional-url-parameters"><em>Using URL Parameters</em></a></td>
 <td>Override some of the parameters right through URL query string</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="optional/white_labeling.html#optional-white-labeling"><span class="std std-ref">White Labeling</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="optional/white_labeling.html#optional-white-labeling"><em>White Labeling</em></a></td>
 <td>Change all visible URLs to your domain instead of talkable.com</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="optional/subscribing_to_events.html#optional-subscribing-to-events"><span class="std std-ref">Subscribing to Talkable Iframe events</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="optional/subscribing_to_events.html#optional-subscribing-to-events"><em>Subscribing to Talkable Iframe events</em></a></td>
 <td>Subscribe to Talkable Iframe events such as the campaign is loaded or closed and
 perform some updates to your site based on them.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="optional/converting_into_localization.html#optional-converting-into-localization"><span class="std std-ref">Convert static copy into Localization</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="optional/converting_into_localization.html#optional-converting-into-localization"><em>Convert static copy into Localization</em></a></td>
 <td>Convert all static languange into a customizable copy that&#8217;s
 easy to AB test.</td>
 </tr>
