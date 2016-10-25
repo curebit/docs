@@ -123,7 +123,7 @@ your main layout which is used on every page. This is initialization of the Talk
 <h2>2. Add Talkable Campaigns<a class="headerlink" href="#add-talkable-campaigns" title="Permalink to this headline">¶</a></h2>
 <p>Below is an example of registering an Event and showing <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> campaign as a result:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-post-purchase&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
@@ -131,7 +131,7 @@ your main layout which is used on every page. This is initialization of the Talk
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;signups&#39;</span> <span class="c1">// Required - Event category</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;post-purchase&#39;</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
+    <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;post-purchase&#39;</span><span class="p">]</span> <span class="c1">// Loads Post Purchase campaign with tag &quot;post-purchase&quot;</span>
   <span class="p">};</span>
 
   <span class="c1">// Passing Event to Talkable</span>
@@ -143,10 +143,10 @@ your main layout which is used on every page. This is initialization of the Talk
 When the Event is registered successfully it appears inside Events Report. <br></p>
 <p><hr></p>
 <h2>Showing Different Campaign</h2><p>In the example above we show <a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a> Campaign as a result of Event registration.
-However you can show any other Talkable Campaign instead since there are 8 of them.
+However you can show any other Talkable Campaign instead since there are many of them.
 Here is an example how to show <a class="reference internal" href="campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a>:</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
@@ -154,7 +154,7 @@ Here is an example how to show <a class="reference internal" href="campaigns/sit
       <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - unique Event id</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;signups&#39;</span> <span class="c1">// Required - Event category</span>
     <span class="p">},</span>
-    <span class="nx">campaign_template</span><span class="o">:</span> <span class="s1">&#39;invite&#39;</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
+    <span class="nx">campaign_tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;invite&#39;</span><span class="p">]</span> <span class="c1">// Loads Invite campaign with tag &quot;invite&quot;</span>
   <span class="p">};</span>
 
   <span class="c1">// Passing Event to Talkable</span>
@@ -164,57 +164,10 @@ Here is an example how to show <a class="reference internal" href="campaigns/sit
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure that the Container (the DIV tag where Talkable iframe inserts to) ID corresponds to <cite>campaign_template</cite> value.
-Otherwise Talkable Campaign will be shown below your page content at the very bottom.</p>
+<p class="last">Talkable JS integration library inserts the iframe into a container DIV with id=&#8221;talkable-offer&#8221;.
+Campaign Tags are show either on Campaigns listing page below each campaign&#8217;s name or right on Details page
+of any campaign, inside &#8220;Integration&#8221; area.</p>
 </div>
-<p>Correspondence between Container ID and <cite>campaign_template</cite>:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="32%" />
-<col width="34%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Talkable Campaign</th>
-<th class="head">Container ID</th>
-<th class="head">campaign_template</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a></td>
-<td><cite>talkable-post-purchase</cite></td>
-<td><cite>post-purchase</cite></td>
-</tr>
-<tr class="row-odd"><td>Post Purchase Full Screen Image</td>
-<td><cite>talkable-post-purchase</cite></td>
-<td><cite>post-purchase-full-bleed</cite></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a></td>
-<td><cite>talkable-invite</cite></td>
-<td><cite>invite</cite></td>
-</tr>
-<tr class="row-odd"><td>Invite Full Screen Image</td>
-<td><cite>talkable-invite</cite></td>
-<td><cite>invite-full-bleed</cite></td>
-</tr>
-<tr class="row-even"><td>Advocate Dashboard</td>
-<td><cite>talkable-dashboard</cite></td>
-<td><cite>dashboard</cite></td>
-</tr>
-<tr class="row-odd"><td>Every Visitor Popup</td>
-<td><cite>talkable-popup</cite></td>
-<td><cite>popup</cite></td>
-</tr>
-<tr class="row-even"><td>Floating Widget Popup</td>
-<td><cite>talkable-popup</cite></td>
-<td><cite>popup-trigger</cite></td>
-</tr>
-<tr class="row-odd"><td>New Visitor Popup</td>
-<td><cite>talkable-popup</cite></td>
-<td><cite>new-visitor-popup</cite></td>
-</tr>
-</tbody>
-</table>
 <h2>Advanced Features</h2><p>Here is a full list of <a class="reference internal" href="optional.html#optional"><em>Advanced Talkable features</em></a>.</p>
 </div>
 </div>

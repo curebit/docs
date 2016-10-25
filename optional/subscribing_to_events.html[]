@@ -98,15 +98,15 @@
 <h1>Subscribing to Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
 <p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#optional-white-labeling"><em>white-labeling</em></a> is setup).</p>
 <p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
-<p>In order to subscribe to an iframe event you need to know <cite>id</cite> HTML attribute of the container that holds it, and the event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe event.</p>
+<p>In order to subscribe to an iframe Event you need to know <cite>id</cite> HTML attribute of the Container DIV that holds it, and the Event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>
 <p>Given we have integrated <a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a> Talkable campaign iframe, its JS-generated HTML tag looks similar to the following:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-invite&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;iframe</span> <span class="na">name=</span><span class="s">&quot;talkable-invite&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">src=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;iframe</span> <span class="na">name=</span><span class="s">&quot;talkable-offer&quot;</span> <span class="na">src=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 </div>
-<p>Knowing the container <cite>id</cite> attribute is <cite>talkable-invite</cite> the subscription JS will be:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;offer_loaded&quot;</span><span class="p">,</span> <span class="s2">&quot;talkable-invite&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
+<p>Knowing the container <cite>id</cite> attribute is <cite>talkable-offer</cite> the subscription JS will be:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;offer_loaded&quot;</span><span class="p">,</span> <span class="s2">&quot;talkable-offer&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Talkable campaign iframe is loaded!&quot;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
