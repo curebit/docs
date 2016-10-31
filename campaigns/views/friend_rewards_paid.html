@@ -120,10 +120,10 @@ Email is triggered to a <abbr title="Person, who is invited to participate in Ca
 <p><br></p>
 <img alt="Friend Claim Email" src="../../_images/friend-claim-email.png" />
 <p><br></p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Here is your {{ reward.incentive.description }} OFF deal you just claimed!
-Use it on any purchase by {{ valid_until }}
-Coupon code: {{ coupon_code }}
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ proceed_to_merchant_path }}&quot;</span><span class="p">&gt;</span>Shop now<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>Here is your <span class="p">{{</span><span class="w"> </span><span class="nv">reward</span><span class="p">.</span><span class="nv">incentive</span><span class="p">.</span><span class="nv">description</span><span class="w"> </span><span class="p">}}</span> OFF deal you just claimed!
+Use it on any purchase by <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">}}</span>
+Coupon code: <span class="p">{{</span><span class="w"> </span><span class="nv">coupon_code</span><span class="w"> </span><span class="p">}}</span>
+&lt;a href=&quot;<span class="p">{{</span><span class="w"> </span><span class="nv">proceed_to_merchant_path</span><span class="w"> </span><span class="p">}}</span>&quot;&gt;Shop now&lt;/a&gt;
 </pre></div>
 </div>
 <div class="admonition note">

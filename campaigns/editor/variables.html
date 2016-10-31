@@ -270,26 +270,26 @@ several Incentives which are also objects.</p>
 </pre></div>
 </div>
 <p>And here is an example of using <code class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></code> values:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Give your friend {{ incentives.friend.description }} OFF!
+<div class="highlight-liquid"><div class="highlight"><pre><span></span>Give your friend <span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="p">.</span><span class="nv">friend</span><span class="p">.</span><span class="nv">description</span><span class="w"> </span><span class="p">}}</span> OFF!
 </pre></div>
 </div>
 <p>Which outputs:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>Give your friend 100% OFF!
+<div class="highlight-text"><div class="highlight"><pre><span></span>Give your friend 100% OFF!
 </pre></div>
 </div>
-<table border="1" class="docutils" id="id1">
-<caption><span class="caption-text">:widths: 25 25 50
- :header-rows: 1</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Property</td>
-<td>Value</td>
-<td>Description</td>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property</th>
+<th class="head">Value</th>
+<th class="head">Description</th>
 </tr>
+</thead>
+<tbody valign="top">
 <tr class="row-even"><td>Liquid slug</td>
 <td>&#8220;referrer&#8221;</td>
 <td>Incentive identifier</td>

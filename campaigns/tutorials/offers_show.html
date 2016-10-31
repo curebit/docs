@@ -197,11 +197,11 @@ custom domain you&#8217;ll need to obtain separate <code class="docutils literal
 <span id="tutorials-linkedin"></span><h2>LinkedIn<a class="headerlink" href="#linkedin" title="Permalink to this headline">¶</a></h2>
 <p><strong>Separate Wording</strong></p>
 <p>Enable separate LinkedIn share wording (Open Graph title and message).</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>{% if user_agent contains &quot;LinkedInBot&quot; %}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">user_agent</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s2">&quot;LinkedInBot&quot;</span><span class="w"> </span><span class="p">%}</span>
   Special offer title for LinkedIn friends
-{% else %}
+<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
   Special offer title for Facebook friends
-{% endif %}
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p><strong>Basic Setup</strong></p>
