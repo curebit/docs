@@ -163,7 +163,7 @@ In this web hook Talkable just sends the information to merchant that coupon
 was given as the reward in case merchant want to store this infomation in
 its own database.</p>
 </div>
-<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
@@ -198,7 +198,7 @@ its own database.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;campaign&quot;:{&quot;id&quot;:146331555,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;reward&quot;:{&quot;reason&quot;:&quot;referrer&quot;,&quot;incentive_type&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$10.00 back&quot;,&quot;amount&quot;:10,&quot;coupon_code&quot;:null}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden container">

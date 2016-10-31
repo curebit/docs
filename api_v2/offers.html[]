@@ -101,7 +101,7 @@
 <h1>Advocate Offers<a class="headerlink" href="#advocate-offers" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access advocate offers.</p>
 <p><br></p>
-<div class="highlight-url"><div class="highlight"><pre>GET /offers/&lt;id&gt;
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET /offers/&lt;id&gt;
 </pre></div>
 </div>
 <p>Returns advocate offer.</p>
@@ -137,11 +137,11 @@ generated sharing links.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/offers/89238912?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/offers/89238912?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -157,11 +157,11 @@ generated sharing links.</p>
 </div>
 <div class="section" id="with-sharing-links">
 <h3>With sharing links<a class="headerlink" href="#with-sharing-links" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-url"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/offers/89238912?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu&amp;sharing_channels=facebook,twitter,custom
+<div class="highlight-url"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/offers/89238912?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu&amp;sharing_channels=facebook,twitter,custom
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>

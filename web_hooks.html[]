@@ -112,7 +112,7 @@ to the live URL</strong> on your site.</li>
 <h2>Data</h2><p>All web hooks are delivered as an HTTP Post request with the main parameter
 called payload. All data inside this parameter is encoded as JSON. Below is
 a PHP parameter decode example:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <h2>Parsing Timestamps</h2><p><strong>Timestamp data type</strong> is not a part of JSON standard. That is why timestamps
