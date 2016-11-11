@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Post Share Web Hook &#8212; Talkable Documentation</title>
+    <title>Post Share Web Hook &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -22,7 +22,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Web Hooks" href="../web_hooks.html" />
     <link rel="next" title="Advocate Signup Web Hook" href="offer_signup.html" />
@@ -30,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -69,7 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="create_coupon.html">Create Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Post Share</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Post Share</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="offer_signup.html">Advocate Signup</a></li>
@@ -90,7 +89,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="web-hooks-post-share"></span><div class="section" id="post-share-web-hook">
 <h1>Post Share Web Hook<a class="headerlink" href="#post-share-web-hook" title="Permalink to this headline">¶</a></h1>
@@ -129,7 +128,7 @@ corresponding form provided by campaign workflow.</p>
 </ul>
 </li>
 </ul>
-<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">556735918</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
@@ -148,11 +147,13 @@ corresponding form provided by campaign workflow.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:556735918,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:199948681,&quot;email&quot;:&quot;sam@example.com&quot;,&quot;type&quot;:&quot;Purchase&quot;}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:556735918,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:199948681,&quot;email&quot;:&quot;sam@example.com&quot;,&quot;type&quot;:&quot;Purchase&quot;}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>

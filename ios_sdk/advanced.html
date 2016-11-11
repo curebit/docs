@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advanced Usage &#8212; Talkable Documentation</title>
+    <title>Advanced Usage &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -22,7 +22,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Talkable iOS SDK" href="../ios_sdk.html" />
     <link rel="next" title="Example" href="example.html" />
@@ -30,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -71,7 +70,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Usage</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#specify-a-custom-campaign-tag">Specify a custom campaign tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-talkabledelegate">Implement TalkableDelegate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#notifications">Notifications</a></li>
@@ -92,16 +91,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="ios-sdk-advanced"></span><div class="section" id="advanced-usage">
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="specify-a-custom-campaign-tag">
 <h2>Specify a custom campaign tag<a class="headerlink" href="#specify-a-custom-campaign-tag" title="Permalink to this headline">¶</a></h2>
-<p>By default if no campaign tag was specified SDK uses <cite>ios-invite</cite> and <cite>ios-post-purchase</cite> tags for <a class="reference internal" href="integration/standalone.html#ios-sdk-integration-standalone"><span class="std std-ref">Standalone</span></a> and
-<a class="reference internal" href="integration/post_purchase.html#ios-sdk-integration-post-purchase"><span class="std std-ref">Post Purchase</span></a> campaigns. But you can explicitly specify your own tag in this way:</p>
+<p>By default if no campaign tag was specified SDK uses <cite>ios-invite</cite> and <cite>ios-post-purchase</cite> tags for <a class="reference internal" href="integration/standalone.html#ios-sdk-integration-standalone"><em>Standalone</em></a> and
+<a class="reference internal" href="integration/post_purchase.html#ios-sdk-integration-post-purchase"><em>Post Purchase</em></a> campaigns. But you can explicitly specify your own tag in this way:</p>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">registerOrigin</span><span class="p">:</span><span class="n">TKBLAffiliateMember</span> <span class="nl">params</span><span class="p">:</span><span class="l">@{</span><span class="nl">TKBLCampaignTags</span><span class="p">:</span> <span class="s">@&quot;your-custom-tag&quot;</span><span class="l">}</span><span class="p">];</span>
 <span class="p">...</span>
@@ -115,7 +114,7 @@
 <li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by following code:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate</span><span class="p">:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate</span><span class="p">:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -123,7 +122,7 @@
 <li>Take control of presenting offers to your users. Use next two delegate methods to prevent or give an instruction where you want that offer will be displayed:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">shouldPresentTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">shouldPresentTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
 <span class="p">-</span> <span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nf">viewControllerForPresentingTalkableOfferViewController</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -132,7 +131,7 @@
 <li>Customize ViewContoller title by implementing method below. By default title of offer page is used.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">titleForTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">titleForTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -144,7 +143,7 @@
 <li>Present offers to your users by yourself by handling request url or webView after origin was created.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">withWebView:</span><span class="p">(</span><span class="bp">WKWebView</span><span class="o">*</span><span class="p">)</span><span class="nv">webView</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -161,7 +160,7 @@
 <li>Receive the coupon given to your users:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">couponReceived</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">TKBLDidReceiveCouponCode</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
@@ -176,7 +175,7 @@
 <li>Catch every message from presented offer:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">publishMessageNotification</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">TKBLDidPublishMessageNotification</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 <span class="p">...</span>
@@ -200,7 +199,7 @@
 <h2>Debuging<a class="headerlink" href="#debuging" title="Permalink to this headline">¶</a></h2>
 <p>See all debugging information in your console which can help you to realise what is going wrong:</p>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="p">[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">].</span><span class="n">debug</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </pre></div>
@@ -208,6 +207,8 @@
 </div></blockquote>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>
