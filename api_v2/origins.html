@@ -101,7 +101,7 @@
 <h1>Origins<a class="headerlink" href="#origins" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to create origins. See examples below.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>POST /origins
+<div class="highlight-text"><div class="highlight"><pre><span></span>POST /origins
 </pre></div>
 </div>
 <div class="ptable container">
@@ -161,7 +161,7 @@ for which will be generated sharing links</li>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="create-a-purchase">
 <h3>Create a purchase<a class="headerlink" href="#create-a-purchase" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
@@ -181,14 +181,14 @@ for which will be generated sharing links</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Purchase&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@example.com&quot;,&quot;order_number&quot;:12,&quot;subtotal&quot;:100,&quot;items&quot;:[{&quot;price&quot;:25,&quot;quantity&quot;:4,&quot;product_id&quot;:&quot;TSHIRT&quot;}]}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -213,7 +213,7 @@ for which will be generated sharing links</li>
 </div>
 <div class="section" id="create-an-event">
 <h3>Create an event<a class="headerlink" href="#create-an-event" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Event&quot;</span><span class="p">,</span>
@@ -225,14 +225,14 @@ for which will be generated sharing links</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;Event&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;customer@example.com&quot;,&quot;event_category&quot;:&quot;newsletter_subscription&quot;,&quot;event_number&quot;:&quot;42&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -257,7 +257,7 @@ for which will be generated sharing links</li>
 </div>
 <div class="section" id="create-an-affiliate-member">
 <h3>Create an affiliate member<a class="headerlink" href="#create-an-affiliate-member" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
@@ -267,14 +267,14 @@ for which will be generated sharing links</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@example.com&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -297,7 +297,7 @@ for which will be generated sharing links</li>
 </div>
 <div class="section" id="with-sharing-links">
 <h3>With sharing links<a class="headerlink" href="#with-sharing-links" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
@@ -308,14 +308,14 @@ for which will be generated sharing links</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@example.com&quot;},&quot;sharing_channels&quot;:[&quot;facebook&quot;,&quot;twitter&quot;,&quot;custom&quot;]}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
