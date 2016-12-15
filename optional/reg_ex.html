@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Using URL Parameters &mdash; Talkable Documentation</title>
+    <title>Using Regular Expressions &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Advanced Features" href="../optional.html" />
-    <link rel="next" title="White-labeling" href="white_labeling.html" />
-    <link rel="prev" title="Subscribing to Iframe Events" href="subscribing_to_events.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Talkable Campaigns" href="../campaigns.html" />
+    <link rel="prev" title="Converting Into Localization" href="converting_into_localization.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -61,12 +61,13 @@
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing to Iframe Events</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Using URL Parameters</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reg_ex.html">Using Regular Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Using Regular Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -94,29 +95,51 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="optional-url-parameters"></span><div class="section" id="using-url-parameters">
-<h1>Using URL Parameters<a class="headerlink" href="#using-url-parameters" title="Permalink to this headline">¶</a></h1>
-<p>Talkable allows overriding some of the parameters right through URL query string:</p>
-<ul class="simple">
-<li>email - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> email address</li>
-<li>first_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> first name</li>
-<li>last_name - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> last name</li>
-<li>traffic_source - <a class="reference internal" href="traffic_source.html#optional-traffic-source"><em>Traffic Source</em></a> value</li>
-<li>campaign_tags - overrides campaign tag to be loaded</li>
-</ul>
-<p>Below is an example of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> authorization through URL. Given the URL of the page where Talkable campaign is integrated: <a class="reference external" href="http://example.com/invite">http://example.com/invite</a>:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>http://example.com/invite?email=advocate%40example.com
+  <span class="target" id="optional-reg-ex"></span><div class="section" id="using-regular-expressions">
+<h1>Using Regular Expressions<a class="headerlink" href="#using-regular-expressions" title="Permalink to this headline">¶</a></h1>
+<p>Talkable allows you to use regular expressions (regex for short) inside Campaign Placement options so that you can span
+multiple URLs instead of an exact one.
+Only Talkable admins are able to use this as an option.
+In order to switch &#8220;Shown on&#8221; or &#8220;Hidden on&#8221; field into Regex mode turn on the appropriate checkbox.
+Keep in mind that you don&#8217;t need to escape <strong>/</strong> with backslash, those are already escaped for you.
+The rest of the queries need to be backslashed.
+It is recommended to run some checks when coding up Regex criteria: <a class="reference external" href="https://regex101.com">https://regex101.com</a>.
+Here is an example of a URL: <cite>http://www.google.com/test</cite>, you can replace it with your site URL and add your own path(s).</p>
+<p>It is not recommended to hardcode your site URL like <cite>http://site.com</cite> because you might also support <cite>https</cite> protocol as
+well as <cite>www</cite> as a part of your domain, all combinations should work.</p>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Show/suppress Campaigns on URLs that start with <strong>/cart</strong>, i.e.: <cite>http://site.com/cart</cite>, <br> <cite>http://site.com/cart/checkout</cite>,
+but not <cite>http://site.com/test/cart</cite>.</p>
+<p>Here is the Regex criteria:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>https?://([\w\-\d]+\.)+[\w\-\d]+/cart
 </pre></div>
 </div>
-<p>Location parameters have higher priority than explicit parameters passed in the integration.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Don&#8217;t forget to escape URL parameters with URI parameter encoder.</p>
+</li>
+<li><p class="first">Show/suppress Campaigns on URLs that contains <strong>/share</strong>, i.e.: <cite>http://site.com/pages/share</cite>, <cite>http://site.com/share</cite>,
+<cite>http://site.com/pages/share/product</cite>, any URL that contains <cite>/share</cite>.</p>
+<p>Here is the Regex criteria:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>/share
+</pre></div>
 </div>
+</li>
+<li><p class="first">Show/suppress Campaigns on multiple specific URLs, i.e.: <cite>https://site.com/products/product-1</cite>
+and <cite>https://site.com/products/product-5</cite>.</p>
+<p>Here is the Regex criteria:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>/products/product-1|/products/product-5
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+</ol>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
 </div>
 </div>
 </div>
