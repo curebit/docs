@@ -122,34 +122,49 @@ your main layout which is used on every page. This is initialization of the Talk
 </div>
 <div class="section" id="add-talkable-campaigns">
 <h2>2. Add Talkable Campaigns<a class="headerlink" href="#add-talkable-campaigns" title="Permalink to this headline">¶</a></h2>
-<p>Define a place where do you want your customers see Talkable campaign at. This is a place from where they will be inviting their friends — we call it &#8220;opening the loop&#8221;:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="35%" />
-<col width="65%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../campaigns/site_placements/post_purchase.html#post-purchase-campaign"><em>Post Purchase</em></a></td>
-<td>On the order confirmation page after checkout</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../campaigns/site_placements/invite.html#invite-campaign"><em>Invite</em></a></td>
-<td>On the standalone page that&#8217;s always available to anyone</td>
-</tr>
-<tr class="row-odd"><td>Every Visitor Popup</td>
-<td>On every page as an email capture popup to everyone who visits your site</td>
-</tr>
-<tr class="row-even"><td>Dashboard</td>
-<td>Inside user account section as a dashboard which includes tracking history and reminder functionality</td>
-</tr>
-<tr class="row-odd"><td>Floating Widget Popup</td>
-<td>On every page as a floating button in a corner of the screen so customers are able to access Talkable campaign from anywhere on the site without being distracted from what they are looking for</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The more places you integrate Talkable into the more boost you get from Referral as a marketing channel.</p>
-</div>
+<p>Campaign Placements are the places (pages) on your site where the Campaigns are shown to your customers.
+There are four Placements types at Talkable.</p>
+<h2>Standalone</h2><p>Campaign will show up on the standalone page on your site, for example: <br>
+<cite>https://[your-site]/share</cite>.
+<br>
+Campaign will be embedded as an inline block usually between Header and Footer.</p>
+<p><a class="reference internal" href="../campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><em>Learn more about Standalone Placement</em></a></p>
+<h2>Post Purchase</h2><p>Campaign will show up upon successful purchase made by the customer on your site.
+Usually this is an order confirmation page after checkout.
+The campaign will look like a popup with an overlay and a close button.</p>
+<p><a class="reference internal" href="../campaigns/campaign_placements/post_purchase.html#campaigns-campaign-placements-post-purchase"><em>Learn more about Post Purchase Placement</em></a></p>
+<h2>Floating Widget</h2><p>Campaign will show up on every page as a floating button in a corner of the screen so customers are able to access
+Talkable campaigns from anywhere on your site.
+Clicking on a Floating Widget Campaign expands the full Campaign view that looks like a popup with an overlay
+and a close button.</p>
+<p><a class="reference internal" href="../campaigns/campaign_placements/floating_widget.html#campaigns-campaign-placements-floating-widget"><em>Learn more about Floating Widget Placement</em></a></p>
+<h2>Gleam</h2><p>Campaign will show up on every page as a floating bar that shows your customers their coupon codes
+after they have been rewarded within any other of your Talkable Campaigns.</p>
+<p><a class="reference internal" href="../campaigns/campaign_placements/gleam.html#campaigns-campaign-placements-gleam"><em>Learn more about Gleam Placement</em></a></p>
+<p><hr></p>
+<p>The list of Campaign Placements available for your site is located inside your User menu.
+There you can change your existing Placements, add new, and manage their Campaigns.</p>
+<p><strong>Managing Placements</strong>.
+By default you already have all four types of Placements created for you automatically.
+Campaigns that you create will attach to one of these Placements based on their types.
+If you want you can create new Standalone Placement for your site matching another URL and attach another
+Standalone Campaigns there. <strong>Note:</strong> Placements are strictly tied to their Campaign types.
+You cannot attach Post Purchase Campaign to Standalone Placement because it expects Campaigns that are
+going to be embedded not being shown as a popup.</p>
+<p><strong>Priority</strong>.
+The Placements in the list are ordered by priority. In order to show a Campaign Talkable matches
+the URL of a Campaign Placement inclusion (marked as “Shown on”) and a URL that comes with each request that
+users initiate, for example: <cite>https://[your-site]/share</cite>. Whenever multiple Campaign Placements fit the requested URL
+Talkable picks the first Placement that sits up top out of the suitable ones. Other Placements that sit below it are
+ignored in this case.</p>
+<p><strong>Exclusion</strong>.
+It is possible to indicate on which specific pages the Campaigns attached to the Placement should not be shown.
+It allows you to show the Campaign on all pages of your site except few specified in &#8220;Hidden on&#8221; section.</p>
+<p><strong>Campaigns Rotating</strong>.
+It worth mentioning that you can also attach multiple Campaigns into one Placement.
+In this case Talkable will always show only one Campaign based on a random rotation.
+This mechanism is useful if you want to compare which Campaign has higher referral conversion rate by changing
+Incentives or other referral pieces in the other Campaign.</p>
 <p><hr></p>
 <h2>Advanced Features</h2><p>Here is a full list of <a class="reference internal" href="../optional.html#optional"><em>Advanced Talkable features</em></a>.</p>
 </div>

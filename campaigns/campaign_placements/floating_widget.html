@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Floating Widget Placement &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Campaign Placements" href="../campaign_placements.html" />
+    <link rel="next" title="Gleam Placement" href="gleam.html" />
+    <link rel="prev" title="Post Purchase Placement" href="post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../campaign_types.html">Campaign Types</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../campaign_placements.html">Campaign Placements</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="standalone.html">Standalone Placement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="post_purchase.html">Post Purchase Placement</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Floating Widget Placement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gleam.html">Gleam Placement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offers_expiration.html">Offers Expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns-campaign-placements-floating-widget"></span><div class="section" id="floating-widget-placement">
+<h1>Floating Widget Placement<a class="headerlink" href="#floating-widget-placement" title="Permalink to this headline">¶</a></h1>
+<p>You can create Campaigns of different types (Invite, Dashboard, Leaderboard, etc) and show them as
+the eye-catching Floating Widget in the corner of each page of your site. Widget shows a call to action message, ex.
+“Get $10 for Sharing”, to all your visitors. Clicking on it expands the selected Campaign in a pop-up.</p>
+<p><a class="reference internal" href="../campaign_placements.html#campaigns-campaign-placements"><em>Learn more about Placements</em></a></p>
+<div class="section" id="integration-instructions">
+<h2>Integration instructions<a class="headerlink" href="#integration-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Floating Widget Placement doesn’t require any additional integration.
+If you have already added Talkable to your main layout (completed General Integration
+for Custom platform, or installed Shopify or Magento extensions), then you are all done.
+<br>
+<strong>Note:</strong> For Magento site just make sure the Floating Widget Popup is enabled in the Talkable extension settings in your Magento Admin Panel.
+<br>
+<br>
+Go ahead and create your Floating Widget Campaign. Once it is launched your customers will see
+the Campaign on all pages of your site.
+<br>
+<br></p>
+<p>If you need to change or reconfigure which Campaigns are shown on which URLs then visit
+<br>
+<cite>https://www.talkable.com/sites/[YOUR-TALKABLE-SITE-ID]/placements</cite> page.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
