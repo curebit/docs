@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Including Product Items &#8212; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
+    <link rel="next" title="Pass Custom Person Data" href="passing_custom_data.html" />
+    <link rel="prev" title="Converting Into Localization" href="converting_into_localization.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body role="document">
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Including Product Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product_sku.html">Segment With Product SKU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing To Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reg_ex.html">Using Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="advanced-features-product-items"></span><div class="section" id="including-product-items">
+<h1>Including Product Items<a class="headerlink" href="#including-product-items" title="Permalink to this headline">¶</a></h1>
+<p>You can also add product specific tracking to Talkable
+which will let your customers share specific items that they&#8217;ve purchased.
+Customer shares with products have higher click through and conversion rates.</p>
+<p>Below is an example with product items passed along with purchase data (notice FOR loop):</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kd">var</span> <span class="nx">_talkable_purchase_items</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="c1">// Start for loop</span>
+  <span class="nx">_talkable_purchase_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku1&#39;</span><span class="p">,</span> <span class="c1">// Required — Item Product ID</span>
+    <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;199.00&#39;</span><span class="p">,</span> <span class="c1">// Required — Item Unit Price</span>
+    <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="c1">// Required — Item Quantity</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Awesome Product&#39;</span><span class="p">,</span> <span class="c1">// Optional — Name of product</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1&#39;</span><span class="p">,</span> <span class="c1">// Optional — URL for product</span>
+    <span class="nx">image_url</span><span class="o">:</span> <span class="s1">&#39;http://www.store.com/product1/image.jpg&#39;</span> <span class="c1">// Optional — URL for product image</span>
+  <span class="p">});</span>
+  <span class="c1">// End for loop</span>
+
+  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span> <span class="c1">// Required - Order number</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// Required - Purchase Subtotal</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// Required - Coupon code used at checkout, multiple coupons allowed as JS array: [&#39;SAVE20&#39;, &#39;FREE-SHIPPING&#39;]. Pass null if when no coupon code was used at the checkout.</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_purchase_items</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All product items are included into Purchase details inside Purchases report. This information is helpful for debugging.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

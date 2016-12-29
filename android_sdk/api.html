@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>API &mdash; Talkable Documentation</title>
+    <title>API &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -22,6 +22,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="up" title="Talkable Android SDK" href="../android_sdk.html" />
     <link rel="next" title="Upgrade" href="upgrade.html" />
@@ -29,7 +30,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -55,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../optional.html">Advanced Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
@@ -74,7 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overriding_defaults.html">Overriding default behaviour</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">API</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-visitor">Create visitor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-origin">Create origin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#retrieve-rewards">Retrieve rewards</a></li>
@@ -93,7 +94,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-api"></span><div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
@@ -127,15 +128,14 @@ But you can do anything you need with just create one.</p>
 <div class="section" id="hierarchy">
 <h3>Hierarchy<a class="headerlink" href="#hierarchy" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="first docutils">
 <dt><cite>Origin</cite> (Abstract)</dt>
 <dd><ul class="first last">
-<li><p class="first"><cite>AffiliateMember</cite></p>
-</li>
+<li><cite>AffiliateMember</cite></li>
 <li><dl class="first docutils">
 <dt><cite>Event</cite></dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li><cite>Purchase</cite></li>
 </ul>
 </dd>
@@ -278,10 +278,8 @@ Firstly, you need to create offer using <a class="reference internal" href="#cre
 <span class="o">});</span>
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>

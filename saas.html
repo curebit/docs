@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SaaS Integrations &mdash; Talkable Documentation</title>
+    <title>SaaS Integrations &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -22,13 +22,14 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Talkable Documentation" href="index.html" />
-    <link rel="next" title="Advanced Features" href="optional.html" />
+    <link rel="next" title="Advanced Features" href="advanced_features.html" />
     <link rel="prev" title="Verifying Integration" href="ecommerce/verify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="index.html" class="header-logo">Talkable docs</a>
@@ -51,14 +52,14 @@
 <li class="toctree-l1"><a class="reference internal" href="ecommerce.html">E-Commerce Integration</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">SaaS Integrations</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SaaS Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#add-talkable-to-your-site">1. Add Talkable to Your Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-talkable-campaigns">2. Add Talkable Campaigns</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Advanced Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="campaigns.html">Talkable Campaigns</a></li>
@@ -82,7 +83,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="saas"></span><div class="section" id="saas-integrations">
 <h1>SaaS Integrations<a class="headerlink" href="#saas-integrations" title="Permalink to this headline">¶</a></h1>
@@ -92,7 +93,7 @@
 This allows us to better support integration individually.</p>
 <p class="last">Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you are planning to integrate your <strong>Enterprise</strong> site.</p>
 </div>
-<p>SaaS integration is abstracted from <a class="reference internal" href="ecommerce.html#ecommerce"><em>E-Commerce</em></a> since you need to create referrals based on your specific business logics while E-Commerce can work only with store purchases. With such abstraction you can register Talkable Event with just a few parameters:</p>
+<p>SaaS integration is abstracted from <a class="reference internal" href="ecommerce.html#ecommerce"><span class="std std-ref">E-Commerce</span></a> since you need to create referrals based on your specific business logics while E-Commerce can work only with store purchases. With such abstraction you can register Talkable Event with just a few parameters:</p>
 <ul class="simple">
 <li><strong>Event Category</strong> to describe what type of action was made. For example: &#8220;User Registered&#8221;. All Events appear inside Events Report where you can sort/filter/segment them based on the Event Category or based on any other data you pass along.</li>
 <li><strong>Event Number</strong>. This is a unique action ID that will be stored in Talkable.</li>
@@ -121,7 +122,7 @@ your main layout which is used on every page. This is initialization of the Talk
 </div>
 <div class="section" id="add-talkable-campaigns">
 <h2>2. Add Talkable Campaigns<a class="headerlink" href="#add-talkable-campaigns" title="Permalink to this headline">¶</a></h2>
-<p>Below is an example of registering an Event and showing Campaign for <a class="reference internal" href="campaigns/campaign_placements/post_purchase.html#campaigns-campaign-placements-post-purchase"><em>Post Purchase</em></a> Placement as a result:</p>
+<p>Below is an example of registering an Event and showing Campaign for <a class="reference internal" href="campaigns/campaign_placements/post_purchase.html#campaigns-campaign-placements-post-purchase"><span class="std std-ref">Post Purchase</span></a> Placement as a result:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
@@ -139,12 +140,12 @@ your main layout which is used on every page. This is initialization of the Talk
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><em>Advocate Signup Page</em></a> as a result. <br>
+<p>The code above registers an Event and shows <a class="reference internal" href="campaigns/views/affiliate_members_new.html#advocate-signup-page-view"><span class="std std-ref">Advocate Signup Page</span></a> as a result. <br>
 When the Event is registered successfully it appears inside Events Report. <br></p>
 <p><hr></p>
-<h2>Showing Different Campaign</h2><p>In the example above we show Campaign for <a class="reference internal" href="campaigns/campaign_placements/post_purchase.html#campaigns-campaign-placements-post-purchase"><em>Post Purchase</em></a> Placement as a result of Event registration.
+<h2>Showing Different Campaign</h2><p>In the example above we show Campaign for <a class="reference internal" href="campaigns/campaign_placements/post_purchase.html#campaigns-campaign-placements-post-purchase"><span class="std std-ref">Post Purchase</span></a> Placement as a result of Event registration.
 However you can show any other Talkable Campaign instead since there are many of them.
-Here is an example how to show Campaign for <a class="reference internal" href="campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><em>Standalone</em></a> Placement</p>
+Here is an example how to show Campaign for <a class="reference internal" href="campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><span class="std std-ref">Standalone</span></a> Placement</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
@@ -168,7 +169,7 @@ Here is an example how to show Campaign for <a class="reference internal" href="
 Campaign Tags are show either on Campaigns listing page below each campaign&#8217;s name or right on Details page
 of any campaign, inside &#8220;Integration&#8221; area.</p>
 </div>
-<h2>Advanced Features</h2><p>Here is a full list of <a class="reference internal" href="optional.html#optional"><em>Advanced Talkable features</em></a>.</p>
+<h2>Advanced Features</h2><p>Here is a full list of <a class="reference internal" href="advanced_features.html#optional"><span class="std std-ref">Advanced Talkable features</span></a>.</p>
 </div>
 </div>
 

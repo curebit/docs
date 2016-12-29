@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Standalone Campaign &mdash; Talkable Documentation</title>
+    <title>Standalone Campaign &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -22,6 +22,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Integration" href="../integration.html" />
     <link rel="next" title="Post Purchase Campaign" href="post_purchase.html" />
@@ -29,7 +30,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -55,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../saas.html">SaaS Integrations</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../optional.html">Advanced Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
@@ -70,7 +71,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../integration.html">Integration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Standalone Campaign</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Standalone Campaign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_purchase.html">Post Purchase Campaign</a></li>
 </ul>
 </li>
@@ -89,7 +90,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="ios-sdk-integration-standalone"></span><div class="section" id="standalone-campaign">
 <h1>Standalone Campaign<a class="headerlink" href="#standalone-campaign" title="Permalink to this headline">¶</a></h1>
@@ -106,7 +107,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Make sure you have at least one live “SA” campaign with a default tag (<cite>ios-invite</cite>) inside Talkable Site</p>
 </div>
-<p>Note that <cite>params</cite> are empty, in this case user will see the <a class="reference internal" href="../../campaigns/views/affiliate_members_new.html#campaigns-views-affiliate-members-new"><em>Advocate Signup Page</em></a>, which is used to collect the user’s email address. Your application may already know/have access to the user’s email, if so, you should pass this parameter which will automatically skip the SignUp Page in the flow and show the <a class="reference internal" href="../../campaigns/views/offers_show.html#campaigns-views-offers-show"><em>Advocate Share Page</em></a>. You have the ability to pass any custom data you think might be useful by using “person custom properties” to define any number of custom key/value pairs. For example, below we are creating and passing a custom key value pair of <em>eye color</em> = <em>green</em>. Any data passed through here will be accessible on a campaign level for segmentation or other logic.</p>
+<p>Note that <cite>params</cite> are empty, in this case user will see the <a class="reference internal" href="../../campaigns/views/affiliate_members_new.html#campaigns-views-affiliate-members-new"><span class="std std-ref">Advocate Signup Page</span></a>, which is used to collect the user’s email address. Your application may already know/have access to the user’s email, if so, you should pass this parameter which will automatically skip the SignUp Page in the flow and show the <a class="reference internal" href="../../campaigns/views/offers_show.html#campaigns-views-offers-show"><span class="std std-ref">Advocate Share Page</span></a>. You have the ability to pass any custom data you think might be useful by using “person custom properties” to define any number of custom key/value pairs. For example, below we are creating and passing a custom key value pair of <em>eye color</em> = <em>green</em>. Any data passed through here will be accessible on a campaign level for segmentation or other logic.</p>
 <div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">params</span> <span class="o">=</span> <span class="l">@{</span>
@@ -124,10 +125,8 @@
 <span class="p">...</span>
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
