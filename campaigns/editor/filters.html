@@ -288,7 +288,7 @@ as an array.</p>
 <li><code class="docutils literal"><span class="pre">precision</span> <span class="pre">(integer)</span></code></li>
 <li><code class="docutils literal"><span class="pre">strip_insignificant_zeros</span> <span class="pre">(boolean)</span></code></li>
 </ul>
-<div class="ptable docutils container">
+<div class="ptable container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="82%" />
@@ -342,6 +342,15 @@ as an array.</p>
 </pre></div>
 </div>
 <p>Returns <code class="docutils literal"><span class="pre">strip</span> <span class="pre">me</span></code>.</p>
+<p><hr></p>
+</div>
+<div class="section" id="squish">
+<h2>squish<a class="headerlink" href="#squish" title="Permalink to this headline">¶</a></h2>
+<p>Returns the string, first removing all whitespace on both ends of the string, and then changing remaining consecutive whitespace groups into one space each.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;   foo   bar        baz &quot; | strip }}
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal"><span class="pre">foo</span> <span class="pre">bar</span> <span class="pre">baz</span></code>.</p>
 <p><hr></p>
 </div>
 <div class="section" id="tweet-length">
