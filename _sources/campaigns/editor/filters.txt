@@ -305,7 +305,7 @@ Returns the string, first removing all whitespace on both ends of the string, an
 
 .. code-block:: text
 
-   {{ "   foo   bar        baz " | strip }}
+   {{ "   foo   bar        baz " | squish }}
 
 Returns ``foo bar baz``.
 
