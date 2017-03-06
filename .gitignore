@@ -1,2 +1,7 @@
 /build
 /.bundle
+Gemfile.lock
+source/_static/test
+.pivotalrc
+.idea
+*.log
