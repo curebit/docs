@@ -8,7 +8,7 @@
 Talkable JS Integration
 =======================
 
-This section comes with full documentation for Talkable integration into E-Commerce store as well as into any SaaS product..
+This section comes with full documentation for Talkable integration into E-Commerce store as well as into any SaaS product.
 
 +------------------------+--------------------+
 | .. toctree::           | .. toctree::       |
