@@ -546,6 +546,24 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><hr></p>
+</div>
+<div class="section" id="base64-encode">
+<h2>base64_encode<a class="headerlink" href="#base64-encode" title="Permalink to this headline">¶</a></h2>
+<p>Converts given string into a base64 encoded string.</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;some string&quot; | base64_encode }}
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal"><span class="pre">c29tZSBzdHJpbmc=</span></code></p>
+<p><hr></p>
+</div>
+<div class="section" id="base64-decode">
+<h2>base64_decode<a class="headerlink" href="#base64-decode" title="Permalink to this headline">¶</a></h2>
+<p>Decodes given base64 encoded string.</p>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;c29tZSBzdHJpbmc=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">base64_decode</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal"><span class="pre">some</span> <span class="pre">string</span></code></p>
 </div>
 </div>
 
