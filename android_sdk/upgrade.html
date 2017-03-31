@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Upgrade &#8212; Talkable Documentation</title>
+    <title>Upgrade &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,19 +16,19 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Talkable Android SDK" href="../android_sdk.html" />
     <link rel="prev" title="API" href="api.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -74,9 +74,10 @@
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overriding_defaults.html">Overriding default behaviour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">0.2.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">0.1.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Upgrade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">0.3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">0.2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">0.1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -89,16 +90,24 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="android-sdk-upgrade"></span><div class="section" id="upgrade">
 <h1>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this headline">¶</a></h1>
 <p>Sometimes we need you to upgrade existing integration to use our latest features.</p>
 <div class="section" id="id1">
-<h2>0.2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.3.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="move-to-fragments">
+<h3>Move to Fragments<a class="headerlink" href="#move-to-fragments" title="Permalink to this headline">¶</a></h3>
+<p>Talkable SDK is built on top of <a class="reference external" href="https://developer.android.com/reference/android/support/v4/app/Fragment.html">Fragments</a>
+(from Support Library) instead of Activities now to provide more flexibility for end users.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>0.2.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="deep-linking-schema">
 <h3>Deep linking schema<a class="headerlink" href="#deep-linking-schema" title="Permalink to this headline">¶</a></h3>
-<p>Add this to <code class="docutils literal"><span class="pre">AndroidManifest.xml</span></code> inside definition of Talkable activity</p>
+<p>Add this to <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> inside definition of Talkable activity</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
     <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
 
@@ -112,15 +121,17 @@
 </div>
 <div class="section" id="tracking-app-opening">
 <h3>Tracking app opening<a class="headerlink" href="#tracking-app-opening" title="Permalink to this headline">¶</a></h3>
-<p>Replace <code class="docutils literal"><span class="pre">Talkable.initialize(this);</span></code> with <code class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></code> in your main activity.
-Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><span class="std std-ref">installation section</span></a> for more detailed information if needed.</p>
+<p>Replace <tt class="docutils literal"><span class="pre">Talkable.initialize(this);</span></tt> with <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></tt> in your main activity.
+Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><em>installation section</em></a> for more detailed information if needed.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>0.1.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.1.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>It&#8217;s initial release, nothing to do.</p>
-<div class="hidden docutils container">
+<div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>
