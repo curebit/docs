@@ -255,7 +255,7 @@ enough coupons and they are valid in terms of uniqueness and validity</li>
 several Incentives which are also objects.</p>
 <p>Here is an example of <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> Variable with two incentives:
 <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="nx">advocate</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">amount</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
     <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;$10&quot;</span><span class="p">,</span>
@@ -270,11 +270,11 @@ several Incentives which are also objects.</p>
 </pre></div>
 </div>
 <p>And here is an example of using <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> values:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>Give your friend <span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="p">.</span><span class="nv">friend</span><span class="p">.</span><span class="nv">description</span><span class="w"> </span><span class="p">}}</span> OFF!
+<div class="highlight-liquid"><div class="highlight"><pre>Give your friend {{ incentives.friend.description }} OFF!
 </pre></div>
 </div>
 <p>Which outputs:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>Give your friend 100% OFF!
+<div class="highlight-text"><div class="highlight"><pre>Give your friend 100% OFF!
 </pre></div>
 </div>
 <table border="1" class="docutils">

@@ -97,7 +97,7 @@
 and override methods there. Example:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment</span><span class="o">;</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OverriddenTalkableOfferFragment</span> <span class="kd">extends</span> <span class="n">TalkableOfferFragment</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -115,13 +115,13 @@ and override methods there. Example:</li>
 <cite>Talkable.showOffer</cite> call:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>And change manifest:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- From --&gt;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- From --&gt;</span>
 <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
 
 <span class="c">&lt;!-- To --&gt;</span>
@@ -135,7 +135,7 @@ and override methods there. Example:</li>
 <div>You can just override TalkableOfferFragment and use default TalkableActivity from Talkable SDK.
 In this case you souldn&#8217;t change manifest
 (if you did steps from <a class="reference internal" href="getting_started.html#android-sdk-getting-started"><em>Getting Started</em></a> section).</div></blockquote>
-<div class="last highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<div class="last highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>

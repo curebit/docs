@@ -101,7 +101,7 @@
 <h1>Referrals<a class="headerlink" href="#referrals" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to approve/void referrals.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>PUT /origins/&lt;origin_slug&gt;/referral
+<div class="highlight-text"><div class="highlight"><pre>PUT /origins/&lt;origin_slug&gt;/referral
 </pre></div>
 </div>
 <p>Updates referral&#8217;s status.</p>
@@ -146,7 +146,7 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="approve-a-referral">
 <h3>Approve a Referral<a class="headerlink" href="#approve-a-referral" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;status&quot;:&quot;approved&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins/B00K2EOONI/referral
