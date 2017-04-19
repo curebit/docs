@@ -58,6 +58,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/converting_into_localization.html">Converting Into Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features/email_encryption.html">Email Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/product_items.html">Including Product Items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/passing_custom_data.html">Pass Custom Person Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/referrals_approval.html">Referrals Approval</a></li>
@@ -112,35 +113,38 @@ each with links to integration details.</p>
 <td>Convert all static languange into a customizable copy that&#8217;s
 easy to AB test.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="advanced_features/product_items.html#advanced-features-product-items"><span class="std std-ref">Including Product Items</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="advanced_features/email_encryption.html#advanced-features-email-encryption"><span class="std std-ref">Email encryption</span></a></td>
+<td>For additional security, it is possible to encrypt Advocate and Friend e-mails on back-end.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="advanced_features/product_items.html#advanced-features-product-items"><span class="std std-ref">Including Product Items</span></a></td>
 <td>Let your customers share specific items that they’ve purchased
 and pass product details along with purchase data</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="advanced_features/passing_custom_data.html#advanced-features-passing-custom-data"><span class="std std-ref">Pass custom user data</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="advanced_features/passing_custom_data.html#advanced-features-passing-custom-data"><span class="std std-ref">Pass custom user data</span></a></td>
 <td>Pass additional data to Talkable to operate with it inside campaigns</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="advanced_features/referrals_approval.html#advanced-features-referrals-approval"><span class="std std-ref">Referrals Approval</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="advanced_features/referrals_approval.html#advanced-features-referrals-approval"><span class="std std-ref">Referrals Approval</span></a></td>
 <td>Learn about Talkable Fraud settings, why they are important
 and how to find a right Fraud Profile that works best for your site.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="advanced_features/product_sku.html#advanced-features-product-sku"><span class="std std-ref">Segment with Product SKU</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="advanced_features/product_sku.html#advanced-features-product-sku"><span class="std std-ref">Segment with Product SKU</span></a></td>
 <td>Show Campaign only to the Advocates who purchase a particular set of product SKUs</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="advanced_features/traffic_source.html#advanced-features-traffic-source"><span class="std std-ref">Segment with Traffic Source</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="advanced_features/traffic_source.html#advanced-features-traffic-source"><span class="std std-ref">Segment with Traffic Source</span></a></td>
 <td>Brings more power and flexibility into segmenting your reporting</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="advanced_features/subscribing_to_events.html#advanced-features-subscribing-to-events"><span class="std std-ref">Subscribing to Talkable Iframe events</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="advanced_features/subscribing_to_events.html#advanced-features-subscribing-to-events"><span class="std std-ref">Subscribing to Talkable Iframe events</span></a></td>
 <td>Subscribe to Talkable Iframe events such as the campaign is loaded or closed and
 perform some updates to your site based on them.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="advanced_features/reg_ex.html#advanced-features-reg-ex"><span class="std std-ref">Using Regular Expressions</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="advanced_features/reg_ex.html#advanced-features-reg-ex"><span class="std std-ref">Using Regular Expressions</span></a></td>
 <td>Talkable allows you to use regular expressions (regex for short) inside
 Campaign Placement options so that you can span multiple URLs instead of an exact one.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="advanced_features/url_parameters.html#advanced-features-url-parameters"><span class="std std-ref">Using URL Parameters</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="advanced_features/url_parameters.html#advanced-features-url-parameters"><span class="std std-ref">Using URL Parameters</span></a></td>
 <td>Override some of the parameters right through URL query string</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="advanced_features/white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">White Labeling</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="advanced_features/white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">White Labeling</span></a></td>
 <td>Change all visible URLs to your domain instead of talkable.com</td>
 </tr>
 </tbody>
@@ -162,6 +166,11 @@ Campaign Placement options so that you can span multiple URLs instead of an exac
 <li class="toctree-l2"><a class="reference internal" href="advanced_features/converting_into_localization.html#custom-option-configuration-localization">Custom Option (Configuration) Localization</a><ul class="simple">
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_features/email_encryption.html">Email Encryption</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features/email_encryption.html#ruby-example">Ruby Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features/email_encryption.html#java-example">Java Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advanced_features/product_items.html">Including Product Items</a></li>
