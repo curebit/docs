@@ -96,7 +96,7 @@
 <p>Each template can be localized.
 Localization is not a part of the view template. Default talkable campaigns are comming with localization now. It is stored in campaign allowing multiple campaign to use same template with different locazation and ability to edit Copy of a campaign outside of liquid editor (making interface significatly easier for marketer).</p>
 <p>Campaign localization is done using a liquid filter <cite>localize</cite>:</p>
-<div class="highlight-liquid"><div class="highlight"><pre>{{ &quot;offer_title&quot; | localize: &#39;Get [[incentives.referrer.descrition]]&#39; }}
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_title&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Get [[incentives.referrer.descrition]]&#39;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>After adding this filter call to the template, go to campaign page and click &#8220;Localization&#8221; from the navigation menu:</p>

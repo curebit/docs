@@ -126,15 +126,15 @@
 <li>Find a copy that you&#8217;d like to convert into a Localization. You can hit <cite>Cmd+F</cite> (<cite>Ctrl+F</cite> on Windows) to search within HTML area.</li>
 </ol>
 <p>Static copy is basically a piece of text that sits inside HTML &amp; CSS Editor and usually looks like this:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
   Get {{ advocate_incentive.description }}.
-<span class="nt">&lt;/h1&gt;</span>
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>A piece that we are going to extract into Localizations is just a copy, without HTML tags. To do that, simply wrap the text into a variable notation like so:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
   {{ &quot;advocate_share_page_headline&quot; | localize: &quot;Get [[ advocate_incentive.description ]].&quot; }}
-<span class="nt">&lt;/h1&gt;</span>
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -159,7 +159,7 @@
 </ol>
 <blockquote>
 <div><img alt="../_images/subject_line_setup_inside_share_page.png" src="../_images/subject_line_setup_inside_share_page.png" />
-<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;email_subject&quot;</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;textfield&quot;</span> <span class="na">value=</span><span class="s">&quot;{{ &#39;friend_share_email_subject&#39; | localize: &#39;Your friend [[ advocate_info.first_name ]] [[ advocate_info.last_name ]] gave you [[ friend_incentive.description ]]&#39; | replace: &#39;   &#39;, &#39; &#39; | replace: &#39;  &#39;, &#39; &#39; }}&quot;</span> <span class="nt">/&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_subject&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textfield&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ &#39;friend_share_email_subject&#39; | localize: &#39;Your friend [[ advocate_info.first_name ]] [[ advocate_info.last_name ]] gave you [[ friend_incentive.description ]]&#39; | replace: &#39;   &#39;, &#39; &#39; | replace: &#39;  &#39;, &#39; &#39; }}&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
 <p>This code creates new Localization named &#8220;Friend share email subject&#8221; that you are able to change on the Advocate Share Page.</p>
@@ -174,11 +174,11 @@
 <li>Put the following code in there:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-liquid"><div class="highlight"><pre>{% if custom_message_subject == blank %}
-  {{ &#39;friend_share_email_subject&#39; | localize }}
-{% else %}
-  {{ custom_message_subject }}
-{% endif %}
+<div><div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">custom_message_subject</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">blank</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;friend_share_email_subject&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">custom_message_subject</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p>The code snippet above checks if the Advocate provided any Subject at all. If not we take default Subject copy so Friend Share email does not come with a blank subject.</p>
@@ -199,7 +199,7 @@
 <li>At the very bottom of the HTML area add <tt class="docutils literal"><span class="pre">&lt;style&gt;&lt;/style&gt;</span></tt> tag with CSS that will override default styling of the element you want to localize:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre>.button {
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>.button {
   background-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
   border-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
 }
@@ -229,7 +229,7 @@
 <li>Inside HTML area find an image you want to localize. An image can be either within CSS or within HTML area (<cite>&lt;img /&gt;</cite>, inline styles, etc.). If the image is set within CSS you need to extract it into HTML area using inline styles:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre>&lt;div class=&quot;container&quot; style=&quot;background-image: url(&#39;{{ &quot;share_page_background&quot; | localize: &quot;share-page-background.jpg&quot;, trait: &quot;asset&quot; }}&#39;);&quot;&gt;
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>&lt;div class=&quot;container&quot; style=&quot;background-image: url(&#39;{{ &quot;share_page_background&quot; | localize: &quot;share-page-background.jpg&quot;, trait: &quot;asset&quot; }}&#39;);&quot;&gt;
   ...
 &lt;/div&gt;
 </pre></div>
@@ -258,7 +258,7 @@
 <li>Build two separate layouts using CSS cascades to style all nested children within a container block that holds all the content:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre>{% assign share_page_layout = &quot;share_page_layout&quot; | localize: &quot;Equal Emphasis&quot;, &quot;Email Emphasis&quot; %}
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>{% assign share_page_layout = &quot;share_page_layout&quot; | localize: &quot;Equal Emphasis&quot;, &quot;Email Emphasis&quot; %}
 &lt;div class=&quot;container is-{{ share_page_layout | downcase | split: &quot; &quot; | join: &quot;-&quot; }}&quot;&gt;
   ...
 &lt;/div&gt;
@@ -277,16 +277,16 @@ Then we optimize the variable value to be set as an HTML <cite>class</cite> attr
 <li>Let&#8217;s switch back to HTML &amp; CSS editor and start applying CSS styling to both layouts. Knowing their final classes inside HTML: <cite>class=&#8221;container is-equal-emphasis&#8221;</cite> and <cite>class=&#8221;container is-email-emphasis&#8221;</cite> we can easily style both layouts inside CSS area like so (SCSS is also allowed and is shown as an example for code simplicity):</li>
 </ol>
 <blockquote>
-<div><div class="highlight-scss"><div class="highlight"><pre><span class="nc">.container</span> <span class="p">{</span>
+<div><div class="highlight-scss"><div class="highlight"><pre><span></span><span class="nc">.container</span> <span class="p">{</span>
   <span class="k">&amp;</span><span class="nc">.is-equal-emphasis</span> <span class="p">{</span>
     <span class="nt">h1</span> <span class="p">{</span>
-      <span class="na">font-size</span><span class="o">:</span> <span class="mi">48</span><span class="kt">px</span><span class="p">;</span>
+      <span class="nt">font-size</span><span class="nd">:</span> <span class="nt">48px</span><span class="o">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
   <span class="k">&amp;</span><span class="nc">.is-email-emphasis</span> <span class="p">{</span>
     <span class="nt">h1</span> <span class="p">{</span>
-      <span class="na">font-size</span><span class="o">:</span> <span class="mi">32</span><span class="kt">px</span><span class="p">;</span>
+      <span class="nt">font-size</span><span class="nd">:</span> <span class="nt">32px</span><span class="o">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>

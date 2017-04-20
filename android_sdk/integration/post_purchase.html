@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="Talkable Documentation" href="../../index.html" />
     <link rel="up" title="Integration" href="../integration.html" />
-    <link rel="next" title="Overriding default behaviour" href="../overriding_defaults.html" />
+    <link rel="next" title="Advanced Usage" href="../advanced.html" />
     <link rel="prev" title="Standalone Campaign" href="standalone.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
@@ -77,7 +77,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="">Post Purchase Campaign</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../overriding_defaults.html">Overriding default behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced.html">Advanced Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html">API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../upgrade.html">Upgrade</a></li>
 </ul>
@@ -104,7 +104,7 @@ need to pass order data that includes your customer’s email address, order id,
 code used at checkout in order to close a referral loop. This allows Talkable to detect and
 close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
 <span class="n">Double</span> <span class="n">price</span> <span class="o">=</span> <span class="mf">10.99</span><span class="o">;</span>
 <span class="n">Integer</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
