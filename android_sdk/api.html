@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -93,18 +93,18 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-api"></span><div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
 <p>Talkable features are also available via API. So there are helper methods in Talkable SDK.
-All methods are available in any place of your app (after <a class="reference internal" href="getting_started.html#main-activity-setup"><em>initialization</em></a>).</p>
+All methods are available in any place of your app (after <a class="reference internal" href="getting_started.html#main-activity-setup"><span>initialization</span></a>).</p>
 <div class="section" id="create-visitor">
 <h2>Create visitor<a class="headerlink" href="#create-visitor" title="Permalink to this headline">¶</a></h2>
 <p>It&#8217;s the simplest method. You don&#8217;t need anything to create <cite>Visitor</cite>.
 But you can do anything you need with just create one.</p>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableApi</span><span class="o">;</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableApi</span><span class="o">;</span>
 
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">createVisitor</span><span class="o">(</span><span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Visitor</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -151,7 +151,7 @@ But you can do anything you need with just create one.</p>
 <div class="section" id="building-origin">
 <h3>Building Origin<a class="headerlink" href="#building-origin" title="Permalink to this headline">¶</a></h3>
 <p>You need to build <cite>Origin</cite> using one of examples below:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// Building customer, required for all types</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// Building customer, required for all types</span>
 <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;advocate@example.com&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
 <span class="n">String</span> <span class="n">idInYourApp</span> <span class="o">=</span> <span class="s">&quot;a8db7683-0f7f-407e-8d12-af2d501035c8&quot;</span><span class="o">;</span> <span class="c1">// Use unique identifier from your system, optional</span>
 <span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="s">&quot;John&quot;</span><span class="o">;</span> <span class="c1">// Optional</span>
@@ -192,7 +192,7 @@ But you can do anything you need with just create one.</p>
 <h3>API request<a class="headerlink" href="#api-request" title="Permalink to this headline">¶</a></h3>
 <p>You need built <cite>origin</cite> created in previous step to save in in Talkable.
 If you have, you need call method like in the example below:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">TalkableApi</span><span class="o">.</span><span class="na">createOrigin</span><span class="o">(</span><span class="n">origin</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback2</span><span class="o">&lt;</span><span class="n">Origin</span><span class="o">,</span> <span class="n">Offer</span><span class="o">&gt;()</span> <span class="o">{</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">TalkableApi</span><span class="o">.</span><span class="na">createOrigin</span><span class="o">(</span><span class="n">origin</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback2</span><span class="o">&lt;</span><span class="n">Origin</span><span class="o">,</span> <span class="n">Offer</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Origin</span> <span class="n">origin</span><span class="o">,</span> <span class="n">Offer</span> <span class="n">offer</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// Process success</span>
@@ -210,7 +210,7 @@ If you have, you need call method like in the example below:</p>
 <div class="section" id="retrieve-rewards">
 <h2>Retrieve rewards<a class="headerlink" href="#retrieve-rewards" title="Permalink to this headline">¶</a></h2>
 <p>This methods is used for retrieving rewards for user. Example:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">TalkableApi</span><span class="o">.</span><span class="na">retrieveRewards</span><span class="o">(</span><span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Reward</span><span class="o">[]&gt;()</span> <span class="o">{</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">TalkableApi</span><span class="o">.</span><span class="na">retrieveRewards</span><span class="o">(</span><span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Reward</span><span class="o">[]&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Reward</span><span class="o">[]</span> <span class="n">rewards</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// Process success</span>
@@ -225,7 +225,7 @@ If you have, you need call method like in the example below:</p>
 </div>
 <p>If you need get only rewards with some status or for other than user UUID,
 you need to pass this data to this method. Example:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Params</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Params</span><span class="o">();</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">Params</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Params</span><span class="o">();</span>
 <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;status&quot;</span><span class="o">,</span> <span class="s">&quot;Paid&quot;</span><span class="o">);</span> <span class="c1">// Optional</span>
 <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;visitor_uuid&quot;</span><span class="o">,</span> <span class="s">&quot;eb71e496-6567-41ec-a68c-49e96d101e0e&quot;</span><span class="o">);</span> <span class="c1">// Some other uuid, optional</span>
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">retrieveRewards</span><span class="o">(</span><span class="n">params</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Reward</span><span class="o">[]&gt;()</span> <span class="o">{</span>
@@ -245,7 +245,7 @@ you need to pass this data to this method. Example:</p>
 <div class="section" id="retrieve-offer">
 <h2>Retrieve offer<a class="headerlink" href="#retrieve-offer" title="Permalink to this headline">¶</a></h2>
 <p>This method is used to get offer details by it&#8217;s short code. Example:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">shortUrlCode</span> <span class="o">=</span> <span class="s">&quot;ABCXYZ&quot;</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">String</span> <span class="n">shortUrlCode</span> <span class="o">=</span> <span class="s">&quot;ABCXYZ&quot;</span><span class="o">;</span>
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">retrieveOffer</span><span class="o">(</span><span class="n">shortUrlCode</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Offer</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Offer</span> <span class="n">newOffer</span><span class="o">)</span> <span class="o">{</span>
@@ -264,7 +264,7 @@ you need to pass this data to this method. Example:</p>
 <h2>Create offer share<a class="headerlink" href="#create-offer-share" title="Permalink to this headline">¶</a></h2>
 <p>If you have your own sharing mechanism, you can create shares using API.
 Firstly, you need to create offer using <a class="reference internal" href="#create-origin">registerOrigin</a> method. Example:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">OfferShare</span> <span class="n">share</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OfferShare</span><span class="o">(</span><span class="n">offer</span><span class="o">,</span> <span class="n">SharingChannel</span><span class="o">.</span><span class="na">OTHER</span><span class="o">);</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">OfferShare</span> <span class="n">share</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OfferShare</span><span class="o">(</span><span class="n">offer</span><span class="o">,</span> <span class="n">SharingChannel</span><span class="o">.</span><span class="na">OTHER</span><span class="o">);</span>
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">createShare</span><span class="o">(</span><span class="n">share</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback2</span><span class="o">&lt;</span><span class="n">OfferShare</span><span class="o">[],</span> <span class="n">Reward</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">OfferShare</span><span class="o">[]</span> <span class="n">shares</span><span class="o">,</span> <span class="n">Reward</span> <span class="n">reward</span><span class="o">)</span> <span class="o">{</span>

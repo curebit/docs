@@ -29,7 +29,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -100,19 +100,19 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-views-notifier-offers-share-via-email"></span><div class="section" id="friend-share-email">
 <span id="friend-share-email-view"></span><h1>Friend Share Email<a class="headerlink" href="#friend-share-email" title="Permalink to this headline">¶</a></h1>
 <p>Email is triggered by an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> to their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>s from the
-<a class="reference internal" href="offers_show.html#advocate-share-page-view"><em>Advocate Share Page</em></a>. <br>
+<a class="reference internal" href="offers_show.html#advocate-share-page-view"><span>Advocate Share Page</span></a>. <br>
 The main purpose of this email is to invite a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> by showing a personal
 Share Message from <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> along with a unique Friend Claim Page link. Some
 information about offer itself is recommended.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>Main <abbr title="Call to action">CTA</abbr> should point to a <a class="reference internal" href="offers_claim.html#friend-claim-page-view"><em>Friend Claim Page</em></a> — <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></tt>.</li>
-<li>To show Email Share Message from Advocate use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">custom_message_body</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a <a class="reference internal" href="offers_claim.html#friend-claim-page-view"><span>Friend Claim Page</span></a> — <code class="docutils literal"><span class="pre">{{</span> <span class="pre">short_url</span> <span class="pre">}}</span></code>.</li>
+<li>To show Email Share Message from Advocate use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">custom_message_body</span> <span class="pre">}}</span></code>.</li>
 </ul>
 <p><br></p>
 <img alt="Friend Share Email" src="../../_images/friend-share-email.png" />
@@ -120,7 +120,7 @@ information about offer itself is recommended.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><span>Read more about email design</span></a>.</p>
 </div>
 <h2>Email sending conditions</h2><p>By default is sent immediately after the offer is shared, but can be delayed by configuration.</p>
 <ol class="arabic simple">

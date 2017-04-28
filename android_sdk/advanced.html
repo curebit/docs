@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -90,7 +90,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-advanced"></span><div class="section" id="advanced-usage">
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
@@ -101,7 +101,7 @@
 and override methods there. Example:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment</span><span class="o">;</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OverriddenTalkableOfferFragment</span> <span class="kd">extends</span> <span class="n">TalkableOfferFragment</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -119,13 +119,13 @@ and override methods there. Example:</li>
 <cite>Talkable.showOffer</cite> call:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>And change the manifest:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- From --&gt;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- From --&gt;</span>
 <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
 
 <span class="c">&lt;!-- To --&gt;</span>
@@ -138,18 +138,18 @@ and override methods there. Example:</li>
 <blockquote>
 <div>You can just override TalkableOfferFragment and use default TalkableActivity from Talkable SDK.
 In this case you shouldn&#8217;t change the manifest
-(if you did steps from <a class="reference internal" href="getting_started.html#android-sdk-getting-started"><em>Getting Started</em></a> section).</div></blockquote>
-<div class="last highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+(if you did steps from <a class="reference internal" href="getting_started.html#android-sdk-getting-started"><span>Getting Started</span></a> section).</div></blockquote>
+<div class="last highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="using-talkableofferfragment-directly">
 <h2>Using TalkableOfferFragment directly<a class="headerlink" href="#using-talkableofferfragment-directly" title="Permalink to this headline">¶</a></h2>
-<p>At first you should <a class="reference internal" href="integration.html#android-sdk-integration"><em>create an origin</em></a>.
+<p>At first you should <a class="reference internal" href="integration.html#android-sdk-integration"><span>create an origin</span></a>.
 Then you should pass it to TalkableOfferFragment via Bundle.
 After this you can start using the fragment.</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
 
 <span class="n">Bundle</span> <span class="n">arguments</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bundle</span><span class="o">();</span>
 <span class="n">arguments</span><span class="o">.</span><span class="na">putParcelable</span><span class="o">(</span><span class="n">TalkableOfferFragment</span><span class="o">.</span><span class="na">ORIGIN_PARAM</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">);</span>

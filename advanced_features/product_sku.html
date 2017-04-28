@@ -29,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -95,7 +95,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="advanced-features-product-sku"></span><div class="section" id="segment-with-product-sku">
 <h1>Segment With Product SKU<a class="headerlink" href="#segment-with-product-sku" title="Permalink to this headline">¶</a></h1>
@@ -103,7 +103,7 @@
 purchased a particular product or a set of products. In this case you can put such a limitation inside Campaign Join Criteria.
 To do that visit Campaign Details page -&gt; Go into Rules -&gt; Advanced -&gt; Campaign Join Criteria field and put the following
 criteria in there:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>{% assign available_items = &quot;sku1,sku2&quot; | split: &quot;,&quot; %}
+<div class="highlight-html"><div class="highlight"><pre>{% assign available_items = &quot;sku1,sku2&quot; | split: &quot;,&quot; %}
 {% assign user_items = advocate_origin.products | map: &quot;product_id&quot; %}
 {% assign result = false %}
 
@@ -128,7 +128,7 @@ throught the integration first of all. To do that you need to go into Reports
 (top header navigation) -&gt; Purchases -&gt; Click on &#8220;Details&#8221; link of any purchase and make sure there is &#8220;Product Id&#8221;
 column with a valid &#8220;Product ID&#8221; value in place.
 If there is no such column or it is blank you cannot use this feature unless you pass the following instructions
-<a class="reference internal" href="product_items.html#advanced-features-product-items"><em>Including Product Items</em></a>.</p>
+<a class="reference internal" href="product_items.html#advanced-features-product-items"><span>Including Product Items</span></a>.</p>
 </div>
 <p>Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you have any questions.</p>
 <div class="hidden container">

@@ -28,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -90,7 +90,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-upgrade"></span><div class="section" id="upgrade">
 <h1>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this headline">¶</a></h1>
@@ -107,8 +107,8 @@
 <h2>0.2.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="deep-linking-schema">
 <h3>Deep linking schema<a class="headerlink" href="#deep-linking-schema" title="Permalink to this headline">¶</a></h3>
-<p>Add this to <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> inside definition of Talkable activity</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
+<p>Add this to <code class="docutils literal"><span class="pre">AndroidManifest.xml</span></code> inside definition of Talkable activity</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;intent-filter&gt;</span>
     <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
 
     <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
@@ -121,8 +121,8 @@
 </div>
 <div class="section" id="tracking-app-opening">
 <h3>Tracking app opening<a class="headerlink" href="#tracking-app-opening" title="Permalink to this headline">¶</a></h3>
-<p>Replace <tt class="docutils literal"><span class="pre">Talkable.initialize(this);</span></tt> with <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></tt> in your main activity.
-Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><em>installation section</em></a> for more detailed information if needed.</p>
+<p>Replace <code class="docutils literal"><span class="pre">Talkable.initialize(this);</span></code> with <code class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></code> in your main activity.
+Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><span>installation section</span></a> for more detailed information if needed.</p>
 </div>
 </div>
 <div class="section" id="id3">
