@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advocate Signup Page &#8212; Talkable Documentation</title>
+    <title>Advocate Signup Page &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Views" href="../views.html" />
     <link rel="next" title="Advocate Share Page" href="offers_show.html" />
     <link rel="prev" title="Views" href="../views.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -62,7 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../campaign_types.html">Campaign Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../campaign_placements.html">Campaign Placements</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../views.html">Views</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Advocate Signup Page</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Signup Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_show.html">Advocate Share Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
@@ -100,7 +100,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-views-affiliate-members-new"></span><div class="section" id="advocate-signup-page">
 <span id="advocate-signup-page-view"></span><h1>Advocate Signup Page<a class="headerlink" href="#advocate-signup-page" title="Permalink to this headline">¶</a></h1>
@@ -108,7 +108,7 @@
 <br>
 <br></p>
 <img alt="Advocate signup" src="../../_images/advocate-signup.png" />
-<h4>Default template markup:</h4><div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">form</span> <span class="na">accept-charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ create_affiliate_member_path }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<h4>Default template markup:</h4><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">accept-charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ create_affiliate_member_path }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;affiliate_member[email]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Your Email Address&quot;</span> <span class="na">required</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Sign up&quot;</span> <span class="na">data-disable-with</span><span class="o">=</span><span class="s">&quot;Please wait&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;commit&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -116,7 +116,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Do not change <code class="docutils literal"><span class="pre">name</span></code> and form <code class="docutils literal"><span class="pre">action</span></code> attributes, otherwise functionality won&#8217;t work.</p>
+<p class="last">Do not change <tt class="docutils literal"><span class="pre">name</span></tt> and form <tt class="docutils literal"><span class="pre">action</span></tt> attributes, otherwise functionality won&#8217;t work.</p>
 </div>
 </div>
 

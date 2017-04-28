@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Email Encryption &#8212; Talkable Documentation</title>
+    <title>Email Encryption &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
     <link rel="next" title="Including Product Items" href="product_items.html" />
     <link rel="prev" title="Converting Into Localization" href="converting_into_localization.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -58,8 +58,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Email Encryption</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#passing-email-as-get-parameter-to-standalone-campaign">Passing email as GET parameter to Standalone Campaign</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Email Encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#passing-email-as-a-get-parameter-to-standalone-campaign">Passing email as a GET parameter to Standalone Campaign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ruby-example">Ruby Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java-example">Java Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#front-end-part">Front-end Part</a></li>
@@ -99,21 +99,21 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="advanced-features-email-encryption"></span><div class="section" id="email-encryption">
 <h1>Email Encryption<a class="headerlink" href="#email-encryption" title="Permalink to this headline">¶</a></h1>
 <p>For additional security, it is possible to encrypt Advocate and Friend e-mails on back-end.
-This can be done by using <a class="reference external" href="https://d2jjzw81hqbuqv.cloudfront.net/integration/talkable_public_key.pem">Talkable Public Key</a>.
+This can be done by using 2048-bit key <a class="reference external" href="https://d2jjzw81hqbuqv.cloudfront.net/integration/talkable_public_key.pem">Talkable Public Key</a>.
 So, instead of sending email addresses in plain text, you can send them encrypted.</p>
-<div class="section" id="passing-email-as-get-parameter-to-standalone-campaign">
-<h2>Passing email as GET parameter to Standalone Campaign<a class="headerlink" href="#passing-email-as-get-parameter-to-standalone-campaign" title="Permalink to this headline">¶</a></h2>
-<p>Also it&#8217;s possible to pass encrypted email as GET parameter (e.g. for CTA links that
-points to standalone invite page). But to do that encrypted email should be <strong>URL-encoded</strong>.</p>
+<div class="section" id="passing-email-as-a-get-parameter-to-standalone-campaign">
+<h2>Passing email as a GET parameter to Standalone Campaign<a class="headerlink" href="#passing-email-as-a-get-parameter-to-standalone-campaign" title="Permalink to this headline">¶</a></h2>
+<p>Also it&#8217;s possible to pass encrypted email as a GET parameter (e.g. for CTA links that
+point to standalone invite page). But to do that encrypted email should be <strong>URL-encoded</strong>.</p>
 </div>
 <div class="section" id="ruby-example">
 <h2>Ruby Example<a class="headerlink" href="#ruby-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
+<div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;base64&#39;</span>
 
 <span class="k">def</span> <span class="nf">key</span>
@@ -145,7 +145,7 @@ points to standalone invite page). But to do that encrypted email should be <str
 <p class="last">Please note that loading a Security Provider and a key into memory takes more time than encrypting.
 So it is recommended to store the key in memory instead of loading it each time to avoid performance overhead.</p>
 </div>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">javax.crypto.BadPaddingException</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javax.crypto.BadPaddingException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.crypto.Cipher</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.crypto.IllegalBlockSizeException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
@@ -214,7 +214,7 @@ So it is recommended to store the key in memory instead of loading it each time 
 <div class="section" id="front-end-part">
 <h2>Front-end Part<a class="headerlink" href="#front-end-part" title="Permalink to this headline">¶</a></h2>
 <p>Please modify the front-end using this pseudo code example:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(TalkableEmail.encrypt(current_user.email)) %&gt;&#39;</span><span class="p">,</span>
    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.first_name) %&gt;&#39;</span><span class="p">,</span>
