@@ -146,8 +146,27 @@ In this case you shouldn&#8217;t change the manifest
 </div>
 <div class="section" id="using-talkableofferfragment-directly">
 <h2>Using TalkableOfferFragment directly<a class="headerlink" href="#using-talkableofferfragment-directly" title="Permalink to this headline">¶</a></h2>
-<p>At first you should <a class="reference internal" href="integration.html#android-sdk-integration"><em>create an origin</em></a>.
-Then you should pass it to TalkableOfferFragment via Bundle.
+<p>To use instance of <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> you have to implement <tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt>
+interface from <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> class inside your activity.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment.TalkableOfferFragmentListener</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">implements</span> <span class="n">TalkableOfferFragmentListener</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onOfferClosed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mTalkableOfferFragment</span><span class="o">.</span><span class="na">isOfferLoaded</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">finish</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then you should <a class="reference internal" href="integration.html#android-sdk-integration"><em>create an origin</em></a> and
+pass it to <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> instance via <tt class="docutils literal"><span class="pre">Bundle</span></tt>.
 After this you can start using the fragment.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
 
