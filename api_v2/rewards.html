@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Rewards &mdash; Talkable Documentation</title>
+    <title>Rewards &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Coupons" href="coupons.html" />
     <link rel="prev" title="Referrals" href="referrals.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Rewards</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rewards</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -96,13 +96,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="api-v2-rewards"></span><div class="section" id="rewards">
 <h1>Rewards<a class="headerlink" href="#rewards" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access visitor rewards.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET /rewards
+<div class="highlight-text"><div class="highlight"><pre>GET /rewards
 </pre></div>
 </div>
 <p>Returns rewards.</p>
@@ -136,11 +136,11 @@ By default API returns only <cite>Paid</cite> rewards.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/rewards?site_slug=my-store&amp;visitor_uuid=8a55ef82-82c1-4596-babb-e989fd717965&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/rewards?site_slug=my-store&amp;visitor_uuid=8a55ef82-82c1-4596-babb-e989fd717965&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;rewards&quot;</span><span class="o">:</span> <span class="p">[</span>
