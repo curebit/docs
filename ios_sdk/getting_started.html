@@ -134,15 +134,17 @@
 <li>Initialize Talkable in your <cite>application:didFinishLaunchingWithOptions:</cite> method, like so:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_PUBLIC_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>You can locate your credentials inside Talkable site:</p>
 <ul class="last simple">
-<li>Visit <a class="reference external" href="https://www.talkable.com/account/sites">https://www.talkable.com/account/sites</a> to find you site slug</li>
-<li>Select site and go to <strong>Dashboard</strong> &rarr; <strong>Site Settings</strong>. Find <strong>Integration settings</strong> section and there you will see your API Keys. Use only the public key in your application submitted to the App Store.</li>
+<li>Visit <a class="reference external" href="https://www.admin.talkable.com/account/sites">https://www.admin.talkable.com/account/sites</a> to find you site slug</li>
+<li>Select site and go to <strong>Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Site Settings</strong>.
+Find <strong>Integration settings</strong> section and there you will see your API Keys.
+Use only the public key in your application submitted to the App Store.</li>
 </ul>
 </div>
 </div></blockquote>
@@ -176,7 +178,8 @@
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Please replace <cite>&lt;your-site-slug&gt;</cite> with your actual site slug, which you are able to find on your site <strong>Dashboard</strong> at <a class="reference external" href="https://www.talkable.com">https://www.talkable.com</a></p>
+<p class="last">Please replace <cite>&lt;your-site-slug&gt;</cite> with your actual site slug, which you are
+able to find on your site <strong>Dashboard</strong> at <a class="reference external" href="https://www.admin.talkable.com">https://www.admin.talkable.com</a></p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="3">
