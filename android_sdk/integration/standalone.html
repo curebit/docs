@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Standalone Campaign &#8212; Talkable Documentation</title>
+    <title>Standalone Campaign &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Integration" href="../integration.html" />
     <link rel="next" title="Post Purchase Campaign" href="post_purchase.html" />
     <link rel="prev" title="Integration" href="../integration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -73,7 +73,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../integration.html">Integration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Standalone Campaign</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Standalone Campaign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_purchase.html">Post Purchase Campaign</a></li>
 </ul>
 </li>
@@ -90,7 +90,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="android-sdk-integration-standalone"></span><div class="section" id="standalone-campaign">
 <h1>Standalone Campaign<a class="headerlink" href="#standalone-campaign" title="Permalink to this headline">¶</a></h1>
@@ -101,7 +101,7 @@ without being gated by a purchase beforehand.</p>
 the “Invite friends” button inside app navigation.</p>
 <p>Once you’ve got a Standalone campaign set up inside Talkable you can integrate the campaign
 with the following line of code:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
 
 <span class="n">Activity</span> <span class="n">activity</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
@@ -115,11 +115,11 @@ with the following line of code:</p>
 <p class="last">Make sure you have at least one live “SA” campaign with a specified <cite>android-invite</cite> tag inside Talkable Site</p>
 </div>
 <p>Note that <cite>customer</cite> is empty, in this case user will see the
-<a class="reference internal" href="../../campaigns/views/affiliate_members_new.html#campaigns-views-affiliate-members-new"><span class="std std-ref">Advocate Signup Page</span></a>, which is used to collect
+<a class="reference internal" href="../../campaigns/views/affiliate_members_new.html#campaigns-views-affiliate-members-new"><em>Advocate Signup Page</em></a>, which is used to collect
 the user’s email address. Your application may already know/have access to the user’s email,
 if so, you should pass this parameter which will automatically skip the SignUp Page in the
-flow and show the <a class="reference internal" href="../../campaigns/views/offers_show.html#campaigns-views-offers-show"><span class="std std-ref">Advocate Share Page</span></a>.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+flow and show the <a class="reference internal" href="../../campaigns/views/offers_show.html#campaigns-views-offers-show"><em>Advocate Share Page</em></a>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="o">...</span>
 
 <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;advocate@example.com&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
@@ -139,6 +139,8 @@ flow and show the <a class="reference internal" href="../../campaigns/views/offe
 </div>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>

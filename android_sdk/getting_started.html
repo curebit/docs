@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &#8212; Talkable Documentation</title>
+    <title>Getting Started &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Talkable Android SDK" href="../android_sdk.html" />
     <link rel="next" title="Integration" href="integration.html" />
     <link rel="prev" title="Talkable Android SDK" href="../android_sdk.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -71,7 +71,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Getting Started</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 </ul>
@@ -90,7 +90,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="android-sdk-getting-started"></span><div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
@@ -109,7 +109,7 @@
 </div></blockquote>
 <p>After this, add dependencies to <cite>build.gradle</cite></p>
 <blockquote>
-<div><div class="highlight-groovy"><div class="highlight"><pre><span class="n">compile</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
+<div><div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">compile</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.facebook.android:facebook-android-sdk:[4,5)&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.google.code.gson:gson:2.4&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.android.support:support-v4:24.2.1&#39;</span>
@@ -121,7 +121,7 @@
 <li>Add Talkable activity to your <cite>AndroidManifest.xml</cite></li>
 </ol>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -129,7 +129,7 @@
 <li>Setup Talkable credentials in <cite>AndroidManifest.xml</cite></li>
 </ol>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;TalkableApiKey&quot;</span> <span class="na">android:value=</span><span class="s">&quot;{{YOUR_TALKABLE_API_KEY}}&quot;</span> <span class="nt">/&gt;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;TalkableApiKey&quot;</span> <span class="na">android:value=</span><span class="s">&quot;{{YOUR_TALKABLE_PUBLIC_API_KEY}}&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;TalkableSiteSlug&quot;</span> <span class="na">android:value=</span><span class="s">&quot;{{YOUR_SITE_SLUG}}&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
@@ -137,16 +137,17 @@
 <p class="first admonition-title">Note</p>
 <p>You can locate your credentials inside Talkable site:</p>
 <ul class="last simple">
-<li>Visit <a class="reference external" href="https://www.talkable.com/account/sites">https://www.talkable.com/account/sites</a> to find you site slug</li>
-<li>Select site and go to <strong>Dashboard</strong> &rarr; <strong>Site Settings</strong>.
-Find <strong>Integration settings</strong> section and there you will see the API Key</li>
+<li>Visit <a class="reference external" href="https://admin.talkable.com/account/sites">https://admin.talkable.com/account/sites</a> to find your site slug</li>
+<li>Select site and go to <strong>Dashboard</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Site Settings</strong>.
+Find <strong>Integration settings</strong> section and there you will see your API Keys.
+Use only the public key in your application.</li>
 </ul>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="5">
 <li>Add deep linking schema handler into your main activity entry.</li>
 </ol>
-<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;intent-filter&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
     <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
 
     <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
@@ -160,7 +161,7 @@ Find <strong>Integration settings</strong> section and there you will see the AP
 <li>Add the following entry in your <cite>AndroidManifest.xml</cite> file to track app installs.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;receiver</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;receiver</span>
     <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.InstallReferrerReceiver&quot;</span>
     <span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;intent-filter&gt;</span>
@@ -174,7 +175,7 @@ Find <strong>Integration settings</strong> section and there you will see the AP
 <li>Initialize Talkable in your main activity class, like so:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -187,13 +188,15 @@ Find <strong>Integration settings</strong> section and there you will see the AP
 </pre></div>
 </div>
 </div></blockquote>
-<p>Your environment is all set up! Now you need to <a class="reference internal" href="integration.html#android-sdk-integration"><span class="std std-ref">integrate</span></a> the Talkable campaign piece.</p>
+<p>Your environment is all set up! Now you need to <a class="reference internal" href="integration.html#android-sdk-integration"><em>integrate</em></a> the Talkable campaign piece.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>The SDK supports Android 4.1 and later.</p>
 <div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>
