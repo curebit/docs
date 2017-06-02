@@ -123,7 +123,7 @@
 <li>Add the following import statement to any Objective-C header (.h) or implementation (.m) file in which you wish to use the Talkable SDK.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -134,7 +134,7 @@
 <li>Initialize Talkable in your <cite>application:didFinishLaunchingWithOptions:</cite> method, like so:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_PUBLIC_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setApiKey</span><span class="p">:</span><span class="s">@&quot;YOUR_TALKABLE_PUBLIC_API_KEY&quot;</span> <span class="nl">andSiteSlug</span><span class="p">:</span><span class="s">@&quot;YOUR_SITE_SLUG&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -154,7 +154,7 @@ Use only the public key in your application submitted to the App Store.</li>
 <blockquote>
 <div><ul>
 <li><p class="first">Defines <cite>tkbl-&lt;your-site-slug&gt;</cite> as URL Scheme in your Info.plist file:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;key&gt;</span>CFBundleURLTypes<span class="nt">&lt;/key&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;key&gt;</span>CFBundleURLTypes<span class="nt">&lt;/key&gt;</span>
 <span class="nt">&lt;array&gt;</span>
   <span class="nt">&lt;dict&gt;</span>
     <span class="nt">&lt;key&gt;</span>CFBundleURLSchemes<span class="nt">&lt;/key&gt;</span>
@@ -167,7 +167,7 @@ Use only the public key in your application submitted to the App Store.</li>
 </div>
 </li>
 <li><p class="first">Add <cite>tkbl-&lt;your-site-slug&gt;</cite> scheme and <cite>fb-messenger</cite> sheme to the list of schemes are queried within application:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;key&gt;</span>LSApplicationQueriesSchemes<span class="nt">&lt;/key&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;key&gt;</span>LSApplicationQueriesSchemes<span class="nt">&lt;/key&gt;</span>
 <span class="nt">&lt;array&gt;</span>
   <span class="nt">&lt;string&gt;</span>tkbl-your-site-slug<span class="nt">&lt;/string&gt;</span>
   <span class="nt">&lt;string&gt;</span>fb-messenger<span class="nt">&lt;/string&gt;</span>
@@ -186,7 +186,7 @@ able to find on your site <strong>Dashboard</strong> at <a class="reference exte
 <li>Add following lines to <cite>application:handleOpenURL:</cite> or <cite>application:openURL:sourceApplication:annotation:</cite></li>
 </ol>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">handleOpenURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">handleOpenURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -195,7 +195,7 @@ able to find on your site <strong>Dashboard</strong> at <a class="reference exte
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>The SDK supports iOS 8.0 and later.</p>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

@@ -104,7 +104,7 @@
 <div class="section" id="asset-url">
 <h2>asset_url<a class="headerlink" href="#asset-url" title="Permalink to this headline">¶</a></h2>
 <p>Insert link for a uploaded asset.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;image.jpg&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">asset_url</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;image.jpg&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">asset_url</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Example: <a class="reference external" href="http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg">http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg</a></p>
@@ -113,7 +113,7 @@
 <div class="section" id="simple-format">
 <h2>simple_format<a class="headerlink" href="#simple-format" title="Permalink to this headline">¶</a></h2>
 <p>Formats plain text to have HTML formatting. E.g. replace <tt class="docutils literal"><span class="pre">\n</span></tt> with <tt class="docutils literal"><span class="pre">&lt;br/&gt;</span></tt>.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;Hello [[advocate_info.email]]\nHere is your reward.&quot; | simple_format | interpolate }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">Hello</span> <span class="pre">John&lt;br/&gt;Here</span> <span class="pre">is</span> <span class="pre">your</span> <span class="pre">reward</span></tt>.</p>
@@ -122,7 +122,7 @@
 <div class="section" id="encode-query-argument">
 <h2>encode_query_argument<a class="headerlink" href="#encode-query-argument" title="Permalink to this headline">¶</a></h2>
 <p>Encodes a string to be included in a URL.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>http://example.com/?utm_campaign={{ &quot;Campaign Name&quot; | encode_query_argument }}
+<div class="highlight-text"><div class="highlight"><pre>http://example.com/?utm_campaign={{ &quot;Campaign Name&quot; | encode_query_argument }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">Campaign%20Name</span></tt>, so the URL will be
@@ -132,7 +132,7 @@
 <div class="section" id="probability-by">
 <h2>probability_by<a class="headerlink" href="#probability-by" title="Permalink to this headline">¶</a></h2>
 <p>This filter returns <tt class="docutils literal"><span class="pre">true</span></tt> or <tt class="docutils literal"><span class="pre">false</span></tt> for a dataset based on the probability you request:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param3&quot;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param3&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">50</span></tt> returns <tt class="docutils literal"><span class="pre">true</span></tt> in 50% cases for requested dataset. This filter provides the same result for a particular
@@ -142,15 +142,15 @@ dataset.</p>
 <p class="last">probability should be always an integer value between <tt class="docutils literal"><span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">100</span></tt>.</p>
 </div>
 <p>Here is another example that returns <tt class="docutils literal"><span class="pre">true</span></tt> only in 10% cases for the interpolation variable:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability_by</span><span class="p">:</span><span class="w"> </span>advocate_info.email<span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability_by</span><span class="p">:</span><span class="w"> </span>advocate_info.email<span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>You can ommit passing any parameters and the result will be based on the Advocate offer. Also you may use <tt class="docutils literal"><span class="pre">probability</span></tt> as an alias which is a little shorter to write:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">probability</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>This example can be used in <tt class="docutils literal"><span class="pre">Email</span> <span class="pre">sending</span> <span class="pre">condition</span></tt> of Advocate Offer Email template to send email only in 33% cases:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">send_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="w"> </span>|<span class="w"> </span>probability<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">send_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="w"> </span>|<span class="w"> </span>probability<span class="w"> </span><span class="p">%}</span>
 
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">send_email</span><span class="w"> </span><span class="p">%}</span>
   true
@@ -164,12 +164,12 @@ dataset.</p>
 <p>Produces a random value which is always the same for specific parameters passed.
 First parameter is a maximum random number.</p>
 <p>Simple example:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rand_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2&quot;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rand_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Always returns <tt class="docutils literal"><span class="pre">29</span></tt>.</p>
 <p>Interpolation as a parameter:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rand_by</span><span class="p">:</span><span class="w"> </span>advocate_info.email<span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rand_by</span><span class="p">:</span><span class="w"> </span>advocate_info.email<span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Always returns the same number for a specific email, between 0 and 9.</p>
@@ -180,7 +180,7 @@ First parameter is a maximum random number.</p>
 <p>Parses input with a given regexp and returning
 <a class="reference external" href="http://www.regular-expressions.info/brackets.html">regular expression captures</a>
 as an array.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s1">&#39;12345678&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">regexp_captures</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;(....)(....)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s1">&#39;12345678&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">regexp_captures</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;(....)(....)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;bogdan@example.com&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">regexp_captures</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;^([a-z]+)\@([a-z]+)\.([a-z]+)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">json</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -189,25 +189,25 @@ as an array.</p>
 <div class="section" id="ab-test">
 <h2>ab_test<a class="headerlink" href="#ab-test" title="Permalink to this headline">¶</a></h2>
 <p>A/B testing static text:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;ab_test_identifier&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Label 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Label N&quot;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;ab_test_identifier&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Label 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Label N&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>A/B testing text with interpolation:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;share_via_email_subject&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[[site_name]]&quot;</span><span class="p">,</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;share_via_email_subject&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[[site_name]]&quot;</span><span class="p">,</span>
    &quot;Your friend [[advocate_info.email]] shared this deal with you&quot; | interpolate }}
 </pre></div>
 </div>
 <p>A/B testing an asset:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_background&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;background-green.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;background-red.jpg&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">asset_url</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_background&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;background-green.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;background-red.jpg&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">asset_url</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>A/B testing style:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;body style=&quot;background-color: <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;offer_background&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#d3d3d3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#ff0000&#39;</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;&gt;</span><span class="w"></span>
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;body style=&quot;background-color: <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;offer_background&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;#d3d3d3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#ff0000&#39;</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;&gt;</span><span class="w"></span>
 <span class="w">  </span>...
 &lt;/body&gt;
 </pre></div>
 </div>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;h1 style=&quot;font-size: <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;title_size&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;24px&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;30px&#39;</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;&gt;</span><span class="w"></span>
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;h1 style=&quot;font-size: <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;title_size&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ab_test</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;24px&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;30px&#39;</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;&gt;</span><span class="w"></span>
 <span class="w">  </span>Sample<span class="w"> </span>Title
 &lt;/h1&gt;
 </pre></div>
@@ -220,7 +220,7 @@ as an array.</p>
 <p>Default format: Apr 04, 2014</p>
 <p>Reference to all available formatting can be found in <a class="reference external" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
 <p>Reference to all available locales can be found in <a class="reference external" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="p">:</span><span class="w"> </span><span class="na">format</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="p">:</span><span class="w"> </span><span class="na">locale</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="p">:</span><span class="w"> </span><span class="na">format</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">locale</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="w"> </span><span class="p">}}</span>
@@ -234,7 +234,7 @@ as an array.</p>
 <p>Transform given time to time ago in words.</p>
 <p>If given time is yesterday, returns <tt class="docutils literal"><span class="pre">1</span> <span class="pre">day</span></tt>.</p>
 <p>Reference to all available locales can be found in <a class="reference external" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="p">:</span><span class="w"> </span><span class="na">locale</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">current_time</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
@@ -245,17 +245,17 @@ as an array.</p>
 <h2>hours_from_time<a class="headerlink" href="#hours-from-time" title="Permalink to this headline">¶</a></h2>
 <p>Alias <cite>hours_from_now</cite></p>
 <p>Calculate difference between two dates. By default calculates between specified time and current time.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;Sun, 02 Jan 2000 10:00:00 PST&quot; | hours_from_time: &quot;Sat, 01 Jan 2000 10:00:00 PST&quot; }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;Sun, 02 Jan 2000 10:00:00 PST&quot; | hours_from_time: &quot;Sat, 01 Jan 2000 10:00:00 PST&quot; }}
 {{ &quot;2015-03-27 17:53&quot; | hours_from_time: &quot;2015-03-27 15:53&quot; }}
 </pre></div>
 </div>
 <p>Next two examples is equivalent.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">friend_offer</span><span class="p">.</span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">hours_from_time</span><span class="p">:</span><span class="w"> </span>current_time<span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">friend_offer</span><span class="p">.</span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">hours_from_time</span><span class="p">:</span><span class="w"> </span>current_time<span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">friend_offer</span><span class="p">.</span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">hours_from_now</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Pretty useful example for email sending criteria to prevent sending mail when offer is about to expire.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">friend_offer</span><span class="p">.</span><span class="nv">valid_until</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">friend_offer</span><span class="p">.</span><span class="nv">valid_until</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_offer.valid_until<span class="w"> </span>|<span class="w"> </span>hours_from_now<span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">difference</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="p">%}</span>
     true
@@ -272,7 +272,7 @@ as an array.</p>
 <div class="section" id="interpolate">
 <h2>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h2>
 <p>Allows inline string interpolation using [[ ]] syntax.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;Get [[incentives.click.amount | money]] Off&quot; | interpolate }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;Get [[incentives.click.amount | money]] Off&quot; | interpolate }}
 </pre></div>
 </div>
 <p><hr></p>
@@ -280,7 +280,7 @@ as an array.</p>
 <div class="section" id="md5">
 <h2>md5<a class="headerlink" href="#md5" title="Permalink to this headline">¶</a></h2>
 <p>Calculates the MD5 hash of the string.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">md5</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">md5</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">acbd18db4cc2f85cedef654fccc4a4d8</span></tt>.</p>
@@ -289,7 +289,7 @@ as an array.</p>
 <div class="section" id="money">
 <h2>money<a class="headerlink" href="#money" title="Permalink to this headline">¶</a></h2>
 <p>Formats number using current currency.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">money</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">money</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">$50.00</span></tt>.</p>
@@ -302,7 +302,7 @@ as an array.</p>
 <li><tt class="docutils literal"><span class="pre">precision</span> <span class="pre">(integer)</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">strip_insignificant_zeros</span> <span class="pre">(boolean)</span></tt></li>
 </ul>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="82%" />
@@ -352,7 +352,7 @@ as an array.</p>
 <div class="section" id="strip">
 <h2>strip<a class="headerlink" href="#strip" title="Permalink to this headline">¶</a></h2>
 <p>Removes leading and trailing blank symbols from the string.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;    strip me &quot; | strip }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;    strip me &quot; | strip }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">strip</span> <span class="pre">me</span></tt>.</p>
@@ -361,7 +361,7 @@ as an array.</p>
 <div class="section" id="squish">
 <h2>squish<a class="headerlink" href="#squish" title="Permalink to this headline">¶</a></h2>
 <p>Returns the string, first removing all whitespace on both ends of the string, and then changing remaining consecutive whitespace groups into one space each.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;   foo   bar        baz &quot; | squish }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;   foo   bar        baz &quot; | squish }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">foo</span> <span class="pre">bar</span> <span class="pre">baz</span></tt>.</p>
@@ -370,7 +370,7 @@ as an array.</p>
 <div class="section" id="tweet-length">
 <h2>tweet_length<a class="headerlink" href="#tweet-length" title="Permalink to this headline">¶</a></h2>
 <p>Calculates a tweet length for the string.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;wow this is a tweet http://example.com&quot; | tweet_length }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;wow this is a tweet http://example.com&quot; | tweet_length }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">43</span></tt>.</p>
@@ -379,7 +379,7 @@ as an array.</p>
 <div class="section" id="parse-json">
 <h2>parse_json<a class="headerlink" href="#parse-json" title="Permalink to this headline">¶</a></h2>
 <p>Parses the JSON string source into a Liquid data structure.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">&#39;{&quot;key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>}&#39;<span class="w"> </span>|<span class="w"> </span>parse_json<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">&#39;{&quot;key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>}&#39;<span class="w"> </span>|<span class="w"> </span>parse_json<span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="p">.</span><span class="nv">key</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -389,7 +389,7 @@ as an array.</p>
 <div class="section" id="claim-url">
 <h2>claim_url<a class="headerlink" href="#claim-url" title="Permalink to this headline">¶</a></h2>
 <p>Returns channel-specific claim URL.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;facebook&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">claim_url</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;facebook&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">claim_url</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">&quot;linkedin&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">claim_url</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">&quot;twitter&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">claim_url</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
@@ -399,7 +399,7 @@ as an array.</p>
 <div class="section" id="group-by">
 <h2>group_by<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h2>
 <p>Group an array&#8217;s items by a given property.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p><hr></p>
@@ -407,7 +407,7 @@ as an array.</p>
 <div class="section" id="sort">
 <h2>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
 <p>Sort an array. Optional arguments for hashes: 1. property name 2. nils order (first or last).</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">campaign_tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">campaign_tags</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;first&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
@@ -417,7 +417,7 @@ as an array.</p>
 <div class="section" id="where">
 <h2>where<a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h2>
 <p>Select all the objects in an array where the key has the given value.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">where</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">where</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p><hr></p>
@@ -427,13 +427,13 @@ as an array.</p>
 <p>Returns a localized version of string from campaign localization.
 Has optional argument that specifies a default value if campaign has no defined localization yet.
 Supports nested interpolation with <cite>[[  ]]</cite></p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;welcome_message&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;welcome_message&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_title&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get [[incentives.referrer.description]]&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Supports fixed variants for localization, user will be able to set localization value only from this list.
 First value will be a default value, or you can set it using <tt class="docutils literal"><span class="pre">default</span></tt> option.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;campaign_layout&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;right&quot;</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;campaign_layout&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;right&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">&quot;header_size&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;h1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;h2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;h3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;h4&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">default</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;h2&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -441,7 +441,7 @@ First value will be a default value, or you can set it using <tt class="docutils
 determines boolean logics. The first variant is associated with <tt class="docutils literal"><span class="pre">true</span></tt>, the last one — <tt class="docutils literal"><span class="pre">false</span></tt>.
 The first variant is set as default unless you change it to otherwise with a <tt class="docutils literal"><span class="pre">default</span></tt>
 option (see above for an example). Here is an example of how to use boolean localization:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">responsive_font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;fonts_size&#39;</span><span class="w"> </span>|<span class="w"> </span><span class="na">localize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Responsive&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fixed&#39;</span><span class="p">,</span><span class="w"> </span><span class="na">trait</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;boolean&#39;</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">responsive_font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;fonts_size&#39;</span><span class="w"> </span>|<span class="w"> </span><span class="na">localize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Responsive&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fixed&#39;</span><span class="p">,</span><span class="w"> </span><span class="na">trait</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;boolean&#39;</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">responsive_font</span><span class="w"> </span><span class="p">%}</span>
   Responsive
 <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
@@ -456,7 +456,7 @@ option (see above for an example). Here is an example of how to use boolean loca
 <h2>scale_color<a class="headerlink" href="#scale-color" title="Permalink to this headline">¶</a></h2>
 <p>Returns a new adjusted color with scaled attributes.
 Available attributes: <cite>red</cite>, <cite>green</cite>, <cite>blue</cite>, <cite>saturation</cite>, <cite>lightness</cite>, <cite>alpha</cite></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;black&quot; | scale_color: lightness: 50 }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;black&quot; | scale_color: lightness: 50 }}
 {{ &quot;rgb(256, 128, 0)&quot; | scale_color: saturation: -10 }}
 </pre></div>
 </div>
@@ -474,7 +474,7 @@ Available attributes: <cite>red</cite>, <cite>green</cite>, <cite>blue</cite>, <
 <li><cite>lightness</cite> — changes the lightness of a color. Allowed values: <cite>-100</cite>-<cite>100</cite>.</li>
 <li><cite>alpha</cite> — changes the opacity of a color. Allowed values: <cite>-1</cite>-<cite>1</cite>.</li>
 </ul>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">adjust_color</span><span class="p">:</span><span class="w"> </span><span class="na">blue</span><span class="o">:</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">adjust_color</span><span class="p">:</span><span class="w"> </span><span class="na">blue</span><span class="o">:</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">adjust_color</span><span class="p">:</span><span class="w"> </span><span class="na">alpha</span><span class="o">:</span><span class="w"> </span>-<span class="mf">0.5</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -492,14 +492,14 @@ Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
 <li><tt class="docutils literal"><span class="pre">leaderboard_subtotal</span></tt> - Sum of advocate purchase subtotals for specified period</li>
 <li>also all fields from <a class="reference internal" href="variables.html#editor-variables-advocate-info"><em>advocate_info</em></a> variable</li>
 </ul>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">leaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="w"> </span>|<span class="w"> </span>leaderboard<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">leaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="w"> </span>|<span class="w"> </span>leaderboard<span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>leader<span class="w"> </span>in<span class="w"> </span>leaders<span class="w"> </span><span class="p">%}</span>
    &lt;td&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">leader</span><span class="p">.</span><span class="nv">leaderboard_rank</span><span class="w"> </span><span class="p">}}</span>&lt;/td&gt;
    &lt;td&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">leader</span><span class="p">.</span><span class="nv">leaderboard_count</span><span class="w"> </span><span class="p">}}</span>&lt;/td&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">leader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;advocate&quot;</span><span class="w"> </span>|<span class="w"> </span>leaderboard<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">leader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;advocate&quot;</span><span class="w"> </span>|<span class="w"> </span>leaderboard<span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">leader</span><span class="p">.</span><span class="nv">email</span><span class="w"> </span><span class="p">}}</span> - <span class="p">{{</span><span class="w"> </span><span class="nv">leader</span><span class="p">.</span><span class="nv">leaderboard_count</span><span class="w"> </span><span class="p">}}</span> - <span class="p">{{</span><span class="w"> </span><span class="nv">leader</span><span class="p">.</span><span class="nv">leaderboard_rank</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -522,11 +522,11 @@ website snapshot.</p>
 <li><tt class="docutils literal"><span class="pre">fullpage</span></tt> - Attempts to capture entire document canvas. Value example: <tt class="docutils literal"><span class="pre">true</span></tt>.</li>
 </ul>
 <p>Here is how you can embed a screenshot of your website into a campaign view (<tt class="docutils literal"><span class="pre">site_url</span></tt> returns your website URL that you set inside Site Settings):</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;img src=&quot;<span class="p">{{</span><span class="w"> </span><span class="nv">site_url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url2png</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;</span><span class="w"> </span><span class="na">class</span><span class="o">=</span><span class="s2">&quot;campaign-site-on-the-back&quot;</span><span class="w"> </span>/&gt;
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;img src=&quot;<span class="p">{{</span><span class="w"> </span><span class="nv">site_url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url2png</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;</span><span class="w"> </span><span class="na">class</span><span class="o">=</span><span class="s2">&quot;campaign-site-on-the-back&quot;</span><span class="w"> </span>/&gt;
 </pre></div>
 </div>
 <p>Refresh the screenshot every week:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;img src=&quot;<span class="p">{{</span><span class="w"> </span><span class="s1">&#39;www.example.com&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url2png</span><span class="p">:</span><span class="w"> </span><span class="na">ttl</span><span class="o">:</span><span class="w"> </span><span class="mi">604800</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;</span><span class="w"> </span>/&gt;
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;img src=&quot;<span class="p">{{</span><span class="w"> </span><span class="s1">&#39;www.example.com&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url2png</span><span class="p">:</span><span class="w"> </span><span class="na">ttl</span><span class="o">:</span><span class="w"> </span><span class="mi">604800</span><span class="w"> </span><span class="p">}}</span><span class="nf">&quot;</span><span class="w"> </span>/&gt;
 </pre></div>
 </div>
 <p><hr></p>
@@ -535,12 +535,12 @@ website snapshot.</p>
 <h2>barcode<a class="headerlink" href="#barcode" title="Permalink to this headline">¶</a></h2>
 <p>Represents any <tt class="docutils literal"><span class="pre">string</span></tt> as an array of boolean values: <tt class="docutils literal"><span class="pre">[true,</span> <span class="pre">false]</span></tt> in order to convert it into a barcode.
 This filter strictly follows GS1-128 specification: <a class="reference external" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="w"> </span>|<span class="w"> </span>barcode<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="w"> </span>|<span class="w"> </span>barcode<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p><strong>Here is an example how to convert a coupon code into a barcode:</strong></p>
 <p>HTML:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span>&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot;&gt;
+<div class="highlight-liquid"><div class="highlight"><pre>&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot;&gt;
   <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>coupon_code<span class="w"> </span>|<span class="w"> </span>barcode<span class="w"> </span><span class="p">%}</span>
     &lt;tr&gt;
       <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>bar<span class="w"> </span>in<span class="w"> </span>barcode<span class="w"> </span><span class="p">%}</span>
@@ -552,11 +552,11 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 </pre></div>
 </div>
 <p>SCSS:</p>
-<div class="highlight-scss"><div class="highlight"><pre><span></span><span class="nc">.barcode-line</span> <span class="p">{</span>
-  <span class="nt">height</span><span class="nd">:</span> <span class="nt">50px</span><span class="o">;</span>
-  <span class="nt">width</span><span class="nd">:</span> <span class="nt">2px</span><span class="o">;</span>
+<div class="highlight-scss"><div class="highlight"><pre><span class="nc">.barcode-line</span> <span class="p">{</span>
+  <span class="na">height</span><span class="o">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+  <span class="na">width</span><span class="o">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">&amp;</span><span class="nc">.is-true</span> <span class="p">{</span>
-    <span class="nt">background-color</span><span class="nd">:</span> <span class="nt">black</span><span class="o">;</span>
+    <span class="na">background-color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -566,7 +566,7 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 <div class="section" id="base64-encode">
 <h2>base64_encode<a class="headerlink" href="#base64-encode" title="Permalink to this headline">¶</a></h2>
 <p>Converts given string into a base64 encoded string.</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>{{ &quot;some string&quot; | base64_encode }}
+<div class="highlight-text"><div class="highlight"><pre>{{ &quot;some string&quot; | base64_encode }}
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">c29tZSBzdHJpbmc=</span></tt></p>
@@ -575,7 +575,7 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 <div class="section" id="base64-decode">
 <h2>base64_decode<a class="headerlink" href="#base64-decode" title="Permalink to this headline">¶</a></h2>
 <p>Decodes given base64 encoded string.</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;c29tZSBzdHJpbmc=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">base64_decode</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;c29tZSBzdHJpbmc=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">base64_decode</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Returns <tt class="docutils literal"><span class="pre">some</span> <span class="pre">string</span></tt></p>

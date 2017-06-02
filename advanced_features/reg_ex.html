@@ -60,7 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="email_encryption.html">Email Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom User Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_sku.html">Segment With Product SKU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
@@ -116,21 +116,21 @@ well as <cite>www</cite> as a part of your domain, all combinations should work.
 <li><p class="first">Show/suppress Campaigns on URLs that start with <strong>/cart</strong>, i.e.: <cite>http://site.com/cart</cite>, <br> <cite>http://site.com/cart/checkout</cite>,
 but not <cite>http://site.com/test/cart</cite>.</p>
 <p>Here is the Regex criteria:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>https?://([\w\-\d]+\.)+[\w\-\d]+/cart
+<div class="highlight-text"><div class="highlight"><pre>https?://([\w\-\d]+\.)+[\w\-\d]+/cart
 </pre></div>
 </div>
 </li>
 <li><p class="first">Show/suppress Campaigns on URLs that contains <strong>/share</strong>, i.e.: <cite>http://site.com/pages/share</cite>, <cite>http://site.com/share</cite>,
 <cite>http://site.com/pages/share/product</cite>, any URL that contains <cite>/share</cite>.</p>
 <p>Here is the Regex criteria:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>/share
+<div class="highlight-text"><div class="highlight"><pre>/share
 </pre></div>
 </div>
 </li>
 <li><p class="first">Show/suppress Campaigns on multiple specific URLs, i.e.: <cite>https://site.com/products/product-1</cite>
 and <cite>https://site.com/products/product-5</cite>.</p>
 <p>Here is the Regex criteria:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>/products/product-1|/products/product-5
+<div class="highlight-text"><div class="highlight"><pre>/products/product-1|/products/product-5
 </pre></div>
 </div>
 <div class="line-block">
@@ -138,7 +138,7 @@ and <cite>https://site.com/products/product-5</cite>.</p>
 </div>
 </li>
 </ol>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
