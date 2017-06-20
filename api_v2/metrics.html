@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Metrics &mdash; Talkable Documentation</title>
+    <title>Metrics &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Web Hooks" href="../web_hooks.html" />
     <link rel="prev" title="Coupons" href="coupons.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -73,7 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="referrals.html">Referrals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Coupons</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Metrics</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Metrics</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -96,17 +95,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="api-v2-metrics"></span><div class="section" id="metrics">
 <h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access Talkable metrics. Go to Reports -&gt; Metric
 descriptions to see the list of available metrics.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>GET /metrics/&lt;metric&gt;
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET /metrics/&lt;metric&gt;
 </pre></div>
 </div>
-<p>Returns a metric value which includes plain value, formatted value and result&#8217;s type.</p>
+<p>Returns a metric value which includes plain value, formatted value and result’s type.</p>
 <div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
@@ -135,12 +134,12 @@ Talkable dashboard after you log in and create a site.</td>
 <tr class="row-even"><td>campaign_ids</td>
 <td>Optional: array of campaign ids for which data
 is pulled. See the
-<a class="reference internal" href="campaigns.html#api-v2-campaigns"><em>Campaigns API</em></a>.</td>
+<a class="reference internal" href="campaigns.html#api-v2-campaigns"><span class="std std-ref">Campaigns API</span></a>.</td>
 </tr>
 <tr class="row-odd"><td>campaign_tags</td>
 <td>Optional: array of campaign tags for which data
 is pulled. See the
-<a class="reference internal" href="campaigns.html#api-v2-campaigns"><em>Campaigns API</em></a>.</td>
+<a class="reference internal" href="campaigns.html#api-v2-campaigns"><span class="std std-ref">Campaigns API</span></a>.</td>
 </tr>
 <tr class="row-even"><td>campaign_status</td>
 <td><p class="first">Optional: campaign status for which data is pulled.</p>
@@ -169,11 +168,11 @@ is pulled.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="offers-metric">
 <h3>Offers metric<a class="headerlink" href="#offers-metric" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_ids=35944,12345&amp;campaign_tags=invite,test&amp;campaign_status=live&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;campaign_ids=35944,12345&amp;campaign_tags=invite,test&amp;campaign_status=live&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mi">1234</span><span class="p">,</span>
@@ -186,11 +185,11 @@ is pulled.</td>
 </div>
 <div class="section" id="revenue-percentage-metric-with-precision">
 <h3>Revenue percentage metric with precision<a class="headerlink" href="#revenue-percentage-metric-with-precision" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;precision=2&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;precision=2&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mf">34.35</span><span class="p">,</span>
@@ -203,11 +202,11 @@ is pulled.</td>
 </div>
 <div class="section" id="average-order-value-metric">
 <h3>Average order value metric<a class="headerlink" href="#average-order-value-metric" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/metrics/average_order_value?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/metrics/average_order_value?site_slug=my-store&amp;start_date=2014-09-01&amp;end_date=2014-10-01&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;plain&quot;</span><span class="o">:</span> <span class="mi">5432</span><span class="p">,</span>
