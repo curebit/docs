@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Validating the Integration &#8212; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="F.A.Q." href="questions.html" />
+    <link rel="prev" title="Integration Components" href="integration_components.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body role="document">
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../custom_integration.html">Custom Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Integration High Level Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_components.html">Integration Components</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Validating the Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html">F.A.Q.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../shopify.html">Shopify</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="integration-custom-validating-integration"></span><div class="section" id="validating-the-integration">
+<h1>Validating the Integration<a class="headerlink" href="#validating-the-integration" title="Permalink to this headline">¶</a></h1>
+<p><span class="underline">Visual Confirmation Note:</span></p>
+<p>In order to see visual confirmation you must create or have existing
+Talkable campaigns. Campaigns must be enabled for visual display (see
+examples below on how to enable campaigns). Note that enabling campaigns
+on production will allow your customers to see referral content. If you
+want to limit visual display, or want to validate on your production
+site without customers seeing visual display, then see the Test Mode
+Display section below.</p>
+<p><span class="underline">Validation Checklist:</span></p>
+<ol class="arabic simple">
+<li>Perform a test checkout.<ol class="loweralpha">
+<li><span class="underline">Confirm Visual Result:</span> You should see visual confirmation content
+on the checkout confirmation page if the post purchase campaign is
+enabled.</li>
+<li><span class="underline">Confirm Data Result:</span> Navigate to Reports &gt; Purchases tab inside
+the Talkable platform to ensure all parameters that you’re using
+in the post purchase script are being passed. Data populates in
+real time.</li>
+</ol>
+</li>
+<li>Visit your Home Page.<ol class="loweralpha">
+<li><span class="underline">Confirm Visual Result:</span> You should see the floating Talkable Widget
+button.</li>
+</ol>
+</li>
+<li>Visit your Advocate Landing Page.<ol class="loweralpha">
+<li><span class="underline">Confirm Visual Result:</span> You should see visual confirmation content
+in the location where you placed the Talkable Container DIV.</li>
+</ol>
+</li>
+<li>Visit your Referral Dashboard Page.<ol class="loweralpha">
+<li><span class="underline">Confirm Visual Result:</span> You should see visual confirmation content
+in the location where you placed the Talkable Container DIV.</li>
+</ol>
+</li>
+</ol>
+<p><span class="underline">How to create or check for existing campaigns:</span></p>
+<p>You’ll need to have a campaign of each type in order to validate
+display.</p>
+<p>There are 4 types:</p>
+<ol class="arabic simple">
+<li><span class="underline">Post Purchase:</span> displays as a pop up after checkout</li>
+<li><span class="underline">Floating Widget:</span> displays as a floating widget button on your home
+page (and every page)</li>
+<li><span class="underline">Invite Standalone:</span> displays inline on your /invite advocate landing
+page</li>
+<li><span class="underline">Advocate Dashboard Standalone:</span> displays inline in your /referrals
+page</li>
+</ol>
+<ul class="simple">
+<li><span class="underline">How to create campaigns:</span> Here’s a screencast showing you how to
+quickly create all campaigns in less than 1 minute
+<a class="reference external" href="https://www.screencast.com/t/pVHTFoz9m1">https://www.screencast.com/t/pVHTFoz9m1</a></li>
+<li><span class="underline">How to enable campaigns:</span> Here’s a screencast showing you how to
+enable campaigns (ignore any warnings for now and note the site
+display placement) <a class="reference external" href="https://screencast.com/t/brMNNqGDjD">https://screencast.com/t/brMNNqGDjD</a></li>
+</ul>
+<p><span class="underline">Test Mode Display:</span></p>
+<p>After creating campaigns, while still in test mode before activating,
+you can append a URL query string parameter to page where you want to
+display a campaign in test mode which prevents anyone else from seeing
+visual display. Note that each campaign has campaign tags under the
+campaign name and you can reference these in the URL using the following
+guidelines:</p>
+<ol class="arabic simple">
+<li>Floating widget on your homepage:
+www.your-site.com?campaign_tags=test-popup</li>
+<li>Advocate Landing Page /invite:
+www.your-site.com/invite?campaign_tags=test-invite</li>
+<li>Referral Dashboard:
+www.your-site.com/referrals?campaign_tags=test-dashboard</li>
+</ol>
+<p>Note that campaigns must be newly created campaigns in test mode to be
+eligible for test mode display. Use the following image as a visual
+guideline:</p>
+<p>campaigns-dashboard.jpg</p>
+<div class="figure">
+<img alt="Campaigns" src="../../_images/campaigns-dashboard.jpg" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

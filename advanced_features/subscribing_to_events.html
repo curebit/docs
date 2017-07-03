@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Subscribing To Iframe Events &mdash; Talkable Documentation</title>
+    <title>Subscribing To Iframe Events &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using Regular Expressions" href="reg_ex.html" />
     <link rel="prev" title="Segment With Traffic Source" href="traffic_source.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -49,10 +49,13 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Custom Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/magento.html">Magento</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><ul class="current">
@@ -60,11 +63,11 @@
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="email_encryption.html">Email Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom Person Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom User Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_sku.html">Segment With Product SKU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Subscribing To Iframe Events</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Subscribing To Iframe Events</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#talkable-events">Talkable Events</a></li>
 </ul>
 </li>
@@ -96,14 +99,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="advanced-features-subscribing-to-events"></span><div class="section" id="subscribing-to-iframe-events">
 <h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
-<p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><em>white-labeling</em></a> is setup).</p>
+<p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">white-labeling</span></a> is setup).</p>
 <p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
 <p>In order to subscribe to an iframe Event you need to know <cite>id</cite> HTML attribute of the Container DIV that holds it, and the Event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>
-<p>Given we have integrated Campaign for <a class="reference internal" href="../campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><em>Standalone</em></a> Placement, its JS-generated HTML tag looks similar to the following:</p>
+<p>Given we have integrated Campaign for <a class="reference internal" href="../campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><span class="std std-ref">Standalone</span></a> Placement, its JS-generated HTML tag looks similar to the following:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -129,19 +132,17 @@
 <div><ol class="arabic simple">
 <li><cite>offer_loaded</cite> — Talkable iframe DOM ready event which is in fact the very first event that you can use to determine if the iframe is loaded.</li>
 <li><cite>responsive_iframe_height</cite> — fires every time iframe size gets changed. You can use it to detect changes in iframe size.
-You can read more <a class="reference internal" href="../campaigns/designer.html#responsive-views"><em>here</em></a>. Previously named as <tt class="docutils literal"><span class="pre">curebit_offer_iframe_broadcast</span></tt>.</li>
+You can read more <a class="reference internal" href="../campaigns/designer.html#responsive-views"><span class="std std-ref">here</span></a>. Previously named as <code class="docutils literal"><span class="pre">curebit_offer_iframe_broadcast</span></code>.</li>
 <li><cite>offer_close</cite> — fires when the close button is clicked. You can use this event to determine when user closes Talkable campaign, it then disappears from the screen.</li>
 <li><cite>offer_triggered</cite> — Talkable Trigger Widget iframe fires this event when user clicks on it. You can use this event to detect when the main offer iframe is about to show up.</li>
 <li><cite>coupon_issued</cite> — fires upon issuing coupon code as a reward for sharing. You can use it to determine when the user shares and receives their reward. <cite>data.channel</cite> tells which sharing channel was used and <cite>data.coupon_code</cite> stores the coupon code value.</li>
 <li><cite>share_succeeded</cite> — fires each time <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> shares. <cite>data.channel</cite> tells which sharing channel was used for the share.</li>
-<li><cite>email_gating_passed</cite> — fires when <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> passes email gating on <a class="reference internal" href="../campaigns/views/offers_claim.html#campaigns-views-offers-claim"><em>Friend Claim Page</em></a>.</li>
-<li><cite>email_gating_failed</cite> — fires when <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> fails to pass email gating on <a class="reference internal" href="../campaigns/views/offers_claim.html#campaigns-views-offers-claim"><em>Friend Claim Page</em></a>.</li>
+<li><cite>email_gating_passed</cite> — fires when <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> passes email gating on <a class="reference internal" href="../campaigns/views/offers_claim.html#campaigns-views-offers-claim"><span class="std std-ref">Friend Claim Page</span></a>.</li>
+<li><cite>email_gating_failed</cite> — fires when <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> fails to pass email gating on <a class="reference internal" href="../campaigns/views/offers_claim.html#campaigns-views-offers-claim"><span class="std std-ref">Friend Claim Page</span></a>.</li>
 </ol>
 </div></blockquote>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
