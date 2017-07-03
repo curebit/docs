@@ -48,7 +48,13 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul class="current">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../custom_integration.html">Custom Integration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Integration High Level Overview</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Integration Components</a><ul>
@@ -68,12 +74,6 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento Integration</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
@@ -126,11 +126,11 @@ be applied at checkout)</li>
 <li>(optional) Shopping cart line items. This is only necessary if segmenting based on cart contents.</li>
 </ul>
 </li>
-<li><p class="first">Advocate Landing Page (public)</p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-advocate-landing-page"><span class="std std-ref">Advocate Landing Page</span></a>.</p>
 <p>Create an HTML page (URL path /invite) with your standard site header and footer.
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
-<li><p class="first">Referral Dashboard (my account)</p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-referral-dashboard"><span class="std std-ref">Referral Dashboard (my account)</span></a>.</p>
 <p>Similar to the advocate landing page, create an HTML page that’s linked to from a menu in user accounts.
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
@@ -218,7 +218,7 @@ post purchase integration script <a class="reference internal" href="alternate_p
 </ol>
 </div>
 <div class="section" id="advocate-landing-page">
-<h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
+<span id="integration-custom-integration-components-advocate-landing-page"></span><h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
 <p>Create a new HTML page with URL path (www.your-site.com/invite) and add the Talkable Container DIV
 in the body of the page between your standard site header and footer:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -242,34 +242,34 @@ you intend to use via
 </div>
 </li>
 </ol>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="referral-dashboard">
-<h2>Referral Dashboard<a class="headerlink" href="#referral-dashboard" title="Permalink to this headline">¶</a></h2>
+<span id="integration-custom-integration-components-referral-dashboard"></span><h2>Referral Dashboard<a class="headerlink" href="#referral-dashboard" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the Advocate Landing Page, create a new HTML page with URL
-path (www.your-site.com/referrals) and add the Talkable Container DIV in
+path (<cite>www.your-site.com/referrals</cite>) and add the Talkable Container DIV in
 the body of the page:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p><span class="underline">Referral Dashboard notes:</span></p>
 <ol class="arabic simple">
-<li>The Talkable Initialization script must be present in your head
+<li>The <a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Talkable Initialization Script</span></a> must be present in your head
 template in order for the referral dashboard to work</li>
 <li>Talkable will inject referral content where Talkable Container
 resides in your DOM. Adding a new page is only a suggestion. The
 dashboard can be added inline inside your user accounts menu, however
 the dashboard content width for proper display is 980px.</li>
-<li>URL Path: If you don’t host on www.your-site.com/referrals then
+<li><strong>URL Path</strong> If you don’t host on <cite>www.your-site.com/referrals</cite> then
 you’ll need to update the Site Placements section inside of Talkable
 for the Dashboard Placement to use the exact URL path you intend to
 host the Referral Dashboard on via
-<a class="reference external" href="https://www.talkable.com/sites/your-site-id/placements">https://www.talkable.com/sites/your-site-id/placements</a></li>
-<li>Linking to the Referral Dashboard: Allow your users to reach the
+<cite>https://www.talkable.com/sites/your-site-id/placements</cite></li>
+<li><strong>Linking to the Referral Dashboard</strong> Allow your users to reach the
 Referral Dashboard by adding a link from any place that makes sense
 considering your website configuration. Most common uses are links in
 the user accounts section, or from the user accounts menu.</li>
-<li>Host on a page that’s only accessible behind login: The Referral
+<li><strong>Host on a page that’s only accessible behind login</strong> The Referral
 Dashboard contains semi-sensitive information about an Advocate’s
 referral history. If you don’t have user logins, then the Referral
 Dashboard can be configured to display partially obfuscated data for
