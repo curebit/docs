@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Validating the Integration" href="validating_integration.html" />
+    <link rel="next" title="Alternate Post Purchase Script for cart line item passing" href="alternate_post_purchase.html" />
     <link rel="prev" title="Integration High Level Overview" href="overview.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
@@ -55,6 +55,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#initialization-script">Initialization Script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-purchase-script">Post Purchase Script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advocate-landing-page">Advocate Landing Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referral-dashboard">Referral Dashboard</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="validating_integration.html">Validating the Integration</a></li>
@@ -99,50 +100,39 @@
 <h1>Integration Components<a class="headerlink" href="#integration-components" title="Permalink to this headline">¶</a></h1>
 <p>Talkable is composed of the following components:</p>
 <ol class="arabic">
-<li><p class="first">Initialization Script</p>
-<ol class="loweralpha simple">
-<li>[Script Location] The Initialization script should be placed in the head template or some template
-that spans every page. All other integration components are dependent on the Init script.</li>
-<li>[Data Capture] The Initialization Script should be passed variables for logged in users:<ul>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Initialization Script</span></a></p>
+<p><strong>Script Location</strong> The Initialization script should be placed in the head template or some template
+that spans every page. All other integration components are dependent on the Init script.</p>
+<p><strong>Data Capture</strong> The Initialization Script should be passed variables for logged in users:</p>
+<blockquote>
+<div><ul class="simple">
 <li>Email</li>
 <li>First Name</li>
 <li>Last Name</li>
 </ul>
+</div></blockquote>
 </li>
-</ol>
-</li>
-<li><p class="first">Post Purchase Script</p>
-<ol class="loweralpha">
-<li><p class="first">[Script Location] The Post Purchase script should be placed on the checkout confirmation page.</p>
-</li>
-<li><p class="first">[Script Dependency] The Post Purchase script is dependent on the Initialization script to run.</p>
-</li>
-<li><p class="first">[Data Capture] This script needs to capture purchase based details</p>
-<blockquote>
-<div><ul class="simple">
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">Post Purchase Script</span></a></p>
+<p><strong>Script Location</strong> The Post Purchase script should be placed on the checkout confirmation page.</p>
+<p><strong>Script Dependency</strong> The Post Purchase script is dependent on the Initialization script to run.</p>
+<p><strong>Data Capture</strong> This script needs to capture purchase based details</p>
+<ul class="simple">
 <li>Email of purchaser</li>
 <li>Order Number</li>
 <li>Subtotal (pre-tax, post-discount amount)</li>
 <li>Coupon code(s) used at checkout (can accept an array of strings if you allow for multiple coupons to
 be applied at checkout)</li>
 <li>(optional) Shipping Address for additional fraud protection.</li>
-<li>(optional) Shopping cart line items.  This is only necessary if segmenting based on cart contents.</li>
+<li>(optional) Shopping cart line items. This is only necessary if segmenting based on cart contents.</li>
 </ul>
-</div></blockquote>
-</li>
-</ol>
 </li>
 <li><p class="first">Advocate Landing Page (public)</p>
-<ol class="loweralpha simple">
-<li>Create an HTML page (URL path /invite) with your standard site header and footer.
-Add the Talkable Container DIV in the body.  This tells Talkable where to inject content.</li>
-</ol>
+<p>Create an HTML page (URL path /invite) with your standard site header and footer.
+Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
 <li><p class="first">Referral Dashboard (my account)</p>
-<ol class="loweralpha simple">
-<li>Similar to the advocate landing page, create an HTML page that’s linked to from a menu in user accounts.
-Add the Talkable Container DIV in the body.  This tells Talkable where to inject content.</li>
-</ol>
+<p>Similar to the advocate landing page, create an HTML page that’s linked to from a menu in user accounts.
+Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
 </ol>
 <hr class="docutils" />
@@ -222,43 +212,11 @@ additional fraud protection</li>
 your domain, you should ensure that some auto return feature is
 enabled so that the user returns to the checkout confirmation page to
 allow the post purchase script to run.</li>
-<li>If you’re using a tag manager click here. [Talkable team note:  link to, or expand to show tag manager section]</li>
+<li>If you’re using a tag manager <a class="reference internal" href="integration_tag_manager.html#integration-custom-integration-tag-manager"><span class="std std-ref">click here</span></a>.</li>
 <li>If you need to pass shopping cart line items, to see the alternate
-post purchase integration script click here. [Talkable team note:  link alternate post purchase script, or add as a drop down expander so that it stays hidden by default]</li>
+post purchase integration script <a class="reference internal" href="alternate_post_purchase.html#integration-custom-alternate-post-purchase"><span class="std std-ref">click here</span></a>.</li>
 </ol>
-<p><strong>Alternate Post Purchase Script for cart line item passing</strong></p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="kd">var</span> <span class="nx">_talkable_purchase_items</span> <span class="o">=</span> <span class="p">[];</span>
-
-  <span class="c1">// Start for loop - iterate through cart and push details for each line item</span>
-  <span class="nx">_talkable_purchase_items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-    <span class="nx">product_id</span><span class="o">:</span> <span class="s1">&#39;sku0001&#39;</span><span class="p">,</span> <span class="c1">// Item Product ID</span>
-    <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;199.00&#39;</span><span class="p">,</span> <span class="c1">// Item Unit Price</span>
-    <span class="nx">quantity</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="c1">// Item Quantity</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Product Name&#39;</span> <span class="c1">// Name of product</span>
-  <span class="p">});</span>  <span class="c1">// End for loop</span>
-
-  <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">//pre-tax, post-discount</span>
-      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// can also accept multiple coupons as an array</span>
-      <span class="nx">items</span><span class="o">:</span> <span class="nx">_talkable_purchase_items</span><span class="p">,</span>  <span class="c1">//cart items</span>
-      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;02222&#39;</span><span class="p">,</span>  <span class="c1">//optional - used for fraud protection on matching address</span>
-      <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;Apt #, Street address, City, State, ZIP, Country&#39;</span> <span class="c1">//pass full  address details in this order, comma delimited</span>
-    <span class="p">},</span>
-    <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
-</pre></div>
 </div>
-</div>
-<hr class="docutils" />
 <div class="section" id="advocate-landing-page">
 <h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
 <p>Create a new HTML page with URL path (www.your-site.com/invite) and add the Talkable Container DIV
@@ -284,9 +242,10 @@ you intend to use via
 </div>
 </li>
 </ol>
+</div>
 <hr class="docutils" />
 <div class="section" id="referral-dashboard">
-<h3>Referral Dashboard<a class="headerlink" href="#referral-dashboard" title="Permalink to this headline">¶</a></h3>
+<h2>Referral Dashboard<a class="headerlink" href="#referral-dashboard" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the Advocate Landing Page, create a new HTML page with URL
 path (www.your-site.com/referrals) and add the Talkable Container DIV in
 the body of the page:</p>
@@ -316,27 +275,13 @@ referral history. If you don’t have user logins, then the Referral
 Dashboard can be configured to display partially obfuscated data for
 public access.</li>
 </ol>
-<hr class="docutils" />
-<p><strong>Integrating with a Tag Manager</strong></p>
-<ul class="simple">
-<li><span class="underline">Initialization Script in a Tag Manager:</span> Place the
-<cite>Initialization script</cite> in a tag that is
-visible in the head template on all pages.</li>
-<li><span class="underline">Post Purchase Integration in a Tag Manager:</span> Since the post
-purchase integration on the checkout confirmation page requires the
-Init script to work, you’re welcome to combine the Initialization
-script + Post Purchase script into a
-single tag for the checkout confirmation page. In fact this is
-recommended for Google Tag Manager, when combining the place the
-Initialization script on top/before the Post purchase script in the
-tag.</li>
-<li><span class="underline">Tag Manager Data Layer to Pass Variables:</span> You’ll need to
-ensure a data layer object is set up to collect and pass the
-variables to Talkable inside your tag.</li>
-<li><span class="underline">Troubleshooting:</span> You can use <cite>window._talkableq</cite> for all
-<cite>talkableq</cite> variable instances if you’re having trouble with variable
-interpolation and need to use a global namespace.</li>
+<div class="hidden docutils container">
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alternate_post_purchase.html">Alternate Post Purchase Script for cart line item passing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration_tag_manager.html">Integrating with a Tag Manager</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>

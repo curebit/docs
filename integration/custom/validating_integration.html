@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="F.A.Q." href="questions.html" />
-    <link rel="prev" title="Integration Components" href="integration_components.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Integrating with a Tag Manager" href="integration_tag_manager.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -98,8 +98,8 @@ Talkable campaigns. Campaigns must be enabled for visual display (see
 examples below on how to enable campaigns). Note that enabling campaigns
 on production will allow your customers to see referral content. If you
 want to limit visual display, or want to validate on your production
-site without customers seeing visual display, then see the Test Mode
-Display section below.</p>
+site without customers seeing visual display, then see the <a class="reference internal" href="#integration-custom-validating-integration-test-mode-display"><span class="std std-ref">Test Mode Display</span></a>
+section below.</p>
 <p><span class="underline">Validation Checklist:</span></p>
 <ol class="arabic simple">
 <li>Perform a test checkout.<ol class="loweralpha">
@@ -149,7 +149,7 @@ quickly create all campaigns in less than 1 minute
 enable campaigns (ignore any warnings for now and note the site
 display placement) <a class="reference external" href="https://screencast.com/t/brMNNqGDjD">https://screencast.com/t/brMNNqGDjD</a></li>
 </ul>
-<p><span class="underline">Test Mode Display:</span></p>
+<p id="integration-custom-validating-integration-test-mode-display"><span class="underline">Test Mode Display:</span></p>
 <p>After creating campaigns, while still in test mode before activating,
 you can append a URL query string parameter to page where you want to
 display a campaign in test mode which prevents anyone else from seeing
@@ -158,11 +158,11 @@ campaign name and you can reference these in the URL using the following
 guidelines:</p>
 <ol class="arabic simple">
 <li>Floating widget on your homepage:
-www.your-site.com?campaign_tags=test-popup</li>
+<cite>www.your-site.com?campaign_tags=test-popup</cite></li>
 <li>Advocate Landing Page /invite:
-www.your-site.com/invite?campaign_tags=test-invite</li>
+<cite>www.your-site.com/invite?campaign_tags=test-invite</cite></li>
 <li>Referral Dashboard:
-www.your-site.com/referrals?campaign_tags=test-dashboard</li>
+<cite>www.your-site.com/referrals?campaign_tags=test-dashboard</cite></li>
 </ol>
 <p>Note that campaigns must be newly created campaigns in test mode to be
 eligible for test mode display. Use the following image as a visual
