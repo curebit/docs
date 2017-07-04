@@ -157,27 +157,26 @@ display placement) <a class="reference external" href="https://screencast.com/t/
 <div class="section" id="test-mode-display">
 <span id="integration-custom-validating-integration-test-mode-display"></span><h2>Test Mode Display<a class="headerlink" href="#test-mode-display" title="Permalink to this headline">¶</a></h2>
 <p>After creating campaigns, while still in test mode before activating,
-you can append a URL query string parameter to page where you want to
-display a campaign in test mode which prevents anyone else from seeing
-visual display. Note that each campaign has campaign tags under the
-campaign name and you can reference these in the URL using the following
-guidelines:</p>
+you can append a URL query string parameter to page where you want to display
+a campaign in test mode which prevents anyone else from seeing visual display.
+Note that each campaign has campaign ID under the campaign name and you can reference
+these in the URL using the following guidelines:</p>
 <ol class="arabic">
 <li><p class="first">Floating widget on your homepage:</p>
-<p><cite>www.your-site.com?campaign_tags=test-popup</cite></p>
+<p><cite>www.your-site.com?tkbl_campaign_id=11111</cite></p>
 </li>
-<li><p class="first">Advocate Landing Page /invite:</p>
-<p><cite>www.your-site.com/invite?campaign_tags=test-invite</cite></p>
+<li><p class="first">Advocate Landing Page /share:</p>
+<p><cite>www.your-site.com/share?tkbl_campaign_id=11112</cite></p>
 </li>
 <li><p class="first">Referral Dashboard:</p>
-<p><cite>www.your-site.com/referrals?campaign_tags=test-dashboard</cite></p>
+<p><cite>www.your-site.com/referrals?tkbl_campaign_id=11113</cite></p>
 </li>
 </ol>
 <p>Note that campaigns must be newly created campaigns in test mode to be
 eligible for test mode display. Use the following image as a visual
 guideline:</p>
 <div class="figure">
-<img alt="Campaigns" src="../../_images/campaigns-dashboard.jpg" />
+<img alt="Campaigns" src="../../_images/campaigns-dashboard.png" />
 </div>
 </div>
 </div>

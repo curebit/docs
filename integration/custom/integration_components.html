@@ -158,16 +158,17 @@ script.</p>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
-<p><span class="underline">Initialization Script Notes:</span></p>
+<div class="section" id="initialization-script-notes">
+<h3>Initialization Script Notes:<a class="headerlink" href="#initialization-script-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first"><span class="underline">Site ID:</span> You can obtain your Site ID by logging into the Talkable
+<li><p class="first"><strong>Site ID</strong> You can obtain your Site ID by logging into the Talkable
 platform where Site ID is displayed on your Dashboard and URL as seen
 here:</p>
 <div class="figure">
 <img alt="Site ID" src="../../_images/site-id.png" />
 </div>
 </li>
-<li><p class="first"><span class="underline">Variables:</span> Use your dynamic variables to pass user details {email,
+<li><p class="first"><strong>Variables:</strong> Use your dynamic variables to pass user details {email,
 first_name, last_name} if the user is logged in and the data
 exists. If the data does not exist, you can pass a null value or a
 blank string. If your website doesn’t have a user accounts section
@@ -176,6 +177,7 @@ the parameters, or pass empty strings.</p>
 </li>
 </ol>
 <hr class="docutils" />
+</div>
 </div>
 <div class="section" id="post-purchase-script">
 <span id="integration-custom-integration-components-post-purchase-script"></span><h2>Post Purchase Script<a class="headerlink" href="#post-purchase-script" title="Permalink to this headline">¶</a></h2>
@@ -198,7 +200,8 @@ the parameters, or pass empty strings.</p>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
-<p><span class="underline">Post Purchase Script Notes:</span></p>
+<div class="section" id="post-purchase-script-notes">
+<h3>Post Purchase Script Notes:<a class="headerlink" href="#post-purchase-script-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Mandatory parameters must be passed or the purchase will not be
 passed to Talkable. Mandatory parameters are: {email, order_number,
@@ -217,6 +220,7 @@ allow the post purchase script to run.</li>
 post purchase integration script <a class="reference internal" href="alternate_post_purchase.html#integration-custom-alternate-post-purchase"><span class="std std-ref">click here</span></a>.</li>
 </ol>
 </div>
+</div>
 <div class="section" id="advocate-landing-page">
 <span id="integration-custom-integration-components-advocate-landing-page"></span><h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
 <p>Create a new HTML page with URL path (<cite>www.your-site.com/invite</cite>) and add the Talkable Container DIV
@@ -224,7 +228,8 @@ in the body of the page between your standard site header and footer:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p><span class="underline">Advocate Landing Page notes:</span></p>
+<div class="section" id="advocate-landing-page-notes">
+<h3>Advocate Landing Page notes:<a class="headerlink" href="#advocate-landing-page-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">The Talkable Initialization script must be present in your head
 template in order for the advocate landing page to work</p>
@@ -244,6 +249,7 @@ you intend to use via
 </ol>
 <hr class="docutils" />
 </div>
+</div>
 <div class="section" id="referral-dashboard">
 <span id="integration-custom-integration-components-referral-dashboard"></span><h2>Referral Dashboard<a class="headerlink" href="#referral-dashboard" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the Advocate Landing Page, create a new HTML page with URL
@@ -252,7 +258,8 @@ the body of the page:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p><span class="underline">Referral Dashboard notes:</span></p>
+<div class="section" id="referral-dashboard-notes">
+<h3>Referral Dashboard notes:<a class="headerlink" href="#referral-dashboard-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>The <a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Talkable Initialization Script</span></a> must be present in your head
 template in order for the referral dashboard to work</li>
@@ -260,16 +267,16 @@ template in order for the referral dashboard to work</li>
 resides in your DOM. Adding a new page is only a suggestion. The
 dashboard can be added inline inside your user accounts menu, however
 the dashboard content width for proper display is 980px.</li>
-<li><strong>URL Path</strong> If you don’t host on <cite>www.your-site.com/referrals</cite> then
+<li><strong>URL Path.</strong> If you don’t host on <cite>www.your-site.com/referrals</cite> then
 you’ll need to update the Site Placements section inside of Talkable
 for the Dashboard Placement to use the exact URL path you intend to
 host the Referral Dashboard on via
 <cite>https://www.talkable.com/sites/your-site-id/placements</cite></li>
-<li><strong>Linking to the Referral Dashboard</strong> Allow your users to reach the
+<li><strong>Linking to the Referral Dashboard.</strong> Allow your users to reach the
 Referral Dashboard by adding a link from any place that makes sense
 considering your website configuration. Most common uses are links in
 the user accounts section, or from the user accounts menu.</li>
-<li><strong>Host on a page that’s only accessible behind login</strong> The Referral
+<li><strong>Host on a page that’s only accessible behind login.</strong> The Referral
 Dashboard contains semi-sensitive information about an Advocate’s
 referral history. If you don’t have user logins, then the Referral
 Dashboard can be configured to display partially obfuscated data for
@@ -281,6 +288,7 @@ public access.</li>
 <li class="toctree-l1"><a class="reference internal" href="alternate_post_purchase.html">Alternate Post Purchase Script for cart line item passing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration_tag_manager.html">Integrating with a Tag Manager</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
