@@ -127,7 +127,7 @@ be applied at checkout)</li>
 </ul>
 </li>
 <li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-advocate-landing-page"><span class="std std-ref">Advocate Landing Page</span></a>.</p>
-<p>Create an HTML page (URL path /invite) with your standard site header and footer.
+<p>Create an HTML page (URL path /share) with your standard site header and footer.
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-referral-dashboard"><span class="std std-ref">Referral Dashboard (my account)</span></a>.</p>
@@ -223,7 +223,7 @@ post purchase integration script <a class="reference internal" href="alternate_p
 </div>
 <div class="section" id="advocate-landing-page">
 <span id="integration-custom-integration-components-advocate-landing-page"></span><h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
-<p>Create a new HTML page with URL path (<cite>www.your-site.com/invite</cite>) and add the Talkable Container DIV
+<p>Create a new HTML page with URL path (<cite>www.your-site.com/share</cite>) and add the Talkable Container DIV
 in the body of the page between your standard site header and footer:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
@@ -237,7 +237,7 @@ template in order for the advocate landing page to work</p>
 <li><p class="first">Talkable will inject referral content where Talkable Container
 resides in your DOM</p>
 </li>
-<li><p class="first">URL Path: If you can’t use URL path <cite>www.your-site.com/invite</cite> then
+<li><p class="first">URL Path: If you can’t use URL path <cite>www.your-site.com/share</cite> then
 you’ll need to update the Site Placements section inside of Talkable
 for the Invite Advocate Landing Page to match the exact URL path that
 you intend to use via
