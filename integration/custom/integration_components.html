@@ -101,7 +101,7 @@
 <p>Talkable is composed of the following components:</p>
 <ol class="arabic">
 <li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Initialization Script</span></a></p>
-<p><strong>Script Location</strong> The Initialization script should be placed in the head template or some template
+<p><strong>Script Location.</strong> The Initialization script should be placed in the head template or some template
 that spans every page. All other integration components are dependent on the Init script.</p>
 <p><strong>Data Capture</strong> The Initialization Script should be passed variables for logged in users:</p>
 <blockquote>
@@ -113,9 +113,9 @@ that spans every page. All other integration components are dependent on the Ini
 </div></blockquote>
 </li>
 <li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">Post Purchase Script</span></a></p>
-<p><strong>Script Location</strong> The Post Purchase script should be placed on the checkout confirmation page.</p>
-<p><strong>Script Dependency</strong> The Post Purchase script is dependent on the Initialization script to run.</p>
-<p><strong>Data Capture</strong> This script needs to capture purchase based details</p>
+<p><strong>Script Location.</strong> The Post Purchase script should be placed on the checkout confirmation page.</p>
+<p><strong>Script Dependency.</strong> The Post Purchase script is dependent on the Initialization script to run.</p>
+<p><strong>Data Capture.</strong> This script needs to capture purchase based details</p>
 <ul class="simple">
 <li>Email of purchaser</li>
 <li>Order Number</li>
@@ -135,7 +135,7 @@ Add the Talkable Container DIV in the body. This tells Talkable where to inject 
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
 </ol>
-<hr class="docutils" />
+<p><hr></p>
 <div class="section" id="initialization-script">
 <span id="integration-custom-integration-components-initialization-script"></span><h2>Initialization Script<a class="headerlink" href="#initialization-script" title="Permalink to this headline">¶</a></h2>
 <p>The Initialization script should be placed in the head template or some
@@ -159,16 +159,16 @@ script.</p>
 </pre></div>
 </div>
 <div class="section" id="initialization-script-notes">
-<h3>Initialization Script Notes:<a class="headerlink" href="#initialization-script-notes" title="Permalink to this headline">¶</a></h3>
+<h3>Initialization Script Notes<a class="headerlink" href="#initialization-script-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first"><strong>Site ID</strong> You can obtain your Site ID by logging into the Talkable
+<li><p class="first"><strong>Site ID.</strong> You can obtain your Site ID by logging into the Talkable
 platform where Site ID is displayed on your Dashboard and URL as seen
 here:</p>
 <div class="figure">
 <img alt="Site ID" src="../../_images/site_id.png" />
 </div>
 </li>
-<li><p class="first"><strong>Variables:</strong> Use your dynamic variables to pass user details {email,
+<li><p class="first"><strong>Variables.</strong> Use your dynamic variables to pass user details {email,
 first_name, last_name} if the user is logged in and the data
 exists. If the data does not exist, you can pass a null value or a
 blank string. If your website doesn’t have a user accounts section
@@ -176,7 +176,7 @@ and this info is never available, it’s acceptable to completely omit
 the parameters, or pass empty strings.</p>
 </li>
 </ol>
-<hr class="docutils" />
+<p><hr></p>
 </div>
 </div>
 <div class="section" id="post-purchase-script">
@@ -201,7 +201,7 @@ the parameters, or pass empty strings.</p>
 </pre></div>
 </div>
 <div class="section" id="post-purchase-script-notes">
-<h3>Post Purchase Script Notes:<a class="headerlink" href="#post-purchase-script-notes" title="Permalink to this headline">¶</a></h3>
+<h3>Post Purchase Script Notes<a class="headerlink" href="#post-purchase-script-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Mandatory parameters must be passed or the purchase will not be
 passed to Talkable. Mandatory parameters are: {email, order_number,
@@ -229,7 +229,7 @@ in the body of the page between your standard site header and footer:</p>
 </pre></div>
 </div>
 <div class="section" id="advocate-landing-page-notes">
-<h3>Advocate Landing Page notes:<a class="headerlink" href="#advocate-landing-page-notes" title="Permalink to this headline">¶</a></h3>
+<h3>Advocate Landing Page Notes<a class="headerlink" href="#advocate-landing-page-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">The Talkable Initialization script must be present in your head
 template in order for the advocate landing page to work</p>
@@ -247,7 +247,7 @@ you intend to use via
 </div>
 </li>
 </ol>
-<hr class="docutils" />
+<p><hr></p>
 </div>
 </div>
 <div class="section" id="referral-dashboard">
