@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Offers Expiration &mdash; Talkable Documentation</title>
+    <title>Offers Expiration &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,20 +16,20 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Talkable Campaigns" href="../campaigns.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Localization" href="localization.html" />
     <link rel="prev" title="Incentive Criteria" href="tutorials/incentive_criteria.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -48,27 +48,30 @@
 
   <div class="content-container content clearfix">
       <div class="nav">
-        <ul>
-<li class="toctree-l1"><a class="reference internal" href="../ecommerce.html">E-Commerce Integration</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../saas.html">SaaS Integrations</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
-</ul>
-<ul class="current">
+        <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="campaign_types.html">Campaign Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaign_placements.html">Campaign Placements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Offers Expiration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Offers Expiration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="editor.html">Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designer.html">Designer</a></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Custom Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/magento.html">Magento Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
@@ -89,14 +92,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns"></span><div class="section" id="offers-expiration">
 <h1>Offers Expiration<a class="headerlink" href="#offers-expiration" title="Permalink to this headline">¶</a></h1>
 <p>Talkable Campaign allows to set offer expiration for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
 by specifying specific date or setting offer duration in hours.</p>
 <h2>Advocate</h2><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">Advocate</span> <span class="pre">deadline</span></tt> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
+<li><code class="docutils literal"><span class="pre">Advocate</span> <span class="pre">deadline</span></code> - <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> will no longer be able to share after this date.</li>
 <li>All existing <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offers are always affected if specified date is changed
 while campaign is live.</li>
 <li><abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> Deadline is not copied when campaign is copied.</li>
@@ -106,8 +109,8 @@ In other words Advocate offer expiration only prevents <abbr title="Person, who 
 <li>This setting doesn&#8217;t affect <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> reward in any way.</li>
 </ul>
 <h2>Friend</h2><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Deadline</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
-<li><tt class="docutils literal"><span class="pre">Friend</span> <span class="pre">Offer</span> <span class="pre">Duration</span></tt> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
+<li><code class="docutils literal"><span class="pre">Friend</span> <span class="pre">Deadline</span></code> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer after this date.</li>
+<li><code class="docutils literal"><span class="pre">Friend</span> <span class="pre">Offer</span> <span class="pre">Duration</span></code> - <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> will no longer be able to claim the offer X
 hours after <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> shared it with him. Leave blank to disable expiration at all.</li>
 <li>All existing <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> offers will be affected if specified date or offer duration is
 changed while campaign is live.</li>
