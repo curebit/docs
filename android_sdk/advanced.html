@@ -100,13 +100,13 @@
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="using-multiple-site-slugs">
 <h2>Using multiple site slugs<a class="headerlink" href="#using-multiple-site-slugs" title="Permalink to this headline">¶</a></h2>
-<p>To use multiple site slugs inside your application you have to do next steps:</p>
+<p>To use multiple site slugs inside your application, you have to do next steps:</p>
 <ol class="arabic">
 <li><p class="first">Add credentials for each site you are going to use inside your manifest file.
 Format is the same as from corresponding
 <a class="reference internal" href="getting_started.html#setup-credentials"><em>Getting Started</em></a> section.</p>
 </li>
-<li><p class="first">Add deep linking schema handlers into your main activity entry for each site
+<li><p class="first">Add deep linking schemas handlers into your main activity entry for each site
 you are going to use too. Format is the same as from corresponding
 <a class="reference internal" href="getting_started.html#deep-linking-scheme"><em>Getting Started</em></a> section.</p>
 </li>
@@ -137,12 +137,12 @@ you are going to use too. Format is the same as from corresponding
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>You can set site slug at any time after initilization in the following way:</p>
+<p>You can set site slug at any time after initialization in the following way:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">setSiteSlug</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;some-site-slug&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <p class="last">Make sure to add credentials for this site inside the manifest file.
-Otherwise an exception will be raised.</p>
+Otherwise, an exception will be raised.</p>
 </div>
 </li>
 </ol>
@@ -183,7 +183,7 @@ and override methods there. Example:</p>
 <blockquote>
 <div><p>You can just override <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> and use default
 <tt class="docutils literal"><span class="pre">TalkableActivity</span></tt> from Talkable SDK.
-In this case you shouldn&#8217;t change the manifest
+In this case, you shouldn&#8217;t change the manifest
 (if you did steps from <a class="reference internal" href="getting_started.html#android-sdk-getting-started"><em>Getting Started</em></a> section).</p>
 </div></blockquote>
 <div class="last highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
