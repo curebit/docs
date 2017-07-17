@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -401,7 +400,7 @@ as an array.</p>
 </div>
 <div class="section" id="group-by">
 <h2>group_by<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h2>
-<p>Group an array&#8217;s items by a given property.</p>
+<p>Group an array’s items by a given property.</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amount&quot;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
@@ -486,8 +485,8 @@ Available attributes: <cite>red</cite>, <cite>green</cite>, <cite>blue</cite>, <
 <div class="section" id="leaderboard">
 <h2>leaderboard<a class="headerlink" href="#leaderboard" title="Permalink to this headline">¶</a></h2>
 <p>Returns array of top advocates for Leaderboard campaigns.
-Parameter can be number from 1 to 100 or &#8216;advocate&#8217;.</p>
-<p>If parameter is &#8216;advocate&#8217; it will return rank info for current advocate.</p>
+Parameter can be number from 1 to 100 or ‘advocate’.</p>
+<p>If parameter is ‘advocate’ it will return rank info for current advocate.</p>
 <p>It returns objects with next fields:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">leaderboard_rank</span></code> - Advocate rank</li>
@@ -519,7 +518,7 @@ an iframe so you can take <code class="docutils literal"><span class="pre">url2p
 website snapshot.</p>
 <p>Available options:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">ttl</span></code> - &#8220;time to live&#8221; period for a screenshot before it gets refreshed, in seconds. Value example: <code class="docutils literal"><span class="pre">86400</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">ttl</span></code> - “time to live” period for a screenshot before it gets refreshed, in seconds. Value example: <code class="docutils literal"><span class="pre">86400</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">viewport</span></code> - Viewport dimensions. Value example: <code class="docutils literal"><span class="pre">&quot;640x480&quot;</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">custom_css_url</span></code> - Custom CSS file that will be injected into a website in case you need to change a screenshot. Value example: <code class="docutils literal"><span class="pre">&quot;http://url2png.com/tests/css/test.css&quot;</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">fullpage</span></code> - Attempts to capture entire document canvas. Value example: <code class="docutils literal"><span class="pre">true</span></code>.</li>

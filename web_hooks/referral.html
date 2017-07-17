@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -101,12 +100,12 @@
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
-<li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
-<li><strong>email</strong> — referrer&#8217;s email address</li>
+<li><strong>email</strong> — referrer’s email address</li>
 <li><strong>short_url_code</strong></li>
 </ul>
 </li>
@@ -128,8 +127,8 @@
 <li><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when incetive equals discount_coupon.</li>
 <li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
 <li><strong>type</strong><ul>
-<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
-<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“AffiliateMember”</em> for standalone campaign</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the origin event</li>
@@ -159,7 +158,7 @@
 </ul>
 <h2>Coupon codes as a reward</h2><div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Any code sent via this web hook doesn&#8217;t need to be created on merchant site.
+<p class="last">Any code sent via this web hook doesn’t need to be created on merchant site.
 When Talkable needs more coupons — it always calls
 <a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><span class="std std-ref">Create Coupon Web Hook</span></a>.
 In this web hook Talkable just sends the information to merchant that coupon
@@ -169,12 +168,12 @@ its own database.</p>
 <h2>Incentive types</h2><p>Incentives can be of 3 following general types.</p>
 <ul class="simple">
 <li><strong>rebate</strong> — monetary reward, certain amount of money that should be paid out
-to a customer with a given email. Payment should be handled by the merchants&#8217;
+to a customer with a given email. Payment should be handled by the merchants’
 payment systems.</li>
 <li><strong>discount_coupon</strong> — discount coupon is issued to customer. This type of
 incentives is handled by Talkable.</li>
-<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>&#8220;Free T-shirt&#8221;</em>
-or <em>&#8220;One Month Free&#8221;</em>. This should be handled on the merchant&#8217;s side. More
+<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>“Free T-shirt”</em>
+or <em>“One Month Free”</em>. This should be handled on the merchant’s side. More
 information on the reward is specified in <em>incentive_description</em>.</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>

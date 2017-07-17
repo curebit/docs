@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -135,7 +134,7 @@ defined inside of the Talkable platform</li>
 </ul>
 <p id="integration-custom-questions-talkable-know-where-to-display-content"><strong>4.) How does Talkable know where to display content?</strong></p>
 <ul class="simple">
-<li>&#8220;Placements&#8221; refer to areas of your website where referral content
+<li>“Placements” refer to areas of your website where referral content
 should display. These rules are defined inside of the Placements
 section inside the Talkable platform.<ul>
 <li>You can modify default placements, add additional placements, or
@@ -155,8 +154,8 @@ platform.</li>
 can be defined)</li>
 <li>Post Purchase Popup Campaign: Checkout confirmation page where the
 post purchase integration script resides.</li>
-<li>Advocate Landing Page Invite Campaign: URL ending in &#8220;/share&#8221;</li>
-<li>Referral Dashboard Campaign: URL ending in &#8220;/referrals&#8221;</li>
+<li>Advocate Landing Page Invite Campaign: URL ending in “/share”</li>
+<li>Referral Dashboard Campaign: URL ending in “/referrals”</li>
 </ul>
 </li>
 </ul>
@@ -182,7 +181,7 @@ considering returns, or through manual approval. Once a reward is
 approved, Talkable sends an email that communicates/delivers the reward.
 Most customers choose auto approval after a 24-48 delay, which requires
 little to no attention.</p>
-<p><span class="underline">Here&#8217;s how reward flow and logic works:</span></p>
+<p><span class="underline">Here’s how reward flow and logic works:</span></p>
 <p>After Talkable tracks the referred purchase we run it through two sets
 of filters: fraud filters, and then campaign qualifiers.</p>
 <ul class="simple">
@@ -205,10 +204,10 @@ typically not necessary.</p>
 <p><span class="underline">API approval to account for returns</span></p>
 <p>The way this works is that you would ping Talkable on all orders that
 reach some final valid or failed state. This uses lazy logic so you
-don&#8217;t need to know if a purchase is referral related or not, Talkable
-will determine this. So any order# you ping us with that&#8217;s not related
-to a pending referral, we&#8217;ll gracefully ignore, and any order# we
-recognize as related to a pending referral, we&#8217;ll take the appropriate
+don’t need to know if a purchase is referral related or not, Talkable
+will determine this. So any order# you ping us with that’s not related
+to a pending referral, we’ll gracefully ignore, and any order# we
+recognize as related to a pending referral, we’ll take the appropriate
 action.</p>
 <p id="integration-custom-questions-verify-success"><strong>7.) How do I verify success?</strong></p>
 <p>Refer to the section titled <a class="reference internal" href="validating_integration.html#integration-custom-validating-integration"><span class="std std-ref">Validating the Integration</span></a>.</p>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -99,24 +98,24 @@
 <p>Triggered when Advocate Signup form is submitted.</p>
 <h2>Payload parameters provided for Advocate Signup Web Hook</h2><ul class="simple">
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
-<li><strong>email</strong> — referrer&#8217;s email address</li>
+<li><strong>email</strong> — referrer’s email address</li>
 <li><strong>short_url_code</strong></li>
 </ul>
 </li>
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
-<li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
-<li><strong>email</strong> — affiliate member&#8217;s email address</li>
+<li><strong>email</strong> — affiliate member’s email address</li>
 </ul>
 <p>If the Signup form included first and last name fields or subscription checkbox,
 additional parameters will be present:</p>
 <ul class="simple">
-<li><strong>first_name</strong> — affiliate member&#8217;s first name</li>
-<li><strong>last_name</strong> — affiliate member&#8217;s last name</li>
+<li><strong>first_name</strong> — affiliate member’s first name</li>
+<li><strong>last_name</strong> — affiliate member’s last name</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
 <li><strong>subscribed_at</strong> — date affiliate member has subscribed</li>
 <li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</li>

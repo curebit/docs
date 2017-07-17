@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -104,7 +103,7 @@
 All methods are available in any place of your app (after <a class="reference internal" href="getting_started.html#main-activity-setup"><span class="std std-ref">initialization</span></a>).</p>
 <div class="section" id="create-visitor">
 <h2>Create visitor<a class="headerlink" href="#create-visitor" title="Permalink to this headline">¶</a></h2>
-<p>It&#8217;s the simplest method. You don&#8217;t need anything to create <cite>Visitor</cite>.
+<p>It’s the simplest method. You don’t need anything to create <cite>Visitor</cite>.
 But you can do anything you need with just create one.</p>
 <blockquote>
 <div><div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableApi</span><span class="o">;</span>
@@ -246,7 +245,7 @@ you need to pass this data to this method. Example:</p>
 </div>
 <div class="section" id="retrieve-offer">
 <h2>Retrieve offer<a class="headerlink" href="#retrieve-offer" title="Permalink to this headline">¶</a></h2>
-<p>This method is used to get offer details by it&#8217;s short code. Example:</p>
+<p>This method is used to get offer details by it’s short code. Example:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">shortUrlCode</span> <span class="o">=</span> <span class="s">&quot;ABCXYZ&quot;</span><span class="o">;</span>
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">retrieveOffer</span><span class="o">(</span><span class="n">shortUrlCode</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback1</span><span class="o">&lt;</span><span class="n">Offer</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
