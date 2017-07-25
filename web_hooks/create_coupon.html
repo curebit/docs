@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Create Coupon Web Hook &#8212; Talkable Documentation</title>
+    <title>Create Coupon Web Hook &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,14 +16,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Web Hooks" href="../web_hooks.html" />
     <link rel="next" title="Referral Web Hook" href="referral.html" />
     <link rel="prev" title="Web Hooks" href="../web_hooks.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -67,7 +68,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../web_hooks.html">Web Hooks</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Coupons</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Create Coupons</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
@@ -91,12 +92,12 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="web-hooks-create-coupon"></span><div class="section" id="create-coupon-web-hook">
 <h1>Create Coupon Web Hook<a class="headerlink" href="#create-coupon-web-hook" title="Permalink to this headline">¶</a></h1>
 <p>Used for enterprise clients who want to give unique coupons to each visitor
-and don’t want to manually upload a list of coupon codes to Talkable. In order
+and don&#8217;t want to manually upload a list of coupon codes to Talkable. In order
 to create coupon codes for a coupon list automatically, Talkable can notify
 a customer site which coupons should be created.</p>
 <h2>When does Talkable call this web hook?</h2><p>Suppose we have some codes in coupon list that are available for use. When the
@@ -112,7 +113,7 @@ available coupons to serve the site for 21 days if integration become broken.
 Minimum Threshold is 20 coupons.</p>
 <h2>Coupon Expiration timestamp</h2><p>Talkable having a hard time making decision when the coupon we are creating should expire.
 Only coupons that should be given on Friend Claim Page can have expiration and only when campaign offers are setup to expire.
-Other coupons given as “Reward For Sharing” or “Advocate Reward for Referral” should not have expiration.</p>
+Other coupons given as &#8220;Reward For Sharing&#8221; or &#8220;Advocate Reward for Referral&#8221; should not have expiration.</p>
 <p>Expiration date for coupon on Friend Claim page is always greater than Advocate Claim Page expiration date + one day buffer.
 So Talkable is making web hooks with expiration set to Friend Claim page expiration + 1 day when it has no coupons that match this criteria in its own database.</p>
 <h2>Payload parameters provided for Create Coupon Web Hook</h2><ul class="simple">
@@ -138,8 +139,10 @@ So Talkable is making web hooks with expiration set to Friend Claim page expirat
 <h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;coupon_code&quot;:&quot;WHT58574&quot;,&quot;discount_amount&quot;:10,&quot;percentage_discount&quot;:false,&quot;usage_limit&quot;:1,&quot;expires_at&quot;:&quot;2014-04-14T06:17:14.309-07:00&quot;,&quot;coupon_list_id&quot;:1,&quot;coupon_list_name&quot;:&quot;$10 off&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
-<div class="hidden docutils container">
+<div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>
