@@ -78,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-multiple-site-slugs">Using multiple site slugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-via-facebook">Sharing via Facebook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#overriding-default-behaviour">Overriding default behaviour</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-talkableofferfragment-directly">Using TalkableOfferFragment directly</a></li>
 </ul>
@@ -147,6 +148,11 @@ Otherwise, an exception will be raised.</p>
 </li>
 </ol>
 </div>
+<div class="section" id="sharing-via-facebook">
+<h2>Sharing via Facebook<a class="headerlink" href="#sharing-via-facebook" title="Permalink to this headline">¶</a></h2>
+<p>By default sharing via Facebook is disabled. You can enable it by setting up
+your project with the Facebook SDK: <a class="reference external" href="https://developers.facebook.com/docs/android/getting-started">Getting Started Android SDK</a></p>
+</div>
 <div class="section" id="overriding-default-behaviour">
 <h2>Overriding default behaviour<a class="headerlink" href="#overriding-default-behaviour" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -165,19 +171,12 @@ and override methods there. Example:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Pass classes of an activity you want to run a fragment in and the overriden fragment to
+<li><p class="first">Pass Class of an activity you want to run a fragment in and the overriden fragment to
 <cite>Talkable.showOffer</cite> call:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>And change the manifest:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- From --&gt;</span>
-<span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
-
-<span class="c">&lt;!-- To --&gt;</span>
-<span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;.MyFragmentActivity&quot;</span> <span class="nt">/&gt;</span>
-</pre></div>
-</div>
+<p>Define your Activity inside the manifest.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <blockquote>

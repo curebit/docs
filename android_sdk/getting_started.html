@@ -103,12 +103,13 @@
 <ol class="arabic">
 <li><p class="first">Download the latest version of <a class="reference external" href="https://talkable-downloads.s3.amazonaws.com/android-sdk/talkable-sdk.aar">Talkable SDK framework</a>.</p>
 </li>
-<li><p class="first">Add <tt class="docutils literal"><span class="pre">talkable-sdk.aar</span></tt> and add it as project dependency in Android studio.</p>
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">talkable-sdk.aar</span></tt> and add it as a module dependency in Android studio.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To do this, open import popup using <em>File</em> &rarr; <em>New</em> &rarr; <em>New Module</em> &rarr; <em>Import .JAR/.AAR Package</em></p>
+<p class="last">To do this, open import popup using <em>File</em> &rarr; <em>New</em> &rarr; <em>New Module</em> &rarr; <em>Import .JAR/.AAR Package</em>
+and add Talkable SDK as a module dependency to your main module</p>
 </div>
-<p>After this, add dependencies to <tt class="docutils literal"><span class="pre">build.gradle</span></tt></p>
+<p>After this, add Talkable SDK dependencies to <tt class="docutils literal"><span class="pre">build.gradle</span></tt></p>
 <div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">compile</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.facebook.android:facebook-android-sdk:[4,5)&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.google.code.gson:gson:2.7&#39;</span>
@@ -117,13 +118,8 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">Add Talkable activity to your <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> file inside <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> element.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
-</pre></div>
-</div>
-</li>
 </ol>
-<ol class="arabic" id="setup-credentials" start="4">
+<ol class="arabic" id="setup-credentials" start="3">
 <li><p class="first">Setup Talkable credentials in <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> file inside
 <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> element in the following format:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
@@ -147,8 +143,9 @@ Use only the public key in your application.</li>
 </div>
 </li>
 </ol>
-<ol class="arabic" id="deep-linking-scheme" start="5">
-<li><p class="first">Add deep linking scheme handler into your main activity entry.</p>
+<ol class="arabic" id="deep-linking-scheme" start="4">
+<li><p class="first">Add deep linking scheme handler into your main activity entry or an activity you
+want to handle deep links from Talkable.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
     <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
 
@@ -160,19 +157,8 @@ Use only the public key in your application.</li>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Add the following entry into <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> element in your <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> file to track app installs.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;receiver</span>
-    <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.InstallReferrerReceiver&quot;</span>
-    <span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;intent-filter&gt;</span>
-        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;com.android.vending.INSTALL_REFERRER&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/intent-filter&gt;</span>
-<span class="nt">&lt;/receiver&gt;</span>
-</pre></div>
-</div>
-</li>
 </ol>
-<ol class="arabic" id="main-activity-setup" start="7">
+<ol class="arabic" id="main-activity-setup" start="5">
 <li><p class="first">Initialize Talkable in the <tt class="docutils literal"><span class="pre">Application</span></tt>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Application</span><span class="o">;</span>
@@ -192,7 +178,7 @@ Use only the public key in your application.</li>
 the <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> element in your manifest</p>
 </div>
 </li>
-<li><p class="first">Call <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen</span></tt> inside you main activity class, like so:</p>
+<li><p class="first">Call <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen</span></tt> inside you main activity class, like this:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 
@@ -240,19 +226,9 @@ the <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></t
 
         <span class="c">&lt;!-- Talkable --&gt;</span>
 
-        <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.TalkableActivity&quot;</span> <span class="nt">/&gt;</span>
-
         <span class="nt">&lt;meta-data</span>
             <span class="na">android:name=</span><span class="s">&quot;tkbl-api-key-demo-site&quot;</span>
             <span class="na">android:value=</span><span class="s">&quot;nacsc9XseW4Kxne6AaJ&quot;</span> <span class="nt">/&gt;</span>
-
-        <span class="nt">&lt;receiver</span>
-            <span class="na">android:name=</span><span class="s">&quot;com.talkable.sdk.InstallReferrerReceiver&quot;</span>
-            <span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;intent-filter&gt;</span>
-                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;com.android.vending.INSTALL_REFERRER&quot;</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/intent-filter&gt;</span>
-        <span class="nt">&lt;/receiver&gt;</span>
 
         <span class="c">&lt;!-- End Talkable --&gt;</span>
     <span class="nt">&lt;/application&gt;</span>
