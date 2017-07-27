@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advocate Signup Web Hook &mdash; Talkable Documentation</title>
+    <title>Advocate Signup Web Hook &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Web Hooks" href="../web_hooks.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Friend Email Gating Web Hook" href="claim_signup.html" />
     <link rel="prev" title="Post Share Web Hook" href="post_share.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -55,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Custom Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Standard Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
@@ -72,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Advocate Signup</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Advocate Signup</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
@@ -92,31 +91,31 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="web-hooks-offer-signup"></span><div class="section" id="advocate-signup-web-hook">
 <h1>Advocate Signup Web Hook<a class="headerlink" href="#advocate-signup-web-hook" title="Permalink to this headline">¶</a></h1>
 <p>Triggered when Advocate Signup form is submitted.</p>
 <h2>Payload parameters provided for Advocate Signup Web Hook</h2><ul class="simple">
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
-<li><strong>email</strong> — referrer&#8217;s email address</li>
+<li><strong>email</strong> — referrer’s email address</li>
 <li><strong>short_url_code</strong></li>
 </ul>
 </li>
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
-<li><strong>tag_names</strong> — array of campaign&#8217;s tags</li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
-<li><strong>email</strong> — affiliate member&#8217;s email address</li>
+<li><strong>email</strong> — affiliate member’s email address</li>
 </ul>
 <p>If the Signup form included first and last name fields or subscription checkbox,
 additional parameters will be present:</p>
 <ul class="simple">
-<li><strong>first_name</strong> — affiliate member&#8217;s first name</li>
-<li><strong>last_name</strong> — affiliate member&#8217;s last name</li>
+<li><strong>first_name</strong> — affiliate member’s first name</li>
+<li><strong>last_name</strong> — affiliate member’s last name</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
 <li><strong>subscribed_at</strong> — date affiliate member has subscribed</li>
 <li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</li>
@@ -145,10 +144,8 @@ additional parameters will be present:</p>
 <h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:361325654,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Doe&quot;,&quot;gender&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>

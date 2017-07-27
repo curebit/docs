@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Segment With Product SKU &mdash; Talkable Documentation</title>
+    <title>Segment With Product SKU &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Segment With Traffic Source" href="traffic_source.html" />
     <link rel="prev" title="Referrals Approval" href="referrals_approval.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -59,7 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom User Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Segment With Product SKU</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Segment With Product SKU</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
@@ -71,7 +70,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Custom Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Standard Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
@@ -98,7 +97,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="advanced-features-product-sku"></span><div class="section" id="segment-with-product-sku">
 <h1>Segment With Product SKU<a class="headerlink" href="#segment-with-product-sku" title="Permalink to this headline">¶</a></h1>
@@ -122,22 +121,20 @@ criteria in there:</p>
 {{ result }}
 </pre></div>
 </div>
-<p>Now only those customers who purchased a product with SKU of &#8220;SKU_GOES_HERE&#8221; will see a Campaign.
-The Campaign won&#8217;t show for any other product purchased.</p>
+<p>Now only those customers who purchased a product with SKU of “SKU_GOES_HERE” will see a Campaign.
+The Campaign won’t show for any other product purchased.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">In order to use this Campaign Join Criteria you need to make sure that the SKU numbers are passed
 throught the integration first of all. To do that you need to go into Reports
-(top header navigation) -&gt; Purchases -&gt; Click on &#8220;Details&#8221; link of any purchase and make sure there is &#8220;Product Id&#8221;
-column with a valid &#8220;Product ID&#8221; value in place.
+(top header navigation) -&gt; Purchases -&gt; Click on “Details” link of any purchase and make sure there is “Product Id”
+column with a valid “Product ID” value in place.
 If there is no such column or it is blank you cannot use this feature unless you pass the following instructions
-<a class="reference internal" href="product_items.html#advanced-features-product-items"><em>Including Product Items</em></a>.</p>
+<a class="reference internal" href="product_items.html#advanced-features-product-items"><span class="std std-ref">Including Product Items</span></a>.</p>
 </div>
 <p>Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you have any questions.</p>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
