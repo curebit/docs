@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Designer &#8212; Talkable Documentation</title>
+    <title>Designer &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,14 +16,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Talkable Campaigns" href="../campaigns.html" />
     <link rel="next" title="Advanced Features" href="../advanced_features.html" />
     <link rel="prev" title="Videos" href="editor/videos.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -56,11 +57,11 @@
 <li class="toctree-l2"><a class="reference internal" href="offers_expiration.html">Offers Expiration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="localization.html">Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="editor.html">Editor</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Designer</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Designer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#web-view-size">Web view size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#email-size">Email size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fonts">Fonts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#responsive-view-s-height">Responsive view’s height</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#responsive-view-s-height">Responsive view&#8217;s height</a></li>
 </ul>
 </li>
 </ul>
@@ -97,7 +98,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-designer"></span><div class="section" id="designer">
 <h1>Designer<a class="headerlink" href="#designer" title="Permalink to this headline">¶</a></h1>
@@ -110,7 +111,7 @@ main container width of your site:</p>
 <img alt="Page canvas size" src="../_images/image1.png" />
 <p>For mobile screens most common width is 320px, but we also support fluid
 width with possibility to set it to 100% to support mobile devices and
-tablets. Since Talkable integration is based on <code class="docutils literal"><span class="pre">iframe</span></code> it is not
+tablets. Since Talkable integration is based on <tt class="docutils literal"><span class="pre">iframe</span></tt> it is not
 possible to change its size from within of the iframe that’s why Signup
 and Share pages should always be of the same size.</p>
 <p>For Post-purchase campaign Advocate Share Page should look like a modal window
@@ -154,7 +155,7 @@ and solid ones:</p>
 </ol>
 </div>
 <div class="section" id="responsive-view-s-height">
-<span id="responsive-views"></span><h2>Responsive view’s height<a class="headerlink" href="#responsive-view-s-height" title="Permalink to this headline">¶</a></h2>
+<span id="responsive-views"></span><h2>Responsive view&#8217;s height<a class="headerlink" href="#responsive-view-s-height" title="Permalink to this headline">¶</a></h2>
 <p>Talkable campaigns can be integrated as a popup with overlay, or as an inline
 block that sits somewhere in the middle between site header and footer. When
 Talkable Campaign looks like a popup with overlay its size if always fixed to 100%
@@ -162,18 +163,18 @@ width and 100% height, it basically takes the entire screen and its size never g
 changed when a user resizes browser window (overlay will still take the entire screen size).</p>
 <p>However, when Talkable Campaign is placed inline inside content area its size
 depends on its internal content. The more content it holds the more higher it is.
-Iframe has a known issue due to which browsers don’t change its height no matter how
+Iframe has a known issue due to which browsers don&#8217;t change its height no matter how
 much content it holds inside. By default all browsers set 150px height to all iframe
 tags and add scrollbars if the internal content exceeds that size. Talkable Campaigns
-are always of the correct size because of “Responsive iframe height” feature always
+are always of the correct size because of &#8220;Responsive iframe height&#8221; feature always
 being enabled for such cases. No matter how much content Talkable iframe holds its
 size will always be correct in order to look as expected without scrollbars. For this
-reason, you might notice Talkable adds <code class="docutils literal"><span class="pre">overflow:</span> <span class="pre">hidden;</span></code> to the BODY tag — this CSS
+reason, you might notice Talkable adds <tt class="docutils literal"><span class="pre">overflow:</span> <span class="pre">hidden;</span></tt> to the BODY tag — this CSS
 property hides the scrollbars. At the same time, Talkable JS integration library always
 ensures its height is correct by checking the size of the iframe content and setting it
 in pixels to the Talkable iframe tag that holds it from the outside.</p>
-<p>You are able to turn “Responsive iframe’s height” ON/OFF from within
-<code class="docutils literal"><span class="pre">Campaign</span> <span class="pre">/</span> <span class="pre">Editor</span> <span class="pre">/</span> <span class="pre">Edit</span> <span class="pre">HTML</span> <span class="pre">&amp;</span> <span class="pre">CSS</span> <span class="pre">/</span> <span class="pre">Extra</span> <span class="pre">/</span> <span class="pre">Responsive</span> <span class="pre">iframe's</span> <span class="pre">height</span></code> select box.</p>
+<p>You are able to turn &#8220;Responsive iframe&#8217;s height&#8221; ON/OFF from within
+<tt class="docutils literal"><span class="pre">Campaign</span> <span class="pre">/</span> <span class="pre">Editor</span> <span class="pre">/</span> <span class="pre">Edit</span> <span class="pre">HTML</span> <span class="pre">&amp;</span> <span class="pre">CSS</span> <span class="pre">/</span> <span class="pre">Extra</span> <span class="pre">/</span> <span class="pre">Responsive</span> <span class="pre">iframe's</span> <span class="pre">height</span></tt> select box.</p>
 </div>
 </div>
 

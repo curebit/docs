@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Integration Components &#8212; Talkable Documentation</title>
+    <title>Integration Components &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,14 +16,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Standard Integration" href="../custom_integration.html" />
     <link rel="next" title="Alternate Post Purchase Script for cart line item passing" href="alternate_post_purchase.html" />
     <link rel="prev" title="Integration High Level Overview" href="overview.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
@@ -56,7 +57,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../custom_integration.html">Standard Integration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Integration High Level Overview</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Integration Components</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Integration Components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#initialization-script">Initialization Script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-purchase-script">Post Purchase Script</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advocate-landing-page">Advocate Landing Page</a></li>
@@ -93,13 +94,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="integration-custom-integration-components"></span><div class="section" id="integration-components">
 <h1>Integration Components<a class="headerlink" href="#integration-components" title="Permalink to this headline">¶</a></h1>
 <p>Talkable is composed of the following components:</p>
 <ol class="arabic">
-<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Initialization Script</span></a></p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-initialization-script"><em>Initialization Script</em></a></p>
 <p><strong>Script Location.</strong> The Initialization script should be placed in the head template or some template
 that spans every page. All other integration components are dependent on the Init script.</p>
 <p><strong>Data Capture</strong> The Initialization Script should be passed variables for logged in users:</p>
@@ -111,7 +112,7 @@ that spans every page. All other integration components are dependent on the Ini
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">Post Purchase Script</span></a></p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-post-purchase-script"><em>Post Purchase Script</em></a></p>
 <p><strong>Script Location.</strong> The Post Purchase script should be placed on the checkout confirmation page.</p>
 <p><strong>Script Dependency.</strong> The Post Purchase script is dependent on the Initialization script to run.</p>
 <p><strong>Data Capture.</strong> This script needs to capture purchase based details</p>
@@ -125,11 +126,11 @@ be applied at checkout)</li>
 <li>(optional) Shopping cart line items. This is only necessary if segmenting based on cart contents.</li>
 </ul>
 </li>
-<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-advocate-landing-page"><span class="std std-ref">Advocate Landing Page</span></a>.</p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-advocate-landing-page"><em>Advocate Landing Page</em></a>.</p>
 <p>Create an HTML page (URL path /share) with your standard site header and footer.
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
-<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-referral-dashboard"><span class="std std-ref">Referral Dashboard (my account)</span></a>.</p>
+<li><p class="first"><a class="reference internal" href="#integration-custom-integration-components-referral-dashboard"><em>Referral Dashboard (my account)</em></a>.</p>
 <p>Similar to the advocate landing page, create an HTML page that’s linked to from a menu in user accounts.
 Add the Talkable Container DIV in the body. This tells Talkable where to inject content.</p>
 </li>
@@ -142,9 +143,9 @@ template that spans every page. Talkable JS library size is typically
 around 20kB and causes no noticeable impact to your site’s loading time.
 All other integration components are dependent on the Initialization
 script.</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;your-site-id&#39;</span> <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -153,7 +154,7 @@ script.</p>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span>
   <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{}]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -180,8 +181,8 @@ the parameters, or pass empty strings.</p>
 </div>
 <div class="section" id="post-purchase-script">
 <span id="integration-custom-integration-components-post-purchase-script"></span><h2>Post Purchase Script<a class="headerlink" href="#post-purchase-script" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
@@ -195,7 +196,7 @@ the parameters, or pass empty strings.</p>
     <span class="p">}</span>
   <span class="p">};</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -214,9 +215,9 @@ additional fraud protection</li>
 your domain, you should ensure that some auto return feature is
 enabled so that the user returns to the checkout confirmation page to
 allow the post purchase script to run.</li>
-<li>If you’re using a tag manager <a class="reference internal" href="integration_tag_manager.html#integration-custom-integration-tag-manager"><span class="std std-ref">click here</span></a>.</li>
+<li>If you’re using a tag manager <a class="reference internal" href="integration_tag_manager.html#integration-custom-integration-tag-manager"><em>click here</em></a>.</li>
 <li>If you need to pass shopping cart line items, to see the alternate
-post purchase integration script <a class="reference internal" href="alternate_post_purchase.html#integration-custom-alternate-post-purchase"><span class="std std-ref">click here</span></a>.</li>
+post purchase integration script <a class="reference internal" href="alternate_post_purchase.html#integration-custom-alternate-post-purchase"><em>click here</em></a>.</li>
 </ol>
 </div>
 </div>
@@ -224,7 +225,7 @@ post purchase integration script <a class="reference internal" href="alternate_p
 <span id="integration-custom-integration-components-advocate-landing-page"></span><h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
 <p>Create a new HTML page with URL path (<cite>www.your-site.com/share</cite>) and add the Talkable Container DIV
 in the body of the page between your standard site header and footer:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="advocate-landing-page-notes">
@@ -254,13 +255,13 @@ you intend to use via
 <p>Similar to the Advocate Landing Page, create a new HTML page with URL
 path (<cite>www.your-site.com/referrals</cite>) and add the Talkable Container DIV in
 the body of the page:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="referral-dashboard-notes">
 <h3>Referral Dashboard notes:<a class="headerlink" href="#referral-dashboard-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>The <a class="reference internal" href="#integration-custom-integration-components-initialization-script"><span class="std std-ref">Talkable Initialization Script</span></a> must be present in your head
+<li>The <a class="reference internal" href="#integration-custom-integration-components-initialization-script"><em>Talkable Initialization Script</em></a> must be present in your head
 template in order for the referral dashboard to work</li>
 <li>Talkable will inject referral content where Talkable Container
 resides in your DOM. Adding a new page is only a suggestion. The
