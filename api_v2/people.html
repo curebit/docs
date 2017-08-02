@@ -204,7 +204,6 @@ Talkable dashboard after you log in and create a site.</td>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;lizard_king&quot;</span>
   <span class="p">}</span>
@@ -213,8 +212,8 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/people
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
+     https://www.talkable.com/api/v2/people/customer@example.com
 </pre></div>
 </div>
 <p>Sample response:</p>
@@ -243,7 +242,6 @@ Talkable dashboard after you log in and create a site.</td>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;person_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;unsubscribed&quot;</span><span class="o">:</span> <span class="kc">true</span>
   <span class="p">}</span>
@@ -252,8 +250,8 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;person_slug&quot;:&quot;customer@example.com&quot;,&quot;data&quot;:{&quot;unsubscribed&quot;:true}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/people
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;unsubscribed&quot;:true}}&#39;</span> <span class="se">\</span>
+     https://www.talkable.com/api/v2/people/customer@example.com
 </pre></div>
 </div>
 <p>Sample response:</p>
