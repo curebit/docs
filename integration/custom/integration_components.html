@@ -75,6 +75,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento Integration</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../demandware.html">Demandware Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
 </ul>
 <ul>
@@ -180,15 +183,20 @@ the parameters, or pass empty strings.</p>
 </div>
 <div class="section" id="post-purchase-script">
 <span id="integration-custom-integration-components-post-purchase-script"></span><h2>Post Purchase Script<a class="headerlink" href="#post-purchase-script" title="Permalink to this headline">¶</a></h2>
+<p>The post purchase script should be placed on your checkout confirmation
+page or any page that immediately follows checkout. All parameters can
+be passed as strings. A Number can be passed for <cite>subtotal</cite>, however, if
+using any calculation, you’re responsible for ensuring that some number is
+passed where division by zero or <cite>null</cite> value does not occur.</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">//pre-tax, post-discount</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// pre-tax, post-discount</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// can also accept multiple coupons as an array</span>
-      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;02222&#39;</span><span class="p">,</span>  <span class="c1">//optional - used for fraud protection on matching address</span>
-      <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;Apt #, Street address, City, State, ZIP, Country&#39;</span> <span class="c1">//please use this order of address fields, comma separated, so Talkable can normalize the address</span>
+      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;02222&#39;</span><span class="p">,</span> <span class="c1">// optional - used for fraud protection on matching address</span>
+      <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;Apt #, Street address, City, State, ZIP, Country&#39;</span> <span class="c1">// optional - please use this order of address fields, comma separated, so Talkable can normalize the address</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span>
