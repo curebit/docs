@@ -58,7 +58,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shopify Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#automatic-integration">Automatic integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extension-integration">Extension integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#manual-integration">Manual integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="verify.html">Verifying Integration Instructions</a></li>
 </ul>
@@ -95,8 +95,8 @@
             
   <span class="target" id="integration-shopify"></span><div class="section" id="shopify-integration">
 <h1>Shopify Integration<a class="headerlink" href="#shopify-integration" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="automatic-integration">
-<h2>Automatic integration<a class="headerlink" href="#automatic-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extension-integration">
+<h2>Extension integration<a class="headerlink" href="#extension-integration" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -106,18 +106,27 @@ you start the Automatic integration process. See <a class="reference internal" h
 </div>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Install the <a class="reference external" href="https://apps.shopify.com/talkable">Shopify Talkable application</a>.</li>
-<li>In your Talkable administration panel, go to
-<strong>Dashboard</strong> → Expand <strong>Settings</strong> dropdown → <strong>Shopify Integration</strong>.</li>
-<li>Then click <strong>Install Talkable</strong> in your Shopify administration panel.</li>
-<li>Modify existing integration script if needed.</li>
-<li>Activate Post Purchase or Invite (Standalone) Campaign.</li>
+<li>Create Talkable account at <a
+  href="https://talkable.com/register?object_or_array"
+  target="_blank"
+>
+  https://talkable.com/register?object_or_array
+</a></li>
+</ol>
+<p><span class="inline mll"></span> - Provide a valid Shopify store URL. Example: <span class="a">http://123test.myshopify.com</span>. <br>
+<span class="inline mll"></span> - Choose “Shopify” as your Platform during registration process</p>
+<ol class="arabic simple" start="2">
+<li>On the Welcome screen click “I’m Developer”</li>
+<li>Click <strong>Install Shopify App</strong></li>
+<li>You will be redirected to your Shopify store, log in and click the install button</li>
+<li>After successful installation you will be redirected back to Talkable</li>
+<li>Create, set up, and Launch Campaigns (Invite, Advocate Dashboard, etc.)</li>
 <li>Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><span class="std std-ref">Verifying Integration</span></a>.</li>
 </ol>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>Post Purchase campaign is located at the Thank you page after Checkout.</p>
+<p>Post Purchase campaign is located at the “Thank you” page after Checkout.</p>
 <p class="last">To check how Standalone Campaign looks visit <em>/pages/share</em> or <em>/pages/invite</em> links of your store.
 You can edit these links in Administrative panel of your store.</p>
 </div>
@@ -193,7 +202,7 @@ dashboard after you log in and create a site.</p>
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
   <span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-3.0.6.min.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-4.0.0.min.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>

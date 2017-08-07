@@ -584,6 +584,15 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 </pre></div>
 </div>
 <p>Returns <code class="docutils literal"><span class="pre">some</span> <span class="pre">string</span></code></p>
+<p><hr></p>
+</div>
+<div class="section" id="values">
+<h2>values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
+<p>Takes a hash and returns the array of its values.</p>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">incentive_configs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>incentives<span class="w"> </span>|<span class="w"> </span>values<span class="w"> </span><span class="p">%}</span>
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal"><span class="pre">[{ad</span> <span class="pre">incentive</span> <span class="pre">config},</span> <span class="pre">{fr</span> <span class="pre">incentive</span> <span class="pre">config}]</span></code></p>
 </div>
 </div>
 
