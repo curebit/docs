@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advocate Signup Web Hook &#8212; Talkable Documentation</title>
+    <title>Advocate Signup Web Hook &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,14 +16,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Web Hooks" href="../web_hooks.html" />
     <link rel="next" title="Friend Email Gating Web Hook" href="claim_signup.html" />
     <link rel="prev" title="Post Share Web Hook" href="post_share.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -74,7 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advocate Signup</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Advocate Signup</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
@@ -94,7 +95,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="web-hooks-offer-signup"></span><div class="section" id="advocate-signup-web-hook">
 <h1>Advocate Signup Web Hook<a class="headerlink" href="#advocate-signup-web-hook" title="Permalink to this headline">¶</a></h1>
@@ -108,7 +109,7 @@
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
 <li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
@@ -147,8 +148,10 @@ additional parameters will be present:</p>
 <h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:361325654,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Doe&quot;,&quot;gender&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
-<div class="hidden docutils container">
+<div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>

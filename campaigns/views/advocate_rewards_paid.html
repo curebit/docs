@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advocate Reward Paid Email &#8212; Talkable Documentation</title>
+    <title>Advocate Reward Paid Email &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -15,14 +16,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Views" href="../views.html" />
     <link rel="next" title="Friend Reward Paid Email" href="friend_rewards_paid.html" />
     <link rel="prev" title="Advocate Reward Confirmation Email" href="advocate_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
@@ -59,7 +60,7 @@
 <li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
 <li class="toctree-l3"><a class="reference internal" href="advocate_rewards_confirmation.html">Advocate Reward Confirmation Email</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Advocate Reward Paid Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Paid Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="friend_rewards_paid.html">Friend Reward Paid Email</a></li>
 </ul>
 </li>
@@ -105,17 +106,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="campaigns-views-notifier-rewards-paid"></span><div class="section" id="advocate-reward-paid-email">
 <h1>Advocate Reward Paid Email<a class="headerlink" href="#advocate-reward-paid-email" title="Permalink to this headline">¶</a></h1>
-<p>Email is triggered to an Advocate when Referral marked as <code class="docutils literal"><span class="pre">Approved</span></code>. <br>
+<p>Email is triggered to an Advocate when Referral marked as <tt class="docutils literal"><span class="pre">Approved</span></tt>. <br>
 Let Advocate know their account has been credited or a partial refund has
 been issued.</p>
 <p>Frequently used Variables:</p>
 <ul class="simple">
-<li>To show Reward Coupon Code use <code class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></code>.</li>
-<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <code class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></code>.</li>
+<li>To show Reward Coupon Code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
 </ul>
 <p><br></p>
 <img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
@@ -128,7 +129,7 @@ been issued.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Ideal email width is 480px. This is a most universal width for both
 mobile and desktop platforms.
-<a class="reference internal" href="../designer.html#designer-email"><span class="std std-ref">Read more about email design</span></a>.</p>
+<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
 </div>
 <h2>Email sending conditions</h2><p>By default is sent immediately after the reward status turns into <cite>Paid</cite>, but can be delayed by configuration. This View is available only for <strong>Advocate Incentive</strong> where <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> is rewarded after <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> buys using their coupon code.</p>
 </div>
