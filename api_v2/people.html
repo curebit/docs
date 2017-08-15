@@ -3,12 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>People &#8212; Talkable Documentation</title>
-    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -137,7 +134,7 @@ Talkable dashboard after you log in and create a site.</td>
 <div class="highlight-text"><div class="highlight"><pre><span></span>PUT /people/&lt;person_slug&gt;
 </pre></div>
 </div>
-<p>Updates existing person.</p>
+<p>Updates an existing person or creates one if it does not exist.</p>
 <div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
@@ -155,7 +152,7 @@ Talkable dashboard after you log in and create a site.</td>
 Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>person_slug</td>
-<td>Person’s email or username</td>
+<td>Person’s email</td>
 </tr>
 <tr class="row-even"><td>data</td>
 <td><p class="first">JSON object with one or more of following properties:</p>
@@ -167,6 +164,33 @@ Talkable dashboard after you log in and create a site.</td>
 <li>person_custom_properties</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>POST /people/&lt;person_slug&gt;/unsubscribe
+</pre></div>
+</div>
+<p>Unsubscribes a person from receiving emails.</p>
+<div class="ptable docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>person_slug</td>
+<td>Person’s email</td>
 </tr>
 </tbody>
 </table>
@@ -241,17 +265,14 @@ Talkable dashboard after you log in and create a site.</td>
 <h3>Unsubscribe a person from receiving emails<a class="headerlink" href="#unsubscribe-a-person-from-receiving-emails" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;unsubscribed&quot;</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;unsubscribed&quot;:true}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/people/customer@example.com
+     -X POST <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;}&#39;</span> <span class="se">\</span>
+     https://www.talkable.com/api/v2/people/customer@example.com/unsubscribe
 </pre></div>
 </div>
 <p>Sample response:</p>
