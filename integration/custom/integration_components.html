@@ -3,9 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Integration Components &#8212; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -143,7 +146,7 @@ around 20kB and causes no noticeable impact to your site’s loading time.
 All other integration components are dependent on the Initialization
 script.</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;your-site-id&#39;</span> <span class="p">}]);</span>
