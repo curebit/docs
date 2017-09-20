@@ -151,9 +151,9 @@ script.</p>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;your-site-id&#39;</span> <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span><span class="p">,</span>
-    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
-    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;Surname&#39;</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Optional, pass when available. Example: &#39;customer@example.com&#39;</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Optional, pass when available. Example: &#39;John&#39;</span>
+    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Optional, pass when available. Example: &#39;Smith&#39;</span>
   <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{}]);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -192,14 +192,14 @@ passed where division by zero or <cite>null</cite> value does not occur.</p>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;100011&#39;</span><span class="p">,</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;23.97&#39;</span><span class="p">,</span> <span class="c1">// pre-tax, post-discount</span>
-      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span> <span class="c1">// can also accept multiple coupons as an array</span>
-      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;02222&#39;</span><span class="p">,</span> <span class="c1">// optional - used for fraud protection on matching address</span>
-      <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;Apt #, Street address, City, State, ZIP, Country&#39;</span> <span class="c1">// optional - please use this order of address fields, comma separated, so Talkable can normalize the address</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Unique order number. Example: &#39;100011&#39;</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Order subtotal (pre-tax, post-discount). Example: &#39;23.97&#39;</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Coupon code that was used at checkout (pass multiple as an array). Example: &#39;SAVE20&#39;</span>
+      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="c1">// Optional - used for fraud protection by address. Example: &#39;02222&#39;</span>
+      <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Full address of the order, make sure to strictly follow a format: &#39;Apt #, Street address, City, State, ZIP, Country&#39;</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer@example.com&#39;</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Customer email address who issued a purchase. Example: &#39;customer@example.com&#39;</span>
     <span class="p">}</span>
   <span class="p">};</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
