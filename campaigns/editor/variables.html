@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Variables &mdash; Talkable Documentation</title>
+    <title>Variables &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../../index.html" />
-    <link rel="up" title="Editor" href="../editor.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Files" href="files.html" />
     <link rel="prev" title="Editor" href="../editor.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
@@ -57,7 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../offers_expiration.html">Offers Expiration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../localization.html">Localization</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../editor.html">Editor</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Variables</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="files.html">Files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="history.html">History</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filters.html">Filters</a></li>
@@ -102,13 +101,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="campaigns-editor-variables"></span><div class="section" id="variables">
 <span id="editor-variables"></span><h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
 <p>Variables are used to show dynamic data like Campaign tag, Advocate info, etc.
 <br>
-All Variables are enclosed into <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">}}</span></tt> which means
+All Variables are enclosed into <code class="docutils literal"><span class="pre">{{</span> <span class="pre">}}</span></code> which means
 <a class="reference external" href="http://docs.shopify.com/themes/liquid-basics/output">Liquid Output</a>.</p>
 <p>Each Campaign View has its own set of Variables located inside Editor
 navigation:</p>
@@ -127,9 +126,9 @@ different between preview and production scenarious)</li>
 <div class="section" id="advocate-info">
 <span id="editor-variables-advocate-info"></span><h2>{{ advocate_info }}<a class="headerlink" href="#advocate-info" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: all Views <br>
-<strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<strong>Type</strong>: <code class="docutils literal"><span class="pre">Object</span></code></p>
 <p>Personal data for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>.</p>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="15%" />
@@ -144,20 +143,20 @@ different between preview and production scenarious)</li>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>email</td>
-<td>&#8220;<a class="reference external" href="mailto:affiliate&#37;&#52;&#48;example&#46;com">affiliate<span>&#64;</span>example<span>&#46;</span>com</a>&#8220;</td>
+<td>“<a class="reference external" href="mailto:affiliate&#37;&#52;&#48;example&#46;com">affiliate<span>&#64;</span>example<span>&#46;</span>com</a>”</td>
 <td>Advocate email he is registered with</td>
 </tr>
 <tr class="row-odd"><td>first_name</td>
-<td>&#8220;John&#8221;</td>
+<td>“John”</td>
 <td>Advocate first name provided on Signup</td>
 </tr>
 <tr class="row-even"><td>last_name</td>
-<td>&#8220;Smith&#8221;</td>
+<td>“Smith”</td>
 <td>Advocate last name provided on Signup</td>
 </tr>
 <tr class="row-odd"><td>external_customer_id</td>
-<td>&#8220;1jsh17136&#8221;</td>
-<td>Advocate unique ID passed by Merchant to <a class="reference internal" href="../../integration/custom/integration_components.html#integration-custom-integration-components-initialization-script"><em>Talkable Integration</em></a> as <tt class="docutils literal"><span class="pre">customer_id</span></tt></td>
+<td>“1jsh17136”</td>
+<td>Advocate unique ID passed by Merchant to <a class="reference internal" href="../../integration/custom/integration_components.html#integration-custom-integration-components-initialization-script"><span class="std std-ref">Talkable Integration</span></a> as <code class="docutils literal"><span class="pre">customer_id</span></code></td>
 </tr>
 <tr class="row-even"><td>sub_choice</td>
 <td>false | true</td>
@@ -176,9 +175,9 @@ data to Advocate Share Page.</td>
 <div class="section" id="advocate-origin">
 <h2>{{ advocate_origin }}<a class="headerlink" href="#advocate-origin" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: all Views <br>
-<strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<strong>Type</strong>: <code class="docutils literal"><span class="pre">Object</span></code></p>
 <p><abbr title="Origin is the point where a referral loop begins (Standalone or Post Purchase campaign)">Origin</abbr> data for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>.</p>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
@@ -201,27 +200,27 @@ data to Advocate Share Page.</td>
 <td>Advocate is a new customer or not</td>
 </tr>
 <tr class="row-even"><td>created_at</td>
-<td>&#8220;2016-07-27T00:00:00.000+03:00&#8221;</td>
+<td>“2016-07-27T00:00:00.000+03:00”</td>
 <td>Time when Advocate origin was created</td>
 </tr>
 <tr class="row-odd"><td>event_category</td>
-<td>&#8220;purchase&#8221;</td>
+<td>“purchase”</td>
 <td>Advocate origin event category</td>
 </tr>
 <tr class="row-even"><td>coupon_codes</td>
-<td>[&#8220;AD_DISCOUNT&#8221;]</td>
+<td>[“AD_DISCOUNT”]</td>
 <td>Coupon codes that are used in Advocate origin</td>
 </tr>
 <tr class="row-odd"><td>location.country</td>
-<td>&#8220;United States&#8221;</td>
+<td>“United States”</td>
 <td>Advocate geolocation country based on their IP address</td>
 </tr>
 <tr class="row-even"><td>location.city</td>
-<td>&#8220;San Jose&#8221;</td>
+<td>“San Jose”</td>
 <td>Advocate geolocation city based on their IP address</td>
 </tr>
 <tr class="row-odd"><td>location.country_code</td>
-<td>&#8220;US&#8221;</td>
+<td>“US”</td>
 <td>Advocate geolocation country code based on their IP address</td>
 </tr>
 </tbody>
@@ -233,7 +232,7 @@ data to Advocate Share Page.</td>
 <h2>{{ coupon_code }}<a class="headerlink" href="#coupon-code" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: Friend Claim Page, Advocate Redemption Email, Advocate Reward
 Paid Email <br>
-<strong>Type</strong>: <tt class="docutils literal"><span class="pre">String</span></tt></p>
+<strong>Type</strong>: <code class="docutils literal"><span class="pre">String</span></code></p>
 <p>Coupon Code is given to a person as a Reward based on Incentive (condition of
 giving out the Reward).</p>
 <p>When you want to use this Variable always keep in mind who you want to
@@ -246,9 +245,9 @@ show it to because it has a scope:</p>
 <p><br></p>
 <p>Make sure Incentives are correct:</p>
 <ul class="simple">
-<li>If its <tt class="docutils literal"><span class="pre">single-use</span></tt> Coupon Code, make sure Coupon List exist and it has
+<li>If its <code class="docutils literal"><span class="pre">single-use</span></code> Coupon Code, make sure Coupon List exist and it has
 enough coupons and they are valid in terms of uniqueness and validity</li>
-<li>If its <tt class="docutils literal"><span class="pre">multi-use</span></tt> Coupon Code, make sure it has a correct value</li>
+<li>If its <code class="docutils literal"><span class="pre">multi-use</span></code> Coupon Code, make sure it has a correct value</li>
 </ul>
 <img alt="Variables: coupon list" src="../../_images/vars-coupon-list.png" />
 <p><hr></p>
@@ -256,10 +255,10 @@ enough coupons and they are valid in terms of uniqueness and validity</li>
 <div class="section" id="incentives">
 <h2>{{ incentives }}<a class="headerlink" href="#incentives" title="Permalink to this headline">¶</a></h2>
 <p><strong>Available in</strong>: all Views <br>
-<strong>Type</strong>: <tt class="docutils literal"><span class="pre">Object</span></tt></p>
+<strong>Type</strong>: <code class="docutils literal"><span class="pre">Object</span></code></p>
 <p>Reflects entire Campaign Incentives list including. This object can include
 several Incentives which are also objects.</p>
-<p>Here is an example of <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> Variable with two incentives:
+<p>Here is an example of <code class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></code> Variable with two incentives:
 <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nx">advocate</span><span class="o">:</span> <span class="p">{</span>
@@ -275,7 +274,7 @@ several Incentives which are also objects.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>And here is an example of using <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></tt> values:</p>
+<p>And here is an example of using <code class="docutils literal"><span class="pre">{{</span> <span class="pre">incentives</span> <span class="pre">}}</span></code> values:</p>
 <div class="highlight-liquid"><div class="highlight"><pre><span></span>Give your friend <span class="p">{{</span><span class="w"> </span><span class="nv">incentives</span><span class="p">.</span><span class="nv">friend</span><span class="p">.</span><span class="nv">description</span><span class="w"> </span><span class="p">}}</span> OFF!
 </pre></div>
 </div>
@@ -283,7 +282,7 @@ several Incentives which are also objects.</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>Give your friend 100% OFF!
 </pre></div>
 </div>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="25%" />
 <col width="25%" />
@@ -297,7 +296,7 @@ several Incentives which are also objects.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Liquid slug</td>
-<td>&#8220;referrer&#8221;</td>
+<td>“referrer”</td>
 <td>Incentive identifier</td>
 </tr>
 <tr class="row-odd"><td>amount</td>
@@ -305,7 +304,7 @@ several Incentives which are also objects.</p>
 <td>Incentive amount (float)</td>
 </tr>
 <tr class="row-even"><td>description</td>
-<td>&#8220;$50&#8221;</td>
+<td>“$50”</td>
 <td>Formatted Incentive including currency and amount</td>
 </tr>
 <tr class="row-odd"><td>percentage</td>
