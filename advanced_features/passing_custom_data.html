@@ -117,20 +117,20 @@ existence at any time: the most recently passed data.</p>
 <p>All data associated with <tt class="docutils literal"><span class="pre">custom_properties</span></tt> is available for use
 across all Campaign Views. Accessing this data beings by creating a variable
 to store your custom_properties:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>advocate_custom_properties<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>advocate_custom_properties<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_custom_properties<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_custom_properties<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p>Key Value pairs can be referenced through your newly created object by referencing
 the value name such as:</p>
-<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">data</span><span class="p">.</span><span class="nv">favorite_color</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span class="p">{{</span><span class="w"> </span><span class="nv">data</span><span class="p">.</span><span class="nv">favorite_color</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
 <p>Defining <tt class="docutils literal"><span class="pre">custom_properties</span></tt> in your integration might look something like this:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="nx">custom_properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>
@@ -142,7 +142,7 @@ the value name such as:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

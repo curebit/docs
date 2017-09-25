@@ -107,10 +107,10 @@
 which will let your customers share specific items that they’ve purchased.
 Customer shares with products have higher click through and conversion rates.</p>
 <p>Below is an example with product items passed along with purchase data (notice FOR loop):</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_purchase_items</span> <span class="o">=</span> <span class="p">[];</span>
 
   <span class="c1">// Start for loop</span>
@@ -134,7 +134,7 @@ Customer shares with products have higher click through and conversion rates.</p
   <span class="p">};</span>
 
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span> <span class="c1">// Pass data to Talkable and show Post Purchase campaign as a result</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>

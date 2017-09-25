@@ -146,9 +146,9 @@ template that spans every page. Talkable JS library size is typically
 around 20kB and causes no noticeable impact to your site’s loading time.
 All other integration components are dependent on the Initialization
 script.</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;your-site-id&#39;</span> <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -157,7 +157,7 @@ script.</p>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Optional, pass when available. Example: &#39;Smith&#39;</span>
   <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{}]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -189,8 +189,8 @@ page or any page that immediately follows checkout. All parameters can
 be passed as strings. A Number can be passed for <cite>subtotal</cite>, however, if
 using any calculation, you’re responsible for ensuring that some number is
 passed where division by zero or <cite>null</cite> value does not occur.</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="nt">&lt;script&gt;</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Unique order number. Example: &#39;100011&#39;</span>
@@ -204,7 +204,7 @@ passed where division by zero or <cite>null</cite> value does not occur.</p>
     <span class="p">}</span>
   <span class="p">};</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -233,7 +233,7 @@ post purchase integration script <a class="reference internal" href="alternate_p
 <span id="integration-custom-integration-components-advocate-landing-page"></span><h2>Advocate Landing Page<a class="headerlink" href="#advocate-landing-page" title="Permalink to this headline">¶</a></h2>
 <p>Create a new HTML page with URL path (<cite>www.your-site.com/share</cite>) and add the Talkable Container DIV
 in the body of the page between your standard site header and footer:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="advocate-landing-page-notes">
@@ -263,7 +263,7 @@ you intend to use via
 <p>Similar to the Advocate Landing Page, create a new HTML page with URL
 path (<cite>www.your-site.com/referrals</cite>) and add the Talkable Container DIV in
 the body of the page:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;talkable-offer&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="referral-dashboard-notes">
@@ -290,7 +290,7 @@ referral history. If you don’t have user logins, then the Referral
 Dashboard can be configured to display partially obfuscated data for
 public access.</li>
 </ol>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="alternate_post_purchase.html">Alternate Post Purchase Script for cart line item passing</a></li>
