@@ -3,12 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Advocate Signup Web Hook &#8212; Talkable Documentation</title>
-    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -119,9 +116,11 @@ additional parameters will be present:</p>
 <ul class="simple">
 <li><strong>first_name</strong> — affiliate member’s first name</li>
 <li><strong>last_name</strong> — affiliate member’s last name</li>
+<li><strong>username</strong> — affiliate member’s username</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
 <li><strong>subscribed_at</strong> — date affiliate member has subscribed</li>
 <li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</li>
+<li><strong>custom_properties</strong> — hash of affiliate member’s custom properties (optional)</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -137,14 +136,17 @@ additional parameters will be present:</p>
   <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
   <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
   <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;dodo&quot;</span><span class="p">,</span>
   <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-14T02:01:16.824-07:00&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">&quot;custom_properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;my_property&quot;</span><span class="o">:</span> <span class="s2">&quot;some value&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:361325654,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Doe&quot;,&quot;gender&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:361325654,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Doe&quot;,&quot;username&quot;:&quot;dodo&quot;,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;unsubscribed_at&quot;:null,&quot;custom_properties&quot;:{&quot;my_property&quot;:&quot;some_value&quot;}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
