@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Friend Email Gating Web Hook &mdash; Talkable Documentation</title>
+    <title>Friend Email Gating Web Hook &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Web Hooks" href="../web_hooks.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Talkable iOS SDK" href="../ios_sdk.html" />
     <link rel="prev" title="Advocate Signup Web Hook" href="offer_signup.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -76,7 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offer_signup.html">Advocate Signup</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Friend Email Gating</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Friend Email Gating</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -95,7 +94,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="web-hooks-claim-signup"></span><div class="section" id="friend-email-gating-web-hook">
 <h1>Friend Email Gating Web Hook<a class="headerlink" href="#friend-email-gating-web-hook" title="Permalink to this headline">¶</a></h1>
@@ -109,7 +108,7 @@
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
 <li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
@@ -120,7 +119,7 @@
 <li><strong>subscribed_at</strong> — date friend has subscribed (optional)</li>
 <li><strong>unsubscribed_at</strong> — date friend has unsubscribed (optional)</li>
 </ul>
-<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<h2>Sample payload</h2><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span>
@@ -141,13 +140,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:null,&quot;last_name&quot;:null,&quot;gender&quot;:null,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:null,&quot;last_name&quot;:null,&quot;gender&quot;:null,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Upgrade &mdash; Talkable Documentation</title>
+    <title>Upgrade &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Talkable Android SDK" href="../android_sdk.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="API" href="api.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -80,7 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Upgrade</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">0.4.2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">0.4.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">0.4.0</a></li>
@@ -100,7 +99,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="android-sdk-upgrade"></span><div class="section" id="upgrade">
 <h1>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this headline">¶</a></h1>
@@ -108,10 +107,10 @@
 <div class="section" id="id1">
 <h2>0.4.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Read Contacts permission is optional from this version.</p>
-<p>In case you used <tt class="docutils literal"><span class="pre">import_contacts</span></tt> callback, you have to define <tt class="docutils literal"><span class="pre">READ_CONTACTS</span></tt>
+<p>In case you used <code class="docutils literal"><span class="pre">import_contacts</span></code> callback, you have to define <code class="docutils literal"><span class="pre">READ_CONTACTS</span></code>
 permission inside the manifest:</p>
 <blockquote>
-<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+<div><div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
   <span class="na">package=</span><span class="s">&quot;com.android.app.myapp&quot;</span> <span class="nt">&gt;</span>
   <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.READ_CONTACTS&quot;</span> <span class="nt">/&gt;</span>
   ...
@@ -122,18 +121,18 @@ permission inside the manifest:</p>
 </div>
 <div class="section" id="id2">
 <h2>0.4.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Fixed an issue inside <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt>.</p>
+<p>Fixed an issue inside <code class="docutils literal"><span class="pre">TalkableOfferFragment</span></code>.</p>
 </div>
 <div class="section" id="id3">
 <h2>0.4.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="added-multiple-site-slugs-support-bugs-fixing">
 <h3>Added multiple site slugs support. Bugs fixing.<a class="headerlink" href="#added-multiple-site-slugs-support-bugs-fixing" title="Permalink to this headline">¶</a></h3>
 <p>From this moment you can operate with multiple Talkable sites inside Talkable SDK.
-Look in <a class="reference internal" href="advanced.html#android-sdk-advanced"><em>Advanced Usage</em></a> for more detailed information if needed.</p>
+Look in <a class="reference internal" href="advanced.html#android-sdk-advanced"><span class="std std-ref">Advanced Usage</span></a> for more detailed information if needed.</p>
 <p>To update from the previous version please do following steps.</p>
 <ol class="arabic">
-<li><p class="first">Update dependencies inside <tt class="docutils literal"><span class="pre">build.gradle</span></tt>.</p>
-<div class="highlight-groovy"><div class="highlight"><pre><span class="c1">// From</span>
+<li><p class="first">Update dependencies inside <code class="docutils literal"><span class="pre">build.gradle</span></code>.</p>
+<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="c1">// From</span>
 <span class="n">compile</span> <span class="s1">&#39;com.google.code.gson:gson:2.4&#39;</span>
 <span class="n">compile</span> <span class="s1">&#39;com.android.support:support-v4:24.2.1&#39;</span>
 
@@ -144,7 +143,7 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 </div>
 </li>
 <li><p class="first">Change credentials setup inside the manifest.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span class="c">&lt;!-- From --&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- From --&gt;</span>
  <span class="nt">&lt;application&gt;</span>
      ...
      <span class="nt">&lt;meta-data</span>
@@ -167,8 +166,8 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 </pre></div>
 </div>
 </li>
-<li><p class="first">Initialize Talkable in the <tt class="docutils literal"><span class="pre">Application</span></tt>.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<li><p class="first">Initialize Talkable in the <code class="docutils literal"><span class="pre">Application</span></code>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Application</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
@@ -182,12 +181,12 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure to add your application class name as <tt class="docutils literal"><span class="pre">android:name</span></tt> parameter of
-the <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> element in your manifest</p>
+<p class="last">Make sure to add your application class name as <code class="docutils literal"><span class="pre">android:name</span></code> parameter of
+the <code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> element in your manifest</p>
 </div>
 </li>
-<li><p class="first">Call <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen</span></tt> inside you main activity class, like before.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<li><p class="first">Call <code class="docutils literal"><span class="pre">Talkable.trackAppOpen</span></code> inside you main activity class, like before.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
@@ -202,18 +201,18 @@ the <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></t
 </div>
 </li>
 </ol>
-<p>From this version defining of <tt class="docutils literal"><span class="pre">TalkableActivity</span></tt> and <tt class="docutils literal"><span class="pre">InstallReferrerReceiver</span></tt>
+<p>From this version defining of <code class="docutils literal"><span class="pre">TalkableActivity</span></code> and <code class="docutils literal"><span class="pre">InstallReferrerReceiver</span></code>
 inside Android Manifest is not necessary.</p>
 </div>
 </div>
 <div class="section" id="id4">
 <h2>0.3.1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="introducing-talkableofferfragmentlistener-interface-bugs-fixing">
-<h3>Introducing <tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt> interface. Bugs fixing.<a class="headerlink" href="#introducing-talkableofferfragmentlistener-interface-bugs-fixing" title="Permalink to this headline">¶</a></h3>
-<p>Fixed a bug when no campaign found and added <tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt> interface.</p>
-<p>To use instance of <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> directly you have to implement <tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt>
-interface from <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> class inside an activity that uses the fragment.
-Look in <a class="reference internal" href="advanced.html#android-sdk-advanced"><em>Advanced Usage</em></a> for more detailed information if needed.</p>
+<h3>Introducing <code class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></code> interface. Bugs fixing.<a class="headerlink" href="#introducing-talkableofferfragmentlistener-interface-bugs-fixing" title="Permalink to this headline">¶</a></h3>
+<p>Fixed a bug when no campaign found and added <code class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></code> interface.</p>
+<p>To use instance of <code class="docutils literal"><span class="pre">TalkableOfferFragment</span></code> directly you have to implement <code class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></code>
+interface from <code class="docutils literal"><span class="pre">TalkableOfferFragment</span></code> class inside an activity that uses the fragment.
+Look in <a class="reference internal" href="advanced.html#android-sdk-advanced"><span class="std std-ref">Advanced Usage</span></a> for more detailed information if needed.</p>
 </div>
 </div>
 <div class="section" id="id5">
@@ -228,8 +227,8 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 <h2>0.2.0<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="deep-linking-scheme">
 <h3>Deep linking scheme<a class="headerlink" href="#deep-linking-scheme" title="Permalink to this headline">¶</a></h3>
-<p>Add this to <tt class="docutils literal"><span class="pre">AndroidManifest.xml</span></tt> inside definition of Talkable activity</p>
-<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;intent-filter&gt;</span>
+<p>Add this to <code class="docutils literal"><span class="pre">AndroidManifest.xml</span></code> inside definition of Talkable activity</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;intent-filter&gt;</span>
     <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
 
     <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
@@ -242,8 +241,8 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 </div>
 <div class="section" id="tracking-app-opening">
 <h3>Tracking app opening<a class="headerlink" href="#tracking-app-opening" title="Permalink to this headline">¶</a></h3>
-<p>Replace <tt class="docutils literal"><span class="pre">Talkable.initialize(this);</span></tt> with <tt class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></tt> in your main activity.
-Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><em>installation section</em></a> for more detailed information if needed.</p>
+<p>Replace <code class="docutils literal"><span class="pre">Talkable.initialize(this);</span></code> with <code class="docutils literal"><span class="pre">Talkable.trackAppOpen(this);</span></code> in your main activity.
+Look in <a class="reference internal" href="getting_started.html#main-activity-setup"><span class="std std-ref">installation section</span></a> for more detailed information if needed.</p>
 </div>
 </div>
 <div class="section" id="id7">
@@ -251,8 +250,6 @@ Look in <a class="reference internal" href="getting_started.html#main-activity-s
 <p>It’s initial release, nothing to do.</p>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
