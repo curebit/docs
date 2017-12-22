@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Localization &#8212; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -25,7 +29,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -101,7 +105,7 @@ Localization is not a part of the view template. Default talkable campaigns are 
 <div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_title&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Get [[incentives.referrer.descrition]]&#39;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
-<p>After adding this filter call to the template, go to campaign page and click “Localization” from the navigation menu:</p>
+<p>After adding this filter call to the template, go to campaign page and click &#8220;Localization&#8221; from the navigation menu:</p>
 <img alt="../_images/campaign-localization.jpg" src="../_images/campaign-localization.jpg" />
 <p>Any campaign that uses view with <cite>localize</cite> call have this data appeared.
 Now you are able to change the default value to something else like <cite>Obten {{incentives.referrer.descrition}}</cite> (Spanish)</p>
