@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Verifying Integration &#8212; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -20,12 +24,12 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Magento Integration" href="magento.html" />
-    <link rel="prev" title="Shopify Integration" href="shopify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="F.A.Q." href="custom/questions.html" />
+    <link rel="prev" title="Validating the Integration" href="custom/validating_integration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body>
+  <body role="document">
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -50,18 +54,22 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="custom_integration.html">Standard Integration</a></li>
-</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="shopify.html">Shopify Integration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="shopify.html#automatic-integration">Automatic integration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="shopify.html#manual-integration">Manual integration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Verifying Integration instructions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="custom_integration.html">Standard Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="custom/overview.html">Integration High Level Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/integration_components.html">Integration Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/validating_integration.html">Validating the Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verifying Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-integration-in-js-spas">Verifying Integration in JS SPAs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="custom/questions.html">F.A.Q.</a></li>
 </ul>
 </li>
 </ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shopify.html">Shopify Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="magento.html">Magento Integration</a></li>
@@ -92,23 +100,44 @@
             
   <span class="target" id="integration-verify"></span><div class="section" id="verifying-integration">
 <h1>Verifying Integration<a class="headerlink" href="#verifying-integration" title="Permalink to this headline">¶</a></h1>
-<p>After installing Talkable, you should verify that the integration is working.
-All you have to do is check out from your store using the special email
-<a class="reference external" href="mailto:integration&#37;&#52;&#48;talkable&#46;com">integration<span>&#64;</span>talkable<span>&#46;</span>com</a>.</p>
+<p>After installing Talkable, you should verify that the integration is working:</p>
+<p><cite>integration&#64;talkable.com</cite>.</p>
 <ol class="arabic">
-<li><p class="first">Do a test checkout on your online store and use <a class="reference external" href="mailto:integration&#37;&#52;&#48;talkable&#46;com">integration<span>&#64;</span>talkable<span>&#46;</span>com</a>
-as the customer email address.</p>
+<li><p class="first">Open your homepage (assuming the Talkable init script is placed on every page,
+otherwise visit the page you have placed the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><span class="std std-ref">init script</span></a>
+with a secret URL parameter like so: <a class="reference external" href="https://www.site.com/">https://www.site.com/</a><strong>?tkbl_verify_integration=true</strong>. As a result you should see:</p>
+<img alt="../_images/integration_check_affiliate_member_success.png" src="../_images/integration_check_affiliate_member_success.png" />
 </li>
-<li><p class="first">After checking out, you should see an integration success page that looks
-like this:</p>
-<a class="reference internal image-reference" href="../_images/integration_success.png"><img alt="Integration Success" src="../_images/integration_success.png" style="width: 300px;" /></a>
-<p>(Don’t worry. This image is only shown when you use the special
-<a class="reference external" href="mailto:integration&#37;&#52;&#48;talkable&#46;com">integration<span>&#64;</span>talkable<span>&#46;</span>com</a> email address. No one else is seeing that image.)</p>
+<li><p class="first">Issue a test purchase. Order subtotal should be &gt; 0,</p>
+<p>email should be <cite>integration&#64;talkable.com</cite>. Preferably include a coupon code so we
+can verify it gets passed as well. As a result you should see:</p>
+<img alt="../_images/integration_check_purchase_success.png" src="../_images/integration_check_purchase_success.png" />
+<p>Talkable verification dialog only appears to you, it will not be shown to anyone else. All purchases with <cite>integration&#64;talkable.com</cite> email will not be recorded inside Talkable.</p>
 </li>
 </ol>
-<p>If you can’t complete checkout with <a class="reference external" href="mailto:integration&#37;&#52;&#48;talkable&#46;com">integration<span>&#64;</span>talkable<span>&#46;</span>com</a>, we’ll also verify
-your integration whenever someone completes checkout on your store (but they
-won’t see anything).</p>
+<div class="section" id="verifying-integration-in-js-spas">
+<h2>Verifying Integration in JS SPAs<a class="headerlink" href="#verifying-integration-in-js-spas" title="Permalink to this headline">¶</a></h2>
+<p>In case you are unable to pass <strong>?tkbl_verify_integration=true</strong>
+URL parameter you can alternatively turn Talkable into &#8220;Verification mode&#8221; by setting:</p>
+<p><cite>talkable.config.verify_integration = true;</cite></p>
+<p>All requests will now be coming with &#8220;Verification&#8221; flag turned on.</p>
+<p><strong>Note:</strong> do not use it in production, this mode is for debugging purpose only.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>In case you are not seeing the verification popup please make sure the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><span class="std std-ref">init script</span></a>
+is installed on the page. You may do so by making right click
+(Chrome) → Inspect Element → Inside Elements tab press Cmd+F (Ctrl+F on Windows) and
+search for <cite>d2jj</cite> → make sure the init script matches the one provided inside your
+Integration tab inside Talkable Admin.</p>
+<p>If you see the init script on the page, but the verification popup still does
+not appear on the screen, make sure a request is was passed to Talkable.
+To do that open Network tab (Chrome) → refresh the page → inside Search bar look
+up for &#8220;create.html&#8221;. Make sure you see something like:</p>
+<img alt="../_images/chrome_network_tab.png" src="../_images/chrome_network_tab.png" />
+<p>If the request is coming through but you are still not seeing the verification
+popup please contact Talkable support: <a class="reference external" href="mailto:support&#37;&#52;&#48;talkable&#46;com">support<span>&#64;</span>talkable<span>&#46;</span>com</a>.</p>
+</div>
 </div>
 
 
