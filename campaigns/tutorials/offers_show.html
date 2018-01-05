@@ -212,7 +212,7 @@ custom domain you’ll need to obtain separate <code class="docutils literal"><s
 <p><strong>Basic Setup</strong></p>
 <p><strong>HTML:</strong></p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//platform.linkedin.com/in.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;IN/Share&quot;</span> <span class="na">data-url</span><span class="o">=</span><span class="s">&quot;{{ short_url_linkedin }}&quot;</span> <span class="na">data-onsuccess</span><span class="o">=</span><span class="s">&quot;fireOnLinkedInShare&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;IN/Share&quot;</span> <span class="na">data-url</span><span class="o">=</span><span class="s">&quot;{{ &#39;linkedin&#39; | claim_url }}&quot;</span> <span class="na">data-onsuccess</span><span class="o">=</span><span class="s">&quot;fireOnLinkedInShare&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p><strong>JS:</strong></p>
@@ -225,7 +225,7 @@ custom domain you’ll need to obtain separate <code class="docutils literal"><s
 <p><strong>HTML:</strong></p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-linkedin-button-holder&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: none;&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//platform.linkedin.com/in.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;IN/Share&quot;</span> <span class="na">data-url</span><span class="o">=</span><span class="s">&quot;{{ short_url_linkedin }}&quot;</span> <span class="na">data-onsuccess</span><span class="o">=</span><span class="s">&quot;fireOnLinkedInShare&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;IN/Share&quot;</span> <span class="na">data-url</span><span class="o">=</span><span class="s">&quot;{{ &#39;linkedin&#39; | claim_url }}&quot;</span> <span class="na">data-onsuccess</span><span class="o">=</span><span class="s">&quot;fireOnLinkedInShare&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </pre></div>
 </div>
