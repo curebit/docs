@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -107,7 +106,7 @@ it is getting paid after Referral is approved.</p>
 <ul class="simple">
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
-<li><strong>type</strong> — either <em>&#8220;StandaloneCampaign&#8221;</em> or <em>&#8220;DoubleSidedDealCampaign&#8221;</em></li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
 <li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
@@ -124,8 +123,8 @@ it is getting paid after Referral is approved.</p>
 <li><p class="first"><strong>origin</strong> — subhash of data related to the event that issued an offer</p>
 <ul class="simple">
 <li><strong>type</strong><ul>
-<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
-<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“AffiliateMember”</em> for standalone campaign</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the origin event</li>
@@ -146,8 +145,8 @@ discount_coupon or other)</li>
 <li><p class="first"><strong>advocate_origin</strong> - subhash of data related to the advocate event</p>
 <ul class="simple">
 <li><strong>type</strong><ul>
-<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
-<li><em>&#8220;AffiliateMember&#8221;</em> for standalone campaign</li>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“AffiliateMember”</em> for standalone campaign</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the advocate’s origin event</li>
@@ -171,8 +170,8 @@ discount_coupon or other)</li>
 <li><p class="first"><strong>friend_origin</strong> - subhash of data related to the friend event</p>
 <ul class="simple">
 <li><strong>type</strong><ul>
-<li><em>&#8220;Purchase&#8221;</em> for post-purchase campaign</li>
-<li><em>&#8220;Event&#8221;</em> for custom campaign</li>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“Event”</em> for custom campaign</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the friend’s origin</li>
@@ -195,12 +194,12 @@ discount_coupon or other)</li>
 <h2>Incentive types</h2><p>Incentives can be of 3 following general types.</p>
 <ul class="simple">
 <li><strong>rebate</strong> — monetary reward, certain amount of money that should be paid out
-to a customer with a given email. Payment should be handled by the merchants&#8217;
+to a customer with a given email. Payment should be handled by the merchants’
 payment systems.</li>
 <li><strong>discount_coupon</strong> — discount coupon is issued to customer. This type of
 incentives is handled by Talkable.</li>
-<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>&#8220;Free T-shirt&#8221;</em>
-or <em>&#8220;One Month Free&#8221;</em>. This should be handled on the merchant’s side. More
+<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>“Free T-shirt”</em>
+or <em>“One Month Free”</em>. This should be handled on the merchant’s side. More
 information on the reward is specified in <em>incentive_description</em>.</li>
 </ul>
 <h2>Coupon codes as a reward</h2><div class="admonition important">

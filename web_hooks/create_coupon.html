@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -116,7 +115,7 @@ available coupons to serve the site for 21 days if integration become broken.
 Minimum Threshold is 20 coupons.</p>
 <h2>Coupon Expiration timestamp</h2><p>Talkable having a hard time making decision when the coupon we are creating should expire.
 Only coupons that should be given on Friend Claim Page can have expiration and only when campaign offers are setup to expire.
-Other coupons given as &#8220;Reward For Sharing&#8221; or &#8220;Advocate Reward for Referral&#8221; should not have expiration.</p>
+Other coupons given as “Reward For Sharing” or “Advocate Reward for Referral” should not have expiration.</p>
 <p>Expiration date for coupon on Friend Claim page is always greater than Advocate Claim Page expiration date + one day buffer.
 So Talkable is making web hooks with expiration set to Friend Claim page expiration + 1 day when it has no coupons that match this criteria in its own database.</p>
 <h2>Payload parameters provided for Create Coupon Web Hook</h2><ul class="simple">

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,7 +28,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -114,7 +113,7 @@ coupons there is a need to refill a list of coupons within Talkable. You will ne
 to export a list of coupons or provide a multi-use coupon code creation end point.</p>
 <div class="section" id="multi-use-coupons">
 <h2>Multi-use Coupons<a class="headerlink" href="#multi-use-coupons" title="Permalink to this headline">¶</a></h2>
-<p>Multi-use Coupons can be given to talkable customers as a reward by create an Incentive with reward type &#8220;Coupon&#8221;.
+<p>Multi-use Coupons can be given to talkable customers as a reward by create an Incentive with reward type “Coupon”.
 It can be done from Campaign Rules page.</p>
 <p>Multi-use coupon will be given to any customer that perfomed action that matcher Incentive Reward Criteria.</p>
 </div>
@@ -124,10 +123,10 @@ It can be done from Campaign Rules page.</p>
 In this case each, customer will receive unique coupon code from the pool available in coupon list.</p>
 <p>There are several steps that need to be taken for this scenario:</p>
 <ol class="arabic simple">
-<li>Create a coupon list at &#8220;Manage Coupon Lists&#8221; page</li>
+<li>Create a coupon list at “Manage Coupon Lists” page</li>
 <li>Generate a list of coupons on the merchant site using mass coupon generation tool</li>
 <li>Upload generated coupons to coupon list</li>
-<li>Use a coupon list in the Incentive with &#8220;Coupon Code&#8221; reward type</li>
+<li>Use a coupon list in the Incentive with “Coupon Code” reward type</li>
 </ol>
 <h2>REST API to Create Coupons</h2><p>Talkable can create coupons via a webhook using your REST API end point.
 Read <a class="reference internal" href="../web_hooks/create_coupon.html#web-hooks-create-coupon"><span class="std std-ref">Coupon Webhook Documentation</span></a> for details how to implement the API end point
