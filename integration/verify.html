@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Verifying Integration &#8212; Talkable Documentation</title>
-    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -29,7 +25,7 @@
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
-  <body role="document">
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -119,9 +115,9 @@ All purchases with <cite>integration&#64;talkable.com</cite> email will not be r
 <div class="section" id="verifying-integration-in-js-spas">
 <h2>Verifying Integration in JS SPAs<a class="headerlink" href="#verifying-integration-in-js-spas" title="Permalink to this headline">¶</a></h2>
 <p>In case you are unable to pass <strong>?tkbl_verify_integration=true</strong>
-URL parameter you can alternatively turn Talkable into &#8220;Verification mode&#8221; by setting: <br>
+URL parameter you can alternatively turn Talkable into “Verification mode” by setting: <br>
 <cite>talkable.config.verify_integration = true;</cite></p>
-<p>All requests will now be coming with &#8220;Verification&#8221; flag turned on.</p>
+<p>All requests will now be coming with “Verification” flag turned on.</p>
 <p><strong>Note:</strong> do not use it in production, this mode is for debugging purpose only.</p>
 </div>
 <div class="section" id="troubleshooting">
@@ -135,7 +131,7 @@ Integration tab inside Talkable Admin.</p>
 <p>If you see the init script on the page, but the verification popup still does
 not appear on the screen, make sure a request is was passed to Talkable.
 To do that open <br> Network tab (Chrome) → refresh the page → inside Search bar look
-up for &#8220;create.html&#8221;. Make sure you see something like:</p>
+up for “create.html”. Make sure you see something like:</p>
 <img alt="../_images/chrome_network_tab.png" src="../_images/chrome_network_tab.png" />
 <p>If the request is coming through but you are still not seeing the verification
 popup please contact Talkable support: <a class="reference external" href="mailto:support&#37;&#52;&#48;talkable&#46;com">support<span>&#64;</span>talkable<span>&#46;</span>com</a>.</p>
