@@ -102,7 +102,7 @@
 <p>Now that we know what a Standalone campaign is, let’s take a look at one more type of Talkable campaign — Post Purchase. It is used to convert your existing customers into Advocates after they make a purchase.  It has the same flow as a basic Standalone campaign except this is gated by a purchase and shown to a customer immediately after.</p>
 <p>Post Purchase campaign usually looks like a pop up right after a user made a purchase. This campaign initializes on the order confirmation page and captures order details parameters. You need to pass order data that includes your customer’s email address, order id, subtotal, coupon code used at checkout in order to close a referral loop. This allows talkable to detect and close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
-<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>
 <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">params</span> <span class="o">=</span> <span class="l">@{</span>
   <span class="nl">TKBLPurchaseKey</span><span class="p">:</span> <span class="l">@{</span>
@@ -128,7 +128,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">If Post Purchase campaign does not show up when testing make sure you have it live with a default tag (<cite>ios-post-purchase</cite>) on the Campaigns listing.</p>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

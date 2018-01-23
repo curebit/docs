@@ -110,7 +110,7 @@
 purchased a particular product or a set of products. In this case you can put such a limitation inside Campaign Join Criteria.
 To do that visit Campaign Details page -&gt; Go into Rules -&gt; Advanced -&gt; Campaign Join Criteria field and put the following
 criteria in there:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span>{% assign available_items = &quot;sku1,sku2&quot; | split: &quot;,&quot; %}
+<div class="highlight-html"><div class="highlight"><pre>{% assign available_items = &quot;sku1,sku2&quot; | split: &quot;,&quot; %}
 {% assign user_items = advocate_origin.products | map: &quot;product_id&quot; %}
 {% assign result = false %}
 
@@ -138,7 +138,7 @@ If there is no such column or it is blank you cannot use this feature unless you
 <a class="reference internal" href="product_items.html#advanced-features-product-items"><em>Including Product Items</em></a>.</p>
 </div>
 <p>Please <a href="https://www.talkable.com/contact" target="_blank">contact us</a> if you have any questions.</p>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>

@@ -108,11 +108,11 @@
 <h1>Coupons<a class="headerlink" href="#coupons" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access and check coupons. See examples below.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET /coupons/:code
+<div class="highlight-text"><div class="highlight"><pre>GET /coupons/:code
 </pre></div>
 </div>
 <p>Returns a coupon information.</p>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -135,11 +135,11 @@ Talkable dashboard after you log in and create a site.</td>
 </table>
 </div>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET /coupons/:code/permission/:email
+<div class="highlight-text"><div class="highlight"><pre>GET /coupons/:code/permission/:email
 </pre></div>
 </div>
 <p>Checks if given coupon code belongs to given person.</p>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -168,11 +168,11 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="find-a-coupon-by-code">
 <h3>Find a coupon by code<a class="headerlink" href="#find-a-coupon-by-code" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/coupons/COUPON_CODE?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/coupons/COUPON_CODE?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;talkable_coupon&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -232,7 +232,7 @@ Talkable dashboard after you log in and create a site.</td>
 </pre></div>
 </div>
 <p>When coupon was not given by Talkable:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;talkable_coupon&quot;</span><span class="o">:</span> <span class="kc">false</span>
@@ -243,10 +243,10 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="check-if-a-coupon-belongs-to-a-person">
 <h3>Check if a coupon belongs to a person<a class="headerlink" href="#check-if-a-coupon-belongs-to-a-person" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/coupons/COUPON_CODE/permission/user@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/coupons/COUPON_CODE/permission/user@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;allowed&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -315,7 +315,7 @@ Talkable dashboard after you log in and create a site.</td>
 </pre></div>
 </div>
 <p>When coupon was not given by Talkable:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;allowed&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -324,7 +324,7 @@ Talkable dashboard after you log in and create a site.</td>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
