@@ -155,11 +155,11 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Talkable SDK assigns itself to WKWebView navigation delegate. Changing WKWebView navigation delegate may brokes some functionality so we strictly not recommend to do this.</p>
+<p class="last">Talkable SDK assigns itself to WKWebView navigation delegate. Changing WKWebView navigation delegate may break some functionality so we strictly recommend not doing this.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li>Handle cases when origin wasn&#8217;t created or offer hasn&#8217;t been presented</li>
+<li>Manage cases where origin wasn&#8217;t created or offer hasn&#8217;t been presented.</li>
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerOrigin:</span><span class="p">(</span><span class="n">TKBLOriginType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">didFailWithError:</span><span class="p">(</span><span class="bp">NSError</span><span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
@@ -167,7 +167,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><cite>userInfo</cite> may contain detail information about the error.</p>
+<p class="last"><cite>userInfo</cite> may contain detailed information about the error.</p>
 </div>
 </div></blockquote>
 </div>
