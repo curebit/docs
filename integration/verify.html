@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Verifying Integration &mdash; Talkable Documentation</title>
-    
+    <title>Verifying Integration &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Shopify Integration" href="shopify.html" />
-    <link rel="next" title="Magento Integration" href="magento.html" />
-    <link rel="prev" title="Shopify Integration" href="shopify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="F.A.Q." href="custom/questions.html" />
+    <link rel="prev" title="Validating the Integration" href="custom/validating_integration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -59,7 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="custom/overview.html">Integration High Level Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom/integration_components.html">Integration Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom/validating_integration.html">Validating the Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Verifying Integration</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verifying Integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#verifying-integration-in-js-spas">Verifying Integration in JS SPAs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
@@ -68,18 +64,14 @@
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="shopify.html">Shopify Integration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="shopify.html#automatic-integration">Automatic integration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="shopify.html#manual-integration">Manual integration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Verifying Integration instructions</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shopify.html">Shopify Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="magento2.html">Magento 2 Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demandware.html">Demandware Integration</a></li>
@@ -103,7 +95,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="integration-verify"></span><div class="section" id="verifying-integration">
 <h1>Verifying Integration<a class="headerlink" href="#verifying-integration" title="Permalink to this headline">¶</a></h1>
@@ -126,15 +118,15 @@ All purchases with <cite>integration&#64;talkable.com</cite> email will not be r
 <div class="section" id="verifying-integration-in-js-spas">
 <h2>Verifying Integration in JS SPAs<a class="headerlink" href="#verifying-integration-in-js-spas" title="Permalink to this headline">¶</a></h2>
 <p>In case you are unable to pass <strong>?tkbl_verify_integration=true</strong>
-URL parameter you can alternatively turn Talkable into &#8220;Verification mode&#8221; by setting: <br>
+URL parameter you can alternatively turn Talkable into “Verification mode” by setting: <br>
 <cite>talkable.config.verify_integration = true;</cite></p>
-<p>All requests will now be coming with &#8220;Verification&#8221; flag turned on.</p>
+<p>All requests will now be coming with “Verification” flag turned on.</p>
 <p><strong>Note:</strong> do not use it in production, this mode is for debugging purpose only.</p>
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <p>In case you are not seeing the verification popup please make sure the
-<a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><em>init script</em></a> (non-platform integration only)
+<a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><span class="std std-ref">init script</span></a> (non-platform integration only)
 is installed on the page. You may do so by making right click <br>
 (Chrome) → Inspect Element → Inside Elements tab press Cmd+F (Ctrl+F on Windows) and
 search for <cite>d2jj</cite> → make sure the init script matches the one provided inside your
@@ -142,7 +134,7 @@ Integration tab inside Talkable Admin.</p>
 <p>If you see the init script on the page, but the verification popup still does
 not appear on the screen, make sure a request is was passed to Talkable.
 To do that open <br> Network tab (Chrome) → refresh the page → inside Search bar look
-up for &#8220;create.html&#8221;. Make sure you see something like:</p>
+up for “create.html”. Make sure you see something like:</p>
 <img alt="../_images/chrome_network_tab.png" src="../_images/chrome_network_tab.png" />
 <p>If the request is coming through but you are still not seeing the verification
 popup please contact Talkable support: <a class="reference external" href="mailto:support&#37;&#52;&#48;talkable&#46;com">support<span>&#64;</span>talkable<span>&#46;</span>com</a>.</p>

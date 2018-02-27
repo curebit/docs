@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>F.A.Q. &mdash; Talkable Documentation</title>
-    
+    <title>F.A.Q. &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../../index.html" />
-    <link rel="up" title="Standard Integration" href="../custom_integration.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Shopify Integration" href="../shopify.html" />
     <link rel="prev" title="Verifying Integration" href="../verify.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
@@ -60,7 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="integration_components.html">Integration Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="validating_integration.html">Validating the Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../verify.html">Verifying Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">F.A.Q.</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">F.A.Q.</a></li>
 </ul>
 </li>
 </ul>
@@ -69,6 +65,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../magento2.html">Magento 2 Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../demandware.html">Demandware Integration</a></li>
@@ -92,19 +91,19 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="integration-custom-questions"></span><div class="section" id="f-a-q">
 <h1>F.A.Q.<a class="headerlink" href="#f-a-q" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><a class="reference internal" href="#integration-custom-questions-post-purchase-capture"><em>Does the post purchase script need to capture all purchases or just
-Talkable purchases?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-how-does-referral-tracking-work"><em>How does referral tracking work?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-what-does-the-talkable-integration-do"><em>What does the Talkable integration do?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-talkable-know-where-to-display-content"><em>How does Talkable know where to display content?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-complete-integration"><em>What do I, as a developer, need to do to complete integration?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-rewarding-process-work"><em>How does the rewarding process work?</em></a></li>
-<li><a class="reference internal" href="#integration-custom-questions-verify-success"><em>How do I verify success?</em></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-post-purchase-capture"><span class="std std-ref">Does the post purchase script need to capture all purchases or just
+Talkable purchases?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-how-does-referral-tracking-work"><span class="std std-ref">How does referral tracking work?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-what-does-the-talkable-integration-do"><span class="std std-ref">What does the Talkable integration do?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-talkable-know-where-to-display-content"><span class="std std-ref">How does Talkable know where to display content?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-complete-integration"><span class="std std-ref">What do I, as a developer, need to do to complete integration?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-rewarding-process-work"><span class="std std-ref">How does the rewarding process work?</span></a></li>
+<li><a class="reference internal" href="#integration-custom-questions-verify-success"><span class="std std-ref">How do I verify success?</span></a></li>
 </ol>
 <p id="integration-custom-questions-post-purchase-capture"><strong>1.) Does the post purchase script need to capture all purchases or
 just Talkable purchases?</strong></p>
@@ -139,7 +138,7 @@ defined inside of the Talkable platform</li>
 </ul>
 <p id="integration-custom-questions-talkable-know-where-to-display-content"><strong>4.) How does Talkable know where to display content?</strong></p>
 <ul class="simple">
-<li>&#8220;Placements&#8221; refer to areas of your website where referral content
+<li>“Placements” refer to areas of your website where referral content
 should display. These rules are defined inside of the Placements
 section inside the Talkable platform.<ul>
 <li>You can modify default placements, add additional placements, or
@@ -147,7 +146,7 @@ create various inclusion or suppression rules in the Talkable
 Placements section. This allows for future placement modification
 with minimal to zero developer work required.</li>
 <li>See Talkable Placements documentation for more details:
-<a class="reference internal" href="../../campaigns/campaign_placements.html#campaigns-campaign-placements"><em>Campaign Placements</em></a></li>
+<a class="reference internal" href="../../campaigns/campaign_placements.html#campaigns-campaign-placements"><span class="std std-ref">Campaign Placements</span></a></li>
 </ul>
 </li>
 <li>Talkable looks at the URL to determine display as defined by rules in
@@ -159,8 +158,8 @@ platform.</li>
 can be defined)</li>
 <li>Post Purchase Popup Campaign: Checkout confirmation page where the
 post purchase integration script resides.</li>
-<li>Advocate Landing Page Invite Campaign: URL ending in &#8220;/share&#8221;</li>
-<li>Referral Dashboard Campaign: URL ending in &#8220;/referrals&#8221;</li>
+<li>Advocate Landing Page Invite Campaign: URL ending in “/share”</li>
+<li>Referral Dashboard Campaign: URL ending in “/referrals”</li>
 </ul>
 </li>
 </ul>
@@ -215,7 +214,7 @@ to a pending referral, we’ll gracefully ignore, and any order# we
 recognize as related to a pending referral, we’ll take the appropriate
 action.</p>
 <p id="integration-custom-questions-verify-success"><strong>7.) How do I verify success?</strong></p>
-<p>Refer to the section titled <a class="reference internal" href="validating_integration.html#integration-custom-validating-integration"><em>Validating the Integration</em></a>.</p>
+<p>Refer to the section titled <a class="reference internal" href="validating_integration.html#integration-custom-validating-integration"><span class="std std-ref">Validating the Integration</span></a>.</p>
 </div>
 
 

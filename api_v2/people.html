@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>People &mdash; Talkable Documentation</title>
-    
+    <title>People &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advocate Offers" href="offers.html" />
     <link rel="prev" title="Origins" href="origins.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -64,6 +60,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../integration/magento.html">Magento Integration</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/magento2.html">Magento 2 Integration</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../integration/demandware.html">Demandware Integration</a></li>
 </ul>
 <ul class="current">
@@ -73,7 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">People</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">People</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -102,13 +101,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="api-v2-people"></span><div class="section" id="people">
 <h1>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access and update persons. See examples below.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>GET /people/&lt;person_slug&gt;
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET /people/&lt;person_slug&gt;
 </pre></div>
 </div>
 <p>Returns a person.</p>
@@ -135,7 +134,7 @@ Talkable dashboard after you log in and create a site.</td>
 </table>
 </div>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>PUT /people/&lt;person_slug&gt;
+<div class="highlight-text"><div class="highlight"><pre><span></span>PUT /people/&lt;person_slug&gt;
 </pre></div>
 </div>
 <p>Updates an existing person or creates one if it does not exist.</p>
@@ -173,7 +172,7 @@ Talkable dashboard after you log in and create a site.</td>
 </table>
 </div>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>POST /people/&lt;person_slug&gt;/unsubscribe
+<div class="highlight-text"><div class="highlight"><pre><span></span>POST /people/&lt;person_slug&gt;/unsubscribe
 </pre></div>
 </div>
 <p>Unsubscribes a person from receiving emails.</p>
@@ -203,11 +202,11 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="find-a-person-by-email">
 <h3>Find a person by email<a class="headerlink" href="#find-a-person-by-email" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text"><div class="highlight"><pre>GET https://www.talkable.com/api/v2/people/customer@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
+<div class="highlight-text"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com?site_slug=my-store&amp;api_key=i9uil7nQgDjucCiTJu
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -228,7 +227,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="update-persons-username">
 <h3>Update person’s username<a class="headerlink" href="#update-persons-username" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -237,14 +236,14 @@ Talkable dashboard after you log in and create a site.</td>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;username&quot;:&quot;lizard_king&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/people/customer@example.com
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -265,20 +264,20 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="unsubscribe-a-person-from-receiving-emails">
 <h3>Unsubscribe a person from receiving emails<a class="headerlink" href="#unsubscribe-a-person-from-receiving-emails" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/people/customer@example.com/unsubscribe
 </pre></div>
 </div>
 <p>Sample response:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -298,8 +297,6 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
