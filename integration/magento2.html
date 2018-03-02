@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Magento 2 Integration &#8212; Talkable Documentation</title>
+    <title>Magento 2.x Integration &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Demandware Integration" href="demandware.html" />
-    <link rel="prev" title="Magento Integration" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Magento 1.x Integration" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head>
@@ -57,10 +57,10 @@
 <li class="toctree-l1"><a class="reference internal" href="shopify.html">Shopify Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="magento.html">Magento Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magento.html">Magento 1.x Integration</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Magento 2 Integration</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magento 2.x Integration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#activating-the-integration">Activating the Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-talkable-configuration">Accessing Talkable Configuration</a></li>
@@ -97,11 +97,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="integration-magento2"></span><div class="section" id="magento-2-integration">
-<h1>Magento 2 Integration<a class="headerlink" href="#magento-2-integration" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="integration-magento2"></span><div class="section" id="magento-2-x-integration">
+<h1>Magento 2.x Integration<a class="headerlink" href="#magento-2-x-integration" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To get started, you must have an account created with Talkable and a Magento Marketplace account.
+<p class="last">To get started, you must have an account created with Talkable, and a Magento Marketplace account.
 If you do not have a Magento Marketplace account configured, follow
 <a class="reference external" href="http://docs.magento.com/marketplace/user_guide/quick-tour/install-extension.html">these steps</a>
 to connect one to your Magento store.</p>
@@ -123,12 +123,11 @@ The extension supports all versions of Magento 2.0 or higher.</p>
 Click the <strong>Review and Install</strong> button.</p>
 <img alt="../_images/install3.jpg" src="../_images/install3.jpg" />
 </li>
-<li><p class="first">Click <strong>Install</strong> button at the top of the list to install all listed extensions.
-If you have more than one extension in the list, you can find Talkable extension row
-and click <strong>Install</strong> link to install just the Talkable extension.</p>
+<li><p class="first">Click the <strong>Install</strong> button at the top of the list to install all listed extensions.
+To just install Talkable, find the extension in the list and click <strong>Install</strong>.</p>
 <img alt="../_images/install4.jpg" src="../_images/install4.jpg" />
 </li>
-<li><p class="first">Follow the steps to complete Talkable extension installation.</p>
+<li><p class="first">Follow the steps to complete the Talkable extension installation.</p>
 </li>
 </ol>
 </div>
@@ -167,7 +166,7 @@ your Magento admin panel.</p>
 <img alt="../_images/access1.jpg" src="../_images/access1.jpg" />
 </li>
 <li><p class="first">Then select <strong>Talkable</strong> &rarr; <strong>Talkable Configuration</strong> from the list of available configurations.
-If you have multiple stores, select desired Store View you want to change settings for.</p>
+If you have multiple stores, select the desired Store View you want to change settings for.</p>
 <img alt="../_images/access2.jpg" src="../_images/access2.jpg" />
 </li>
 </ol>
@@ -180,21 +179,21 @@ If you have multiple stores, select desired Store View you want to change settin
 </div></blockquote>
 <div class="section" id="integration">
 <h3>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h3>
-<p>The Integration section allows you to change Talkable Site ID, which is used to connect your store
+<p>The Integration section allows you to change the Talkable Site ID, which is used to connect your store
 to your Talkable account.</p>
 <blockquote>
 <div><img alt="../_images/configure2.jpg" src="../_images/configure2.jpg" />
 </div></blockquote>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Change this setting only if you need to connect your store to a different site in Talkable dashboard.
-Incorrect value will prevent your campaigns from showing.</p>
+<p class="last">Only change this setting if you need to connect your store to a different site in the Talkable dashboard.
+An incorrect value will prevent your campaigns from showing.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If you have activated the extension’s integration, the Site ID will be prefilled
-(See <a class="reference internal" href="#activating-the-integration">Activating the Integration</a>). If you chose not to activate the integration,
-you need to paste Site ID from your Talkable Site Dashboard into this field.</p>
+(see <a class="reference internal" href="#activating-the-integration">Activating the Integration</a>). If you chose not to activate the integration,
+you need to paste the Site ID from your Talkable Site Dashboard into this field.</p>
 <blockquote class="last">
 <div><img alt="../_images/configure3.jpg" src="../_images/configure3.jpg" />
 </div></blockquote>
@@ -219,7 +218,7 @@ Default values correspond to default placements in Talkable.</p>
 </div></blockquote>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>Change these settings only if you have configured custom placements for these campaign types
+<p>Only change these settings if you have configured custom placements for these campaign types
 in your Talkable dashboard. Incorrect values will prevent your Standalone or Dashboard campaign from showing.</p>
 <blockquote class="last">
 <div><img alt="../_images/configure6.jpg" src="../_images/configure6.jpg" />
