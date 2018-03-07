@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Magento 2.x Integration &#8212; Talkable Documentation</title>
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Demandware Integration" href="demandware.html" />
+    <link rel="prev" title="Magento 1.x Integration" href="magento.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="custom_integration.html">Standard Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="magento.html">Magento 1.x Integration</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Magento 2.x Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activating-the-integration">Activating the Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-talkable-configuration">Accessing Talkable Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-talkable-extension">Configuring Talkable Extension</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#integration">Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#campaigns">Campaigns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#page-urls">Page URLs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demandware.html">Demandware Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="integration-magento2"></span><div class="section" id="magento-2-x-integration">
+<h1>Magento 2.x Integration<a class="headerlink" href="#magento-2-x-integration" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To get started, you must have an account created with Talkable, and a Magento Marketplace account.
+If you do not have a Magento Marketplace account configured, follow
+<a class="reference external" href="http://docs.magento.com/marketplace/user_guide/quick-tour/install-extension.html">these steps</a>
+to connect one to your Magento store.</p>
+</div>
+<p>The Magento 2 Integration Extension is available to download in the Magento Marketplace.
+The extension supports all versions of Magento 2.0 or higher.</p>
+<p><div class="page-break-after"></div></p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Visit the Magento Marketplace and download the Talkable extension.</p>
+</li>
+<li><p class="first">Navigate to <strong>System</strong> &rarr; <strong>Web Setup Wizard</strong> in your Magento store admin panel.</p>
+<img alt="../_images/install1.jpg" src="../_images/install1.jpg" />
+</li>
+<li><p class="first">Choose <strong>Extension Manager</strong>.</p>
+<img alt="../_images/install2.jpg" src="../_images/install2.jpg" />
+</li>
+<li><p class="first">The Extension Manager will indicate that you have extensions ready to be installed.
+Click the <strong>Review and Install</strong> button.</p>
+<img alt="../_images/install3.jpg" src="../_images/install3.jpg" />
+</li>
+<li><p class="first">Click the <strong>Install</strong> button at the top of the list to install all listed extensions.
+To just install Talkable, find the extension in the list and click <strong>Install</strong>.</p>
+<img alt="../_images/install4.jpg" src="../_images/install4.jpg" />
+</li>
+<li><p class="first">Follow the steps to complete the Talkable extension installation.</p>
+</li>
+</ol>
+<p><div class="page-break-after"></div></p>
+</div>
+<div class="section" id="activating-the-integration">
+<h2>Activating the Integration<a class="headerlink" href="#activating-the-integration" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">After successful installation, navigate to <strong>System</strong> &rarr; <strong>Integrations</strong> page of your admin panel.</p>
+<img alt="../_images/activate1.jpg" src="../_images/activate1.jpg" />
+</li>
+<li><p class="first">Find <em>“Talkable”</em> in the list of integrations and click the <strong>Activate</strong> link.</p>
+<img alt="../_images/activate2.jpg" src="../_images/activate2.jpg" />
+</li>
+<li><p class="first">Review the list of permissions that the Talkable extension needs and click <strong>Allow</strong>.</p>
+<img alt="../_images/activate3.jpg" src="../_images/activate3.jpg" />
+</li>
+<li><p class="first">Log in to your Talkable account (if you’re already logged in, this step will be omitted).</p>
+<img alt="../_images/activate4.jpg" src="../_images/activate4.jpg" />
+</li>
+</ol>
+<p><div class="page-break-after"></div></p>
+<ol class="arabic" start="5">
+<li><p class="first">All done! You have successfully integrated Talkable. To verify your Talkable integration,
+please visit <strong>Integration</strong> tab in <strong>Site Settings</strong>.</p>
+<img alt="../_images/activate5.jpg" src="../_images/activate5.jpg" />
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Activating the integration allows Talkable to configure your extension automatically.
+If you choose not to activate the integration, you will need to specify your Talkable Site ID in
+the <a class="reference internal" href="#integration">Integration</a> section of extension settings.</p>
+</div>
+<p><div class="page-break-after"></div></p>
+</div>
+<div class="section" id="accessing-talkable-configuration">
+<h2>Accessing Talkable Configuration<a class="headerlink" href="#accessing-talkable-configuration" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">To access Talkable extension settings, navigate to <strong>Stores</strong> &rarr; <strong>Configuration</strong> in
+your Magento admin panel.</p>
+<img alt="../_images/access1.jpg" src="../_images/access1.jpg" />
+</li>
+<li><p class="first">Then select <strong>Talkable</strong> &rarr; <strong>Talkable Configuration</strong> from the list of available configurations.
+If you have multiple stores, select the desired Store View you want to change settings for.</p>
+<img alt="../_images/access2.jpg" src="../_images/access2.jpg" />
+</li>
+</ol>
+<p><div class="page-break-after"></div></p>
+</div>
+<div class="section" id="configuring-talkable-extension">
+<h2>Configuring Talkable Extension<a class="headerlink" href="#configuring-talkable-extension" title="Permalink to this headline">¶</a></h2>
+<p>The extension configuration screen consists of three sections: <a class="reference internal" href="#integration">Integration</a>, <a class="reference internal" href="#campaigns">Campaigns</a> and <a class="reference internal" href="#page-urls">Page URLs</a>.</p>
+<blockquote>
+<div><img alt="../_images/configure1.jpg" src="../_images/configure1.jpg" />
+</div></blockquote>
+<p><div class="page-break-after"></div></p>
+<div class="section" id="integration">
+<h3>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h3>
+<p>The Integration section allows you to change the Talkable Site ID, which is used to connect your store
+to your Talkable account.</p>
+<blockquote>
+<div><img alt="../_images/configure2.jpg" src="../_images/configure2.jpg" />
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only change this setting if you need to connect your store to a different site in the Talkable dashboard.
+An incorrect value will prevent your campaigns from showing.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you have activated the extension’s integration, the Site ID will be prefilled
+(see <a class="reference internal" href="#activating-the-integration">Activating the Integration</a>). If you chose not to activate the integration,
+you need to paste the Site ID from your Talkable Site Dashboard into this field.</p>
+<blockquote class="last">
+<div><img alt="../_images/configure3.jpg" src="../_images/configure3.jpg" />
+</div></blockquote>
+</div>
+<p><div class="page-break-after"></div></p>
+</div>
+<div class="section" id="campaigns">
+<h3>Campaigns<a class="headerlink" href="#campaigns" title="Permalink to this headline">¶</a></h3>
+<p>The Campaigns section allows you to enable or disable different types of campaigns on your site.
+For example, if you don’t have Standalone or Advocate Dashboard campaigns configured in Talkable,
+you can disable these campaigns in extension config, so the corresponding pages are not accessible.</p>
+<blockquote>
+<div><img alt="../_images/configure4.jpg" src="../_images/configure4.jpg" />
+</div></blockquote>
+<p><div class="page-break-after"></div></p>
+</div>
+<div class="section" id="page-urls">
+<h3>Page URLs<a class="headerlink" href="#page-urls" title="Permalink to this headline">¶</a></h3>
+<p>The Page URLs section allows you to change paths to the Standalone Share and Advocate Dashboard pages.
+The paths must match placements you have configured in Talkable for this campaign type.
+Default values correspond to default placements in Talkable.</p>
+<blockquote>
+<div><img alt="../_images/configure5.jpg" src="../_images/configure5.jpg" />
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Only change these settings if you have configured custom placements for these campaign types
+in your Talkable dashboard. Incorrect values will prevent your Standalone or Dashboard campaign from showing.</p>
+<blockquote class="last">
+<div><img alt="../_images/configure6.jpg" src="../_images/configure6.jpg" />
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
