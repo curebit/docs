@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Magento 2.x Integration &#8212; Talkable Documentation</title>
+    
+    <title>Magento 2.x Integration &mdash; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Magento Integration" href="../magento.html" />
     <link rel="next" title="Demandware Integration" href="../demandware.html" />
     <link rel="prev" title="Magento 1.x Integration" href="magento1.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
@@ -59,7 +63,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../magento.html">Magento Integration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="magento1.html">Magento 1.x Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Magento 2.x Integration</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Magento 2.x Integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#activating-the-integration">Activating the Integration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accessing-talkable-configuration">Accessing Talkable Configuration</a></li>
@@ -92,7 +96,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="integration-magento-magento2"></span><div class="section" id="magento-2-x-integration">
 <h1>Magento 2.x Integration<a class="headerlink" href="#magento-2-x-integration" title="Permalink to this headline">¶</a></h1>
@@ -145,7 +149,7 @@ extensions from the Marketplace.</p>
 <li><p class="first">After successful installation, navigate to <strong>System</strong> &rarr; <strong>Integrations</strong> page of your admin panel.</p>
 <img alt="../../_images/activate1.jpg" src="../../_images/activate1.jpg" />
 </li>
-<li><p class="first">Find <em>“Talkable”</em> in the list of integrations and click the <strong>Activate</strong> link.</p>
+<li><p class="first">Find <em>&#8220;Talkable&#8221;</em> in the list of integrations and click the <strong>Activate</strong> link.</p>
 <img alt="../../_images/activate2.jpg" src="../../_images/activate2.jpg" />
 </li>
 <li><p class="first">Review the list of permissions that the Talkable extension needs and click <strong>Allow</strong>.</p>
@@ -205,7 +209,7 @@ An incorrect value will prevent your campaigns from showing.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>If you have activated the extension’s integration, the Site ID will be prefilled
+<p>If you have activated the extension&#8217;s integration, the Site ID will be prefilled
 (see <a class="reference internal" href="#activating-the-integration">Activating the Integration</a>). If you chose not to activate the integration,
 you need to paste the Site ID from your Talkable Site Dashboard into this field.</p>
 <blockquote class="last">
@@ -247,7 +251,7 @@ in your Talkable dashboard. Incorrect values will prevent your Standalone or Das
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <p>This section describes the solutions to some common issues encountered during installation
 that do not provide helpful error messages or a clear path forward.
-If you encounter an issue that isn’t described here, please refer to the
+If you encounter an issue that isn&#8217;t described here, please refer to the
 Magento <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/comp-mgr/trouble/tshoot.html">troubleshooting suggestions</a> for the Component Manager and other Magento documentation.</p>
 <p>&nbsp;</p>
 <ul>
@@ -279,16 +283,16 @@ set up, we recommend performing it prior to installing the extension.</p>
 </ol>
 <blockquote>
 <div><ul>
-<li><p class="first">In PHP configuration, increase <code class="docutils literal"><span class="pre">max_execution_time</span></code> to 300-600 seconds.
-This can be done either in your <code class="docutils literal"><span class="pre">php.ini</span></code> file or in the <code class="docutils literal"><span class="pre">.htaccess</span></code>
+<li><p class="first">In PHP configuration, increase <tt class="docutils literal"><span class="pre">max_execution_time</span></tt> to 300-600 seconds.
+This can be done either in your <tt class="docutils literal"><span class="pre">php.ini</span></tt> file or in the <tt class="docutils literal"><span class="pre">.htaccess</span></tt>
 file in your Magento root folder.</p>
 </li>
-<li><p class="first">For Apache 2, increase <code class="docutils literal"><span class="pre">TimeOut</span></code> to 300-600 seconds in your server configuration.</p>
+<li><p class="first">For Apache 2, increase <tt class="docutils literal"><span class="pre">TimeOut</span></tt> to 300-600 seconds in your server configuration.</p>
 </li>
 <li><p class="first">For nginx + php-fpm, set the following directives in your server configuration:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client_header_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
-<span class="n">client_body_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
-<span class="n">fastcgi_read_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span>client_header_timeout 300s;
+client_body_timeout 300s;
+fastcgi_read_timeout 300s;
 </pre></div>
 </div>
 <div class="admonition warning">
