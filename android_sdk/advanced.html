@@ -94,7 +94,7 @@
 <span id="id1"></span><h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
 <p>Errors from <code class="docutils literal notranslate"><span class="pre">Talkable.showOffer</span></code> and <code class="docutils literal notranslate"><span class="pre">Talkable.loadOffer</span></code> are handled
 inside <code class="docutils literal notranslate"><span class="pre">onError</span></code> callback, which provides an instance of <code class="docutils literal notranslate"><span class="pre">TalkableOfferLoadException</span></code> class.
-You can take error type and error message with <code class="docutils literal notranslate"><span class="pre">error.getErrorCode()</span></code>
+You can get error type and error message with <code class="docutils literal notranslate"><span class="pre">error.getErrorCode()</span></code>
 and <code class="docutils literal notranslate"><span class="pre">error.getMessage()</span></code> respectively.</p>
 <dl class="docutils">
 <dt>Here is a list of possible error codes from <code class="docutils literal notranslate"><span class="pre">TalkableOfferLoadException</span></code> with descriptions:</dt>
@@ -107,18 +107,18 @@ and <code class="docutils literal notranslate"><span class="pre">error.getMessag
 </div>
 <div class="section" id="using-multiple-site-slugs">
 <h2>Using multiple site slugs<a class="headerlink" href="#using-multiple-site-slugs" title="Permalink to this headline">¶</a></h2>
-<p>To use multiple site slugs inside your application, you have to do next steps:</p>
+<p>To use multiple site slugs inside your application, follow these steps:</p>
 <ol class="arabic">
 <li><p class="first">Add credentials for each site you are going to use inside your manifest file.
 Format is the same as from corresponding
 <a class="reference internal" href="getting_started.html#setup-credentials"><span class="std std-ref">Getting Started</span></a> section.</p>
 </li>
-<li><p class="first">Add deep linking schemas handlers into your main activity entry for each site
-you are going to use too. Format is the same as from corresponding
+<li><p class="first">Add deep linking schemas handlers into the main activity entry for each site
+you are going to use. The format is the same as the corresponding
 <a class="reference internal" href="getting_started.html#deep-linking-scheme"><span class="std std-ref">Getting Started</span></a> section.</p>
 </li>
 <li><p class="first">Set default site slug.</p>
-<p>It can be done by adding this information to the manifest file into
+<p>This can be done by adding this information into the manifest file using
 <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> entry:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
@@ -129,7 +129,7 @@ you are going to use too. Format is the same as from corresponding
 <span class="nt">&lt;/application&gt;</span>
 </pre></div>
 </div>
-<p>or by passing through <code class="docutils literal notranslate"><span class="pre">Talkable.initialize</span></code> in the <code class="docutils literal notranslate"><span class="pre">Application</span></code>:</p>
+<p>or by passing it through <code class="docutils literal notranslate"><span class="pre">Talkable.initialize</span></code> in the <code class="docutils literal notranslate"><span class="pre">Application</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Application</span><span class="o">;</span>
 
@@ -144,11 +144,11 @@ you are going to use too. Format is the same as from corresponding
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>You can set site slug at any time after initialization in the following way:</p>
+<p>You can set the site slug at any time after initialization in the following way:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Talkable</span><span class="o">.</span><span class="na">setSiteSlug</span><span class="o">(</span><span class="s">&quot;some-site-slug&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
-<p class="last">Make sure to add credentials for this site inside the manifest file.
+<p class="last">Make sure to add the credentials for this site inside the manifest file.
 Otherwise, an exception will be raised.</p>
 </div>
 </li>
@@ -189,7 +189,7 @@ and override methods there. Example:</p>
 </div>
 </li>
 </ol>
-<p id="fragment-listener">In case you want to implement custom offer closing handling you should implement
+<p id="fragment-listener">If you want to implement custom offer closing handling you should implement
 <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragmentListener</span></code> interface from <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment</span></code> inside your Activity.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment.TalkableOfferFragmentListener</span><span class="o">;</span>
 
@@ -206,7 +206,7 @@ and override methods there. Example:</p>
 </div>
 <div class="section" id="using-talkableofferfragment-directly">
 <span id="using-fragment-directly"></span><h2>Using TalkableOfferFragment directly<a class="headerlink" href="#using-talkableofferfragment-directly" title="Permalink to this headline">¶</a></h2>
-<p>To use <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment</span></code> directly you shold get Offer’s code
+<p>To use <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment</span></code> directly you should get the Offer’s code
 using <code class="docutils literal notranslate"><span class="pre">Talkable.loadOffer(origin,</span> <span class="pre">callback)</span></code> and pass it to <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment.newInstance(shortCode)</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
 <span class="o">...</span>
@@ -224,6 +224,11 @@ using <code class="docutils literal notranslate"><span class="pre">Talkable.load
     <span class="o">}</span>
  <span class="o">);</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure to <a class="reference external" href="https://developer.android.com/guide/topics/resources/runtime-changes.html">handle configurations changes right</a>, as <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment</span></code>
+is built on top of <code class="docutils literal notranslate"><span class="pre">WebView</span></code> and restoring its state is up to you.</p>
 </div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">

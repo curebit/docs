@@ -123,7 +123,7 @@ To just install Talkable, find the extension in the list and click <strong>Insta
 </ol>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p>Take note of <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/install-gde/system-requirements-tech.html">Magento 2.x system requirements</a> regarding extension installation.
+<p>Take note of the <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/install-gde/system-requirements-tech.html">Magento 2.x system requirements</a> regarding extension installation.
 Magento recommends that you have 2GB of RAM allocated to PHP for upgrading and installing
 extensions from the Marketplace.</p>
 <p class="last">Refer to <a class="reference internal" href="#troubleshooting">Troubleshooting</a> section of this guide if you encounter problems during this step.</p>
@@ -169,7 +169,7 @@ your Magento admin panel.</p>
 <img alt="../../_images/access1.jpg" src="../../_images/access1.jpg" />
 </li>
 <li><p class="first">Then select <strong>Talkable</strong> &rarr; <strong>Talkable Configuration</strong> from the list of available configurations.
-If you have multiple stores, select the desired Store View you want to change settings for.</p>
+If you have multiple stores, select the desired Store View you want to change the settings for.</p>
 <img alt="../../_images/access2.jpg" src="../../_images/access2.jpg" />
 </li>
 </ol>
@@ -218,7 +218,7 @@ you can disable these campaigns in extension config, so the corresponding pages 
 <div class="section" id="page-urls">
 <h3>Page URLs<a class="headerlink" href="#page-urls" title="Permalink to this headline">¶</a></h3>
 <p>The Page URLs section allows you to change paths to the Standalone Share and Advocate Dashboard pages.
-The paths must match placements you have configured in Talkable for this campaign type.
+The paths must match the placements you have configured in Talkable for this campaign type.
 Default values correspond to default placements in Talkable.</p>
 <blockquote>
 <div><img alt="../../_images/configure5.jpg" src="../../_images/configure5.jpg" />
@@ -236,18 +236,18 @@ in your Talkable dashboard. Incorrect values will prevent your Standalone or Das
 </div>
 <div class="section" id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
-<p>This section describes some of the common issues that may be encountered during extension
-installation and do not provide helpful error messages or a clear path forward.
-If you encounter an issue that isn’t described here, please refer to
-Magento <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/comp-mgr/trouble/tshoot.html">troubleshooting suggestions</a> for Component Manager and other Magento documentation.</p>
+<p>This section describes the solutions to some common issues encountered during installation
+that do not provide helpful error messages or a clear path forward.
+If you encounter an issue that isn’t described here, please refer to the
+Magento <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/comp-mgr/trouble/tshoot.html">troubleshooting suggestions</a> for the Component Manager and other Magento documentation.</p>
 <p>&nbsp;</p>
 <ul>
-<li><p class="first"><strong>Check Component Dependency</strong> step fails without error message</p>
+<li><p class="first"><strong>Check Component Dependency</strong> step fails without an error message</p>
 <img alt="../../_images/troubleshooting1.jpg" src="../../_images/troubleshooting1.jpg" />
-<p>The Check Component Dependency script has likely ran out of memory.
+<p>The Check Component Dependency script has likely run out of memory.
 Magento 2.x requires at least 756MB of RAM allocated to PHP.
-However to use Web Setup Wizard for system upgrades and extension installation,
-Magento recommends allocating 2GB of memory to PHP. Please refer to <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/install-gde/prereq/php-settings.html">Required PHP Settings</a>
+However, to use Web Setup Wizard for system upgrades and extension installation,
+Magento recommends allocating 2GB of memory to PHP. Please refer to the <a class="reference external" href="http://devdocs.magento.com/guides/v2.0/install-gde/prereq/php-settings.html">Required PHP Settings</a>
 guide and update your configuration.</p>
 <p>&nbsp;</p>
 </li>
@@ -255,7 +255,7 @@ guide and update your configuration.</p>
 <img alt="../../_images/troubleshooting2.jpg" src="../../_images/troubleshooting2.jpg" />
 <p>Backup creation in Component Manager is performed as a single web request.
 This request can take a long time, especially if you have chosen all three
-backup options (<em>Code</em>, <em>Media</em> and <em>Database</em>). If the backup request takes
+backup options (<em>Code</em>, <em>Media</em>, and <em>Database</em>). If the backup request takes
 longer to complete than allowed by your server configuration, the server will
 terminate the request, resulting in backup failure.</p>
 <p><div class="page-break-after"></div></p>
@@ -265,13 +265,13 @@ terminate the request, resulting in backup failure.</p>
 set up, we recommend performing it prior to installing the extension.</p>
 <img alt="../../_images/troubleshooting3.jpg" src="../../_images/troubleshooting3.jpg" />
 </li>
-<li><p class="first">Configure your server to allow long running requests.</p>
+<li><p class="first">Configure your server to allow long-running requests.</p>
 </li>
 </ol>
 <blockquote>
 <div><ul>
 <li><p class="first">In PHP configuration, increase <code class="docutils literal notranslate"><span class="pre">max_execution_time</span></code> to 300-600 seconds.
-This can be done either in your <code class="docutils literal notranslate"><span class="pre">php.ini</span></code> file, or in the <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code>
+This can be done either in your <code class="docutils literal notranslate"><span class="pre">php.ini</span></code> file or in the <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code>
 file in your Magento root folder.</p>
 </li>
 <li><p class="first">For Apache 2, increase <code class="docutils literal notranslate"><span class="pre">TimeOut</span></code> to 300-600 seconds in your server configuration.</p>
