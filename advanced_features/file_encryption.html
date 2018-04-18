@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Files Encryption &mdash; Talkable Documentation</title>
+    <title>File Encryption &mdash; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -56,8 +56,8 @@
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="email_encryption.html">Email Encryption</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Files Encryption</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-import-talkable-public-key">How To Import Talkable Public Key</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">File Encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-import-the-talkable-public-key">How To Import the Talkable Public Key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#encrypting">Encrypting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#decrypting">Decrypting</a></li>
 </ul>
@@ -108,41 +108,42 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <span class="target" id="advanced-features-files-encryption"></span><div class="section" id="files-encryption">
-<h1>Files Encryption<a class="headerlink" href="#files-encryption" title="Permalink to this headline">¶</a></h1>
-<p>For ecnrypting sensitive data when sending it through the Internet you can use
+  <span class="target" id="advanced-features-file-encryption"></span><div class="section" id="file-encryption">
+<h1>File Encryption<a class="headerlink" href="#file-encryption" title="Permalink to this headline">¶</a></h1>
+<p>For encrypting sensitive data when sending it through the Internet, you can use
 PGP encryption. It is a public key encryption program that has become the most
 popular standard for email encryption. PGP uses a private key that must be kept
 secret and a public key that sender and receiver must share.</p>
-<p>In the example below we will use GPG (GNU Privacy Guard), which is a complete
+<p>In the example below, we will use GPG (GNU Privacy Guard), which is a complete
 and free implementation of the OpenPGP standard. If you do not have GPG setup
 yet, here is a nice tutorial how to do it (&#8220;Set Up GPG Keys&#8221; section):
 <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages#set-up-gpg-keys">How To Use GPG to Encrypt and Sign Messages</a>.
-Also, you can find a brief list of software that have PGP capability
+Also, you can find a brief list of software that has PGP capability
 <a class="reference external" href="https://www.openpgp.org/software/">here</a>.</p>
-<div class="section" id="how-to-import-talkable-public-key">
-<h2>How To Import Talkable Public Key<a class="headerlink" href="#how-to-import-talkable-public-key" title="Permalink to this headline">¶</a></h2>
-<p>Before enrypting or decrypting you should import Talkable public key.
+<div class="section" id="how-to-import-the-talkable-public-key">
+<h2>How To Import the Talkable Public Key<a class="headerlink" href="#how-to-import-the-talkable-public-key" title="Permalink to this headline">¶</a></h2>
+<p>Before encrypting or decrypting you should import the Talkable public key.
 Here is a command to do it:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>curl https://d2jjzw81hqbuqv.cloudfront.net/integration/talkable_public_key.asc <span class="p">|</span> gpg --import
 </pre></div>
 </div>
-<p>To check that Talkable public key importing was done right make sure that next
-command is successful:</p>
+<p>To check that the Talkable public key importing was done right, make sure that
+next command is successful:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>gpg --list-keys dev@talkable.com
 </pre></div>
 </div>
 </div>
 <div class="section" id="encrypting">
 <h2>Encrypting<a class="headerlink" href="#encrypting" title="Permalink to this headline">¶</a></h2>
-<p>To encrypt data you can use next syntax:</p>
+<p>To encrypt data, you can use following syntax:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>gpg --encrypt --sign --armor -r dev@talkable.com name_of_file
 </pre></div>
 </div>
-<p>This encrypts data using Talkable&#8217;s public key and signs it with your own
+<p>This encrypts data using the Talkable public key and signs it with your own
 private key to guarantee that it is coming from you. Encrypted file will have the
-same name as the input one, but with an <tt class="docutils literal"><span class="pre">.asc</span></tt> extension. After this you can
-safely send encrypted file to Talkable. Make sure to send us public key as well.</p>
+same name as the input one, but with an <tt class="docutils literal"><span class="pre">.asc</span></tt> extension. After this, you can
+safely send the encrypted file to Talkable. Make sure to send us the public key
+as well.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">You should include a second <tt class="docutils literal"><span class="pre">&quot;-r&quot;</span></tt> recipient with your own email address if
