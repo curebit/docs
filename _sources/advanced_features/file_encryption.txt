@@ -11,7 +11,7 @@ secret and a public key that the sender and receiver must share.
 
 In the example below, we will use GPG (GNU Privacy Guard), which is a complete
 and free implementation of the OpenPGP standard. If you do not have GPG setup
-yet, first follow the instructions under “Set Up GPG Keys” in this tutorial::
+yet, first follow the instructions under “Set Up GPG Keys” in this tutorial:
 `How To Use GPG to Encrypt and Sign Messages`_.
 Also, you can find a brief list of software that has PGP capability
 `here <https://www.openpgp.org/software/>`_.
