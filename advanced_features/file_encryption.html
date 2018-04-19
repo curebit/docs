@@ -113,10 +113,10 @@
 <p>For encrypting sensitive data when sending it through the Internet, you can use
 PGP encryption. It is a public key encryption program that has become the most
 popular standard for email encryption. PGP uses a private key that must be kept
-secret and a public key that sender and receiver must share.</p>
+secret and a public key that the sender and receiver must share.</p>
 <p>In the example below, we will use GPG (GNU Privacy Guard), which is a complete
 and free implementation of the OpenPGP standard. If you do not have GPG setup
-yet, here is a nice tutorial how to do it (&#8220;Set Up GPG Keys&#8221; section):
+yet, first follow the instructions under “Set Up GPG Keys” in this tutorial::
 <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages#set-up-gpg-keys">How To Use GPG to Encrypt and Sign Messages</a>.
 Also, you can find a brief list of software that has PGP capability
 <a class="reference external" href="https://www.openpgp.org/software/">here</a>.</p>
@@ -128,7 +128,7 @@ Here is a command to do it:</p>
 </pre></div>
 </div>
 <p>To check that the Talkable public key importing was done right, make sure that
-next command is successful:</p>
+the next command is successful:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>gpg --list-keys dev@talkable.com
 </pre></div>
 </div>
@@ -140,8 +140,8 @@ next command is successful:</p>
 </pre></div>
 </div>
 <p>This encrypts data using the Talkable public key and signs it with your own
-private key to guarantee that it is coming from you. Encrypted file will have the
-same name as the input one, but with an <tt class="docutils literal"><span class="pre">.asc</span></tt> extension. After this, you can
+private key to guarantee that it is coming from you. Encrypted files will have the
+same name as the input files, but with an <tt class="docutils literal"><span class="pre">.asc</span></tt> extension. After this, you can
 safely send the encrypted file to Talkable. Make sure to send us the public key
 as well.</p>
 <div class="admonition note">
