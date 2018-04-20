@@ -199,6 +199,33 @@ Talkable dashboard after you log in and create a site.</td>
 </tbody>
 </table>
 </div>
+<p><br></p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>POST /people/&lt;person_slug&gt;/anonymize
+</pre></div>
+</div>
+<p>Anonymizes a person.</p>
+<div class="ptable container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>person_slug</td>
+<td>Person’s email</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="find-a-person-by-email">
@@ -294,6 +321,41 @@ Talkable dashboard after you log in and create a site.</td>
       <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-11-18T05:49:54.000-07:00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="anonymize-a-person">
+<h3>Anonymize a person<a class="headerlink" href="#anonymize-a-person" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;i9uil7nQgDjucCiTJu&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;}&#39;</span> <span class="se">\</span>
+     https://www.talkable.com/api/v2/people/customer@example.com/anonymize
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;events_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;b19b4a80-3bb2-48f2-831a-6e180b4c6a7e@anonymized.email&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
