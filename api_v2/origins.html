@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Origins &mdash; Talkable Documentation</title>
+    <title>Origins &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="People" href="people.html" />
     <link rel="prev" title="Visitors" href="visitors.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -72,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Referral Program via API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Origins</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Origins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -102,7 +101,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="api-v2-origins"></span><div class="section" id="origins">
 <h1>Origins<a class="headerlink" href="#origins" title="Permalink to this headline">¶</a></h1>
@@ -111,7 +110,7 @@
 <div class="highlight-text"><div class="highlight"><pre><span></span>POST /origins
 </pre></div>
 </div>
-<div class="ptable container">
+<div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
@@ -128,7 +127,7 @@
 Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>type</td>
-<td>Type of origin to create (<em>&#8220;AffiliateMember&#8221;</em>, <em>&#8220;Purchase&#8221;</em> or <em>&#8220;Event&#8221;</em>)</td>
+<td>Type of origin to create (<em>“AffiliateMember”</em>, <em>“Purchase”</em> or <em>“Event”</em>)</td>
 </tr>
 <tr class="row-even"><td>data</td>
 <td><p class="first">Hash or JSON object with following properties:</p>
@@ -139,9 +138,9 @@ Talkable dashboard after you log in and create a site.</td>
 <li>first_name (optional)</li>
 <li>last_name (optional)</li>
 <li>person_custom_properties (optional)</li>
-<li>uuid (optional) - uuid given to a visitor on a claim page. See <a class="reference internal" href="flow.html#api-v2-flow"><em>Referral Program via API</em></a></li>
+<li>uuid (optional) - uuid given to a visitor on a claim page. See <a class="reference internal" href="flow.html#api-v2-flow"><span class="std std-ref">Referral Program via API</span></a></li>
 <li>ip_address (optional) - IP address of client who is making the request. You might pass <cite>current</cite> string as a value so remote IP will be used</li>
-<li>traffic_source (optional) - specific <a class="reference internal" href="../advanced_features/traffic_source.html#advanced-features-traffic-source"><em>Traffic Source</em></a> value that helps to distinguish different points of integration</li>
+<li>traffic_source (optional) - specific <a class="reference internal" href="../advanced_features/traffic_source.html#advanced-features-traffic-source"><span class="std std-ref">Traffic Source</span></a> value that helps to distinguish different points of integration</li>
 <li>campaign_tags (optional) - campaign tags for offer targeting</li>
 <li>sharing_channels (optional) - array of social sharing channels
 for which will be generated sharing links</li>
@@ -347,10 +346,8 @@ for which will be generated sharing links</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
