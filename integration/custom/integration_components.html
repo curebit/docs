@@ -148,10 +148,10 @@ around 20kB and causes no noticeable impact to your site’s loading time.
 All other integration components are dependent on the Initialization
 script.</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/your-site-id.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/&lt;YOUR-TALKABLE-SITE-ID&gt;.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;your-site-id&#39;</span> <span class="p">}]);</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="p">}]);</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Optional, pass when available. Example: &#39;customer@example.com&#39;</span>
     <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Optional, pass when available. Example: &#39;John&#39;</span>
@@ -250,7 +250,7 @@ resides in your DOM</p>
 you’ll need to update the Site Placements section inside of Talkable
 for the Invite Advocate Landing Page to match the exact URL path that
 you intend to use via
-<cite>https://www.admin.talkable.com/sites/your-site-id/placements:</cite></p>
+<cite>https://www.admin.talkable.com/sites/&lt;YOUR-TALKABLE-SITE-ID&gt;/placements:</cite></p>
 <div class="figure">
 <img alt="Placement Edit" src="../../_images/placement_edit.png" />
 </div>
@@ -280,7 +280,7 @@ the dashboard content width for proper display is 980px.</li>
 you’ll need to update the Site Placements section inside of Talkable
 for the Dashboard Placement to use the exact URL path you intend to
 host the Referral Dashboard on via
-<cite>https://www.talkable.com/sites/your-site-id/placements</cite></li>
+<cite>https://www.talkable.com/sites/&lt;YOUR-TALKABLE-SITE-ID&gt;/placements</cite></li>
 <li><strong>Linking to the Referral Dashboard.</strong> Allow your users to reach the
 Referral Dashboard by adding a link from any place that makes sense
 considering your website configuration. Most common uses are links in

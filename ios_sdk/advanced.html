@@ -103,7 +103,7 @@
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="specify-a-custom-campaign-tag">
 <h2>Specify a custom campaign tag<a class="headerlink" href="#specify-a-custom-campaign-tag" title="Permalink to this headline">¶</a></h2>
-<p>By default if no campaign tag was specified SDK uses <cite>ios-invite</cite> and <cite>ios-post-purchase</cite> tags for <a class="reference internal" href="integration/standalone.html#ios-sdk-integration-standalone"><em>Standalone</em></a> and
+<p>By default if no campaign tag was specified, SDK uses <cite>ios-invite</cite> and <cite>ios-post-purchase</cite> tags for <a class="reference internal" href="integration/standalone.html#ios-sdk-integration-standalone"><em>Standalone</em></a> and
 <a class="reference internal" href="integration/post_purchase.html#ios-sdk-integration-post-purchase"><em>Post Purchase</em></a> campaigns. But you can explicitly specify your own tag in this way:</p>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
@@ -117,7 +117,7 @@
 <div class="section" id="implement-talkabledelegate">
 <h2>Implement TalkableDelegate<a class="headerlink" href="#implement-talkabledelegate" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by following code:</li>
+<li>Assign your <cite>ViewController</cite> or other object as Talkable delegate by using the following code:</li>
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">setDelegate</span><span class="p">:</span> <span class="n">yourObjectConformsTalkableDelegateProtocol</span><span class="p">];</span>
@@ -125,7 +125,8 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Take control of presenting offers to your users. Use next two delegate methods to prevent or give an instruction where you want that offer will be displayed:</li>
+<li>Take control of presenting offers to your users. Use the next two delegate methods to prevent
+or give an instruction as to where you want that offer to be displayed:</li>
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">shouldPresentTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
@@ -134,7 +135,7 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Customize ViewContoller title by implementing method below. By default title of offer page is used.</li>
+<li>Customize ViewContoller title by implementing the method below. By default, title of offer page is used.</li>
 </ol>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">titleForTalkableOfferViewController:</span><span class="p">(</span><span class="bp">UIViewController</span><span class="o">*</span><span class="p">)</span><span class="nv">controller</span><span class="p">;</span>
@@ -142,7 +143,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can modify page title on Talkable Site during campaign developing.</p>
+<p class="last">You can modify page title on a Talkable Site during campaign development.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="4">
@@ -155,7 +156,8 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Talkable SDK assigns itself to WKWebView navigation delegate. Changing WKWebView navigation delegate may break some functionality so we strictly recommend not doing this.</p>
+<p class="last">Talkable SDK assigns itself to WKWebView navigation delegate. Changing WKWebView navigation delegate
+may break some functionality so we strictly recommend not doing this.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="5">
@@ -215,7 +217,7 @@
 </div>
 <div class="section" id="debugging">
 <h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
-<p>See all debugging information in your console which can help you to realise what is going wrong:</p>
+<p>See all debugging information in your console which can help you to understand what is going wrong:</p>
 <blockquote>
 <div><div class="highlight-objc"><div class="highlight"><pre><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
 <span class="p">...</span>

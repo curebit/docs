@@ -107,7 +107,7 @@ by a purchase and shown to a customer immediately after it.</p>
 <p>Post Purchase campaign usually looks like a pop up right after a user made a purchase. This
 campaign initializes on the order confirmation page and captures order details parameters. You
 need to pass order data that includes your customer’s email address, order id, subtotal, coupon
-code used at checkout in order to close a referral loop. This allows Talkable to detect and
+codes used at checkout in order to close a referral loop. This allows Talkable to detect and
 close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
@@ -116,13 +116,16 @@ close the loop on a referral.</p>
 <span class="n">Integer</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">productId</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="o">;</span>
 <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">quantity</span><span class="o">,</span> <span class="n">productId</span><span class="o">);</span>
+<span class="n">item</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&quot;Item Title&quot;</span><span class="o">);</span> <span class="c1">// Optional</span>
+<span class="n">item</span><span class="o">.</span><span class="na">setUrl</span><span class="o">(</span><span class="s">&quot;https://site.com/product.html&quot;</span><span class="o">);</span> <span class="c1">// Optional</span>
+<span class="n">item</span><span class="o">.</span><span class="na">setImageUrl</span><span class="o">(</span><span class="s">&quot;https://site.com/image.jpg&quot;</span><span class="o">);</span> <span class="c1">// Optional</span>
 
 <span class="n">Double</span> <span class="n">subtotal</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span><span class="o">;</span> <span class="c1">// Required</span>
-<span class="n">Integer</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// Required</span>
+<span class="n">String</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="s">&quot;123456&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
 <span class="n">Date</span> <span class="n">orderDate</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getTime</span><span class="o">();</span> <span class="c1">// Required</span>
-<span class="n">String</span> <span class="n">coupon</span> <span class="o">=</span> <span class="s">&quot;EXAMPLE-CODE&quot;</span><span class="o">;</span> <span class="c1">// Optional</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">coupons</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;EXAMPLE-CODE-1&quot;</span><span class="o">,</span> <span class="s">&quot;EXAMPLE-CODE-2&quot;</span><span class="o">};</span> <span class="c1">// Optional</span>
 
-<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupon</span><span class="o">);</span>
+<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
 
@@ -130,7 +133,12 @@ close the loop on a referral.</p>
 <span class="n">purchase</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="n">campaignTag</span><span class="o">);</span> <span class="c1">// Optional</span>
 
 <span class="n">Activity</span> <span class="n">activity</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
-<span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">purchase</span><span class="o">);</span>
+<span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">purchase</span><span class="o">,</span> <span class="k">new</span> <span class="n">TalkableErrorCallback</span><span class="o">&lt;</span><span class="n">TalkableOfferLoadException</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">TalkableOfferLoadException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Error handling. Note that it runs on non UI thread</span>
+    <span class="o">}</span>
+<span class="o">});</span>
 </pre></div>
 </div>
 <div class="admonition note">

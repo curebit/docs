@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-multiple-site-slugs">Using multiple site slugs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sharing-via-facebook">Sharing via Facebook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#overriding-default-behaviour">Overriding default behaviour</a></li>
@@ -102,20 +103,35 @@
             
   <span class="target" id="android-sdk-advanced"></span><div class="section" id="advanced-usage">
 <h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="error-handling">
+<span id="id1"></span><h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>Errors from <tt class="docutils literal"><span class="pre">Talkable.showOffer</span></tt> and <tt class="docutils literal"><span class="pre">Talkable.loadOffer</span></tt> are handled
+inside <tt class="docutils literal"><span class="pre">onError</span></tt> callback, which provides an instance of <tt class="docutils literal"><span class="pre">TalkableOfferLoadException</span></tt> class.
+You can get error type and error message with <tt class="docutils literal"><span class="pre">error.getErrorCode()</span></tt>
+and <tt class="docutils literal"><span class="pre">error.getMessage()</span></tt> respectively.</p>
+<dl class="docutils">
+<dt>Here is a list of possible error codes from <tt class="docutils literal"><span class="pre">TalkableOfferLoadException</span></tt> with descriptions:</dt>
+<dd><p class="first"><tt class="docutils literal"><span class="pre">NETWORK_ERROR</span></tt>: General network error</p>
+<p><tt class="docutils literal"><span class="pre">API_ERROR</span></tt>: Talkable API unavailable</p>
+<p><tt class="docutils literal"><span class="pre">REQUEST_ERROR</span></tt>: Bad request</p>
+<p class="last"><tt class="docutils literal"><span class="pre">CAMPAIGN_ERROR</span></tt>: Campaign not found</p>
+</dd>
+</dl>
+</div>
 <div class="section" id="using-multiple-site-slugs">
 <h2>Using multiple site slugs<a class="headerlink" href="#using-multiple-site-slugs" title="Permalink to this headline">¶</a></h2>
-<p>To use multiple site slugs inside your application, you have to do next steps:</p>
+<p>To use multiple site slugs inside your application, follow these steps:</p>
 <ol class="arabic">
 <li><p class="first">Add credentials for each site you are going to use inside your manifest file.
 Format is the same as from corresponding
 <a class="reference internal" href="getting_started.html#setup-credentials"><em>Getting Started</em></a> section.</p>
 </li>
-<li><p class="first">Add deep linking schemas handlers into your main activity entry for each site
-you are going to use too. Format is the same as from corresponding
+<li><p class="first">Add deep linking schemas handlers into the main activity entry for each site
+you are going to use. The format is the same as the corresponding
 <a class="reference internal" href="getting_started.html#deep-linking-scheme"><em>Getting Started</em></a> section.</p>
 </li>
 <li><p class="first">Set default site slug.</p>
-<p>It can be done by adding this information to the manifest file into
+<p>This can be done by adding this information into the manifest file using
 <tt class="docutils literal"><span class="pre">&lt;application&gt;</span></tt> entry:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;application&gt;</span>
     ...
@@ -126,7 +142,7 @@ you are going to use too. Format is the same as from corresponding
 <span class="nt">&lt;/application&gt;</span>
 </pre></div>
 </div>
-<p>or by passing through <tt class="docutils literal"><span class="pre">Talkable.initialize</span></tt> in the <tt class="docutils literal"><span class="pre">Application</span></tt>:</p>
+<p>or by passing it through <tt class="docutils literal"><span class="pre">Talkable.initialize</span></tt> in the <tt class="docutils literal"><span class="pre">Application</span></tt>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">android.app.Application</span><span class="o">;</span>
 
@@ -141,11 +157,11 @@ you are going to use too. Format is the same as from corresponding
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>You can set site slug at any time after initialization in the following way:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">setSiteSlug</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;some-site-slug&quot;</span><span class="o">);</span>
+<p>You can set the site slug at any time after initialization in the following way:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">setSiteSlug</span><span class="o">(</span><span class="s">&quot;some-site-slug&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
-<p class="last">Make sure to add credentials for this site inside the manifest file.
+<p class="last">Make sure to add the credentials for this site inside the manifest file.
 Otherwise, an exception will be raised.</p>
 </div>
 </li>
@@ -176,56 +192,56 @@ and override methods there. Example:</p>
 </li>
 <li><p class="first">Pass Class of an activity you want to run a fragment in and the overriden fragment to
 <cite>Talkable.showOffer</cite> call:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">MyFragmentActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">TalkableErrorCallback</span><span class="o">&lt;</span><span class="n">TalkableOfferLoadException</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">TalkableOfferLoadException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Error handling. Note that it runs on non UI thread</span>
+    <span class="o">}</span>
+<span class="o">});</span>
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<blockquote>
-<div><p>You can just override <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> and use default
-<tt class="docutils literal"><span class="pre">TalkableActivity</span></tt> from Talkable SDK.
-In this case, you shouldn’t change the manifest
-(if you did steps from <a class="reference internal" href="getting_started.html#android-sdk-getting-started"><em>Getting Started</em></a> section).</p>
-</div></blockquote>
-<div class="last highlight-java"><div class="highlight"><pre><span class="n">Talkable</span><span class="o">.</span><span class="na">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">,</span> <span class="n">TalkableActivity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">OverridenTalkableOfferFragment</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</pre></div>
-</div>
 </div>
 </li>
 </ol>
-</div>
-<div class="section" id="using-talkableofferfragment-directly">
-<h2>Using TalkableOfferFragment directly<a class="headerlink" href="#using-talkableofferfragment-directly" title="Permalink to this headline">¶</a></h2>
-<p>To use instance of <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> you have to implement <tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt>
-interface from <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> class inside your activity.</p>
+<p id="fragment-listener">If you want to implement custom offer closing handling you should implement
+<tt class="docutils literal"><span class="pre">TalkableOfferFragmentListener</span></tt> interface from <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> inside your Activity.</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.talkable.sdk.TalkableOfferFragment.TalkableOfferFragmentListener</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivity</span> <span class="kd">implements</span> <span class="n">TalkableOfferFragmentListener</span> <span class="o">{</span>
-
     <span class="o">...</span>
-
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onOfferClosed</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mTalkableOfferFragment</span><span class="o">.</span><span class="na">isOfferLoaded</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">finish</span><span class="o">();</span>
-        <span class="o">}</span>
+        <span class="n">finish</span><span class="o">();</span>
     <span class="o">}</span>
-
     <span class="o">...</span>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>Then you should <a class="reference internal" href="integration.html#android-sdk-integration"><em>create an origin</em></a> and
-pass it to <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> instance via <tt class="docutils literal"><span class="pre">Bundle</span></tt>.
-After this you can start using the fragment.</p>
+</div>
+<div class="section" id="using-talkableofferfragment-directly">
+<span id="using-fragment-directly"></span><h2>Using TalkableOfferFragment directly<a class="headerlink" href="#using-talkableofferfragment-directly" title="Permalink to this headline">¶</a></h2>
+<p>To use <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt> directly you should get the Offer&#8217;s code
+using <tt class="docutils literal"><span class="pre">Talkable.loadOffer(origin,</span> <span class="pre">callback)</span></tt> and pass it to <tt class="docutils literal"><span class="pre">TalkableOfferFragment.newInstance(shortCode)</span></tt>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span class="n">AffiliateMember</span> <span class="n">affiliateMember</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
+<span class="o">...</span>
 
-<span class="n">Bundle</span> <span class="n">arguments</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bundle</span><span class="o">();</span>
-<span class="n">arguments</span><span class="o">.</span><span class="na">putParcelable</span><span class="o">(</span><span class="n">TalkableOfferFragment</span><span class="o">.</span><span class="na">ORIGIN_PARAM</span><span class="o">,</span> <span class="n">affiliateMember</span><span class="o">);</span>
+<span class="n">loadOffer</span><span class="o">(</span><span class="n">affiliateMember</span><span class="o">,</span> <span class="k">new</span> <span class="n">TalkableCallback</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">TalkableOfferLoadException</span><span class="o">&gt;()</span> <span class="o">{</span>
+    <span class="c1">// Note that it runs on non UI thread</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">String</span> <span class="n">offerCode</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">TalkableOfferFragment</span> <span class="n">fragment</span> <span class="o">=</span> <span class="n">TalkableOfferFragment</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="n">offerCode</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<span class="n">TalkableOfferFragment</span> <span class="n">talkableOfferFragment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TalkableOfferFragment</span><span class="o">();</span>
-<span class="n">talkableOfferFragment</span><span class="o">.</span><span class="na">setArguments</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">TalkableOfferLoadException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Error handling</span>
+    <span class="o">}</span>
+ <span class="o">);</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure to <a class="reference external" href="https://developer.android.com/guide/topics/resources/runtime-changes.html">handle configurations changes right</a>, as <tt class="docutils literal"><span class="pre">TalkableOfferFragment</span></tt>
+is built on top of <tt class="docutils literal"><span class="pre">WebView</span></tt> and restoring its state is up to you.</p>
 </div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">

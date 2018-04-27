@@ -143,7 +143,7 @@ You can edit these links in Administrative panel of your store.</p>
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
+    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
   <span class="p">}]];</span>
   <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="nx">customer</span> <span class="o">%</span><span class="p">}</span>
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -160,7 +160,7 @@ You can edit these links in Administrative panel of your store.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Replace <strong>YOUR-TALKABLE-SITE-ID</strong> with your Talkable Site ID. You can get
+<p class="last">Replace <strong>&lt;YOUR-TALKABLE-SITE-ID&gt;</strong> with your Talkable Site ID. You can get
 this from your Talkable site dashboard after you log in.</p>
 </div>
 <div class="admonition note">
@@ -187,7 +187,7 @@ copy its <cite>src</cite> attribute value. Example:
 <div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;YOUR-TALKABLE-SITE-ID&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
+    <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
   <span class="p">}]];</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">Shopify</span> <span class="o">&amp;&amp;</span> <span class="nx">Shopify</span><span class="p">.</span><span class="nx">checkout</span><span class="p">)</span> <span class="p">{</span>
@@ -246,7 +246,7 @@ copy its <cite>src</cite> attribute value. Example:
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Replace <strong>YOUR-TALKABLE-SITE-ID</strong> with your Talkable Site ID. You can get
+<p class="last">Replace <strong>&lt;YOUR-TALKABLE-SITE-ID&gt;</strong> with your Talkable Site ID. You can get
 this from your Talkable site dashboard after you log in.</p>
 </div>
 <div class="admonition note">
@@ -264,6 +264,7 @@ copy its <cite>src</cite> attribute value. Example:
 <li><p class="first">Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><em>Verifying Integration instructions</em></a>.</p>
 </li>
 </ol>
+<p>Watch a <a href="https://youtu.be/NxVscXSRtSA" target="_blank">video</a> demonstrating the full integration from start to finish.</p>
 <p><br></p>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
