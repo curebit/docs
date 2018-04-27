@@ -43,8 +43,8 @@ Provide your API key as the basic auth username value. You do not need to provid
 ``curl`` uses the ``-u`` flag to pass basic auth credentials.
 (Adding a colon after your API key prevents ``curl`` from asking for a password.)
 
-If you need to authenticate via bearer auth (e.g., for a cross-origin request),|br|
-use ``-H "Authorization: Bearer i9uil7nQgDjucCiTJu"``|br|
+If you need to authenticate via bearer auth (e.g., for a cross-origin request), |br|
+use ``-H "Authorization: Bearer i9uil7nQgDjucCiTJu"`` |br|
 instead of ``-u i9uil7nQgDjucCiTJu:``.
 
 Response Format
