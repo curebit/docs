@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Shopify Integration &mdash; Talkable Documentation</title>
-    
+    <title>Shopify Integration &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="next" title="Verifying Integration" href="verify.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Magento Integration" href="magento.html" />
     <link rel="prev" title="F.A.Q." href="custom/questions.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head>
-  <body>
+  </head><body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -57,7 +45,7 @@
 <li class="toctree-l1"><a class="reference internal" href="custom_integration.html">Standard Integration</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Shopify Integration</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shopify Integration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#automatic-integration">Automatic integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#manual-integration">Manual integration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="verify.html">Verifying Integration instructions</a></li>
@@ -91,7 +79,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="integration-shopify"></span><div class="section" id="shopify-integration">
 <h1>Shopify Integration<a class="headerlink" href="#shopify-integration" title="Permalink to this headline">¶</a></h1>
@@ -111,12 +99,12 @@ you start the Automatic integration process. See <a class="reference internal" h
 <p><span class="inline mll"></span> - Provide a valid Shopify store URL. Example: <span class="a">http://123test.myshopify.com</span>. <br>
 <span class="inline mll"></span> - Choose “Shopify” as your platform during registration process</p>
 <ol class="arabic simple" start="2">
-<li>On the Welcome screen click &#8220;I’m a Developer&#8221;</li>
+<li>On the Welcome screen click “I’m a Developer”</li>
 <li>Click <strong>Install Shopify App</strong></li>
 <li>You will be redirected to your Shopify store, log in and click the install button</li>
 <li>After successful installation you will be redirected back to Talkable</li>
 <li>Create, set up, and launch Campaigns (Invite, Advocate Dashboard, etc.)</li>
-<li>Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><em>Verifying Integration instructions</em></a>.</li>
+<li>Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><span class="std std-ref">Verifying Integration instructions</span></a>.</li>
 </ol>
 <blockquote>
 <div><div class="admonition note">
@@ -140,8 +128,8 @@ You can edit these links in Administrative panel of your store.</p>
 <li>Open <cite>Layout / theme.liquid</cite> file</li>
 <li>Before closing <cite>&lt;/head&gt;</cite> paste the following code:</li>
 </ul>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
   <span class="p">}]];</span>
@@ -153,8 +141,8 @@ You can edit these links in Administrative panel of your store.</p>
     <span class="p">}]);</span>
   <span class="p">{</span><span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span><span class="p">}</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{}]);</span>
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://YOUR-PER-CLIENT-INTEGRATION.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://YOUR-PER-CLIENT-INTEGRATION.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -184,8 +172,8 @@ copy its <cite>src</cite> attribute value. Example:
 <li>Scroll down to <strong>Order Processing</strong></li>
 <li>Paste the following code into <strong>Additional scripts</strong> field:</li>
 </ul>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="c1">// REQUIRED - Replace with your Talkable Site ID</span>
   <span class="p">}]];</span>
@@ -239,8 +227,8 @@ copy its <cite>src</cite> attribute value. Example:
 
     <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
   <span class="p">}</span>
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">&quot;YOUR-PER-CLIENT-INTEGRATION&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;YOUR-PER-CLIENT-INTEGRATION&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
 </div>
@@ -261,7 +249,7 @@ copy its <cite>src</cite> attribute value. Example:
 </li>
 <li><p class="first">Click “Save”.</p>
 </li>
-<li><p class="first">Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><em>Verifying Integration instructions</em></a>.</p>
+<li><p class="first">Verify your integration using <a class="reference internal" href="verify.html#integration-verify"><span class="std std-ref">Verifying Integration instructions</span></a>.</p>
 </li>
 </ol>
 <p>Watch a <a href="https://youtu.be/NxVscXSRtSA" target="_blank">video</a> demonstrating the full integration from start to finish.</p>
