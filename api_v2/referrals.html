@@ -142,7 +142,8 @@ Talkable dashboard after you log in and create a site.</td>
 <h3>Approve a Referral<a class="headerlink" href="#approve-a-referral" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;api_key&quot;:&quot;i9uil7nQgDjucCiTJu&quot;,&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;status&quot;:&quot;approved&quot;}}&#39;</span> <span class="se">\</span>
+     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;status&quot;:&quot;approved&quot;}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins/B00K2EOONI/referral
 </pre></div>
 </div>

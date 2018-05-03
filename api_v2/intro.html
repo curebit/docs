@@ -108,13 +108,26 @@ with standard HTTP response codes to indicate errors.</p>
 </div>
 <div class="section" id="authentication">
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
-<p>You authenticate to the Talkable API by providing your <code class="docutils literal notranslate"><span class="pre">api_key</span></code> in the request.
+<p>You authenticate to the Talkable API by providing your API Key in the request.
 You can manage your API key in the Account Settings.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p>Keep your API key secret!</p>
-<p class="last">You should not embed the API key within a web page and make Talkable API calls within JavaScript running within a browser. Once someone has your API key, they could create their own API calls</p>
+<p class="last">You should not embed the API key within a web page and make Talkable API calls
+within JavaScript running within a browser. Once someone has your API key, they
+could create their own API calls.</p>
 </div>
+<p>Authentication to the API is performed via <a class="reference external" href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>.
+Provide your API key as the basic auth username value. You do not need to provide a password.</p>
+<h4>Example Request</h4><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;https://www.talkable.com/api/v2/campaigns?site_slug=my-store&#39;</span> <span class="se">\</span>
+  -u i9uil7nQgDjucCiTJu:
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">curl</span></code> uses the <code class="docutils literal notranslate"><span class="pre">-u</span></code> flag to pass basic auth credentials.
+(Adding a colon after your API key prevents <code class="docutils literal notranslate"><span class="pre">curl</span></code> from asking for a password.)</p>
+<p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), <br>
+use <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&quot;Authorization:</span> <span class="pre">Bearer</span> <span class="pre">i9uil7nQgDjucCiTJu&quot;</span></code> <br>
+instead of <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">i9uil7nQgDjucCiTJu:</span></code>.</p>
 </div>
 <div class="section" id="response-format">
 <h2>Response Format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h2>
