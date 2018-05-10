@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pass Custom User Data &#8212; Talkable Documentation</title>
+    
+    <title>Pass Custom User Data &mdash; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
+    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
     <link rel="next" title="Referrals Approval" href="referrals_approval.html" />
     <link rel="prev" title="Including Product Items" href="product_items.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head><body>
+  </head>
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -45,7 +58,7 @@
 <li class="toctree-l2"><a class="reference internal" href="email_encryption.html">Email Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_encryption.html">File Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom User Data</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Pass Custom User Data</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
@@ -90,36 +103,36 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="advanced-features-passing-custom-data"></span><div class="section" id="pass-custom-user-data">
 <h1>Pass Custom User Data<a class="headerlink" href="#pass-custom-user-data" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> is a variable that allows you to pass custom data
+<p><tt class="docutils literal"><span class="pre">custom_properties</span></tt> is a variable that allows you to pass custom data
 to Talkable in the form of Key-Value pairs via integration.</p>
-<p><code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> has robust uses as you are able to define and pass
+<p><tt class="docutils literal"><span class="pre">custom_properties</span></tt> has robust uses as you are able to define and pass
 any key value pairs you wish.</p>
 <p>The values you define for some key should be JSON Key-Value pairs themselves,
 this means complex data structures can be passed through.</p>
-<p>Any <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> data passed through is tied to the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> or the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>,
+<p>Any <tt class="docutils literal"><span class="pre">custom_properties</span></tt> data passed through is tied to the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> or the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>,
 that means there is only one instance of each field in
 existence at any time: the most recently passed data.</p>
-<p>All data associated with <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> is available for use
+<p>All data associated with <tt class="docutils literal"><span class="pre">custom_properties</span></tt> is available for use
 across all Campaign Views. Accessing this data beings by creating a variable
 to store your custom_properties:</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>advocate_custom_properties<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>advocate_custom_properties<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_custom_properties<span class="w"> </span><span class="p">%}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_custom_properties<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
 <p>Key Value pairs can be referenced through your newly created object by referencing
 the value name such as:</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">data</span><span class="p">.</span><span class="nv">favorite_color</span><span class="w"> </span><span class="p">}}</span>
+<div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">data</span><span class="p">.</span><span class="nv">favorite_color</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
-<p>Defining <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> in your integration might look something like this:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+<p>Defining <tt class="docutils literal"><span class="pre">custom_properties</span></tt> in your integration might look something like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="nx">custom_properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>
@@ -131,8 +144,10 @@ the value name such as:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="hidden docutils container">
+<div class="hidden container">
 <div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
 </div>
 </div>
 </div>
