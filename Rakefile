@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'mkmf'
-require 'open-uri'
+require 'open3'
 
 SPHINX_BUILD = ENV['SPHINX_BUILD'] || 'sphinx-build'
 SOURCE_DIR   = 'source'
@@ -20,6 +20,13 @@ end
 task :environment do
   ENV['LANG'] = ENV['LC_ALL'] = 'en_US.UTF-8'
   find_executable(SPHINX_BUILD) || abort("The '#{SPHINX_BUILD}' command was not found. Make sure you have Sphinx installed, then set the SPHINX_BUILD environment variable to point to the full path of the '#{SPHINX_BUILD}' executable. Alternatively you can add the directory with the executable to your PATH. If you do not have Sphinx installed, grab it from http://sphinx-doc.org/")
+
+  regexp = /(\d+\.)?(\d+\.)?(\*|\d+)/
+  required = File.read('requirements.txt').match(regexp).to_s
+  installed = Open3.capture3("#{SPHINX_BUILD} --version")[1].match(regexp).to_s
+  if !required.empty? && !installed.empty? && Gem::Version.new(required) > Gem::Version.new(installed)
+    abort "\nYou are running an outdated version of Sphinx #{installed}. Required version is #{required}. Run `pip install -r requirements.txt` to upgrade Sphinx."
+  end
 end
 
 desc 'Run build in test mode'
@@ -29,18 +36,6 @@ end
 
 task :build => :environment do
   sh "#{SPHINX_BUILD} #{SPHINX_OPTS}"
-  integration_version = open('http://d2jjzw81hqbuqv.cloudfront.net/integration/docs.version', &:read).chomp
-  integration_url = "//d2jjzw81hqbuqv.cloudfront.net/integration/talkable-#{integration_version}.min.js"
-  Rake::FileList["#{BUILD_DIR}/html/**/*.html"].each do |filename|
-    File.open(filename, 'r+') do |file|
-      old_content = file.read
-      new_content = old_content.
-        gsub('|integration_url|', integration_url).
-        gsub('|integration_version|', integration_version)
-      file.tap(&:rewind).write(new_content) if old_content != new_content
-    end
-  end
-
   puts "\nBuild finished. The HTML pages are in #{File.expand_path("#{BUILD_DIR}/html")}."
 end
 
