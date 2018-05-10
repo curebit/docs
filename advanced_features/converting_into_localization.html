@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Converting Into Localization &mdash; Talkable Documentation</title>
-    
+    <title>Converting Into Localization &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Advanced Features" href="../advanced_features.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Email Encryption" href="email_encryption.html" />
     <link rel="prev" title="Automatic Coupon Creation" href="coupons.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head>
-  <body>
+  </head><body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -54,7 +41,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../advanced_features.html">Advanced Features</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Converting Into Localization</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Converting Into Localization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#moving-subject-line-into-localization">Moving Subject Line Into Localization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#color-as-localization">Color As Localization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#image-as-localization">Image As Localization</a></li>
@@ -107,11 +94,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="advanced-features-converting-into-localization"></span><div class="section" id="converting-into-localization">
 <h1>Converting Into Localization<a class="headerlink" href="#converting-into-localization" title="Permalink to this headline">¶</a></h1>
-<p>If you don’t know what is Localization inside Talkable <a class="reference internal" href="../campaigns/localization.html#campaigns-localization"><em>read this article</em></a>.</p>
+<p>If you don’t know what is Localization inside Talkable <a class="reference internal" href="../campaigns/localization.html#campaigns-localization"><span class="std std-ref">read this article</span></a>.</p>
 <p>Few benefits you get out of using Localizations:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -135,13 +122,13 @@
 <li>Find a copy that you’d like to convert into a Localization. You can hit <cite>Cmd+F</cite> (<cite>Ctrl+F</cite> on Windows) to search within HTML area.</li>
 </ol>
 <p>Static copy is basically a piece of text that sits inside HTML &amp; CSS Editor and usually looks like this:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
   Get {{ advocate_incentive.description }}.
 <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>A piece that we are going to extract into Localizations is just a copy, without HTML tags. To do that, simply wrap the text into a variable notation like so:</p>
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
   {{ &quot;advocate_share_page_headline&quot; | localize: &quot;Get [[ advocate_incentive.description ]].&quot; }}
 <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
@@ -152,7 +139,7 @@
 <img alt="../_images/campaign_localization_sidebar.png" src="../_images/campaign_localization_sidebar.png" />
 <h2>Few important things to remember</h2><ol class="arabic simple">
 <li>Don’t forget to change <cite>{{</cite> into <cite>[[</cite> inside interpolation variables, otherwise variables will lose its function and become just a plain text.</li>
-<li>Keep in mind that <cite>identifier</cite> (&#8220;advocate_share_page_headline&#8221; in the example above) is a campaign-level Localization in fact, always remember to provide unique names for them, otherwise you will be overriding a value of one Localization.</li>
+<li>Keep in mind that <cite>identifier</cite> (“advocate_share_page_headline” in the example above) is a campaign-level Localization in fact, always remember to provide unique names for them, otherwise you will be overriding a value of one Localization.</li>
 </ol>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -164,14 +151,14 @@
 <p>Subject line is unique because its default value is set on the Advocate Share Page along with other email sharing fields (email body, reminder checkbox value), not Friend Share email as it might sounded logical. Here is the plan:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Create Subject Line as a Localization on the Advocate Share Page, provide its default value, it will be used inside <cite>value</cite> attribute of the &#8220;subject&#8221; form field:</li>
+<li>Create Subject Line as a Localization on the Advocate Share Page, provide its default value, it will be used inside <cite>value</cite> attribute of the “subject” form field:</li>
 </ol>
 <blockquote>
 <div><img alt="../_images/subject_line_setup_inside_share_page.png" src="../_images/subject_line_setup_inside_share_page.png" />
-<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_subject&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textfield&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ &#39;friend_share_email_subject&#39; | localize: &#39;Your friend [[ advocate_info.first_name ]] [[ advocate_info.last_name ]] gave you [[ friend_incentive.description ]]&#39; | replace: &#39;   &#39;, &#39; &#39; | replace: &#39;  &#39;, &#39; &#39; }}&quot;</span> <span class="p">/&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_subject&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textfield&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ &#39;friend_share_email_subject&#39; | localize: &#39;Your friend [[ advocate_info.first_name ]] [[ advocate_info.last_name ]] gave you [[ friend_incentive.description ]]&#39; | replace: &#39;   &#39;, &#39; &#39; | replace: &#39;  &#39;, &#39; &#39; }}&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
-<p>This code creates new Localization named &#8220;Friend share email subject&#8221; that you are able to change on the Advocate Share Page.</p>
+<p>This code creates new Localization named “Friend share email subject” that you are able to change on the Advocate Share Page.</p>
 </div></blockquote>
 <ol class="arabic simple" start="2">
 <li>Navigate to Friend Share email &rarr; Extra fields to see Email Subject field:</li>
@@ -183,7 +170,7 @@
 <li>Put the following code in there:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-liquid"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">custom_message_subject</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">blank</span><span class="w"> </span><span class="p">%}</span>
+<div><div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">custom_message_subject</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">blank</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;friend_share_email_subject&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="nv">custom_message_subject</span><span class="w"> </span><span class="p">}}</span>
@@ -205,10 +192,10 @@
 <div><img alt="../_images/campaign_navigation_html_css_editor.png" src="../_images/campaign_navigation_html_css_editor.png" />
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>At the very bottom of the HTML area add <tt class="docutils literal"><span class="pre">&lt;style&gt;&lt;/style&gt;</span></tt> tag with CSS that will override default styling of the element you want to localize:</li>
+<li>At the very bottom of the HTML area add <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;&lt;/style&gt;</span></code> tag with CSS that will override default styling of the element you want to localize:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre><span></span>.button {
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.button {
   background-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
   border-color: {{ &quot;advocate_share_page_button_color&quot; | localize: &quot;#f94d08&quot;, trait: &quot;color&quot; }};
 }
@@ -217,7 +204,7 @@
 <p>In the code example above we created new Color Localization with default HEX color <cite>#f94d08</cite> which is used for <cite>background-color</cite> and <cite>border-color</cite> CSS properties of <cite>.button</cite> selector. Whenever you set a new color inside Campaign Editor it will be changed across both places because we’re using the same Localization identifier in both places.</p>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li>New Color Localization appears under &#8220;Color&#8221; tab inside Campaign Editor:</li>
+<li>New Color Localization appears under “Color” tab inside Campaign Editor:</li>
 </ol>
 <blockquote>
 <div><img alt="../_images/editor_colors_tab.png" src="../_images/editor_colors_tab.png" />
@@ -238,7 +225,7 @@
 <li>Inside HTML area find an image you want to localize. An image can be either within CSS or within HTML area (<cite>&lt;img /&gt;</cite>, inline styles, etc.). If the image is set within CSS you need to extract it into HTML area using inline styles:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre><span></span>&lt;div class=&quot;container&quot; style=&quot;background-image: url(&#39;{{ &quot;share_page_background&quot; | localize: &quot;share-page-background.jpg&quot;, trait: &quot;asset&quot; }}&#39;);&quot;&gt;
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;container&quot; style=&quot;background-image: url(&#39;{{ &quot;share_page_background&quot; | localize: &quot;share-page-background.jpg&quot;, trait: &quot;asset&quot; }}&#39;);&quot;&gt;
   ...
 &lt;/div&gt;
 </pre></div>
@@ -246,7 +233,7 @@
 <p>In the example above <cite>share_page_background</cite> is a name of an Image Localization. <cite>share-page-background.jpg</cite> is a name of an Asset (Files tab within HTML &amp; CSS Editor).</p>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Now we can see newly created Image Localization under &#8220;Images&#8221; tab:</li>
+<li>Now we can see newly created Image Localization under “Images” tab:</li>
 </ol>
 <blockquote>
 <div><img alt="../_images/editor_images_tab.png" src="../_images/editor_images_tab.png" />
@@ -267,7 +254,7 @@
 <li>Build two separate layouts using CSS cascades to style all nested children within a container block that holds all the content:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-text"><div class="highlight"><pre><span></span>{% assign share_page_layout = &quot;share_page_layout&quot; | localize: &quot;Equal Emphasis&quot;, &quot;Email Emphasis&quot; %}
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{% assign share_page_layout = &quot;share_page_layout&quot; | localize: &quot;Equal Emphasis&quot;, &quot;Email Emphasis&quot; %}
 &lt;div class=&quot;container is-{{ share_page_layout | downcase | split: &quot; &quot; | join: &quot;-&quot; }}&quot;&gt;
   ...
 &lt;/div&gt;
@@ -283,10 +270,10 @@ Then we optimize the variable value to be set as an HTML <cite>class</cite> attr
 <div><img alt="../_images/editor_configuration_tab.png" src="../_images/editor_configuration_tab.png" />
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Let’s switch back to HTML &amp; CSS editor and start applying CSS styling to both layouts. Knowing their final classes inside HTML: <cite>class=&#8221;container is-equal-emphasis&#8221;</cite> and <cite>class=&#8221;container is-email-emphasis&#8221;</cite> we can easily style both layouts inside CSS area like so (SCSS is also allowed and is shown as an example for code simplicity):</li>
+<li>Let’s switch back to HTML &amp; CSS editor and start applying CSS styling to both layouts. Knowing their final classes inside HTML: <cite>class=”container is-equal-emphasis”</cite> and <cite>class=”container is-email-emphasis”</cite> we can easily style both layouts inside CSS area like so (SCSS is also allowed and is shown as an example for code simplicity):</li>
 </ol>
 <blockquote>
-<div><div class="highlight-scss"><div class="highlight"><pre><span></span><span class="nc">.container</span> <span class="p">{</span>
+<div><div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nc">.container</span> <span class="p">{</span>
   <span class="k">&amp;</span><span class="nc">.is-equal-emphasis</span> <span class="p">{</span>
     <span class="nt">h1</span> <span class="p">{</span>
       <span class="nt">font-size</span><span class="nd">:</span> <span class="nt">48px</span><span class="o">;</span>
@@ -304,13 +291,11 @@ Then we optimize the variable value to be set as an HTML <cite>class</cite> attr
 <p>All other nested children can be styled following this pattern.</p>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Once you’re done with styling it is very easy to set up an AB test, just go back to Campaign Editor and click &#8220;Add A/B test variant&#8221; link. Once a Campaign goes Live it will start rotating both variants following AB test distribution rules (50:50 by default).</li>
+<li>Once you’re done with styling it is very easy to set up an AB test, just go back to Campaign Editor and click “Add A/B test variant” link. Once a Campaign goes Live it will start rotating both variants following AB test distribution rules (50:50 by default).</li>
 </ol>
 </div></blockquote>
-<div class="hidden container">
+<div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
