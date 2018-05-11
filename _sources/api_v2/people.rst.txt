@@ -92,7 +92,7 @@ Anonymizes a person.
 
    POST /people/<person_slug>/personal_data
 
-Returns personal data
+Returns personal data.
 
 .. container:: ptable
 
@@ -231,7 +231,7 @@ Anonymize a person
    curl -H "Content-Type: application/json" \
         -X POST \
         -u i9uil7nQgDjucCiTJu: \
-        -d '{site_slug":"my-store"}' \
+        -d '{"site_slug":"my-store"}' \
         https://www.talkable.com/api/v2/people/customer@example.com/anonymize
 
 Sample response:
@@ -295,7 +295,7 @@ Sample response:
              "created_at": "2018-04-30T02:14:35.000-07:00",
              "ip_address": "1.2.3.4",
              "order_number": "customer@example.com",
-             "subtotal": 0.0,
+             "subtotal": 0.0
            }
          ]
        }
