@@ -10,9 +10,9 @@ This API allows you to access offer shares.
 
 .. code-block:: text
 
-   POST /offers/<short_url_code>/shares/<type>
+   POST /offers/<short_url_code>/shares/social
 
-Creates offer share.
+Creates a social share.
 
 .. container:: ptable
 
@@ -23,37 +23,27 @@ Creates offer share.
                      Talkable dashboard after you log in and create a site.
    short_url_code    Offer short code obtained with
                      :ref:`origin creation <api_v2/origins>`.
-   type              Options: `social` or `email`
+   channel           Options: `facebook`, `twitter`, `linkedin`, `whatsapp`,
+                     `other`
    ================= ========================================================
 
-Social Share
-------------
-
-.. code-block:: text
-
-   POST /offers/<short_url_code>/shares/social
-
-.. container:: ptable
-
-   ================= ========================================================
-   Parameter         Description
-   ================= ========================================================
-   channel           Options: `facebook`, `twitter`, `linkedin`, `other`
-   ================= ========================================================
-
-E-mail share
-------------
+|br|
 
 .. code-block:: text
 
    POST /offers/<short_url_code>/shares/email
 
+Creates an email share.
 
 .. container:: ptable
 
    ================= ========================================================
    Parameter         Description
    ================= ========================================================
+   site_slug         Your Talkable Site ID. You can get this from your
+                     Talkable dashboard after you log in and create a site.
+   short_url_code    Offer short code obtained with
+                     :ref:`origin creation <api_v2/origins>`.
    recipients        List of recipient emails separated by comma or newline.
 
    subject           (optional) Custom subject of the e-mail
@@ -100,7 +90,7 @@ Create an Email share
    curl -H "Content-Type: application/json" \
         -X POST \
         -u i9uil7nQgDjucCiTJu: \
-        -d '{"site_slug":"my-store","recipients":"friend1@example.com,friend2@example.com","subject":"Hello!","body":"World!","reminder":true}' \
+        -d '{"site_slug":"my-store","recipients":"friend1@example.com,friend2@example.com","subject":"Hello!","body":"World!","reminder":false}' \
         https://www.talkable.com/api/v2/offers/dZpBwd/shares/email
 
 Sample response:

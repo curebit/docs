@@ -63,8 +63,6 @@
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Shares</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#social-share">Social Share</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#e-mail-share">E-mail share</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -97,10 +95,10 @@
 <h1>Shares<a class="headerlink" href="#shares" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to access offer shares.</p>
 <p><br></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /offers/&lt;short_url_code&gt;/shares/&lt;type&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /offers/&lt;short_url_code&gt;/shares/social
 </pre></div>
 </div>
-<p>Creates offer share.</p>
+<p>Creates a social share.</p>
 <div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
@@ -121,41 +119,18 @@ Talkable dashboard after you log in and create a site.</td>
 <td>Offer short code obtained with
 <a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">origin creation</span></a>.</td>
 </tr>
-<tr class="row-even"><td>type</td>
-<td>Options: <cite>social</cite> or <cite>email</cite></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="social-share">
-<h2>Social Share<a class="headerlink" href="#social-share" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /offers/&lt;short_url_code&gt;/shares/social
-</pre></div>
-</div>
-<div class="ptable docutils container">
-<table border="1" class="docutils">
-<colgroup>
-<col width="23%" />
-<col width="77%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Parameter</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
 <tr class="row-even"><td>channel</td>
-<td>Options: <cite>facebook</cite>, <cite>twitter</cite>, <cite>linkedin</cite>, <cite>other</cite></td>
+<td>Options: <cite>facebook</cite>, <cite>twitter</cite>, <cite>linkedin</cite>, <cite>whatsapp</cite>,
+<cite>other</cite></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="e-mail-share">
-<h2>E-mail share<a class="headerlink" href="#e-mail-share" title="Permalink to this headline">¶</a></h2>
+<p><br></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /offers/&lt;short_url_code&gt;/shares/email
 </pre></div>
 </div>
+<p>Creates an email share.</p>
 <div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
@@ -168,6 +143,14 @@ Talkable dashboard after you log in and create a site.</td>
 </tr>
 </thead>
 <tbody valign="top">
+<tr class="row-even"><td>site_slug</td>
+<td>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</td>
+</tr>
+<tr class="row-odd"><td>short_url_code</td>
+<td>Offer short code obtained with
+<a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">origin creation</span></a>.</td>
+</tr>
 <tr class="row-even"><td>recipients</td>
 <td>List of recipient emails separated by comma or newline.</td>
 </tr>
@@ -183,7 +166,6 @@ Whether Talkable should send a reminder e-mail later</td>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -216,7 +198,7 @@ Whether Talkable should send a reminder e-mail later</td>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;recipients&quot;:&quot;friend1@example.com,friend2@example.com&quot;,&quot;subject&quot;:&quot;Hello!&quot;,&quot;body&quot;:&quot;World!&quot;,&quot;reminder&quot;:true}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;recipients&quot;:&quot;friend1@example.com,friend2@example.com&quot;,&quot;subject&quot;:&quot;Hello!&quot;,&quot;body&quot;:&quot;World!&quot;,&quot;reminder&quot;:false}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/offers/dZpBwd/shares/email
 </pre></div>
 </div>
