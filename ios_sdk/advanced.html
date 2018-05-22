@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example" href="example.html" />
-    <link rel="prev" title="Post Purchase Campaign" href="integration/post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Native Integration via API" href="api_integration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -63,6 +63,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_integration.html">Native Integration via API</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced Usage</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#specify-a-custom-campaign-tag">Specify a custom campaign tag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implement-talkabledelegate">Implement TalkableDelegate</a></li>
@@ -161,7 +162,7 @@ may break some functionality so we strictly recommend not doing this.</p>
 </div></blockquote>
 </div>
 <div class="section" id="notifications">
-<h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<span id="ios-sdk-advanced-notifications"></span><h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
 <p>Subscribe to notifications that Talkable SDK publish and be aware of everything that happens around your campaigns.</p>
 <ol class="arabic simple">
 <li>Receive the coupon given to your users:</li>
@@ -179,6 +180,21 @@ may break some functionality so we strictly recommend not doing this.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="2">
+<li>Receive the reward given to an Advocate:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="cp">#import &lt;TalkableSDK/Talkable.h&gt;</span>
+<span class="p">...</span>
+<span class="p">[[</span><span class="bp">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">addObserver</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">rewardReceived</span><span class="p">:)</span> <span class="nl">name</span><span class="p">:</span><span class="n">TKBLDidReceiveReward</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">...</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">rewardReceived</span><span class="p">:(</span><span class="bp">NSNotification</span><span class="o">*</span><span class="p">)</span><span class="n">ntf</span> <span class="p">{</span>
+  <span class="c1">// Your logic here</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
 <li>Catch every message from presented offer:</li>
 </ol>
 <blockquote>
