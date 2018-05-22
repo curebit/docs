@@ -72,6 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sharing-via-facebook">Sharing via Facebook</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#overriding-default-behaviour">Overriding default behaviour</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-talkableofferfragment-directly">Using TalkableOfferFragment directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#native-integration-via-api">Native integration via API</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
@@ -230,6 +231,19 @@ using <code class="docutils literal notranslate"><span class="pre">Talkable.load
 <p class="last">Make sure to <a class="reference external" href="https://developer.android.com/guide/topics/resources/runtime-changes.html">handle configurations changes right</a>, as <code class="docutils literal notranslate"><span class="pre">TalkableOfferFragment</span></code>
 is built on top of <code class="docutils literal notranslate"><span class="pre">WebView</span></code> and restoring its state is up to you.</p>
 </div>
+</div>
+<div class="section" id="native-integration-via-api">
+<h2>Native integration via API<a class="headerlink" href="#native-integration-via-api" title="Permalink to this headline">¶</a></h2>
+<p>Talkable provides an <a class="reference internal" href="api.html#android-sdk-api"><span class="std std-ref">API</span></a> that can be utilized to
+implement a fully native referral program interface if the default solution
+(based on <code class="docutils literal notranslate"><span class="pre">WebView</span></code>) doesn’t work for you.
+Below are the methods necessary to integrate the Talkable referral loop into
+your Android application.</p>
+<ol class="arabic simple">
+<li>The first step is to get an <code class="docutils literal notranslate"><span class="pre">Offer</span></code> by creating an <code class="docutils literal notranslate"><span class="pre">Origin</span></code>: <a class="reference internal" href="api.html#android-api-origins"><span class="std std-ref">Create origin</span></a></li>
+<li>Then, share the obtained <code class="docutils literal notranslate"><span class="pre">Offer</span></code>: <a class="reference internal" href="api.html#android-api-sharing"><span class="std std-ref">Create offer share</span></a></li>
+<li>Check for rewards: <a class="reference internal" href="api.html#android-api-rewards"><span class="std std-ref">Retrieve rewards</span></a></li>
+</ol>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 </div>
