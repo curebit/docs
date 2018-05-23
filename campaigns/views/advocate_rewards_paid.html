@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advocate Reward Paid Email &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Views" href="../views.html" />
+    <link rel="next" title="Friend Reward Paid Email" href="friend_rewards_paid.html" />
+    <link rel="prev" title="Advocate Reward Confirmation Email" href="advocate_rewards_confirmation.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../campaign_types.html">Campaign Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../campaign_placements.html">Campaign Placements</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../views.html">Views</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="affiliate_members_new.html">Advocate Signup Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offers_show.html">Advocate Share Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_email.html">Advocate Offer Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email.html">Friend Share Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifier_offers_share_via_email_reminder.html">Friend Share Email Reminder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="offers_claim.html">Friend Claim Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advocate_rewards_confirmation.html">Advocate Reward Confirmation Email</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Advocate Reward Paid Email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="friend_rewards_paid.html">Friend Reward Paid Email</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offers_expiration.html">Offers Expiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../editor.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../designer.html">Designer</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/custom_integration.html">Standard Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/demandware.html">Demandware Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="campaigns-views-notifier-rewards-paid"></span><div class="section" id="advocate-reward-paid-email">
+<h1>Advocate Reward Paid Email<a class="headerlink" href="#advocate-reward-paid-email" title="Permalink to this headline">¶</a></h1>
+<p>Email is triggered to an Advocate when Referral marked as <tt class="docutils literal"><span class="pre">Approved</span></tt>. <br>
+Let Advocate know their account has been credited or a partial refund has
+been issued.</p>
+<p>Frequently used Variables:</p>
+<ul class="simple">
+<li>To show Reward Coupon Code use <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">coupon_code</span> <span class="pre">}}</span></tt>.</li>
+<li>Main <abbr title="Call to action">CTA</abbr> should point to a merchant site to start shopping <tt class="docutils literal"><span class="pre">{{</span> <span class="pre">proceed_to_merchant_path</span> <span class="pre">}}</span></tt>.</li>
+</ul>
+<p><br></p>
+<img alt="Advocate Reward Paid Email" src="../../_images/advocate-reward-paid-email.png" />
+<p><br></p>
+<div class="highlight-liquid"><div class="highlight"><pre>Your credit code: <span class="p">{{</span><span class="w"> </span><span class="nv">coupon_code</span><span class="w"> </span><span class="p">}}</span>
+&lt;a href=&quot;http://merchant-site.com/products&quot;&gt;Spend your credit&lt;/a&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ideal email width is 480px. This is a most universal width for both
+mobile and desktop platforms.
+<a class="reference internal" href="../designer.html#designer-email"><em>Read more about email design</em></a>.</p>
+</div>
+<h2>Email sending conditions</h2><p>By default is sent immediately after the reward status turns into <cite>Paid</cite>, but can be delayed by configuration. This View is available only for <strong>Advocate Incentive</strong> where <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> is rewarded after <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> buys using their coupon code.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>

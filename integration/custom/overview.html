@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Integration High Level Overview &mdash; Talkable Documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Talkable Documentation" href="../../index.html" />
+    <link rel="up" title="Standard Integration" href="../custom_integration.html" />
+    <link rel="next" title="Integration Components" href="integration_components.html" />
+    <link rel="prev" title="Standard Integration" href="../custom_integration.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head>
+  <body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../custom_integration.html">Standard Integration</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Integration High Level Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_components.html">Integration Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validating_integration.html">Validating the Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verify.html">Verifying Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html">F.A.Q.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../demandware.html">Demandware Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Web Hooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="integration-custom-overview"></span><div class="section" id="integration-high-level-overview">
+<h1>Integration High Level Overview<a class="headerlink" href="#integration-high-level-overview" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Add the <a class="reference internal" href="integration_components.html#integration-custom-integration-components-initialization-script"><em>Talkable Initialization Script</em></a> to your header or any template spanning every page.
+Surface variables for email and name if user is logged in.</p>
+</li>
+<li><p class="first">Add the <a class="reference internal" href="integration_components.html#integration-custom-integration-components-post-purchase-script"><em>Talkable Post Purchase Script</em></a> to your checkout confirmation page to pass purchase details
+to Talkable for all purchases.</p>
+<p>Surface purchase detail variables as described in more detail in <a class="reference internal" href="integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</p>
+</li>
+<li><p class="first">Create a new HTML page with standard header/footer to host the Talkable Standalone campaign
+which will be your Advocate Landing page where you can drive traffic from email and other onsite
+and offsite locations to refer friends. Copy &amp; paste the Talkable container DIV element into the
+body as seen in <a class="reference internal" href="integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</p>
+</li>
+<li><p class="first">Create an additional new HTML page attached to your user accounts section (if you have one) behind
+login which is where referring Advocates can go to view referral details of all of the friends
+they’ve shared with. Copy &amp; paste the Talkable container DIV element into the body as seen in
+<a class="reference internal" href="integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</p>
+</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
