@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Standard Integration &#8212; Talkable Documentation</title>
+    
+    <title>Standard Integration &mdash; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Talkable Documentation" href="../index.html" />
     <link rel="next" title="Integration High Level Overview" href="custom/overview.html" />
     <link rel="prev" title="Single Sign-On (SSO)" href="../advanced_features/single_sign_on.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head><body>
+  </head>
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -42,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Standard Integration</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Standard Integration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="custom/overview.html">Integration High Level Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom/integration_components.html">Integration Components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom/validating_integration.html">Validating the Integration</a></li>
@@ -79,26 +91,26 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <span class="target" id="integration-custom-integration"></span><div class="section" id="standard-integration">
 <h1>Standard Integration<a class="headerlink" href="#standard-integration" title="Permalink to this headline">¶</a></h1>
 <h2 class="mts">Integration High Level Overview</h2><ol class="arabic simple">
-<li>Add the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><span class="std std-ref">Talkable Initialization Script</span></a>
+<li>Add the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-initialization-script"><em>Talkable Initialization Script</em></a>
 to your header or any template spanning every page.
 Surface variables for email and name if user is logged in.</li>
-<li>Add the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">Talkable Post Purchase Script</span></a>
+<li>Add the <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components-post-purchase-script"><em>Talkable Post Purchase Script</em></a>
 to your checkout confirmation page to pass purchase details
 to Talkable for all purchases.
-Surface purchase detail variables as described in more detail in <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><span class="std std-ref">Integration Components</span></a>.</li>
+Surface purchase detail variables as described in more detail in <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</li>
 <li>Create a new HTML page with standard header/footer to host the Talkable Standalone campaign
 which will be your Advocate Landing page where you can drive traffic from email and other onsite
 and offsite locations to refer friends. Copy &amp; paste the Talkable container DIV element into the
-body as seen in <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><span class="std std-ref">Integration Components</span></a>.</li>
+body as seen in <a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</li>
 <li>Create an additional new HTML page attached to your user accounts section (if you have one) behind
 login which is where referring Advocates can go to view referral details of all of the friends
 they’ve shared with. Copy &amp; paste the Talkable container DIV element into the body as seen in
-<a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><span class="std std-ref">Integration Components</span></a>.</li>
+<a class="reference internal" href="custom/integration_components.html#integration-custom-integration-components"><em>Integration Components</em></a>.</li>
 </ol>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
