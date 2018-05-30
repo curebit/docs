@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Referrals &mdash; Talkable Documentation</title>
+    <title>Referrals &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="API Reference" href="../api_v2.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Rewards" href="rewards.html" />
     <link rel="prev" title="Shares" href="shares.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -76,7 +75,7 @@
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Referrals</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Referrals</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
@@ -102,13 +101,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="api-v2-referrals"></span><div class="section" id="referrals">
 <h1>Referrals<a class="headerlink" href="#referrals" title="Permalink to this headline">¶</a></h1>
 <p>This API allows you to approve/void referrals.</p>
 <p><br></p>
-<div class="highlight-text"><div class="highlight"><pre>PUT /origins/&lt;origin_slug&gt;/referral
+<div class="highlight-text"><div class="highlight"><pre><span></span>PUT /origins/&lt;origin_slug&gt;/referral
 </pre></div>
 </div>
 <p>Updates referral’s status.</p>
@@ -134,16 +133,16 @@ Talkable dashboard after you log in and create a site.</td>
 </tr>
 <tr class="row-odd"><td>origin_slug</td>
 <td><p class="first">If origin is a <em>Purchase</em>:</p>
-<p><tt class="docutils literal"><span class="pre">order_number</span></tt>, e.g.:
-<tt class="docutils literal"><span class="pre">&quot;B00K2EOONI&quot;</span></tt></p>
+<p><code class="docutils literal"><span class="pre">order_number</span></code>, e.g.:
+<code class="docutils literal"><span class="pre">&quot;B00K2EOONI&quot;</span></code></p>
 <p>If origin is an <em>Event</em>:</p>
-<p class="last"><tt class="docutils literal"><span class="pre">event_category</span></tt>:<tt class="docutils literal"><span class="pre">event_number</span></tt>, e.g.:
-<tt class="docutils literal"><span class="pre">&quot;newsletter_subscription:42&quot;</span></tt></p>
+<p class="last"><code class="docutils literal"><span class="pre">event_category</span></code>:<code class="docutils literal"><span class="pre">event_number</span></code>, e.g.:
+<code class="docutils literal"><span class="pre">&quot;newsletter_subscription:42&quot;</span></code></p>
 </td>
 </tr>
 <tr class="row-even"><td>data</td>
-<td><p class="first">JSON object with <tt class="docutils literal"><span class="pre">status</span></tt> property.</p>
-<p class="last">E.g. <tt class="docutils literal"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;approved&quot;}</span></tt> or  <tt class="docutils literal"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;voided&quot;}</span></tt></p>
+<td><p class="first">JSON object with <code class="docutils literal"><span class="pre">status</span></code> property.</p>
+<p class="last">E.g. <code class="docutils literal"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;approved&quot;}</span></code> or  <code class="docutils literal"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;voided&quot;}</span></code></p>
 </td>
 </tr>
 </tbody>
@@ -153,7 +152,7 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="approve-a-referral">
 <h3>Approve a Referral<a class="headerlink" href="#approve-a-referral" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
      -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
      -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;status&quot;:&quot;approved&quot;}}&#39;</span> <span class="se">\</span>

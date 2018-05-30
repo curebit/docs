@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Native Integration via API &mdash; Talkable Documentation</title>
+    <title>Native Integration via API &#8212; Talkable Documentation</title>
     
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,14 +15,14 @@
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Talkable Documentation" href="../index.html" />
-    <link rel="up" title="Talkable iOS SDK" href="../ios_sdk.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advanced Usage" href="advanced.html" />
     <link rel="prev" title="Post Purchase Campaign" href="integration/post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -76,7 +75,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Native Integration via API</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Native Integration via API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#create-an-origin">1. Create an Origin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-a-share">2. Create a Share</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#check-for-reward">3. Check for Reward</a></li>
@@ -98,19 +97,19 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <span class="target" id="ios-sdk-api-integration"></span><div class="section" id="native-integration-via-api">
 <h1>Native Integration via API<a class="headerlink" href="#native-integration-via-api" title="Permalink to this headline">¶</a></h1>
-<p>Talkable provides an API that can be utilized to implement a fully native referral program interface if you don&#8217;t want to use
+<p>Talkable provides an API that can be utilized to implement a fully native referral program interface if you don’t want to use
 included WKWebView-based functionality. Below are the methods necessary to integrate the Talkable referral loop into your iOS app.</p>
 <div class="section" id="create-an-origin">
 <h2>1. Create an Origin<a class="headerlink" href="#create-an-origin" title="Permalink to this headline">¶</a></h2>
 <p>The Origin is a user event (e.g. a purchase or simply opening the app) that initiates the referral chain.
-Create an Origin to retrieve an Offer and display it to an <a class="reference internal" href="../campaigns.html#campaigns"><em>Advocate</em></a>.</p>
-<p>To create an Origin, make a request to <a class="reference internal" href="../api_v2/origins.html#api-v2-origins"><em>Origins</em></a> endpoint using the <tt class="docutils literal"><span class="pre">createOrigin:withHandler:</span></tt> method.
-If the request is successful, the <tt class="docutils literal"><span class="pre">handler</span></tt> block will receive attributes of created Origin and <a class="reference internal" href="../api_v2/offers.html#api-v2-offers"><em>Offer</em></a> entities.</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">originParams</span> <span class="o">=</span> <span class="l">@{</span>
+Create an Origin to retrieve an Offer and display it to an <a class="reference internal" href="../campaigns.html#campaigns"><span class="std std-ref">Advocate</span></a>.</p>
+<p>To create an Origin, make a request to <a class="reference internal" href="../api_v2/origins.html#api-v2-origins"><span class="std std-ref">Origins</span></a> endpoint using the <code class="docutils literal"><span class="pre">createOrigin:withHandler:</span></code> method.
+If the request is successful, the <code class="docutils literal"><span class="pre">handler</span></code> block will receive attributes of created Origin and <a class="reference internal" href="../api_v2/offers.html#api-v2-offers"><span class="std std-ref">Offer</span></a> entities.</p>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">originParams</span> <span class="o">=</span> <span class="l">@{</span>
     <span class="nl">TKBLOriginTypeKey</span><span class="p">:</span> <span class="n">TKBLOriginTypePurchase</span><span class="p">,</span>
     <span class="nl">TKBLOriginDataKey</span><span class="p">:</span> <span class="l">@{</span>
         <span class="nl">TKBLPurchaseEmailKey</span><span class="p">:</span> <span class="s">@&quot;test@example.com&quot;</span><span class="p">,</span>
@@ -128,21 +127,21 @@ If the request is successful, the <tt class="docutils literal"><span class="pre"
 </div>
 <div class="section" id="create-a-share">
 <h2>2. Create a Share<a class="headerlink" href="#create-a-share" title="Permalink to this headline">¶</a></h2>
-<p>Sharing an Offer is the next step in the referral chain. You will need the <tt class="docutils literal"><span class="pre">short_url_code</span></tt> of the Offer obtained from a previous request.</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="bp">NSString</span><span class="o">*</span> <span class="n">shortUrlCode</span> <span class="o">=</span> <span class="p">[</span><span class="n">offerParams</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">TKBLOfferShortUrlCodeKey</span><span class="p">];</span>
+<p>Sharing an Offer is the next step in the referral chain. You will need the <code class="docutils literal"><span class="pre">short_url_code</span></code> of the Offer obtained from a previous request.</p>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="bp">NSString</span><span class="o">*</span> <span class="n">shortUrlCode</span> <span class="o">=</span> <span class="p">[</span><span class="n">offerParams</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">TKBLOfferShortUrlCodeKey</span><span class="p">];</span>
 </pre></div>
 </div>
 <div class="section" id="social-share">
 <h3>Social Share<a class="headerlink" href="#social-share" title="Permalink to this headline">¶</a></h3>
 <p>The Talkable SDK provides several ways to share an Offer using social media channels.</p>
 <ol class="arabic">
-<li><p class="first"><tt class="docutils literal"><span class="pre">socialShare:</span></tt> method will display a sharing dialog directly. Supported channels are Facebook and Twitter.</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">socialShare:</span></code> method will display a sharing dialog directly. Supported channels are Facebook and Twitter.</p>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="bp">SLComposeViewController</span><span class="o">*</span> <span class="n">sheet</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">socialShare</span><span class="p">:</span><span class="l">@{</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="bp">SLComposeViewController</span><span class="o">*</span> <span class="n">sheet</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">socialShare</span><span class="p">:</span><span class="l">@{</span>
   <span class="nl">TKBLShareChannel</span><span class="p">:</span><span class="n">TKBLShareChannelTwitter</span><span class="p">,</span>
   <span class="nl">TKBLOfferClaimUrlKey</span><span class="p">:[</span><span class="n">claimLinks</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">TKBLShareChannelTwitter</span><span class="p">],</span>
   <span class="nl">TKBLShareMessage</span><span class="p">:</span><span class="s">@&quot;Personalized message&quot;</span><span class="p">,</span>
-  <span class="nl">TKBLShareImage</span><span class="p">:</span><span class="s">@&quot;Image URL as NSString&quot;</span><span class="p">,</span> <span class="c1">//You can also pass an UIImage</span>
+  <span class="nl">TKBLShareImage</span><span class="p">:</span><span class="s">@&quot;Image URL as NSString&quot;</span><span class="p">,</span> <span class="c1">// You can also pass a UIImage</span>
   <span class="nl">TKBLOfferShortUrlCodeKey</span><span class="p">:</span><span class="n">shortUrlCode</span>
 <span class="l">}</span><span class="p">];</span>
 
@@ -151,9 +150,9 @@ If the request is successful, the <tt class="docutils literal"><span class="pre"
 </div>
 </div></blockquote>
 </li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">nativeShare:</span></tt> method will display a native iOS sharing dialog.</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">nativeShare:</span></code> method will display a native iOS sharing dialog.</p>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">claimLinks</span> <span class="o">=</span> <span class="p">[</span><span class="n">offerParams</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;claim_links&quot;</span><span class="p">];</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">claimLinks</span> <span class="o">=</span> <span class="p">[</span><span class="n">offerParams</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;claim_links&quot;</span><span class="p">];</span>
 
 <span class="bp">UIActivityViewController</span><span class="o">*</span> <span class="n">sheet</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">nativeShare</span><span class="p">:</span><span class="l">@{</span>
     <span class="nl">TKBLOfferShortUrlCodeKey</span><span class="p">:</span> <span class="n">shortUrlCode</span><span class="p">,</span>
@@ -167,24 +166,24 @@ If the request is successful, the <tt class="docutils literal"><span class="pre"
 </li>
 </ol>
 <p>3. Implement your own way for the Advocate to share the link. Upon a successful share,
-call the <tt class="docutils literal"><span class="pre">createSocialShare:channel:withHandler:</span></tt> method to sync the share with Talkable and create a <a class="reference internal" href="../api_v2/shares.html#api-v2-shares"><em>Share</em></a> record.</p>
+call the <code class="docutils literal"><span class="pre">createSocialShare:channel:withHandler:</span></code> method to sync the share with Talkable and create a <a class="reference internal" href="../api_v2/shares.html#api-v2-shares"><span class="std std-ref">Share</span></a> record.</p>
 <blockquote>
-<div><div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">createSocialShare</span><span class="p">:</span><span class="n">shortUrlCode</span> <span class="nl">channel</span><span class="p">:</span><span class="n">TKBLShareChannelOther</span> <span class="nl">withHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+<div><div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">createSocialShare</span><span class="p">:</span><span class="n">shortUrlCode</span> <span class="nl">channel</span><span class="p">:</span><span class="n">TKBLShareChannelOther</span> <span class="nl">withHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">rewardParams</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;reward&quot;</span><span class="p">];</span>
 <span class="p">}];</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This method will be called automatically when you use <tt class="docutils literal"><span class="pre">socialShare:</span></tt> or <tt class="docutils literal"><span class="pre">nativeShare:</span></tt> methods.</p>
+<p class="last">This method will be called automatically when you use <code class="docutils literal"><span class="pre">socialShare:</span></code> or <code class="docutils literal"><span class="pre">nativeShare:</span></code> methods.</p>
 </div>
 </div></blockquote>
 </div>
 <div class="section" id="email-share">
 <h3>Email Share<a class="headerlink" href="#email-share" title="Permalink to this headline">¶</a></h3>
-<p>To share an Offer via email, simply use the <tt class="docutils literal"><span class="pre">createEmailShare:recipients:withParams:andHandler:</span></tt> method to send an API request.
-Talkable will send the emails for you. You will need to provide an interface for the user to specify recipients&#8217; email addresses, a subject, and a personal message.</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="bp">NSString</span><span class="o">*</span> <span class="n">recipients</span> <span class="o">=</span> <span class="s">@&quot;customer@example.com,elon@musk.com&quot;</span><span class="p">;</span> <span class="c1">// comma separated email addresses</span>
+<p>To share an Offer via email, simply use the <code class="docutils literal"><span class="pre">createEmailShare:recipients:withParams:andHandler:</span></code> method to send an API request.
+Talkable will send the emails for you. You will need to provide an interface for the user to specify recipients’ email addresses, a subject, and a personal message.</p>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="bp">NSString</span><span class="o">*</span> <span class="n">recipients</span> <span class="o">=</span> <span class="s">@&quot;customer@example.com,elon@musk.com&quot;</span><span class="p">;</span> <span class="c1">// comma separated email addresses</span>
 <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">emailShareParams</span> <span class="o">=</span> <span class="l">@{</span>
     <span class="s">@&quot;subject&quot;</span><span class="o">:</span> <span class="s">@&quot;Custom Email Subject&quot;</span><span class="p">,</span>
     <span class="s">@&quot;body&quot;</span><span class="o">:</span> <span class="s">@&quot;Personal message that will be added to the email body&quot;</span><span class="p">,</span>
@@ -200,11 +199,11 @@ Talkable will send the emails for you. You will need to provide an interface for
 </div>
 <div class="section" id="check-for-reward">
 <h2>3. Check for Reward<a class="headerlink" href="#check-for-reward" title="Permalink to this headline">¶</a></h2>
-<p>If a Talkable campaign is configured to give a reward to the Advocate just for sharing, the API call to create a <a class="reference internal" href="../api_v2/shares.html#api-v2-shares"><em>Share</em></a>
-will return a <a class="reference internal" href="../api_v2/rewards.html#api-v2-rewards"><em>Reward</em></a> you can display immediately. In most cases, however, the Advocate will receive a reward after
+<p>If a Talkable campaign is configured to give a reward to the Advocate just for sharing, the API call to create a <a class="reference internal" href="../api_v2/shares.html#api-v2-shares"><span class="std std-ref">Share</span></a>
+will return a <a class="reference internal" href="../api_v2/rewards.html#api-v2-rewards"><span class="std std-ref">Reward</span></a> you can display immediately. In most cases, however, the Advocate will receive a reward after
 a Friend responds to a shared link, e.g. makes a purchase.
-To check whether the current user has any outstanding rewards, use the <tt class="docutils literal"><span class="pre">retrieveRewardsWithHandler:</span></tt> method.</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">retrieveRewardsWithHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+To check whether the current user has any outstanding rewards, use the <code class="docutils literal"><span class="pre">retrieveRewardsWithHandler:</span></code> method.</p>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">retrieveRewardsWithHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">NSArray</span> <span class="o">*</span><span class="n">rewards</span> <span class="o">=</span> <span class="p">(</span><span class="bp">NSArray</span> <span class="o">*</span><span class="p">)[</span><span class="n">response</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&quot;rewards&quot;</span><span class="p">];</span>
 <span class="p">}];</span>
 </pre></div>
@@ -214,18 +213,16 @@ To check whether the current user has any outstanding rewards, use the <tt class
 <h2>Extra Functionality<a class="headerlink" href="#extra-functionality" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="retrieve-an-offer-by-short-code">
 <h3>Retrieve an Offer by Short Code<a class="headerlink" href="#retrieve-an-offer-by-short-code" title="Permalink to this headline">¶</a></h3>
-<p>If you need to access an Offer for the Origin you&#8217;ve created earlier, store the offer&#8217;s <tt class="docutils literal"><span class="pre">short_url_code</span></tt> and then use <tt class="docutils literal"><span class="pre">retrieveOffer:withHandler:</span></tt> method
+<p>If you need to access an Offer for the Origin you’ve created earlier, store the offer’s <code class="docutils literal"><span class="pre">short_url_code</span></code> and then use <code class="docutils literal"><span class="pre">retrieveOffer:withHandler:</span></code> method
 to fetch the Offer.</p>
-<div class="highlight-objc"><div class="highlight"><pre><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">retrieveOffer</span><span class="p">:</span><span class="n">shortUrlCode</span> <span class="nl">withHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-objc"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">retrieveOffer</span><span class="p">:</span><span class="n">shortUrlCode</span> <span class="nl">withHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">response</span><span class="p">,</span> <span class="bp">NSError</span><span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">offerParams</span> <span class="o">=</span> <span class="p">[</span><span class="n">response</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="n">TKBLOfferKey</span><span class="p">];</span>
 <span class="p">}];</span>
 </pre></div>
 </div>
-<p>Alternatively, you can subscribe to a <tt class="docutils literal"><span class="pre">TKBLDidReceiveReward</span></tt> notification as described in the <a class="reference internal" href="advanced.html#ios-sdk-advanced-notifications"><em>Advanced Usage</em></a> section.</p>
+<p>Alternatively, you can subscribe to a <code class="docutils literal"><span class="pre">TKBLDidReceiveReward</span></code> notification as described in the <a class="reference internal" href="advanced.html#ios-sdk-advanced-notifications"><span class="std std-ref">Advanced Usage</span></a> section.</p>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 </div>
 </div>
