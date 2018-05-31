@@ -176,7 +176,7 @@ the pattern is already escaped for you. See examples below:</p>
 </div>
 </li>
 <li><p class="first">Match URLs containing “/share?utm=true”:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>/share?utm=true
+<div class="highlight-text"><div class="highlight"><pre><span></span>/share.+?utm=true
 </pre></div>
 </div>
 <p>Matched URLs (example):</p>
@@ -188,16 +188,14 @@ the pattern is already escaped for you. See examples below:</p>
 <div class="line"><br /></div>
 </div>
 </li>
-<li><p class="first">Match only the “site.com/test” URL. No need to backslash slashes. Also, don’t include
-protocol to match both http &amp; https:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>site.com/test(/)?$
+<li><p class="first">Match “site.com/test” exact URL without any query parameters:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>site.com/test/?$
 </pre></div>
 </div>
 <p>Matched URLs (example):</p>
 <ul class="simple">
 <li><cite>http://site.com/test</cite></li>
 <li><cite>https://new.domain.com/test</cite></li>
-<li><cite>http://www.site.com/test?utm=test</cite></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
