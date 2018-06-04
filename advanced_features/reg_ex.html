@@ -106,14 +106,14 @@
             
   <span class="target" id="advanced-features-reg-ex"></span><div class="section" id="setting-up-campaign-placement-criteria">
 <h1>Setting up Campaign Placement criteria<a class="headerlink" href="#setting-up-campaign-placement-criteria" title="Permalink to this headline">¶</a></h1>
-<p>Talkable allows setting up Campaign Placement “Shown on” / “Hidden on” criteria in two
+<p>Talkable allows setting up of Campaign Placement “Shown on” / “Hidden on” criteria in two
 formats:</p>
 <ol class="arabic">
-<li><p class="first"><strong>Relative match</strong>. If the regex checkbox is turned <strong>off</strong> the relative match mode is
+<li><p class="first"><strong>Relative match</strong>. If the regex checkbox is turned <strong>off</strong>, the relative match mode is
 used. “Relative” means it only matches the <cite>pathname</cite> of a URL and query parameters,
-without the domain part. In this mode site URL is always set and you only need to set a
-relative path. The criteria will only trigger when the relative path is matched (and
-query parameters when provided). Here are some examples:</p>
+without the domain part. In this mode, the site URL is always set and you only need to
+set a relative path. The criteria will only trigger when the relative path is matched
+(and query parameters when provided). Here are some examples:</p>
 <ul>
 <li><p class="first">Match only the homepage with optional query parameters:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>/
@@ -157,11 +157,14 @@ query parameters when provided). Here are some examples:</p>
 </ul>
 </li>
 <li><p class="first"><strong>Regular expression</strong> (regex for short). If the regex checkbox is turned <strong>on</strong> the
-regex mode is used. In this mode you are controlling full page URL, including the
+regex mode is used. In this mode you are controlling the full page URL, including the
 domain part (unlike the relative match mode). If no query parameters were set Talkable
 will ignore query parameters of the original URL in a browser.</p>
 <p>Use <a class="reference external" href="https://regex101.com">https://regex101.com</a> to test placement criteria before applying it. Note: slashes
-are already escaped, no need to backslash them. See examples below:</p>
+are already escaped, no need to backslash them. When testing the regex criteria, change
+delimiters to backqoutes
+(<a class="reference external" href="https://talkable-screenshots.s3.amazonaws.com/Re_talkabletalkable-docs_PR-9264_Write_truthful_doc_for_campaign_placements_criteria_set_up_114_-_iurevychgmail.com_-_2018-06-04_15-40-09.png">screenshot</a>).
+See examples below:</p>
 <ul>
 <li><p class="first">Match URLs containing “/share” path with optional query parameters:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>/share
@@ -177,7 +180,7 @@ are already escaped, no need to backslash them. See examples below:</p>
 </div>
 </li>
 <li><p class="first">Match URLs ending with “/share” and containing “utm=true” query parameter:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>/share/?\?(.+)?utm=true
+<div class="highlight-text"><div class="highlight"><pre><span></span>/share/?\?(.+&amp;)?utm=true
 </pre></div>
 </div>
 <p>Matched URLs (example):</p>
@@ -190,7 +193,7 @@ are already escaped, no need to backslash them. See examples below:</p>
 </div>
 </li>
 <li><p class="first">Match “site.com/test” exact URL without any query parameters:</p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>site.com/test/?$
+<div class="highlight-text"><div class="highlight"><pre><span></span>site\.com/test/?$
 </pre></div>
 </div>
 <p>Matched URLs (example):</p>
