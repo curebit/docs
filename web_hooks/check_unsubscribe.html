@@ -101,7 +101,6 @@ must contain the following fields:</p>
 representing unsubscribed status according to the merchant info.</p>
 </div>
 <h2>Payload parameters provided </h2><ul class="simple">
-<li><strong>for_&lt;view category&gt;</strong> — subhash of parameters describing the person<ul>
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
@@ -122,8 +121,6 @@ representing unsubscribed status according to the merchant info.</p>
 </li>
 <li><strong>email_type</strong> — described view category</li>
 </ul>
-</li>
-</ul>
 <h3>View categories</h3><p>View category can be one of the following:</p>
 <ul class="simple">
 <li>notifier_offers_email</li>
@@ -134,28 +131,26 @@ representing unsubscribed status according to the merchant info.</p>
 <li>friend_rewards_paid</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;for_friend_rewards_paid&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">350256053</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;recipient&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;friend@example.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_rewards_paid&quot;</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">350256053</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;recipient&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;friend@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_rewards_paid&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;for_friend_rewards_paid&quot;:{&quot;campaign&quot;:{&quot;id&quot;: 350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;: 350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
