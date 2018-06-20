@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Advocate Signup Web Hook &#8212; Talkable Documentation</title>
+    <title>Check Unsubscribe Web Hook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -12,8 +12,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Friend Email Gating Web Hook" href="claim_signup.html" />
-    <link rel="prev" title="Post Share Web Hook" href="post_share.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Talkable iOS SDK" href="../ios_sdk.html" />
+    <link rel="prev" title="Unsubscribe Web Hook" href="unsubscribe.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -62,12 +62,12 @@
 <li class="toctree-l2"><a class="reference internal" href="referral.html">Referral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reward.html">Reward</a></li>
 <li class="toctree-l2"><a class="reference internal" href="post_share.html">Post Share</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Advocate Signup</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="offer_signup.html">Advocate Signup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unsubscribe.html">Unsubscribe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="check_unsubscribe.html">Check Unsubscribe</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Check Unsubscribe</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -86,15 +86,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="web-hooks-offer-signup"></span><div class="section" id="advocate-signup-web-hook">
-<h1>Advocate Signup Web Hook<a class="headerlink" href="#advocate-signup-web-hook" title="Permalink to this headline">¶</a></h1>
-<p>Triggered when Advocate Signup form is submitted.</p>
-<h2>Payload parameters provided for Advocate Signup Web Hook</h2><ul class="simple">
-<li><strong>offer</strong> — subhash of parameters describing the offer<ul>
-<li><strong>email</strong> — referrer’s email address</li>
-<li><strong>short_url_code</strong></li>
-</ul>
-</li>
+  <span class="target" id="web-hooks-check-unsubscribe"></span><div class="section" id="check-unsubscribe-web-hook">
+<h1>Check Unsubscribe Web Hook<a class="headerlink" href="#check-unsubscribe-web-hook" title="Permalink to this headline">¶</a></h1>
+<p>Triggered on every attempt to send an otherwise valid customer email,
+aimed at checking if the email is also valid on merchant side.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>If this web hook is used, the response JSON returned by merchant
+must contain the following fields:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;unsubscribed&quot;</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p class="last">The ‘unsubscribed’ field should have a boolean value,
+representing unsubscribed status according to the merchant info.</p>
+</div>
+<h2>Payload parameters provided </h2><ul class="simple">
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
@@ -102,44 +108,49 @@
 <li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
-<li><strong>email</strong> — affiliate member’s email address</li>
-</ul>
-<p>If the Signup form included first and last name fields or subscription checkbox,
-additional parameters will be present:</p>
-<ul class="simple">
-<li><strong>first_name</strong> — affiliate member’s first name</li>
-<li><strong>last_name</strong> — affiliate member’s last name</li>
-<li><strong>username</strong> — affiliate member’s username</li>
+<li><strong>recipient</strong> — subhash of parameters describing the recipient<ul>
+<li><strong>first_name</strong> — recipient’s first name</li>
+<li><strong>last_name</strong> — recipient’s last name</li>
+<li><strong>email</strong> — recipient’s email address</li>
+<li><strong>username</strong> — recipient’s username</li>
+<li><strong>unsubscribed_at</strong> — date recipient has unsubscribed</li>
+<li><strong>opted_in_at</strong> — date recipient has subscribed</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
-<li><strong>subscribed_at</strong> — date affiliate member has subscribed</li>
-<li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</li>
-<li><strong>custom_properties</strong> — hash of affiliate member’s custom properties (optional)</li>
+<li><strong>custom_properties</strong> — hash of recipient’s custom properties (optional)</li>
+</ul>
+</li>
+<li><strong>email_type</strong> — described view category</li>
+</ul>
+<h3>View categories</h3><p>View category can be one of the following:</p>
+<ul class="simple">
+<li>notifier_offers_email</li>
+<li>notifier_offers_share_via_email</li>
+<li>notifier_offers_share_via_email_reminder</li>
+<li>advocate_rewards_confirmation</li>
+<li>advocate_rewards_paid</li>
+<li>friend_rewards_paid</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span>
-  <span class="p">},</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">361325654</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">350256053</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
   <span class="p">},</span>
-  <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;dodo&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-14T02:01:16.824-07:00&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">&quot;custom_properties&quot;</span><span class="o">:</span> <span class="p">{</span>
-     <span class="s2">&quot;my_property&quot;</span><span class="o">:</span> <span class="s2">&quot;some value&quot;</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;recipient&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;friend@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_rewards_paid&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;campaign&quot;:{&quot;id&quot;:361325654,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;last_name&quot;:&quot;Doe&quot;,&quot;username&quot;:&quot;dodo&quot;,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;unsubscribed_at&quot;:null,&quot;custom_properties&quot;:{&quot;my_property&quot;:&quot;some_value&quot;}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;: 350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">

@@ -214,7 +214,7 @@ Talkable dashboard after you log in and create a site.</td>
 </table>
 </div>
 <p><br></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /people/&lt;person_slug&gt;/personal_data
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET /people/&lt;person_slug&gt;/personal_data
 </pre></div>
 </div>
 <p>Returns personal data.</p>
@@ -378,16 +378,7 @@ Talkable dashboard after you log in and create a site.</td>
 </div>
 <div class="section" id="get-personal-information-about-a-person">
 <h3>Get personal information about a person<a class="headerlink" href="#get-personal-information-about-a-person" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/people/customer@example.com/personal_data
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com/personal_data?site_slug=my-store
 </pre></div>
 </div>
 <p>Sample response:</p>
