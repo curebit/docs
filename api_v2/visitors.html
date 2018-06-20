@@ -128,16 +128,8 @@ Talkable dashboard after you log in and create a site.</td>
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="create-a-visitor">
 <h3>Create a visitor<a class="headerlink" href="#create-a-visitor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;uuid&quot;:&quot;b3967d36-4e7f-46bc-92b3-57344347cd6a&quot;}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/visitors
-</pre></div>
-</div>
-<p>Sample response:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="s2">&quot;b3967d36-4e7f-46bc-92b3-57344347cd6a&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>

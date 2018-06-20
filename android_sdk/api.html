@@ -257,12 +257,12 @@ you need to pass this data to this method. Example:</p>
 </div>
 <div class="section" id="create-offer-share">
 <span id="android-api-sharing"></span><h2>Create offer share<a class="headerlink" href="#create-offer-share" title="Permalink to this headline">¶</a></h2>
-<p>If you have your own sharing mechanism, you can create shares using an API.
-First, you need to create an Offer using the <a class="reference internal" href="#create-origin">registerOrigin</a>
+<p>If you have your own sharing mechanism, you can create shares using API.
+Firstly, you need to create an Offer using <a class="reference internal" href="#create-origin">registerOrigin</a>
 method.</p>
 <div class="section" id="email-share">
 <h3>Email Share<a class="headerlink" href="#email-share" title="Permalink to this headline">¶</a></h3>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">createEmailShare</span></code> method to share an offer via email.</p>
+<p>Sharing via Email can be done with <code class="docutils literal notranslate"><span class="pre">createEmailShare</span></code> method. Here is an example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">subject</span> <span class="o">=</span> <span class="s">&quot;Email Subject&quot;</span><span class="o">;</span> <span class="c1">// optional</span>
 <span class="n">String</span> <span class="n">body</span> <span class="o">=</span> <span class="s">&quot;Email custom message&quot;</span><span class="o">;</span> <span class="c1">// optional</span>
 <span class="n">Boolean</span> <span class="n">reminder</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// whether Talkable should send a reminder email later; true by default; optional</span>
@@ -286,12 +286,12 @@ method.</p>
 <p class="first admonition-title">Note</p>
 <p class="last"><code class="docutils literal notranslate"><span class="pre">JsonElement</span> <span class="pre">result</span></code> from <code class="docutils literal notranslate"><span class="pre">onSuccess(JsonElement</span> <span class="pre">result,</span> <span class="pre">Reward</span> <span class="pre">reward)</span></code>
 contains data, described in <a class="reference internal" href="../api_v2/shares.html#email-sharing-response"><span class="std std-ref">Shares API</span></a> under
-the <code class="docutils literal notranslate"><span class="pre">result</span></code> key</p>
+<code class="docutils literal notranslate"><span class="pre">result</span></code> key</p>
 </div>
 </div>
 <div class="section" id="social-share">
 <h3>Social Share<a class="headerlink" href="#social-share" title="Permalink to this headline">¶</a></h3>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">createSocialShare</span></code> method to track a social share.</p>
+<p>Social sharing can be done with <code class="docutils literal notranslate"><span class="pre">createSocialShare</span></code> method. Here is an example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SharingChannel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">SharingChannel</span><span class="o">.</span><span class="na">FACEBOOK</span><span class="o">;</span> <span class="c1">// required</span>
 <span class="n">SocialOfferShare</span> <span class="n">share</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SocialOfferShare</span><span class="o">(</span><span class="n">offer</span><span class="o">,</span> <span class="n">channel</span><span class="o">);</span>
 <span class="n">TalkableApi</span><span class="o">.</span><span class="na">createSocialShare</span><span class="o">(</span><span class="n">share</span><span class="o">,</span> <span class="k">new</span> <span class="n">Callback2</span><span class="o">&lt;</span><span class="n">SocialOfferShare</span><span class="o">,</span> <span class="n">Reward</span><span class="o">&gt;()</span> <span class="o">{</span>
