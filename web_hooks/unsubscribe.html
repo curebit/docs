@@ -91,14 +91,14 @@
 <p>Triggered when a person unsubscribes.</p>
 <h2>Payload parameters provided </h2><ul class="simple">
 <li><strong>person</strong> — subhash of parameters describing the person<ul>
-<li><strong>first_name</strong> — friend’s first name</li>
-<li><strong>last_name</strong> — friend’s last name</li>
-<li><strong>email</strong> — friend’s email address</li>
-<li><strong>username</strong> — friend’s username</li>
-<li><strong>unsubscribed_at</strong> — date friend has unsubscribed</li>
-<li><strong>opted_in_at</strong> — date friend has subscribed</li>
+<li><strong>first_name</strong> — person’s first name</li>
+<li><strong>last_name</strong> — person’s last name</li>
+<li><strong>email</strong> — person’s email address</li>
+<li><strong>username</strong> — person’s username</li>
+<li><strong>unsubscribed_at</strong> — date person has unsubscribed</li>
+<li><strong>opted_in_at</strong> — date person has subscribed</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
-<li><strong>custom_properties</strong> — hash of friend’s custom properties (optional)</li>
+<li><strong>custom_properties</strong> — hash of person’s custom properties (optional)</li>
 </ul>
 </li>
 </ul>
@@ -106,7 +106,7 @@
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
     <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;friend@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;person@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
     <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2015-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
