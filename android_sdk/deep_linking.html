@@ -83,17 +83,18 @@ your Android app.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Credentials, mentioned in this document (<code class="docutils literal notranslate"><span class="pre">YOUR_SITE_SLUG</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_TALKABLE_PUBLIC_API_KEY</span></code>,
 <code class="docutils literal notranslate"><span class="pre">YOUR_GETSOCIAL_APP_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_LINK_DOMAIN_PREFIX</span></code>), will be provided
-with the document.</p>
+with the document. Make sure to replace corresponding placeholders
+in examples with the providen values.</p>
 </div>
 </div></blockquote>
 <div class="section" id="application-attributes">
 <h2>Application Attributes<a class="headerlink" href="#application-attributes" title="Permalink to this headline">¶</a></h2>
-<p>To enable the deep linking, you should provide us <em>Package name</em> and
+<p>To enable the deep linking, you should provide us with <em>Package name</em> and
 <em>Signing-certificate fingerprints</em>.</p>
 <p><em>Package name</em> is the <code class="docutils literal notranslate"><span class="pre">applicationId</span></code> in your app-level <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
 <p><em>Signing-certificate fingerprints</em> is a list of SHA-256 hashes of the certificates
 you use to sign your application. You should provide fingerprints of all keys
-you use to sign app. Here is a link to the tutorial of getting them:
+you use to sign the app. This tutorial tells you how to do this:
 <a class="reference external" href="https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/">Finding SHA256 fingerprint for Android signing keys</a></p>
 </div>
 <div class="section" id="configure-sdk-and-dependencies">
@@ -122,7 +123,7 @@ and add Talkable SDK as a module dependency to your main module</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Add GetSocial Maven Repository to the list of project dependencies
+<li><p class="first">Add GetSocial Maven Repository to the list of project dependency
 repositories inside your top-level <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>:</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">allprojects</span> <span class="o">{</span>
     <span class="n">repositories</span> <span class="o">{</span>
@@ -140,24 +141,24 @@ repositories inside your top-level <code class="docutils literal notranslate"><s
 <h2>Configure Manifest<a class="headerlink" href="#configure-manifest" title="Permalink to this headline">¶</a></h2>
 <p>Open your <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> file and configure it by following next steps:</p>
 <ol class="arabic">
-<li><p class="first">SetupA Talkable credentials as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag
+<li><p class="first">Specify Talkable credentials as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag
 in the following format:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;meta-data</span>
-        <span class="na">android:name=</span><span class="s">&quot;tkbl-api-key-{{YOUR_SITE_SLUG}}&quot;</span>
-        <span class="na">android:value=</span><span class="s">&quot;{{YOUR_TALKABLE_PUBLIC_API_KEY}}&quot;</span> <span class="nt">/&gt;</span>
+        <span class="na">android:name=</span><span class="s">&quot;tkbl-api-key-YOUR_SITE_SLUG&quot;</span>
+        <span class="na">android:value=</span><span class="s">&quot;YOUR_TALKABLE_PUBLIC_API_KEY&quot;</span> <span class="nt">/&gt;</span>
     ...
 <span class="nt">&lt;/application&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Setup GetSocial App Id as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
+<li><p class="first">Specify GetSocial App ID as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;meta-data</span>
         <span class="na">android:name=</span><span class="s">&quot;im.getsocial.sdk.AppId&quot;</span>
-        <span class="na">android:value=</span><span class="s">&quot;{{YOUR_GETSOCIAL_APP_ID}}&quot;</span> <span class="nt">/&gt;</span>
+        <span class="na">android:value=</span><span class="s">&quot;YOUR_GETSOCIAL_APP_ID&quot;</span> <span class="nt">/&gt;</span>
     ...
 <span class="nt">&lt;/application&gt;</span>
 </pre></div>
@@ -168,7 +169,7 @@ in the following format:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;provider</span>
-        <span class="na">android:authorities=</span><span class="s">&quot;{{YOUR_GETSOCIAL_APP_ID}}.AutoInitSdkContentProvider&quot;</span>
+        <span class="na">android:authorities=</span><span class="s">&quot;YOUR_GETSOCIAL_APP_ID.AutoInitSdkContentProvider&quot;</span>
         <span class="na">android:exported=</span><span class="s">&quot;false&quot;</span>
         <span class="na">android:enabled=</span><span class="s">&quot;true&quot;</span>
         <span class="na">android:name=</span><span class="s">&quot;im.getsocial.sdk.AutoInitSdkContentProvider&quot;</span> <span class="nt">/&gt;</span>
@@ -178,7 +179,7 @@ in the following format:</p>
 </div>
 </li>
 <li><p class="first">Configure Install Referrer Receiver as the <em>first</em> receiver for <code class="docutils literal notranslate"><span class="pre">INSTALL_REFERRER</span></code>
-inside inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
+inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;receiver</span> <span class="na">android:name=</span><span class="s">&quot;im.getsocial.sdk.invites.MultipleInstallReferrerReceiver&quot;</span>  <span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
@@ -191,8 +192,8 @@ inside inside the <code class="docutils literal notranslate"><span class="pre">&
 </pre></div>
 </div>
 </li>
-<li><p class="first">Add following intent filter to the activity, that should be opened from the
-deep link, inside the correspond tag:</p>
+<li><p class="first">Add the following intent filter to the activity, that should be opened from the
+deep link, inside the corresponding tag:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
     ...
    <span class="nt">&lt;intent-filter&gt;</span>
@@ -202,7 +203,7 @@ deep link, inside the correspond tag:</p>
        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span><span class="nt">/&gt;</span>
 
        <span class="nt">&lt;data</span>
-           <span class="na">android:host=</span><span class="s">&quot;{{YOUR_GETSOCIAL_APP_ID}}&quot;</span>
+           <span class="na">android:host=</span><span class="s">&quot;YOUR_GETSOCIAL_APP_ID&quot;</span>
            <span class="na">android:scheme=</span><span class="s">&quot;getsocial&quot;</span><span class="nt">/&gt;</span>
    <span class="nt">&lt;/intent-filter&gt;</span>
 
@@ -212,7 +213,7 @@ deep link, inside the correspond tag:</p>
        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="nt">/&gt;</span>
 
-       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;tkbl-{{YOUR_SITE_SLUG}}&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;tkbl-YOUR_SITE_SLUG&quot;</span> <span class="nt">/&gt;</span>
    <span class="nt">&lt;/intent-filter&gt;</span>
    ...
 <span class="nt">&lt;/activity&gt;</span>
@@ -220,10 +221,10 @@ deep link, inside the correspond tag:</p>
 </div>
 </li>
 <li><p class="first">Setup App Links for Android 6+. App Links (supported on Android 6.0
-(API level 23) and higher) allow taking the user directly to the app
+(API level 23) and higher) allow the user to be taken directly to the app
 on the link click without the browser window in the middle. Check
 the official <a class="reference external" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
-To set up them add intent filter with the following host configuration
+To set them up add intent filter with the following host configuration
 to the activity that must be opened from the deep link:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
     ...
@@ -231,8 +232,8 @@ to the activity that must be opened from the deep link:</p>
        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span> <span class="nt">/&gt;</span>
        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="nt">/&gt;</span>
-       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span> <span class="na">android:host=</span><span class="s">&quot;{{YOUR_LINK_DOMAIN_PREFIX}}.gsc.im&quot;</span> <span class="nt">/&gt;</span>
-       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span> <span class="na">android:host=</span><span class="s">&quot;{{YOUR_LINK_DOMAIN_PREFIX}}-gsalt.gsc.im&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span> <span class="na">android:host=</span><span class="s">&quot;YOUR_LINK_DOMAIN_PREFIX.gsc.im&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span> <span class="na">android:host=</span><span class="s">&quot;YOUR_LINK_DOMAIN_PREFIX-gsalt.gsc.im&quot;</span> <span class="nt">/&gt;</span>
    <span class="nt">&lt;/intent-filter&gt;</span>
    ...
 <span class="nt">&lt;/activity&gt;</span>
