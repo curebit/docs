@@ -1,122 +1,76 @@
 .. _ios_sdk/deep_linking:
 .. include:: /partials/common.rst
 
-Deep Linking
-============
+Deep linking integration
+========================
 
-Talkable uses GetSocial.im technology to provide installation attribution and deep linking functionality with its iOS SDK.
-This guide describes how to configure your Talkable campaign for deep linking and add support for it to your iOS app.
+Talkable iOS SDK supports third party deep linking providers such as GetSocial, Branch.io, and Firebase. Talkable can use deep linking functionality to track app installations and reward your advocates and friends for installing your mobile app on their phones.
 
-.. note::
+Deep linking services provide a special referral link that can be given to Advocates to be shared with their friends. Once opened on a Friend's mobile device, this link will not only redirect them to App Store to install the app, but also track that the app was installed using a referral link. The deep link can also be used to send a friend to a specific place in the app once it's installed and opened for the first time, show them personalized messages, and more.
 
-Requirements
-------------
+1. Create a deep link
+~~~~~~~~~~~~~~~~~~~~~
 
-* TalkableSDK supports iOS 8.0 or greater.
-* TalkableSDK version 1.5.0 or greater is required for deep linking support.
-* TalkableSDK requires the following frameworks to be added to the *Link Binary With Libraries* section of your target:
+Use your deep linking service dashboard to create a deep link and connect it to your app. Copy the deep link URL.
 
-  - `AddressBook.framework`
-  - `MessageUI.framework`
-  - `SafariServices.framework`
-  - `Security.framework`
-  - `Social.framework`
-  - `WebKit.framework`
+2. Set up your Talkable campaign
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Automated Installation
-----------------------
+Use the deep link URL as Friend Destination URL in your Talkable campaign,
+appending following GET parameters: ``?talkable_visitor_uuid={{ visitor_uuid }}&talkable_visitor_offer_id={{ friend_offer.id }}``.
 
-Talkable provides the installation script that will add Talkable and GetSocial SDK to your project as well as perform all
-necessary configuration.
+The end result should look like one of the following examples:
 
-1. Download `the installation script`_ and unzip it into your project's root folder.
-2. Open your XCode project settings, select the target you want to modify and go to *Build Phases* tab.
-3. Create a new *Run Script* phase with content:
+.. code-block:: none
 
-  .. code-block:: bash
+    https://your-app.gsc.im/1/your-link-name?talkable_visitor_uuid={{ visitor_uuid }}&talkable_visitor_offer_id={{ friend_offer.id }}
 
-    "$PROJECT_DIR/talkable.sh" --version=1.5.0 --site-id=YOUR_SITE_ID --api-key=YOUR_TALKABLE_PUBLIC_API_KEY --getsocial-app-id=YOUR_GETSOCIAL_APP_ID
-
-  .. note::
-
-    Replace ``YOUR_SITE_SLUG`` with your real site slug, ``YOUR_TALKABLE_PUBLIC_API_KEY`` with your public API key,
-    and ``YOUR_GETSOCIAL_APP_ID`` with your GetSocial App ID.
-
-    All this information can be found on your site *Dashboard* at https://admin.talkable.com
-
-4. Move the new *Run Script* phase before the *Compile Sources* phase.
-5. Build your project.
+    https://example.app.link/fzmLEhobLD?talkable_visitor_uuid={{ visitor_uuid }}&talkable_visitor_offer_id={{ friend_offer.id }}
 
 .. note::
 
-  Initial configuration performed by the installation script may result in build stopping with *Build cancelled* status.
-  If this happens, simply re-run the build. This might happen up to 2 times, as the script has to configure two frameworks.
-  This does not mean the installation was unsuccessful. Any errors raised by the script will result in *Build failed*
-  status.
+    All major deep linking providers support passing additional GET parameters to the deep link.
+    This functionality is used to pass friend's identifying information to the TalkableSDK in your iOS app.
+    To use this functionality with Firebase, refer to this document: `Manually constructing a Dynamic Link URL`_.
 
-  The script creates a backup of your ``project.pbxproj`` file before making any changes and stores it in your ``.xcodeproj`` folder.
-  If anything goes wrong during the installation, you can always restore your project configuration from this backup.
-  We suggest adding ``.backup`` files to your SCM ignore list.
+3. Pass deep linking params to TalkableSDK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Manual Installation
--------------------
+Retrieve deep linking params as described in your deep linking provider's documentation
+and pass these params to the Talkable SDK using ``handleOpenURL:`` or ``handleURLParams:`` method.
 
-Alternatively you can add Talkable and GetSocial frameworks to your project manually.
+Use ``handleURLParams:`` method if you have a ``NSDictionary`` with params in a custom handler (Branch.io, GetSocial).
 
-1. Download `TalkableSDK v1.5.0`_.
-2. Add the ``TalkableSDK.framework`` to your Xcode project.
-3. Drag ``TalkableSDK.framework`` to the *Embedded Binaries* section of your target.
-4. Import the framework's header file.
+.. code-block:: objc
 
-  .. code-block:: objc
+    // For Branch.io
 
-    #import <TalkableSDK/Talkable.h>
+    [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary *params, NSError *error) {
+        [[Talkable manager] handleURLParams:params];
+    }];
 
-5. Initialize Talkable in your `application:didFinishLaunchingWithOptions:` method.
+    // For GetSocial
 
-  .. code-block:: objc
+    [GetSocial referralDataWithSuccess:^(GetSocialReferralData * _Nullable referralData) {
+        [[Talkable manager] handleURLParams:[referralData linkParams]];
+    } failure:^(NSError * _Nonnull error) {}];
 
-    [[Talkable manager] setApiKey:@"YOUR_TALKABLE_PUBLIC_API_KEY" andSiteSlug:@"YOUR_SITE_SLUG"];
+Use ``handleOpenURL:`` method if you handle deep link as ``NSURL`` using the standard
+``application:openURL:options:`` method (Firebase).
 
-6. Register the Talkable URL scheme.
+.. code-block:: objc
 
-  - Define `tkbl-YOUR_SITE_SLUG` URL Scheme in your Info.plist file:
+    // For Firebase
 
-    .. code-block:: xml
+    - (BOOL)application:(UIApplication *)app
+                openURL:(NSURL *)url
+                options:(NSDictionary<NSString *, id> *)options {
+                    [[Talkable manager] handleOpenURL:url];
+                }
 
-      <key>CFBundleURLTypes</key>
-      <array>
-        <dict>
-          <key>CFBundleURLSchemes</key>
-          <array>
-            <string>tkbl-YOUR_SITE_SLUG</string>
-          </array>
-        </dict>
-      </array>
-
-  - Add `tkbl-YOUR_SITE_SLUG` and `fb-messenger` to the list of query schemes supported by your app:
-
-    .. code-block:: xml
-
-      <key>LSApplicationQueriesSchemes</key>
-      <array>
-        <string>tkbl-YOUR_SITE_SLUG</string>
-        <string>fb-messenger</string>
-      </array>
-
-  .. note::
-
-    Replace ``YOUR_SITE_SLUG`` with your real site slug, which can be found
-    on your site *Dashboard* at https://admin.talkable.com
+Calling either of these methods will register the app installation event in Talkable and complete the referral cycle.
+You can then use :ref:`retrieveRewardsWithHandler: <ios_sdk/api_integration>` method to check for rewards or subscribe
+to a corresponding :ref:`notification <ios_sdk/advanced/notifications>`.
 
 
-7. Add the GetSocial Core framework to your project by following the `GetSocial iOS SDK Manual Integration Guide`_.
-
-.. note::
-
-  You don't need to include or call GetSocial framework explicitly for deep linking to work.
-  TalkableSDK will detect GetSocial framework if it's present and handle deep linking automatically.
-
-.. _`the installation script`: https://talkable-downloads.s3.amazonaws.com/ios-sdk/talkable.sh
-.. _`TalkableSDK v1.5.0`: https://talkable-downloads.s3.amazonaws.com/ios-sdk/talkable_ios_sdk-1.5.0.zip
-.. _`GetSocial iOS SDK Manual Integration Guide`: https://docs.getsocial.im/knowledge-base/manual-integration/ios/
+.. _Manually constructing a Dynamic Link URL: https://firebase.google.com/docs/dynamic-links/create-manually
