@@ -296,16 +296,16 @@ for which will be generated sharing links</li>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
   <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@example.com&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;sharing_channels&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;facebook&quot;</span><span class="p">,</span> <span class="s2">&quot;twitter&quot;</span><span class="p">,</span> <span class="s2">&quot;custom&quot;</span><span class="p">]</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sharing_channels&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;facebook&quot;</span><span class="p">,</span> <span class="s2">&quot;twitter&quot;</span><span class="p">,</span> <span class="s2">&quot;custom&quot;</span><span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X POST <span class="se">\</span>
      -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@example.com&quot;},&quot;sharing_channels&quot;:[&quot;facebook&quot;,&quot;twitter&quot;,&quot;custom&quot;]}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;data&quot;:{&quot;email&quot;:&quot;affiliate@example.com&quot;,&quot;sharing_channels&quot;:[&quot;facebook&quot;,&quot;twitter&quot;,&quot;custom&quot;]}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/origins
 </pre></div>
 </div>

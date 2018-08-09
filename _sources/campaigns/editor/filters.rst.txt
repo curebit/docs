@@ -614,7 +614,7 @@ It may take two arguments: ``height`` and ``xdim`` (thickness of the thinnest li
 
 Default values are ``100`` for ``height`` and ``1`` for ``xdim``.
 
-The values are in ``pixels``.
+The values are in pixels.
 
 .. code-block:: liquid
 
@@ -623,7 +623,7 @@ The values are in ``pixels``.
    {{ coupon.code | barcode_image: xdim: 3 }}
    {{ coupon.code | barcode_image: height: 200, xdim: 3 }}
 
-Returns a ``URL`` string.
+Returns a URL string.
 
 |hr|
 

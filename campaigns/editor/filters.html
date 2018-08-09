@@ -579,14 +579,14 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 This filter strictly follows GS1-128 specification: <a class="reference external" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
 <p>It may take two arguments: <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">xdim</span></code> (thickness of the thinnest line).</p>
 <p>Default values are <code class="docutils literal notranslate"><span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">xdim</span></code>.</p>
-<p>The values are in <code class="docutils literal notranslate"><span class="pre">pixels</span></code>.</p>
+<p>The values are in pixels.</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">coupon</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">barcode_image</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">coupon</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">barcode_image</span><span class="p">:</span><span class="w"> </span><span class="na">height</span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">coupon</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">barcode_image</span><span class="p">:</span><span class="w"> </span><span class="na">xdim</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">coupon</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">barcode_image</span><span class="p">:</span><span class="w"> </span><span class="na">height</span><span class="o">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="na">xdim</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
-<p>Returns a <code class="docutils literal notranslate"><span class="pre">URL</span></code> string.</p>
+<p>Returns a URL string.</p>
 <p><hr></p>
 </div>
 <div class="section" id="base64-encode">
