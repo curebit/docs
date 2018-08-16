@@ -2,12 +2,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Webhooks &#8212; Talkable Documentation</title>
+    <title>Web Hooks &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -16,7 +24,8 @@
     <link rel="prev" title="Metrics" href="api_v2/metrics.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="_static/pygments-github.css" rel="stylesheet">
   <link href="_static/img/favicon.ico" rel="shortcut icon" />
-  </head><body>
+  </head>
+  <body>
   
     <div class="header">
       <a href="index.html" class="header-logo">Talkable docs</a>
@@ -57,7 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api_v2.html">API Reference</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Webhooks</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Hooks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/create_coupon.html">Create Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/referral.html">Referral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="web_hooks/reward.html">Reward</a></li>
@@ -84,57 +93,41 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="web-hooks"></span><div class="section" id="webhooks">
-<h1>Webhooks<a class="headerlink" href="#webhooks" title="Permalink to this headline">¶</a></h1>
-<p>Webhooks are “user-defined HTTP callbacks” triggered by events on Talkable’s
-site. Subscribing to Talkable webhooks allows you to receive notifications about
-various events from Talkable, for example, when a Reward should be given, or
-when a Friend or Advocate opts in to an email newsletter subscription.</p>
-<p>After subscribing to a webhook, your app can execute code immediately after
-specific events occur in Talkable.</p>
+  <span class="target" id="web-hooks"></span><div class="section" id="id1">
+<h1>Web Hooks<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Web hooks are “user-defined HTTP callbacks”. They are usually triggered by some
+event on Talkable’s site.</p>
 <p><a class="reference external" href="http://en.wikipedia.org/wiki/Webhook">http://en.wikipedia.org/wiki/Webhook</a></p>
-<p>Each Webhook in Talkable is defined with an HTTP URL to deliver Webhook data
+<p>Each web hook in Talkable is defined with an HTTP URL to deliver web hook data
 (aka payload). This URL should be defined and implemented on the client’s site.</p>
-<h2>Setup</h2><img alt="Campaign Type - Invite," class="is-minimal" src="_images/menu_webhooks_screenshot.png" />
-<ol class="arabic simple">
-<li>Setup and test Talkable Webhooks by navigating to <strong>Menu</strong> then <strong>Webhooks</strong></li>
-<li>Proceed to <strong>Create New Webhook</strong></li>
-<li>Choose a Webhook from the dropdown and provide your endpoint URL</li>
-<li>From here, Send Sample, Edit, Delete or Create New</li>
-<li>Take note of your Talkable security key. This key will be the same for all
-Talkable Webhooks on a given account. Talkable includes a key parameter in
-Webhooks which are unique to each account as a way to identify Talkable as
-an authorized server. Your Talkable Webhook security key can be found in
-the Webhook setup page after at least one Webhook is created.</li>
-</ol>
-<p>Talkable Webhooks will trigger automatically based on associated events defined
-by Webhook type.</p>
-<h2>Testing</h2><p>Testing webhooks can be accomplished with the help of Webhook Tester, an external
+<h2>Setup and Testing</h2><p>Testing web hooks can be accomplished with the help of RequestBin, an external
 service that tests your post-receive messages.</p>
 <ol class="arabic simple">
-<li>Visit <a class="reference external" href="https://webhook.site/">Webhook Tester</a> and click <strong>Copy</strong> to copy the URL you are given.</li>
-<li>Open your site on Webhooks setup page.</li>
+<li>Visit <a class="reference external" href="http://requestb.in/">RequestBin</a> and click <strong>Create a RequestBin</strong>.</li>
+<li>Copy the URL you are given.</li>
+<li>Open your site on Web Hooks setup page.</li>
 <li>Click <strong>New</strong>.</li>
-<li>Select webhook type.</li>
-<li>Paste your Webhook Tester URL and save.</li>
-<li>Click <strong>Deliver Sample</strong> near the webhook you want to test.</li>
-<li>After you finish the implementation on your site <strong>change Webhook Tester URL
+<li>Select web hook type.</li>
+<li>Paste your RequestBin URL and save.</li>
+<li>Click <strong>Deliver Sample</strong> near the web hook you want to test.</li>
+<li>After you finish the implementation on your site <strong>change RequestBin URL
 to the live URL</strong> on your site.</li>
-<li>Click <strong>Deliver Sample</strong> to test webhook with Live URL.</li>
+<li>Click <strong>Deliver Sample</strong> to test web hook with Live URL.</li>
 </ol>
-<h2>Data</h2><p>All Webhooks are delivered as an HTTP Post request with the main parameter
+<h2>Data</h2><p>All web hooks are delivered as an HTTP Post request with the main parameter
 called payload. All data inside this parameter is encoded as JSON. Below is
 a PHP parameter decode example:</p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">json_decode($_POST[&quot;payload&quot;])</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="x">json_decode($_POST[&quot;payload&quot;])</span>
 </pre></div>
 </div>
-<h2>Parsing Timestamps</h2><p><strong>Timestamp data type</strong> is not a part of JSON standard. Timestamps
-are passed as strings in <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> compatible format. To function properly, ensure
-your date parser is compatible to this standard. Java users go here: <br>
+<h2>Parsing Timestamps</h2><p><strong>Timestamp data type</strong> is not a part of JSON standard. That is why timestamps
+are passed as strings in <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> compatible format. You need to be sure that
+your date parser is compatible to this standard. Otherwise issues may appear.
+People that use Java need to look through: <br>
 <a class="reference external" href="http://stackoverflow.com/questions/2201925/converting-iso8601-compliant-string-to-java-util-date">http://stackoverflow.com/questions/2201925/converting-iso8601-compliant-string-to-java-util-date</a></p>
-<h2>Response Codes</h2><p>Talkable considers a Webhook as “delivered successfully” when a site
-server returns a <strong>2xx response status</strong>. Otherwise Talkable will continually
-retry to deliver a Webhook after a set interval of time.</p>
+<h2>Response Codes</h2><p>Talkable considers a web hook as “delivered successfully” in the case that the site
+server returned a <strong>2xx response status</strong>. Otherwise Talkable will continually
+retry to deliver a webhook after a set interval of time.</p>
 <h2>HTTP Responses and Their Meanings</h2><ul class="simple">
 <li>2xx: Success</li>
 <li>200: OK</li>
@@ -146,19 +139,18 @@ retry to deliver a Webhook after a set interval of time.</p>
 <li>206: Partial Content</li>
 </ul>
 <p>If you have a problem on your server, you can answer with code 500. If there is
-some problem in our request (problem on Talkable’s side), you can answer
-“400 Bad Request”.</p>
-<p>Talkable will retry delivery of Webhook if any other error code is received.</p>
-<h2>Security Key</h2><p>Talkable includes a key parameter in Webhooks which are unique to each account
-as a way to identify Talkable as an authorized server. Your Talkable Webhook
-security key can be found in the Webhook setup page after at least one Webhook
-is created.</p>
-<h2>Compatibility and Versioning</h2><p>Talkable Webhooks do not currently incorporate versioning. Current spec will not
-be changed for all existing hooks. Note that Talkable may add additional data
-elements to existing Webhooks, but should not remove or change existing data
-elements.</p>
+some problem in our request (problem on Talkable’s side), you can answer “400 Bad Request”.</p>
+<p>Any other error code and we will retry later.</p>
+<h2>Security Key</h2><p>Also there is a key parameter that has a unique value for each site to identify
+Talkable as an authorized server to call the web hook (please check it against
+a copy on your side). The Security Key for your site can be found in Web Hooks
+setup page if you have at least one web hook created.</p>
+<h2>Compatibility and Versioning</h2><p>Talkable web hooks do not currently have versioning. Current spec will not be
+changed for all existing hooks. But Talkable dev team leave a right to add any
+additional data to them without removing or changing existing one. Your
+implementation should be safe to such changes.</p>
 <p><hr>
-See available Webhooks on the navigation sidebar.</p>
+See available web hooks on the navigation sidebar.</p>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
 <ul>
