@@ -112,7 +112,6 @@ as a way to identify Talkable as an authorized server. Your Talkable Webhook
 security key can be found in the Webhook setup page after at least one Webhook
 is created.
 
-
 .. raw:: html
 
    <h2>Compatibility and Versioning</h2>
