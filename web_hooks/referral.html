@@ -12,7 +12,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reward Web Hook" href="reward.html" />
+    <link rel="next" title="Reward Webhook" href="reward.html" />
     <link rel="prev" title="Create Coupon Webhook" href="create_coupon.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -151,23 +151,25 @@
 </ul>
 <h2>Coupon codes as a reward</h2><div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">Any code sent via this web hook doesn’t need to be created on merchant site.
-When Talkable needs more coupons — it always calls
-<a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><span class="std std-ref">Create Coupon Web Hook</span></a>.
-In this web hook Talkable just sends the information to merchant that coupon
-was given as the reward in case merchant want to store this infomation in
-its own database.</p>
+<p class="last">If referral campaigns are set-up to reward either Friends or Advocates with
+Talkable provided coupon codes, then the Reward Webhook is called for
+informational purposes only. It is a notification that the reward has been
+provided. Note, Talkable gets these coupons either by manual upload from the
+Dashboard, or if configured, Talkable will call the  <a class="reference internal" href="create_coupon.html#web-hooks-create-coupon"><span class="std std-ref">Create Coupon
+Webhook</span></a> to generate additional coupons
+automatically.</p>
 </div>
 <h2>Incentive types</h2><p>Incentives can be of 3 following general types.</p>
 <ul class="simple">
-<li><strong>rebate</strong> — monetary reward, certain amount of money that should be paid out
-to a customer with a given email. Payment should be handled by the merchants’
-payment systems.</li>
-<li><strong>discount_coupon</strong> — discount coupon is issued to customer. This type of
-incentives is handled by Talkable.</li>
-<li><strong>other</strong> — used when a campaign has a non-monetary rebate like <em>“Free T-shirt”</em>
-or <em>“One Month Free”</em>. This should be handled on the merchant’s side. More
-information on the reward is specified in <em>incentive_description</em>.</li>
+<li><strong>Rebate</strong> (<cite>rebate</cite>) — monetary reward, certain amount of money that should
+be paid out to a customer with a given email. The merchants’ payment system
+should handle the payment.</li>
+<li><strong>Coupon code</strong> (<cite>discount_coupon</cite>) — a discount coupon is issued to user.
+Talkable handles distributing this type of incentives.</li>
+<li><strong>Non-monetary</strong> (<cite>other</cite>) — used when a campaign has a non-monetary rebate
+like <em>“Free T-shirt”</em> or <em>“One Month Free”</em>. This should be handled on the
+merchant’s side. More information on the reward is specified in
+<cite>incentive_description</cite>.</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -238,29 +240,7 @@ information on the reward is specified in <em>incentive_description</em>.</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl &lt;url&gt; <span class="se">\</span>
-  -d <span class="s1">&#39;key=&lt;key&gt;&amp;payload={</span>
-<span class="s1">  &quot;campaign&quot;: {</span>
-<span class="s1">    &quot;id&quot;: 836929610, &quot;type&quot;: &quot;StandaloneCampaign&quot;, &quot;cached_slug&quot;: &quot;affiliate-campaign-test&quot;, &quot;tag_names&quot;: [&quot;default&quot;]</span>
-<span class="s1">  },</span>
-<span class="s1">  &quot;offer&quot;: {</span>
-<span class="s1">    &quot;email&quot;: &quot;referrer@example.com&quot;, &quot;short_url_code&quot;: &quot;1a2PV&quot;</span>
-<span class="s1">  },</span>
-<span class="s1">  &quot;referred_origin&quot;: {</span>
-<span class="s1">    &quot;id&quot;: 543208538, &quot;type&quot;: &quot;Purchase&quot;, &quot;order_number&quot;: 381177444, &quot;subtotal&quot;: 13.43, &quot;customer_id&quot;: &quot;22726076&quot;, &quot;coupon_code&quot;: &quot;WHT60000&quot;</span>
-<span class="s1">  },</span>
-<span class="s1">  &quot;advocate_rewards&quot;: [</span>
-<span class="s1">    {</span>
-<span class="s1">      &quot;id&quot;: 316145153,</span>
-<span class="s1">      &quot;email&quot;: &quot;referrer@example.com&quot;,</span>
-<span class="s1">      &quot;person&quot;: { &quot;email&quot;: &quot;referrer@example.com&quot;, &quot;first_name&quot;: &quot;Bob&quot;, &quot;last_name&quot;: &quot;Crane&quot;, &quot;sub_choice&quot;: false, &quot;subscribed_at&quot;: null, &quot;unsubscribed_at&quot;: null },</span>
-<span class="s1">      &quot;amount&quot;: &quot;5.00&quot;,</span>
-<span class="s1">      &quot;incentive&quot;: &quot;rebate&quot;,</span>
-<span class="s1">      &quot;incentive_description&quot;: &quot;$5.00 back&quot;,</span>
-<span class="s1">      &quot;origin&quot;: { &quot;id&quot;: 667277390, &quot;type&quot;: &quot;AffiliateMember&quot;, &quot;email&quot;: &quot;referrer@example.com&quot; }</span>
-<span class="s1">    }</span>
-<span class="s1">  ],</span>
-<span class="s1">}&#39;</span>
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:836929610,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;referred_origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;subtotal&quot;:13.43,&quot;customer_id&quot;:&quot;22726076&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;},&quot;advocate_rewards&quot;:[{&quot;id&quot;:316145153,&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;person&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Crane&quot;,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null},&quot;amount&quot;:&quot;5.00&quot;,&quot;incentive&quot;:&quot;rebate&quot;,&quot;incentive_description&quot;:&quot;$5.00 back&quot;,&quot;origin&quot;:{&quot;id&quot;:667277390,&quot;type&quot;:&quot;AffiliateMember&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;}}],&quot;friend_rewards&quot;:[{&quot;id&quot;:884178819,&quot;email&quot;:&quot;referred@example.com&quot;,&quot;person&quot;:{&quot;email&quot;:&quot;referred@example.com&quot;,&quot;first_name&quot;:&quot;Alice&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2014-08-14T02:01:16.823-07:00&quot;,&quot;unsubscribed_at&quot;:null},&quot;amount&quot;:&quot;0.00&quot;,&quot;incentive&quot;:&quot;other&quot;,&quot;incentive_description&quot;:&quot;First Month Free&quot;,&quot;origin&quot;:{&quot;id&quot;:543208538,&quot;type&quot;:&quot;Purchase&quot;,&quot;order_number&quot;:381177444,&quot;subtotal&quot;:13.43,&quot;order_date&quot;:&quot;2014-08-14T02:01:16.824-07:00&quot;,&quot;coupon_code&quot;:&quot;WHT60000&quot;}}]}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
