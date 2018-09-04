@@ -124,13 +124,13 @@ whether the event was associated with a referral or not. With both “subscripti
 “purchase” events being passed to Talkable, we are then able to setup referral campaigns
 to report on and reward these events as desired. See some examples below.</p>
 <p>Subscription payments should go under “subscription” event category. All such events
-can be found inside Reports → Events. Here is an example:</p>
+can be found inside Reports &rarr; Events. Here is an example:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;subscription&#39;</span><span class="p">,</span>
-      <span class="nx">event_number</span><span class="o">:</span> <span class="mi">1938579813</span><span class="p">,</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">89</span><span class="p">,</span>
+      <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;ev1938579813&#39;</span><span class="p">,</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;89&#39;</span><span class="p">,</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
@@ -141,13 +141,13 @@ can be found inside Reports → Events. Here is an example:</p>
 </pre></div>
 </div>
 <p>One-time purchases should go under “purchase” event category. You can find all purchases
-inside Reports → Purchases. Here is an example:</p>
+inside Reports &rarr; Purchases. Here is an example:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;purchase&#39;</span><span class="p">,</span>
-      <span class="nx">event_number</span><span class="o">:</span> <span class="mi">1938579814</span><span class="p">,</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">34</span><span class="p">,</span>
+      <span class="nx">event_number</span><span class="o">:</span> <span class="s1">&#39;ev1938579814&#39;</span><span class="p">,</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;34.5&#39;</span><span class="p">,</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
@@ -191,8 +191,9 @@ should have a unique event number, duplicate events will not be
 saved. <br>
 Example: <code class="docutils literal"><span class="pre">'18934671af'</span></code>.</li>
 <li><strong>subtotal</strong> (required) – event subtotal, Any valid positive number
-(including floats) or 0 are allowed. <br>
-Example: <code class="docutils literal"><span class="pre">198.5</span></code>.</li>
+(including floats) or 0 are allowed. Preferably it should be passed
+as a string to avoid JavaScript issues with rounding floats. <br>
+Example: <code class="docutils literal"><span class="pre">'198.5'</span></code>.</li>
 <li><strong>coupon_code</strong> (required) – a coupon code that was applied on
 this event. Pass <code class="docutils literal"><span class="pre">null</span></code> when no coupon code applied. <br>
 Example: <code class="docutils literal"><span class="pre">'SAVE20'</span></code>. You can also pass multiple coupons as
@@ -241,7 +242,7 @@ end.</p>
 <tr class="row-odd"><td><strong>custom_properties</strong></td>
 <td><p class="first">Custom key-value data that can be attached to a person
 (optional). It can be used for segmentation for example: you can
-code up custom criterias in order to show relevant campaigns to
+code up custom criteria in order to show relevant campaigns to
 each segment. Alternatively custom properties can be used for an
 advanced referral reward logics. Any valid JS object is allowed.
 Object value should always be a string.</p>
