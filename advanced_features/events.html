@@ -109,24 +109,29 @@
             
   <span class="target" id="advanced-features-events"></span><div class="section" id="integrating-events">
 <h1>Integrating Events<a class="headerlink" href="#integrating-events" title="Permalink to this headline">¶</a></h1>
-<p>Besides regular
-<a class="reference internal" href="../integration/custom/integration_components.html#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">purchases</span></a>
-Talkable also supports more abstract events that you can split into multiple categories
-and set up more advanced rules in your referral campaigns.</p>
+<p>In addition to running a referral campaign around regular
+<a class="reference internal" href="../integration/custom/integration_components.html#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">purchases</span></a>,
+Talkable also supports more abstract events that can be split into multiple categories
+and set up with more advanced rules.</p>
 <p>An example of such integration can be a subscription-based business that also supports
-1-time purchases. A referral campaign example can be: <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> both get $5
-off discount on 1-time purchases, and $15 off when purchasing a subscriptoin plan.</p>
-<p>In this case subscription purchases and 1-time purchases should be
+one-time purchases. A referral campaign example can be: <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> and <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> both get
+$5 off discount on one-time purchases, and $15 off when purchasing a subscription plan.</p>
+<p>In this case, the subscription purchases and the one-time purchases should be
 integrated as separate events under different event categories: “subscription” and
-“purchase”. All events should be passed to Talkable, including recurring ones. Talkable
-is equipped with a referral engine that runs each event through a several checks to
-identify if the event was referral or not. Here is an example:</p>
+“purchase”. All events should be passed to Talkable, including recurring events.
+Talkable’s backend referral engine runs each event through several checks to identify
+whether the event was associated with a referral or not. With both “subscription” and
+“purchase” events being passed to Talkable, we are then able to setup referral campaigns
+to report on and reward these events as desired. See some examples below.</p>
+<p>Subscription payments should go under “subscription” event category. All such events
+can be found inside Reports → Events. Here is an example:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;subscription&#39;</span><span class="p">,</span>
       <span class="nx">event_number</span><span class="o">:</span> <span class="mi">1938579813</span><span class="p">,</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">89</span><span class="p">,</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;SAVE20&#39;</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer1@example.com&#39;</span>
@@ -135,13 +140,15 @@ identify if the event was referral or not. Here is an example:</p>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>1-time purchases should go under “purchase” event category:</p>
+<p>One-time purchases should go under “purchase” event category. You can find all purchases
+inside Reports → Purchases. Here is an example:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_event&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">event</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">event_category</span><span class="o">:</span> <span class="s1">&#39;purchase&#39;</span><span class="p">,</span>
       <span class="nx">event_number</span><span class="o">:</span> <span class="mi">1938579814</span><span class="p">,</span>
       <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">34</span><span class="p">,</span>
+      <span class="nx">coupon_code</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;customer2@example.com&#39;</span>
@@ -153,17 +160,18 @@ identify if the event was referral or not. Here is an example:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">All recurring subscription purchases should be passed to Talkable as well, to ensure
-data integrity. In case such recurring transactions happen on backend follow the <br>
+data integrity. In case such recurring transactions happen from the backend, follow the
+<br>
 <a class="reference internal" href="../api_v2/origins.html#api-v2-origins"><span class="std std-ref">Origin API</span></a> (see “Create an event” section).</p>
 </div>
 <div class="section" id="available-properties">
 <h2>Available properties<a class="headerlink" href="#available-properties" title="Permalink to this headline">¶</a></h2>
-<p>Here is a list of all available properties each event can include:</p>
+<p>Here is a list of available properties each event can include:</p>
 <div class="ptable docutils container">
 <table border="1" class="docutils">
 <colgroup>
-<col width="24%" />
-<col width="76%" />
+<col width="22%" />
+<col width="78%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Property</th>
@@ -174,36 +182,35 @@ data integrity. In case such recurring transactions happen on backend follow the
 <tr class="row-even"><td><strong>event</strong></td>
 <td><p class="first">An event data:</p>
 <ul class="last simple">
-<li><strong>event_category</strong> – a category under which the event should be
+<li><strong>event_category</strong> (required) – a category under which the event should be
 tracked. Only alpha-numeric characters and underscores are
 allowed. Minimum length – 5 characters. <br>
 Example: <code class="docutils literal"><span class="pre">'subscription'</span></code>.</li>
-<li><strong>event_number</strong> – any alpha-numeric characters. Each event
+<li><strong>event_number</strong> (required) – any alpha-numeric characters. Each event
 should have a unique event number, duplicate events will not be
 saved. <br>
 Example: <code class="docutils literal"><span class="pre">'18934671af'</span></code>.</li>
-<li><strong>subtotal</strong> (optional) – event subtotal, in case an event has
-a monetary value. Any valid positive number (including floats)
-is allowed. <br>
+<li><strong>subtotal</strong> (required) – event subtotal, Any valid positive number
+(including floats) or 0 are allowed. <br>
 Example: <code class="docutils literal"><span class="pre">198.5</span></code>.</li>
-<li><strong>coupon_code</strong> (optional) – a coupon code that was applied on
-this event. <br>
+<li><strong>coupon_code</strong> (required) – a coupon code that was applied on
+this event. Pass <code class="docutils literal"><span class="pre">null</span></code> when no coupon code applied. <br>
 Example: <code class="docutils literal"><span class="pre">'SAVE20'</span></code>. You can also pass multiple coupons as
 an array: <code class="docutils literal"><span class="pre">['SAVE20',</span> <span class="pre">'SAVE5']</span></code> if they were stacked.</li>
-<li><strong>shipping_address</strong> – Shipping address in case an event is
-shippable (optional). It is used in fraud prevention. <br>
+<li><strong>shipping_address</strong> (optional) – Shipping address in case an event is
+shippable. It is used in fraud prevention. <br>
 Example:
 <code class="docutils literal"><span class="pre">'475</span> <span class="pre">Valencia</span> <span class="pre">St,</span> <span class="pre">2nd</span> <span class="pre">Floor,</span> <span class="pre">San</span> <span class="pre">Francisco,</span> <span class="pre">94103,</span> <span class="pre">USA'</span></code>.</li>
-<li><strong>shipping_zip</strong> – Same as <strong>shipping_address</strong>. Include only
-the zip part here. <br>
+<li><strong>shipping_zip</strong> (optional) – Same as <strong>shipping_address</strong>. Include only
+zip here. <br>
 Example: <code class="docutils literal"><span class="pre">94103</span></code>.</li>
 </ul>
 </td>
 </tr>
 <tr class="row-odd"><td><strong>customer</strong></td>
-<td><p class="first">A person who issued an event (optional):</p>
+<td><p class="first">A person who issued an event:</p>
 <ul class="last simple">
-<li><strong>email</strong> (optional). <br>
+<li><strong>email</strong>. (required) <br>
 Example: <code class="docutils literal"><span class="pre">'customer&#64;example.com'</span></code>.</li>
 <li><strong>first_name</strong> (optional). <br>
 Example: <code class="docutils literal"><span class="pre">'John'</span></code>.</li>

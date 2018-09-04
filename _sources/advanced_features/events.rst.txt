@@ -4,20 +4,25 @@
 Integrating Events
 ==================
 
-Besides regular
-:ref:`purchases <integration/custom/integration_components/post_purchase_script>`
-Talkable also supports more abstract events that you can split into multiple categories
-and set up more advanced rules in your referral campaigns.
+In addition to running a referral campaign around regular
+:ref:`purchases <integration/custom/integration_components/post_purchase_script>`,
+Talkable also supports more abstract events that can be split into multiple categories
+and set up with more advanced rules.
 
 An example of such integration can be a subscription-based business that also supports
-1-time purchases. A referral campaign example can be: |advocate| and |friend| both get $5
-off discount on 1-time purchases, and $15 off when purchasing a subscriptoin plan.
+one-time purchases. A referral campaign example can be: |advocate| and |friend| both get
+$5 off discount on one-time purchases, and $15 off when purchasing a subscription plan.
 
-In this case subscription purchases and 1-time purchases should be
+In this case, the subscription purchases and the one-time purchases should be
 integrated as separate events under different event categories: “subscription” and
-“purchase”. All events should be passed to Talkable, including recurring ones. Talkable
-is equipped with a referral engine that runs each event through a several checks to
-identify if the event was referral or not. Here is an example:
+“purchase”. All events should be passed to Talkable, including recurring events.
+Talkable’s backend referral engine runs each event through several checks to identify
+whether the event was associated with a referral or not. With both “subscription” and
+“purchase” events being passed to Talkable, we are then able to setup referral campaigns
+to report on and reward these events as desired. See some examples below.
+
+Subscription payments should go under “subscription” event category. All such events
+can be found inside Reports → Events. Here is an example:
 
 .. code-block:: html
 
@@ -27,6 +32,7 @@ identify if the event was referral or not. Here is an example:
         event_category: 'subscription',
         event_number: 1938579813,
         subtotal: 89,
+        coupon_code: 'SAVE20',
       },
       customer: {
         email: 'customer1@example.com'
@@ -34,7 +40,8 @@ identify if the event was referral or not. Here is an example:
     }]);
   </script>
 
-1-time purchases should go under “purchase” event category:
+One-time purchases should go under “purchase” event category. You can find all purchases
+inside Reports → Purchases. Here is an example:
 
 .. code-block:: html
 
@@ -44,6 +51,7 @@ identify if the event was referral or not. Here is an example:
         event_category: 'purchase',
         event_number: 1938579814,
         subtotal: 34,
+        coupon_code: null,
       },
       customer: {
         email: 'customer2@example.com'
@@ -54,13 +62,14 @@ identify if the event was referral or not. Here is an example:
 .. note::
 
    All recurring subscription purchases should be passed to Talkable as well, to ensure
-   data integrity. In case such recurring transactions happen on backend follow the |br|
+   data integrity. In case such recurring transactions happen from the backend, follow the
+   |br|
    :ref:`Origin API <api_v2/origins>` (see “Create an event” section).
 
 Available properties
 ~~~~~~~~~~~~~~~~~~~~
 
-Here is a list of all available properties each event can include:
+Here is a list of available properties each event can include:
 
 .. container:: ptable
 
@@ -69,33 +78,32 @@ Here is a list of all available properties each event can include:
    ===================== =================================================================
    **event**             An event data:
 
-                         * **event_category** – a category under which the event should be
+                         * **event_category** (required) – a category under which the event should be
                            tracked. Only alpha-numeric characters and underscores are
                            allowed. Minimum length – 5 characters. |br|
                            Example: ``'subscription'``.
-                         * **event_number** – any alpha-numeric characters. Each event
+                         * **event_number** (required) – any alpha-numeric characters. Each event
                            should have a unique event number, duplicate events will not be
                            saved. |br|
                            Example: ``'18934671af'``.
-                         * **subtotal** (optional) – event subtotal, in case an event has
-                           a monetary value. Any valid positive number (including floats)
-                           is allowed. |br|
+                         * **subtotal** (required) – event subtotal, Any valid positive number
+                           (including floats) or 0 are allowed. |br|
                            Example: ``198.5``.
-                         * **coupon_code** (optional) – a coupon code that was applied on
-                           this event. |br|
+                         * **coupon_code** (required) – a coupon code that was applied on
+                           this event. Pass ``null`` when no coupon code applied. |br|
                            Example: ``'SAVE20'``. You can also pass multiple coupons as
                            an array: ``['SAVE20', 'SAVE5']`` if they were stacked.
-                         * **shipping_address** – Shipping address in case an event is
-                           shippable (optional). It is used in fraud prevention. |br|
+                         * **shipping_address** (optional) – Shipping address in case an event is
+                           shippable. It is used in fraud prevention. |br|
                            Example:
                            ``'475 Valencia St, 2nd Floor, San Francisco, 94103, USA'``.
-                         * **shipping_zip** – Same as **shipping_address**. Include only
-                           the zip part here. |br|
+                         * **shipping_zip** (optional) – Same as **shipping_address**. Include only
+                           zip here. |br|
                            Example: ``94103``.
 
-   **customer**          A person who issued an event (optional):
+   **customer**          A person who issued an event:
 
-                         * **email** (optional). |br|
+                         * **email**. (required) |br|
                            Example: ``'customer@example.com'``.
                          * **first_name** (optional). |br|
                            Example: ``'John'``.
