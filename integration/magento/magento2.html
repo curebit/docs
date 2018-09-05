@@ -2,12 +2,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Magento 2.x Integration &#8212; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
@@ -16,7 +27,8 @@
     <link rel="prev" title="Magento 1.x Integration" href="magento1.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
-  </head><body>
+  </head>
+  <body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -103,7 +115,7 @@ The extension supports all versions of Magento 2.0 or higher.</p>
 <li><p class="first">Visit the Magento Marketplace and get the <a class="reference external" href="https://marketplace.magento.com/talkable-magento2-integration.html">Talkable extension</a>.</p>
 <img alt="../../_images/install0.jpg" src="../../_images/install0.jpg" />
 </li>
-<li><p class="first">Navigate to <strong>System</strong> &rarr; <strong>Web Setup Wizard</strong> in your Magento store admin panel.</p>
+<li><p class="first">Navigate to <strong>System</strong> → <strong>Web Setup Wizard</strong> in your Magento store admin panel.</p>
 <img alt="../../_images/install1.jpg" src="../../_images/install1.jpg" />
 </li>
 <li><p class="first">Choose <strong>Extension Manager</strong>.</p>
@@ -133,7 +145,7 @@ extensions from the Marketplace.</p>
 <div class="section" id="activating-the-integration">
 <h2>Activating the Integration<a class="headerlink" href="#activating-the-integration" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">After successful installation, navigate to <strong>System</strong> &rarr; <strong>Integrations</strong> page of your admin panel.</p>
+<li><p class="first">After successful installation, navigate to <strong>System</strong> → <strong>Integrations</strong> page of your admin panel.</p>
 <img alt="../../_images/activate1.jpg" src="../../_images/activate1.jpg" />
 </li>
 <li><p class="first">Find <em>“Talkable”</em> in the list of integrations and click the <strong>Activate</strong> link.</p>
@@ -164,11 +176,11 @@ the <a class="reference internal" href="#integration">Integration</a> section of
 <div class="section" id="accessing-talkable-configuration">
 <h2>Accessing Talkable Configuration<a class="headerlink" href="#accessing-talkable-configuration" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">To access Talkable extension settings, navigate to <strong>Stores</strong> &rarr; <strong>Configuration</strong> in
+<li><p class="first">To access Talkable extension settings, navigate to <strong>Stores</strong> → <strong>Configuration</strong> in
 your Magento admin panel.</p>
 <img alt="../../_images/access1.jpg" src="../../_images/access1.jpg" />
 </li>
-<li><p class="first">Then select <strong>Talkable</strong> &rarr; <strong>Talkable Configuration</strong> from the list of available configurations.
+<li><p class="first">Then select <strong>Talkable</strong> → <strong>Talkable Configuration</strong> from the list of available configurations.
 If you have multiple stores, select the desired Store View you want to change the settings for.</p>
 <img alt="../../_images/access2.jpg" src="../../_images/access2.jpg" />
 </li>
@@ -273,14 +285,14 @@ set up, we recommend performing it prior to installing the extension.</p>
 </ol>
 <blockquote>
 <div><ul>
-<li><p class="first">In PHP configuration, increase <code class="docutils literal notranslate"><span class="pre">max_execution_time</span></code> to 300-600 seconds.
-This can be done either in your <code class="docutils literal notranslate"><span class="pre">php.ini</span></code> file or in the <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code>
+<li><p class="first">In PHP configuration, increase <code class="docutils literal"><span class="pre">max_execution_time</span></code> to 300-600 seconds.
+This can be done either in your <code class="docutils literal"><span class="pre">php.ini</span></code> file or in the <code class="docutils literal"><span class="pre">.htaccess</span></code>
 file in your Magento root folder.</p>
 </li>
-<li><p class="first">For Apache 2, increase <code class="docutils literal notranslate"><span class="pre">TimeOut</span></code> to 300-600 seconds in your server configuration.</p>
+<li><p class="first">For Apache 2, increase <code class="docutils literal"><span class="pre">TimeOut</span></code> to 300-600 seconds in your server configuration.</p>
 </li>
 <li><p class="first">For nginx + php-fpm, set the following directives in your server configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client_header_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client_header_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
 <span class="n">client_body_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
 <span class="n">fastcgi_read_timeout</span> <span class="mi">300</span><span class="n">s</span><span class="p">;</span>
 </pre></div>
