@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Setting up Campaign Placement criteria" href="reg_ex.html" />
     <link rel="prev" title="Segment With Traffic Source" href="traffic_source.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -95,8 +96,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="advanced-features-subscribing-to-events"></span><div class="section" id="subscribing-to-iframe-events">
-<h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="subscribing-to-iframe-events">
+<span id="advanced-features-subscribing-to-events"></span><h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
 <p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">white-labeling</span></a> is setup).</p>
 <p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
 <p>In order to subscribe to an iframe Event you need to know <cite>id</cite> HTML attribute of the Container DIV that holds it, and the Event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>

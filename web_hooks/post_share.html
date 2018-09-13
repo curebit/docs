@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advocate Signup Webhook" href="offer_signup.html" />
     <link rel="prev" title="Reward Webhook" href="reward.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -86,9 +87,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="web-hooks-post-share"></span><div class="section" id="post-share-webhook">
-<h1>Post Share Webhook<a class="headerlink" href="#post-share-webhook" title="Permalink to this headline">¶</a></h1>
-<p>Talkable Post Share Webhook provides notification of a share event performed within a referral campaign workflow. Use cases for the Post Share Webhook include:</p>
+  <div class="section" id="post-share-webhook">
+<span id="web-hooks-post-share"></span><h1>Post Share Webhook<a class="headerlink" href="#post-share-webhook" title="Permalink to this headline">¶</a></h1>
+<p>Talkable Post Share Webhook provides notification of a share event performed
+within a referral campaign workflow. Use cases for the Post Share Webhook include:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Sending automated ‘Thank You’ email to an Advocate for performing a share</li>
@@ -96,26 +98,36 @@
 <li>Data for Business Intelligence and analytics systems</li>
 </ul>
 </div></blockquote>
-<h2>When does Talkable call the Post Share Webhook?</h2><p>Talkable Post Share Webhook is triggered any time an Advocate (referrer) shares offer details with a Friend (referee) via the corresponding form provided by campaign workflow.  Which includes any time:</p>
+<h2>When does Talkable call the Post Share Webhook?</h2><p>Talkable Post Share Webhook is triggered any time an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> (referrer)
+shares offer details with a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> (referee) via the corresponding form
+provided by campaign workflow. Which includes any time:</p>
 <blockquote>
 <div><ul class="simple">
-<li>An advocate shares with a Friend via Email or any other channel from inside a referral campaign workflow</li>
+<li>An advocate shares with a Friend via Email or any other channel from inside
+a referral campaign workflow</li>
 <li>An Advocate copies a share link from a referral campaign workflow share screen</li>
 </ul>
 </div></blockquote>
-<p>Note: the Post Share Webhook triggers every time a share occurs. For example, if an Advocate shares with a Friend via email (or any channel), then shares with a second Friend via email (or any channel), the Post Share Webhook will be triggered twice.</p>
+<p>Note: the Post Share Webhook triggers every time a share occurs. For example,
+if an Advocate shares with a Friend via email (or any channel), then shares with
+a second Friend via email (or any channel), the Post Share Webhook will be
+triggered twice.</p>
 <h2>Payload parameters provided for Post Share Webhook</h2><ul class="simple">
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
 <li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
 <li><strong>tag_names</strong> — an array of campaign’s tags</li>
-<li><strong>origin_min_age</strong> — timeframe from first site visit when an offer is available to Advocate</li>
-<li><strong>origin_max_age</strong> — timeframe from first site visit when an offer is available to Advocate</li>
-<li><strong>new_customer</strong> — “yes/no” whether offer requires Advocate to be a new customer</li>
+<li><strong>origin_min_age</strong> — timeframe from first site visit when an offer is
+available to Advocate</li>
+<li><strong>origin_max_age</strong> — timeframe from first site visit when an offer is
+available to Advocate</li>
+<li><strong>new_customer</strong> — “yes/no” whether offer requires Advocate to be a new
+customer</li>
 </ul>
 </li>
-<li><strong>share_type</strong> — <em>“email”</em>, <em>“facebook”</em>, <em>“twitter”</em>, <em>“facebook_message”</em>, <em>“facebook_sponsored”</em>, <em>“whatsapp”</em>, <em>“sms”</em>, <em>“linkedin”</em>, <em>“other”</em><ul>
+<li><strong>share_type</strong> — <em>“email”</em>, <em>“facebook”</em>, <em>“twitter”</em>, <em>“facebook_message”</em>,
+<em>“facebook_sponsored”</em>, <em>“whatsapp”</em>, <em>“sms”</em>, <em>“linkedin”</em>, <em>“other”</em><ul>
 <li>Note: custom share_type’s can be created</li>
 </ul>
 </li>
@@ -131,16 +143,18 @@
 </li>
 </ul>
 </li>
-<li><strong>share_link</strong> — link sent in share message (optional, present only for Facebook and Twitter shares)</li>
+<li><strong>share_link</strong> — link sent in share message (optional, present only for
+Facebook and Twitter shares)</li>
 <li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
 <li><strong>type</strong><ul>
 <li><em>“Purchase”</em> for post-purchase campaign</li>
 <li><em>“AffiliateMember”</em> for standalone campaign</li>
-<li><em>“Event”</em> for event type origin (such as a signup page which triggers a referral campaign)</li>
+<li><em>“Event”</em> for event type origin (such as a signup page which triggers a
+referral campaign)</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the origin event</li>
-<li><strong>email</strong> — e-mail address of the Advocate (referrer)</li>
+<li><strong>email</strong> — email address of the Advocate (referrer)</li>
 </ul>
 </li>
 </ul>
@@ -166,7 +180,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;: {&quot;id&quot;: 83587635, &quot;type&quot;: &quot;StandaloneCampaign&quot;, &quot;cached_slug&quot;: 83587635, &quot;tag_names&quot;: [&quot;default&quot;], &quot;origin_min_age&quot;: null, &quot;origin_max_age&quot;: null, &quot;new_customer&quot;: null }, &quot;share_type&quot;: &quot;email&quot;, &quot;share_info&quot;: {&quot;recipients&quot;: [&quot;john@example.com&quot;] }, &quot;origin&quot;: {&quot;id&quot;: 273085748, &quot;type&quot;: &quot;Purchase&quot;, &quot;email&quot;: &quot;referrer@example.com&quot;} }&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:83587635,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:83587635,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:273085748,&quot;type&quot;:&quot;Purchase&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">

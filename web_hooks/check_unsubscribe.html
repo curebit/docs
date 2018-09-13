@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Talkable iOS SDK" href="../ios_sdk.html" />
     <link rel="prev" title="Unsubscribe Web Hook" href="unsubscribe.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -86,8 +87,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="web-hooks-check-unsubscribe"></span><div class="section" id="check-unsubscribe-web-hook">
-<h1>Check Unsubscribe Web Hook<a class="headerlink" href="#check-unsubscribe-web-hook" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="check-unsubscribe-web-hook">
+<span id="web-hooks-check-unsubscribe"></span><h1>Check Unsubscribe Web Hook<a class="headerlink" href="#check-unsubscribe-web-hook" title="Permalink to this headline">¶</a></h1>
 <p>Triggered on every attempt to send an otherwise valid customer email,
 aimed at checking if the email is also valid on merchant side.</p>
 <div class="admonition important">
@@ -150,7 +151,7 @@ representing unsubscribed status according to the merchant info.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;: 350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
