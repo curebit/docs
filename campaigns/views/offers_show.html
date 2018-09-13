@@ -2,23 +2,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Advocate Share Page &#8212; Talkable Documentation</title>
-    
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
@@ -27,8 +16,7 @@
     <link rel="prev" title="Advocate Signup Page" href="affiliate_members_new.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../../_static/pygments-github.css" rel="stylesheet">
   <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
-  </head>
-  <body>
+  </head><body>
   
     <div class="header">
       <a href="../../index.html" class="header-logo">Talkable docs</a>
@@ -121,7 +109,7 @@ to <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr
 <br></p>
 <img alt="Advocate Share Page" src="../../_images/advocate-offer-page.png" />
 <p><br></p>
-<h4>Email sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-share-via-email-form&quot;</span><span class="p">&gt;</span>
+<h4>Email sharing example:</h4><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-share-via-email-form&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_recipient_list&quot;</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email_subject&quot;</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;share_message&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
@@ -130,22 +118,22 @@ to <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Note <code class="docutils literal"><span class="pre">share_email_reminder</span></code> checkbox — this is <a class="reference internal" href="notifier_offers_share_via_email_reminder.html#friend-share-email-reminder-view"><span class="std std-ref">Friend Share Email Reminder</span></a>
+<p>Note <code class="docutils literal notranslate"><span class="pre">share_email_reminder</span></code> checkbox — this is <a class="reference internal" href="notifier_offers_share_via_email_reminder.html#friend-share-email-reminder-view"><span class="std std-ref">Friend Share Email Reminder</span></a>
 trigger.</p>
 <p><br></p>
-<h4>Facebook sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="p">&gt;</span>
+<h4>Facebook sharing example:</h4><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-share-offer-via-facebook&quot;</span><span class="p">&gt;</span>
   Share on Facebook
 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p><br></p>
-<h4>Twitter sharing example:</h4><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ twitter_share_link }}&quot;</span><span class="p">&gt;</span>
+<h4>Twitter sharing example:</h4><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ twitter_share_link }}&quot;</span><span class="p">&gt;</span>
   Share on Twitter
 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p><br></p>
-<h4>Share by link example:</h4><div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-clipboard-text</span><span class="o">=</span><span class="s">&quot;{{ short_url }}&quot;</span>
+<h4>Share by link example:</h4><div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-clipboard-text</span><span class="o">=</span><span class="s">&quot;{{ short_url }}&quot;</span>
      <span class="na">data-copied-label</span><span class="o">=</span><span class="s">&quot;Copied!&quot;</span>
      <span class="na">data-placement</span><span class="o">=</span><span class="s">&quot;top&quot;</span>
      <span class="na">title</span><span class="o">=</span><span class="s">&quot;Click to Copy&quot;</span>
@@ -155,14 +143,14 @@ trigger.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">data-clipboard-text</span></code> — data to be copied to a user clipboard on click.</li>
-<li><code class="docutils literal"><span class="pre">data-copied-label</span></code> — tooltip text after copying.</li>
-<li><code class="docutils literal"><span class="pre">data-placement</span></code> — tooltip placement. Possible values: <code class="docutils literal"><span class="pre">top</span></code>, <code class="docutils literal"><span class="pre">right</span></code>, <code class="docutils literal"><span class="pre">bottom</span></code>, <code class="docutils literal"><span class="pre">left</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">title</span></code> — tooltip text on hover.</li>
+<li><code class="docutils literal notranslate"><span class="pre">data-clipboard-text</span></code> — data to be copied to a user clipboard on click.</li>
+<li><code class="docutils literal notranslate"><span class="pre">data-copied-label</span></code> — tooltip text after copying.</li>
+<li><code class="docutils literal notranslate"><span class="pre">data-placement</span></code> — tooltip placement. Possible values: <code class="docutils literal notranslate"><span class="pre">top</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">bottom</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">title</span></code> — tooltip text on hover.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Do not change <code class="docutils literal"><span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">class</span></code> attributes, otherwise
+<p class="last">Do not change <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">class</span></code> attributes, otherwise
 functionality won’t work. <cite>js-</cite> class prefix means it is used in Talkable API.</p>
 </div>
 <p>Related tutorials for this View:</p>

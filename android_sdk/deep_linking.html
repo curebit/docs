@@ -2,31 +2,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Deep Linking &#8212; Talkable Documentation</title>
-    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head>
-  <body>
+  </head><body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -93,8 +81,8 @@ your Android app.</p>
 <blockquote>
 <div><div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Credentials, mentioned in this document (<code class="docutils literal"><span class="pre">YOUR_SITE_SLUG</span></code>, <code class="docutils literal"><span class="pre">YOUR_TALKABLE_PUBLIC_API_KEY</span></code>,
-<code class="docutils literal"><span class="pre">YOUR_GETSOCIAL_APP_ID</span></code>, <code class="docutils literal"><span class="pre">YOUR_LINK_DOMAIN_PREFIX</span></code>), will be provided
+<p class="last">Credentials, mentioned in this document (<code class="docutils literal notranslate"><span class="pre">YOUR_SITE_SLUG</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_TALKABLE_PUBLIC_API_KEY</span></code>,
+<code class="docutils literal notranslate"><span class="pre">YOUR_GETSOCIAL_APP_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_LINK_DOMAIN_PREFIX</span></code>), will be provided
 with the document. Make sure to replace corresponding placeholders
 in examples with the providen values.</p>
 </div>
@@ -103,7 +91,7 @@ in examples with the providen values.</p>
 <h2>Application Attributes<a class="headerlink" href="#application-attributes" title="Permalink to this headline">¶</a></h2>
 <p>To enable the deep linking, you should provide us with <em>Package name</em> and
 <em>Signing-certificate fingerprints</em>.</p>
-<p><em>Package name</em> is the <code class="docutils literal"><span class="pre">applicationId</span></code> in your app-level <code class="docutils literal"><span class="pre">build.gradle</span></code> file.</p>
+<p><em>Package name</em> is the <code class="docutils literal notranslate"><span class="pre">applicationId</span></code> in your app-level <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
 <p><em>Signing-certificate fingerprints</em> is a list of SHA-256 hashes of the certificates
 you use to sign your application. You should provide fingerprints of all keys
 you use to sign the app. This tutorial tells you how to do this:
@@ -111,17 +99,17 @@ you use to sign the app. This tutorial tells you how to do this:
 </div>
 <div class="section" id="configure-sdk-and-dependencies">
 <h2>Configure SDK and Dependencies<a class="headerlink" href="#configure-sdk-and-dependencies" title="Permalink to this headline">¶</a></h2>
-<p>Talkable SDK is distributed as an Android Library in <code class="docutils literal"><span class="pre">aar</span></code> format.</p>
+<p>Talkable SDK is distributed as an Android Library in <code class="docutils literal notranslate"><span class="pre">aar</span></code> format.</p>
 <ol class="arabic">
-<li><p class="first">Add <code class="docutils literal"><span class="pre">talkable-sdk.aar</span></code> as a module dependency in Android studio.</p>
+<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">talkable-sdk.aar</span></code> as a module dependency in Android studio.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To do this, open import popup using <em>File</em> &rarr; <em>New</em> &rarr; <em>New Module</em> &rarr; <em>Import .JAR/.AAR Package</em>
+<p class="last">To do this, open import popup using <em>File</em> → <em>New</em> → <em>New Module</em> → <em>Import .JAR/.AAR Package</em>
 and add Talkable SDK as a module dependency to your main module</p>
 </div>
 </li>
-<li><p class="first">Add Talkable SDK dependencies to <code class="docutils literal"><span class="pre">build.gradle</span></code>:</p>
-<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+<li><p class="first">Add Talkable SDK dependencies to <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
     <span class="o">...</span>
     <span class="n">implementation</span> <span class="s1">&#39;com.squareup.okhttp3:okhttp:3.2.0&#39;</span>
     <span class="n">implementation</span> <span class="s1">&#39;com.facebook.android:facebook-android-sdk:[4,5)&#39;</span>
@@ -136,8 +124,8 @@ and add Talkable SDK as a module dependency to your main module</p>
 </div>
 </li>
 <li><p class="first">Add GetSocial Maven Repository to the list of project dependency
-repositories inside your top-level <code class="docutils literal"><span class="pre">build.gradle</span></code>:</p>
-<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">allprojects</span> <span class="o">{</span>
+repositories inside your top-level <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">allprojects</span> <span class="o">{</span>
     <span class="n">repositories</span> <span class="o">{</span>
         <span class="o">...</span>
         <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">&#39;http://maven.getsocial.im/&#39;</span> <span class="o">}</span>
@@ -151,11 +139,11 @@ repositories inside your top-level <code class="docutils literal"><span class="p
 </div>
 <div class="section" id="configure-manifest">
 <h2>Configure Manifest<a class="headerlink" href="#configure-manifest" title="Permalink to this headline">¶</a></h2>
-<p>Open your <code class="docutils literal"><span class="pre">AndroidManifest.xml</span></code> file and configure it by following next steps:</p>
+<p>Open your <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> file and configure it by following next steps:</p>
 <ol class="arabic">
-<li><p class="first">Specify Talkable credentials as a meta-data inside the <code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> tag
+<li><p class="first">Specify Talkable credentials as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag
 in the following format:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;meta-data</span>
         <span class="na">android:name=</span><span class="s">&quot;tkbl-api-key-YOUR_SITE_SLUG&quot;</span>
@@ -165,8 +153,8 @@ in the following format:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Specify GetSocial App ID as a meta-data inside the <code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> tag:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
+<li><p class="first">Specify GetSocial App ID as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;meta-data</span>
         <span class="na">android:name=</span><span class="s">&quot;im.getsocial.sdk.AppId&quot;</span>
@@ -177,8 +165,8 @@ in the following format:</p>
 </div>
 </li>
 <li><p class="first">Add Content Provider for GetSocial SDK auto initialization inside the
-<code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> tag:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
+<code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;provider</span>
         <span class="na">android:authorities=</span><span class="s">&quot;YOUR_GETSOCIAL_APP_ID.AutoInitSdkContentProvider&quot;</span>
@@ -190,9 +178,9 @@ in the following format:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Configure Install Referrer Receiver as the <em>first</em> receiver for <code class="docutils literal"><span class="pre">INSTALL_REFERRER</span></code>
-inside the <code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> tag:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
+<li><p class="first">Configure Install Referrer Receiver as the <em>first</em> receiver for <code class="docutils literal notranslate"><span class="pre">INSTALL_REFERRER</span></code>
+inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;application&gt;</span>
     ...
     <span class="nt">&lt;receiver</span> <span class="na">android:name=</span><span class="s">&quot;im.getsocial.sdk.invites.MultipleInstallReferrerReceiver&quot;</span>  <span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;intent-filter&gt;</span>
@@ -206,7 +194,7 @@ inside the <code class="docutils literal"><span class="pre">&lt;application&gt;<
 </li>
 <li><p class="first">Add the following intent filter to the activity, that should be opened from the
 deep link, inside the corresponding tag:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
     ...
    <span class="nt">&lt;intent-filter&gt;</span>
        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span><span class="nt">/&gt;</span>
@@ -238,7 +226,7 @@ on the link click without the browser window in the middle. Check
 the official <a class="reference external" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
 To set them up add intent filter with the following host configuration
 to the activity that must be opened from the deep link:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
     ...
    <span class="nt">&lt;intent-filter</span> <span class="na">android:autoVerify=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="nt">/&gt;</span>
@@ -257,8 +245,8 @@ to the activity that must be opened from the deep link:</p>
 <div class="section" id="sdk-initialization">
 <h2>SDK Initialization<a class="headerlink" href="#sdk-initialization" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Initialize Talkable in the <code class="docutils literal"><span class="pre">Application</span></code>:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<li><p class="first">Initialize Talkable in the <code class="docutils literal notranslate"><span class="pre">Application</span></code>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -271,12 +259,12 @@ to the activity that must be opened from the deep link:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure to add your application class name as <code class="docutils literal"><span class="pre">android:name</span></code> parameter of
-the <code class="docutils literal"><span class="pre">&lt;application&gt;</span></code> element in your manifest.</p>
+<p class="last">Make sure to add your application class name as <code class="docutils literal notranslate"><span class="pre">android:name</span></code> parameter of
+the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> element in your manifest.</p>
 </div>
 </li>
-<li><p class="first">Call the <code class="docutils literal"><span class="pre">Talkable.trackAppOpen</span></code> method inside your main activity:</p>
-<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<li><p class="first">Call the <code class="docutils literal notranslate"><span class="pre">Talkable.trackAppOpen</span></code> method inside your main activity:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
