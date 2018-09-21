@@ -101,7 +101,7 @@
             
   <div class="section" id="email-encryption">
 <span id="advanced-features-email-encryption"></span><h1>Email Encryption<a class="headerlink" href="#email-encryption" title="Permalink to this headline">¶</a></h1>
-<p>For additional security, it is possible to encrypt Advocate and Friend e-mails on back-end.
+<p>For additional security, it is possible to encrypt Advocate and Friend emails on back-end.
 This can be done by using 2048-bit key <a class="reference external" href="https://d2jjzw81hqbuqv.cloudfront.net/integration/talkable_public_key.pem">Talkable Public Key</a>.
 So, instead of sending email addresses in plain text, you can send them encrypted.</p>
 <div class="section" id="passing-email-as-a-get-parameter-to-standalone-campaign">
@@ -213,11 +213,11 @@ So it is recommended to store the key in memory instead of loading it each time 
 <h2>Front-end Part<a class="headerlink" href="#front-end-part" title="Permalink to this headline">¶</a></h2>
 <p>Please modify the front-end using this pseudo code example:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
- <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
-   <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(TalkableEmail.encrypt(current_user.email)) %&gt;&#39;</span><span class="p">,</span>
-   <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.first_name) %&gt;&#39;</span><span class="p">,</span>
-   <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.last_name) %&gt;&#39;</span>
- <span class="p">}]);</span>
+  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(TalkableEmail.encrypt(current_user.email)) %&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.first_name) %&gt;&#39;</span><span class="p">,</span>
+    <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.last_name) %&gt;&#39;</span>
+  <span class="p">}]);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>

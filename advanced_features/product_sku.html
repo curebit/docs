@@ -99,7 +99,7 @@
 <span id="advanced-features-product-sku"></span><h1>Segment With Product SKU<a class="headerlink" href="#segment-with-product-sku" title="Permalink to this headline">¶</a></h1>
 <p>Sometimes there is a need to show a Campaign on Post Purchase Placement only to those customers who
 purchased a particular product or a set of products. In this case you can put such a limitation inside Campaign Join Criteria.
-To do that visit Campaign Details page -&gt; Go into Rules -&gt; Advanced -&gt; Campaign Join Criteria field and put the following
+To do that visit Campaign Details page → Go into Rules → Advanced → Campaign Join Criteria field and put the following
 criteria in there:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{% assign available_items = &quot;sku1,sku2&quot; | split: &quot;,&quot; %}
 {% assign user_items = advocate_origin.products | map: &quot;product_id&quot; %}
@@ -123,7 +123,7 @@ The Campaign won’t show for any other product purchased.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">In order to use this Campaign Join Criteria you need to make sure that the SKU numbers are passed
 throught the integration first of all. To do that you need to go into Reports
-(top header navigation) -&gt; Purchases -&gt; Click on “Details” link of any purchase and make sure there is “Product Id”
+(top header navigation) → Purchases → Click on “Details” link of any purchase and make sure there is “Product Id”
 column with a valid “Product ID” value in place.
 If there is no such column or it is blank you cannot use this feature unless you pass the following instructions
 <a class="reference internal" href="product_items.html#advanced-features-product-items"><span class="std std-ref">Including Product Items</span></a>.</p>
