@@ -79,15 +79,13 @@
 deep linking functionality with its Android SDK. This guide describes how to
 configure your Talkable campaign for deep linking and add support for it to
 your Android app.</p>
-<blockquote>
-<div><div class="admonition note">
+<div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Credentials, mentioned in this document (<code class="docutils literal notranslate"><span class="pre">YOUR_SITE_SLUG</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_TALKABLE_PUBLIC_API_KEY</span></code>,
 <code class="docutils literal notranslate"><span class="pre">YOUR_GETSOCIAL_APP_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_LINK_DOMAIN_PREFIX</span></code>), will be provided
 with the document. Make sure to replace corresponding placeholders
 in examples with the providen values.</p>
 </div>
-</div></blockquote>
 <div class="section" id="application-attributes">
 <h2>Application Attributes<a class="headerlink" href="#application-attributes" title="Permalink to this headline">¶</a></h2>
 <p>To enable the deep linking, you should provide us with <em>Package name</em> and
@@ -260,8 +258,8 @@ to the activity that must be opened from the deep link:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Make sure to add your application class name as <code class="docutils literal notranslate"><span class="pre">android:name</span></code> parameter of
-the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> element in your manifest.</p>
+<p class="last">Make sure to add your application class name as <code class="docutils literal notranslate"><span class="pre">android:name</span></code> parameter
+of the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> element in your manifest.</p>
 </div>
 </li>
 <li><p class="first">Call the <code class="docutils literal notranslate"><span class="pre">Talkable.trackAppOpen</span></code> method inside your main activity:</p>

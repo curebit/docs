@@ -104,19 +104,26 @@ reward users by means other than the standard ‘give them a coupon code’ meth
 given to either an Advocate or a Friend according to the logic set-up in a
 Talkable referral campaign.</p>
 <p>Possible events which will trigger the Reward Webhook are:</p>
-<ul class="simple">
-<li>Advocate Signup form submitted (Reason = <strong>signup</strong>)</li>
-<li>Advocate shares an offer with Friend(s) (Reason = <strong>shared</strong>)</li>
-<li>Friend passes email gating form (Reason = <strong>click</strong>)<ul>
-<li>Note, if campaign is setup without email gating form, Reward Webhook with
-Reason = click will trigger when Friend clicks through to site</li>
-</ul>
+<ul>
+<li><p class="first">Advocate Signup form submitted (Reason = <strong>signup</strong>)</p>
 </li>
-<li>Friend makes eligible purchase (Reason = <strong>referrer</strong>)</li>
-<li>Friend makes eligible purchase (Reason = <strong>referred</strong>)<ul>
-<li>Note: Reason = referrer indicates a reward should be given to an Advocate.
-Reason = referred indicates a reward should be given to a Friend.</li>
-</ul>
+<li><p class="first">Advocate shares an offer with Friend(s) (Reason = <strong>shared</strong>)</p>
+</li>
+<li><p class="first">Friend passes email gating form (Reason = <strong>click</strong>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If campaign is setup without email gating form, Reward Webhook with
+Reason = click will trigger when Friend clicks through to site.</p>
+</div>
+</li>
+<li><p class="first">Friend makes eligible purchase (Reason = <strong>referrer</strong>)</p>
+</li>
+<li><p class="first">Friend makes eligible purchase (Reason = <strong>referred</strong>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reason = referrer indicates a reward should be given to an Advocate.
+Reason = referred indicates a reward should be given to a Friend.</p>
+</div>
 </li>
 </ul>
 <h2>Set-Up</h2><p>Because the Reward Webhook will trigger at various events depending on the
@@ -136,12 +143,15 @@ To configure Incentive types other than Coupon Codes, please contact your
 Talkable Customer Success Manager; they will be able to set up “Rebate (store
 credit)” type incentives and “Non-Monetary” type incentives.</li>
 </ol>
-<p><strong>Note:</strong> If there is a delay configured into when the Advocate reward is
-approved then the Reward Webhook trigger when the Advocate reward is ready to be,
-or has been given. For example, if campaigns are set to send an Advocate their
-reward three days after a Friend makes an eligible purchase, then the Reward
-Webhook will be called three days after the Friend makes the eligible purchase.
-You can select these delays under <strong>Fraud Settings</strong>, which is found under <strong>Menu</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If there is a delay configured into when the Advocate reward is approved then
+the Reward Webhook trigger when the Advocate reward is ready to be, or has
+been given. For example, if campaigns are set to send an Advocate their reward
+three days after a Friend makes an eligible purchase, then the Reward Webhook
+will be called three days after the Friend makes the eligible purchase. You
+can select these delays under <strong>Fraud Settings</strong>, which is found under <strong>Menu</strong>.</p>
+</div>
 <p>Once incentives are configured for a referral campaign, Talkable will then call
 the Reward Webhook any time either an Advocate or a Friend should receive a
 reward. Now, the Reward  Webhook can be set-up. <a class="reference internal" href="../web_hooks.html#web-hooks"><span class="std std-ref">Learn more about General
@@ -179,7 +189,7 @@ Webhook Set Up Steps</span></a></p>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the origin event</li>
-<li><strong>email</strong> — e-mail address of the referrer (Advocate) person</li>
+<li><strong>email</strong> — email address of the referrer (Advocate) person</li>
 </ul>
 </li>
 <li><p class="first"><strong>reward</strong> — subhash of parameters describing the reward itself</p>
@@ -207,7 +217,7 @@ discount_coupon or other)</li>
 <div><p><em>For Affiliate Member:</em></p>
 </div></blockquote>
 <ul class="simple">
-<li><strong>email</strong> — e-mail address of the referrer (Advocate) person</li>
+<li><strong>email</strong> — email address of the referrer (Advocate) person</li>
 </ul>
 <blockquote>
 <div><p><em>For Purchase:</em></p>

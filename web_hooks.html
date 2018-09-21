@@ -88,14 +88,24 @@
   <div class="section" id="webhooks">
 <span id="web-hooks"></span><h1>Webhooks<a class="headerlink" href="#webhooks" title="Permalink to this headline">¶</a></h1>
 <p>Webhooks are “user-defined HTTP callbacks” triggered by events on Talkable’s
-site. Subscribing to Talkable webhooks allows you to receive notifications about
+site. Subscribing to Talkable Webhooks allows you to receive notifications about
 various events from Talkable, for example, when a Reward should be given, or
 when a Friend or Advocate opts in to an email newsletter subscription.</p>
-<p>After subscribing to a webhook, your app can execute code immediately after
+<p>After subscribing to a Webhook, your app can execute code immediately after
 specific events occur in Talkable.</p>
 <p><a class="reference external" href="http://en.wikipedia.org/wiki/Webhook">http://en.wikipedia.org/wiki/Webhook</a></p>
 <p>Each Webhook in Talkable is defined with an HTTP URL to deliver Webhook data
 (aka payload). This URL should be defined and implemented on the client’s site.</p>
+<h2>Available Webhooks</h2><p>Below is a user experience flow showing when Talkable Webhooks are called.
+For more details concerning specific Talkable Webhooks, click the appropriate
+Webhook type in the left-hand menu.</p>
+<img alt="Campaign Type - Invite," class="is-minimal" src="_images/flowchart_webhooks_1.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Reward Webhooks will only send if there is an associated incentive
+configured. For example, for the ‘Reward Webhook’ (reason = signup) to send,
+there must be a signup incentive configured in the campaign rules.</p>
+</div>
 <h2>Set Up</h2><img alt="Campaign Type - Invite," class="is-minimal" src="_images/menu_webhooks_screenshot.png" />
 <ol class="arabic simple">
 <li>Set up and test Talkable Webhooks by navigating to <strong>Menu</strong> then <strong>Webhooks</strong></li>
