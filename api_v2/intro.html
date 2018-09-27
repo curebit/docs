@@ -2,22 +2,33 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title>Introduction &#8212; Talkable Documentation</title>
+    
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Referral Program via API" href="flow.html" />
     <link rel="prev" title="API Reference" href="../api_v2.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
-  </head><body>
+  </head>
+  <body>
   
     <div class="header">
       <a href="../index.html" class="header-logo">Talkable docs</a>
@@ -96,14 +107,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<span id="api-v2-intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="api-v2-intro"></span><div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>The Talkable API is built on HTTP. Our API is RESTful, returns JSON and responds
 with standard HTTP response codes to indicate errors.</p>
 <div class="section" id="base-url">
 <h2>Base URL<a class="headerlink" href="#base-url" title="Permalink to this headline">¶</a></h2>
 <p>All API URLs referenced in this documentation start with the following base part:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://www.talkable.com/api/v2
+<div class="highlight-text"><div class="highlight"><pre><span></span>https://www.talkable.com/api/v2
 </pre></div>
 </div>
 </div>
@@ -120,22 +131,22 @@ could create their own API calls.</p>
 </div>
 <p>Authentication to the API is performed via <a class="reference external" href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>.
 Provide your API key as the basic auth username value. You do not need to provide a password.</p>
-<h4>Example Request</h4><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;https://www.talkable.com/api/v2/campaigns?site_slug=my-store&#39;</span> <span class="se">\</span>
+<h4>Example Request</h4><div class="highlight-bash"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;https://www.talkable.com/api/v2/campaigns?site_slug=my-store&#39;</span> <span class="se">\</span>
   -u i9uil7nQgDjucCiTJu:
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">curl</span></code> uses the <code class="docutils literal notranslate"><span class="pre">-u</span></code> flag to pass basic auth credentials.
-(Adding a colon after your API key prevents <code class="docutils literal notranslate"><span class="pre">curl</span></code> from asking for a password.)</p>
+<p><code class="docutils literal"><span class="pre">curl</span></code> uses the <code class="docutils literal"><span class="pre">-u</span></code> flag to pass basic auth credentials.
+(Adding a colon after your API key prevents <code class="docutils literal"><span class="pre">curl</span></code> from asking for a password.)</p>
 <p>If you need to authenticate via bearer auth (e.g., for a cross-origin request), <br>
-use <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">&quot;Authorization:</span> <span class="pre">Bearer</span> <span class="pre">i9uil7nQgDjucCiTJu&quot;</span></code> <br>
-instead of <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">i9uil7nQgDjucCiTJu:</span></code>.</p>
+use <code class="docutils literal"><span class="pre">-H</span> <span class="pre">&quot;Authorization:</span> <span class="pre">Bearer</span> <span class="pre">i9uil7nQgDjucCiTJu&quot;</span></code> <br>
+instead of <code class="docutils literal"><span class="pre">-u</span> <span class="pre">i9uil7nQgDjucCiTJu:</span></code>.</p>
 </div>
 <div class="section" id="response-format">
 <h2>Response Format<a class="headerlink" href="#response-format" title="Permalink to this headline">¶</a></h2>
 <p>The API returns JSON-encoded objects (content-type: application/json).</p>
 <p>Responses vary according to the method used, but every successful response
 envelope includes these common parts:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">...}</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">...}</span>
 </pre></div>
 </div>
 </div>
@@ -144,7 +155,7 @@ envelope includes these common parts:</p>
 <p>Talkable returns JSON for all API calls. JSON does not have a built-in date type,
 dates are passed as strings encoded according to <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.
 This format is supported by most programming languages out of the box:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2014-04-02T02:43:58.797-07:00
+<div class="highlight-text"><div class="highlight"><pre><span></span>2014-04-02T02:43:58.797-07:00
 </pre></div>
 </div>
 </div>
@@ -152,7 +163,7 @@ This format is supported by most programming languages out of the box:</p>
 <h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
 <p>The following represents a common JSON error response resulting from a failed
 Talkable API call:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;error_message&quot;</span><span class="o">:</span> <span class="s2">&quot;Message describing the error&quot;</span><span class="p">}</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;error_message&quot;</span><span class="o">:</span> <span class="s2">&quot;Message describing the error&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Most error messages that Talkable API will return are not meant to be shown to
