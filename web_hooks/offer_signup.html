@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Friend Email Gating Web Hook" href="claim_signup.html" />
+    <link rel="next" title="Friend Email Gating Webhook" href="claim_signup.html" />
     <link rel="prev" title="Post Share Webhook" href="post_share.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
@@ -92,20 +92,18 @@
 <p>The Talkable Advocate Signup Webhook notifies your endpoint of an Advocate
 Signup forms submission.</p>
 <p>Use cases for the Advocate Signup Webhook include:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li>Tracking when users select the checkbox to opt into your email newsletter</li>
 <li>Collection of data for Business Intelligence and analytics systems to track
 users who become Advocates</li>
 <li>Sending automated ‘Thank You’ emails after a user becomes an Advocate</li>
 </ul>
-</div></blockquote>
 <h2>When does Talkable call the Advocate Signup Webhook?</h2><p>Talkable Signup Webhook is triggered any time an Advocate Signup form is
 submitted. The Advocate Signup form is the standard Name &amp; Email (with optional
 email subscription checkbox) fields a user submits before becoming an Advocate
 and sharing an offer with Friends.</p>
 <p>Advocate Signup Form example:</p>
-<img alt="Edit Referral Incentives," class="is-minimal" src="../_images/advocate_signup_form_webhook.png" />
+<img alt="Advocate Signup Form," class="is-minimal" src="../_images/advocate_signup_form_webhook.png" />
 <h2>Payload parameters provided for Advocate Signup Webhook</h2><ul class="simple">
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
 <li><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s (referrer) email address</li>
@@ -139,9 +137,7 @@ additional parameters will be present:</p>
     <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">&quot;default&quot;</span>
-    <span class="p">],</span>
+    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
