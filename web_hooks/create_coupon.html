@@ -89,32 +89,65 @@
             
   <div class="section" id="create-coupon-webhook">
 <span id="web-hooks-create-coupon"></span><h1>Create Coupon Webhook<a class="headerlink" href="#create-coupon-webhook" title="Permalink to this headline">¶</a></h1>
-<p>Talkable Create Coupon Webhook enables automatic coupon creation, which eliminates the need to upload coupon lists into the Talkable platform manually. Talkable creates unique coupon codes then passes those codes via the Create Coupon Webhook to the client; it is then up to the client to enable these coupons on their platform.</p>
-<h2>When does Talkable call the Create Coupon Webhook?</h2><p>Create Coupon Webhook is called when the quantity of available coupons drops below a Talkable threshold.</p>
-<p>This threshold is dynamically calculated based on the number of coupon codes used by the client site in the last 21 days. The threshold ensures the Talkable coupon lists will always hold enough available coupons to serve the site for 21 days, even if the integration were to break. The minimum threshold is 20 coupons.</p>
-<p>When the number of coupons available to Talkable drops below the threshold, Talkable will call the Create Coupon Webhook with a payload of 15 new coupons in the background. If a user needs a coupon code, but there are no coupon codes available, Talkable will generate one in the foreground and give it to the user that requested it. In both cases, coupons are sent to the client endpoint as a webhook and then inserted into the Talkable database only when a webhook returns a successful response.</p>
-<h2>Set Up</h2><p>The Create Coupon Webhook will add coupons to a specific coupon list on Talkable’s backend. These coupon lists must be set up in the Talkable campaign editor before utilizing the Create Coupon Webhook. Follow the below instructions to set up a coupon list for a campaign:</p>
+<p>Talkable Create Coupon Webhook enables automatic coupon creation, which
+eliminates the need to upload coupon lists into the Talkable platform manually.
+Talkable creates unique coupon codes then passes those codes via the Create
+Coupon Webhook to the client; it is then up to the client to enable these coupons
+on their platform.</p>
+<h2>When does Talkable call the Create Coupon Webhook?</h2><p>Create Coupon Webhook is called when the quantity of available coupons drops
+below a Talkable threshold.</p>
+<p>This threshold is dynamically calculated based on the number of coupon codes
+used by the client site in the last 21 days. The threshold ensures the Talkable
+coupon lists will always hold enough available coupons to serve the site for 21
+days, even if the integration were to break. The minimum threshold is 20 coupons.</p>
+<p>When the number of coupons available to Talkable drops below the threshold,
+Talkable will call the Create Coupon Webhook with a payload of 15 new coupons in
+the background. If a user needs a coupon code, but there are no coupon codes
+available, Talkable will generate one in the foreground and give it to the user
+that requested it. In both cases, coupons are sent to the client endpoint as a
+webhook and then inserted into the Talkable database only when a webhook returns
+a successful response.</p>
+<h2>Set Up</h2><p>The Create Coupon Webhook will add coupons to a specific coupon list on Talkable’s
+backend. These coupon lists must be set up in the Talkable campaign editor before
+utilizing the Create Coupon Webhook. Follow the below instructions to set up a
+coupon list for a campaign:</p>
 <ol class="arabic simple">
-<li>Navigate to <strong>Campaigns</strong> then select the campaign you would like to set up coupon list(s) for</li>
-<li>Proceed to <strong>Rules</strong> then scroll down to <strong>Incentives</strong> section where incentives for both Advocate and Friend can be configured</li>
+<li>Navigate to <strong>Campaigns</strong> then select the campaign you would like to set up
+coupon list(s) for</li>
+<li>Proceed to <strong>Rules</strong> then scroll down to <strong>Incentives</strong> section where
+incentives for both Advocate and Friend can be configured</li>
 </ol>
-<img alt="Edit Referral Incentives," class="is-minimal" src="../_images/advocate_referral_incentive.png" />
+<img alt="Edit Referral Incentives" class="is-minimal" src="../_images/advocate_referral_incentive.png" />
 <ol class="arabic simple" start="3">
-<li>Inside the Referral Incentive Editor choose the <strong>Coupon code type: Single-use</strong> then select an existing Coupon list or create a new coupon list by clicking <strong>Manage Coupon Lists</strong>.</li>
-<li>Here you’ll be able to <strong>Create New</strong> and configure a Name, Expiration Date (optional), and Amount ($ or %)</li>
-<li>Now go back to <strong>Rules</strong> → <strong>Incentives</strong> → <strong>Edit</strong> and select the <strong>Reward Amount</strong> associated with the list created in step 4 and select the newly created list</li>
+<li>Inside the Referral Incentive Editor choose the <strong>Coupon code type: Single-use</strong>
+then select an existing Coupon list or create a new coupon list by clicking
+<strong>Manage Coupon Lists</strong>.</li>
+<li>Here you’ll be able to <strong>Create New</strong> and configure a Name, Expiration Date
+(optional), and Amount ($ or %)</li>
+<li>Now go back to <strong>Rules</strong> → <strong>Incentives</strong> → <strong>Edit</strong> and select the
+<strong>Reward Amount</strong> associated with the list created in step 4 and select the
+newly created list</li>
 <li>Optionally, select <strong>Advanced Settings</strong> for additional configuration parameters</li>
 </ol>
-<p>Note: Coupons created by the <strong>Create Coupon Webhook</strong> will be added to the coupon list associated with the referral campaign. Multiple referral campaigns can use the same or unique coupon lists. <strong>Advocate</strong> and <strong>Friend</strong> referral incentives can also use the same or unique coupon lists</p>
-<p>Once a single-use coupon code list is associated with a campaign, then the Create Coupon Webhook can now be set up. <a class="reference internal" href="../web_hooks.html#web-hooks"><span class="std std-ref">Learn more about General Webhook Set Up Steps</span></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Coupons created by the <strong>Create Coupon Webhook</strong> will be added to the coupon
+list associated with the referral campaign. Multiple referral campaigns can
+use the same or unique coupon lists. <strong>Advocate</strong> and <strong>Friend</strong> referral
+incentives can also use the same or unique coupon lists.</p>
+</div>
+<p>Once a single-use coupon code list is associated with a campaign, then the
+Create Coupon Webhook can now be set up.
+<a class="reference internal" href="../web_hooks.html#web-hooks"><span class="std std-ref">Learn more about General Webhook Set Up Steps</span></a></p>
 <h2>Payload parameters provided by Create Coupon Webhook</h2><ul class="simple">
 <li><strong>coupon_code</strong> — coupon code</li>
 <li><strong>discount_amount</strong> — discount amount</li>
-<li><strong>percentage_discount</strong> — when true percentage discount should be created otherwise fixed discount</li>
+<li><strong>percentage_discount</strong> — when <code class="docutils literal notranslate"><span class="pre">true</span></code> percentage discount should be created,
+otherwise fixed discount</li>
 <li><strong>expires_at</strong> — coupon expiration date</li>
 <li><strong>usage_limit</strong> — number of usages for the coupon</li>
-<li><strong>coupon_list_id</strong> — ID of the coupon list that need to be filled</li>
-<li><strong>coupon_list_name</strong> — Name of the coupon list that need to be filled</li>
+<li><strong>coupon_list_id</strong> — ID of the coupon list that needs to be filled</li>
+<li><strong>coupon_list_name</strong> — name of the coupon list that needs to be filled</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT58574&quot;</span><span class="p">,</span>
