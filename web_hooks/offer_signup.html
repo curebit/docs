@@ -108,6 +108,7 @@ and sharing an offer with Friends.</p>
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
 <li><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s (referrer) email address</li>
 <li><strong>short_url_code</strong></li>
+<li><strong>ip_address</strong></li>
 </ul>
 </li>
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
@@ -146,7 +147,8 @@ additional parameters will be present:</p>
   <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span>
+    <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -155,7 +157,7 @@ additional parameters will be present:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
