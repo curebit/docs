@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Check Unsubscribe Web Hook &#8212; Talkable Documentation</title>
+    <title>Check Unsubscribe Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -14,7 +14,7 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Talkable iOS SDK" href="../ios_sdk.html" />
-    <link rel="prev" title="Unsubscribe Web Hook" href="unsubscribe.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Unsubscribe Webhook" href="unsubscribe.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -87,21 +87,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="check-unsubscribe-web-hook">
-<span id="web-hooks-check-unsubscribe"></span><h1>Check Unsubscribe Web Hook<a class="headerlink" href="#check-unsubscribe-web-hook" title="Permalink to this headline">¶</a></h1>
-<p>Triggered on every attempt to send an otherwise valid customer email,
-aimed at checking if the email is also valid on merchant side.</p>
+  <div class="section" id="check-unsubscribe-webhook">
+<span id="web-hooks-check-unsubscribe"></span><h1>Check Unsubscribe Webhook<a class="headerlink" href="#check-unsubscribe-webhook" title="Permalink to this headline">¶</a></h1>
+<p>Talkable Check Unsubscribe Webhook is used to ensure emails are not sent from
+Talkable to user email addresses who have unsubscribed from the client side.
+This is an optional functionality. Note: users do have the ability to unsubscribe
+from Talkable referral related emails at any time from those emails directly.</p>
+<h2>When does Talkable call the Check Unsubscribe Webhook?</h2><p>Talkable Check Unsubscribe Webhook is triggered on every attempt to send an
+otherwise valid customer email, aimed at checking if the email is also valid on
+merchant side.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p>If this web hook is used, the response JSON returned by merchant
-must contain the following fields:</p>
+<p>If this Check Unsubscribe Webhook is used, the response JSON returned by
+merchant must contain the following fields:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;unsubscribed&quot;</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p class="last">The ‘unsubscribed’ field should have a boolean value,
 representing unsubscribed status according to the merchant info.</p>
 </div>
-<h2>Payload parameters provided </h2><ul class="simple">
+<h2>Payload parameters provided</h2><ul class="simple">
 <li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
@@ -115,6 +120,7 @@ representing unsubscribed status according to the merchant info.</p>
 <li><strong>email</strong> — recipient’s email address</li>
 <li><strong>username</strong> — recipient’s username</li>
 <li><strong>unsubscribed_at</strong> — date recipient has unsubscribed</li>
+<li><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</li>
 <li><strong>opted_in_at</strong> — date recipient has subscribed</li>
 <li><strong>sub_choice</strong> — subscription choice</li>
 <li><strong>custom_properties</strong> — hash of recipient’s custom properties (optional)</li>
@@ -133,25 +139,29 @@ representing unsubscribed status according to the merchant info.</p>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">350256053</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">509365458</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;affiliate-campaign-test&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">509365458</span><span class="p">,</span>
+    <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">},</span>
   <span class="s2">&quot;recipient&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
     <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;friend@example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
     <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2014-08-13T11:14:08.835-07:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:55:40.610+03:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:55:40.610+03:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span>
   <span class="p">},</span>
-  <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_rewards_paid&quot;</span>
+  <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;notifier_offers_email&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:350256053,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:&quot;affiliate-campaign-test&quot;,&quot;tag_names&quot;:[&quot;default&quot;]},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;friend@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;opted_in_at&quot;:&quot;2014-08-13T11:14:08.835-07:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;friend_rewards_paid&quot;}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:509365458,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:509365458,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;subscribed_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;opted_in_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;notifier_offers_email&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
