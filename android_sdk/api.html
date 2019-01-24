@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Integration With Third Party Deep Linking Services" href="custom_deep_linking.html" />
     <link rel="prev" title="Advanced Usage" href="advanced.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -175,10 +176,9 @@ But you can do anything you need with just create one.</p>
 
 <span class="n">Double</span> <span class="n">subtotal</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span><span class="o">;</span> <span class="c1">// Required</span>
 <span class="n">String</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="s">&quot;123456&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
-<span class="n">Date</span> <span class="n">orderDate</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getTime</span><span class="o">();</span> <span class="c1">// Required</span>
 <span class="n">String</span><span class="o">[]</span> <span class="n">coupons</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;EXAMPLE-CODE-1&quot;</span><span class="o">,</span> <span class="s">&quot;EXAMPLE-CODE-2&quot;</span><span class="o">};</span> <span class="c1">// Optional</span>
 
-<span class="n">Purchase</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
+<span class="n">Purchase</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
 </pre></div>
