@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videos" href="videos.html" />
     <link rel="prev" title="History" href="history.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -616,6 +617,67 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 </pre></div>
 </div>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">[{ad</span> <span class="pre">incentive</span> <span class="pre">config},</span> <span class="pre">{fr</span> <span class="pre">incentive</span> <span class="pre">config}]</span></code></p>
+<p><hr></p>
+</div>
+<div class="section" id="async-rendering">
+<h2>async_rendering<a class="headerlink" href="#async-rendering" title="Permalink to this headline">¶</a></h2>
+<p>Stores Liquid partial that can be later rendered via <code class="docutils literal notranslate"><span class="pre">Talkable.loadLiquid</span></code> function.</p>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>Liquid</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;async_advocate_info&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">async_rendering</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;template for rendering with data [[ advocate_info.email ]]&#39;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>JavaScript API call</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_advocate_info&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Rendered Liquid</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;template for rendering with data advocate@example.com&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p>Liquid</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s1">&#39;async_dashboard_data&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">async_rendering</span><span class="p">:</span><span class="w"> </span><span class="na">some_key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[[ dashboard.possible_rewards | money: strip_insignificant_zeros: true ]]&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">other_key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[[ friend_info.purchases_count ]]&quot;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>JavaScript API call</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_dashboard_data&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Rendered Liquid</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;some_key&quot;:&quot;$420&quot;,&quot;other_key&quot;:12}
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-3">
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
+<p>Liquid</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">some_liquid_block</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">raw</span><span class="w"> </span><span class="p">%}</span>
+Whatever Liquid you would like to have
+<span class="p">{%</span><span class="w"> </span><span class="nt">endraw</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s1">&#39;async_liquid_reference&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">async_rendering</span><span class="p">:</span><span class="w"> </span>some_liquid_block<span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>JavaScript API call</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_liquid_reference&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Rendered Liquid</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;Whatever Liquid you would like to have&quot;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
