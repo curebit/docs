@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Integration &#8212; Talkable Documentation</title>
+    <title>Testing &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -12,8 +12,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Standalone Campaign" href="integration/standalone.html" />
-    <link rel="prev" title="Getting Started" href="getting_started.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Upgrade" href="upgrade.html" />
+    <link rel="prev" title="Integration With Third Party Deep Linking Services" href="custom_deep_linking.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -65,15 +65,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="integration/standalone.html">Standalone Campaign</a></li>
-<li class="toctree-l3"><a class="reference internal" href="integration/post_purchase.html">Post Purchase Campaign</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="integration.html">Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="custom_deep_linking.html">Integration With Third Party Deep Linking Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade</a></li>
 </ul>
 </li>
@@ -87,23 +85,38 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="integration">
-<span id="android-sdk-integration"></span><h1>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h1>
-<p>The SDK is installed and setup. Now you can integrate Standalone or/and Post Purchase campaigns into your mobile app.</p>
-<ul class="simple">
-<li><a class="reference internal" href="integration/standalone.html#android-sdk-integration-standalone"><span class="std std-ref">Standalone Campaign</span></a></li>
-<li><a class="reference internal" href="integration/post_purchase.html#android-sdk-integration-post-purchase"><span class="std std-ref">Post Purchase Campaign</span></a></li>
-</ul>
+  <div class="section" id="testing">
+<span id="android-sdk-testing"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<p>By default Talkable SDK assigns a permanent ID to each device and uses it to prevent multiple registrations
+from a single phone. This helps prevent fraud, but can make it challenging to test the referral cycle on
+real devices, requiring the developer to either flush all their Talkable campaign data, or use a new campaign
+for each test run. Talkable SDK provides tools designed to help with this situation that are available
+in debug mode.</p>
+<p>The full form of <cite>Talkable.initialize</cite> method allows you to enable the debug mode. In debug mode Talkable SDK
+will assign a new ID to the device every time it’s initialized, allowing you to register as a new visitor each time
+the app is launched.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">siteSlug</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">//pass null to use the siteSlug specified in your manifest</span>
+<span class="kt">boolean</span> <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+<span class="n">Talkable</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">siteSlug</span><span class="o">,</span> <span class="n">debug</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>You can use the last param to pass a custom device ID, allowing you to switch between user identities manually. This way
+you can use a single device to pose as an Advocate or Friend and easily replicate various spenarios. The custom device ID
+will be applied only if debug is set to true.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">siteSlug</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">customDeviceId</span> <span class="o">=</span> <span class="s">&quot;qa-advocate-007&quot;</span><span class="o">;</span>
+
+<span class="n">Talkable</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">siteSlug</span><span class="o">,</span> <span class="n">debug</span><span class="o">,</span> <span class="n">customDeviceId</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Debug mode must be turned off for release builds. Leaving it enabled will greatly increase the likelihood of fraud.</p>
+</div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="integration/standalone.html">Standalone Campaign</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="integration/post_purchase.html">Post Purchase Campaign</a><ul class="simple">
-</ul>
-</li>
-</ul>
 </div>
 </div>
 </div>
