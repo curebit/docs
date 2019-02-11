@@ -68,7 +68,7 @@ Manual integration
 3. Then navigate to:
 
     * Open `Online Store / Pages`
-    * Click 'Add page'
+    * Click `Add page`
     * Select Template suffix `page.talkable`
     * Click “Save”
 
