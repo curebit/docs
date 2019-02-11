@@ -63,15 +63,14 @@ Manual integration
 
       <div id="talkable-offer"></div>
 
-    * Click save
+    * Click “Save”
 
 3. Then navigate to:
 
     * Open `Online Store / Pages`
     * Click 'Add page'
-    * Create a new page
     * Select Template suffix `page.talkable`
-    * Click save
+    * Click “Save”
 
 4. Then navigate to:
 
