@@ -73,8 +73,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced.html">Advanced Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../custom_deep_linking.html">Integration with Third Party Deep Linking Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_deep_linking.html">Integration With Third Party Deep Linking Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../upgrade.html">Upgrade</a></li>
 </ul>
 </li>
@@ -112,9 +111,10 @@ close the loop on a referral.</p>
 
 <span class="n">Double</span> <span class="n">subtotal</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span><span class="o">;</span> <span class="c1">// Required</span>
 <span class="n">String</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="s">&quot;123456&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
+<span class="n">Date</span> <span class="n">orderDate</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getTime</span><span class="o">();</span> <span class="c1">// Required</span>
 <span class="n">String</span><span class="o">[]</span> <span class="n">coupons</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;EXAMPLE-CODE-1&quot;</span><span class="o">,</span> <span class="s">&quot;EXAMPLE-CODE-2&quot;</span><span class="o">};</span> <span class="c1">// Optional</span>
 
-<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
+<span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
 
