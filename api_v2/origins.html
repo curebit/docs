@@ -94,7 +94,63 @@
             
   <div class="section" id="origins">
 <span id="api-v2-origins"></span><h1>Origins<a class="headerlink" href="#origins" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to create origins. See examples below.</p>
+<p>The Talkable Origins API allows the registration of ‘off-site’ or ‘backend’
+purchases or CRM events so they can be used in the referral flow. This
+functionality is generally utilized by businesses using subscription billing,
+off-site transactions, or other off-site events.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a> Talkable
+integration will capture all one-time purchases happening on the client
+e-commerce site, but will not on its own capture purchases or CRM events
+happening on the backend. To do this, the Origins API must be utilized to
+feed ‘off-site’ or ‘backend’ purchases or CRM events to Talkable.</p>
+</div>
+<h2>Example use cases for the Origins API</h2><p><strong>Subscription:</strong></p>
+<ul class="simple">
+<li>A company whose customers sign up for a monthly service by making an initial
+‘on-site’ payment, then are charged monthly on the backend for subsequent
+subscription payments. This company would like to reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users
+(referrers) with a reward after their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> has been a member for three
+billing cycles.<ul>
+<li>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
+integration captures the initial ‘on-site’ payment.</li>
+<li>For Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the third billing cycle of the
+<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> subscription, the Company must pass the subsequent subscription
+data to Talkable’s Origins API using <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Off-Site Events:</strong></p>
+<ul class="simple">
+<li>A company whose customers purchase product or perform events off-site. This
+company would like to reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after
+their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> has purchased a product in the brick and mortar store, or
+attended an in-person appointment.<ul>
+<li>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
+integration captures an initial ‘on-site’ signup event if there is one.</li>
+<li>For Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the in-person <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> store
+purchase, or appointment attendance, the Company must pass the in store
+purchase, or appointment attendance data to Talkable’s Origins API with
+either <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Purchase&quot;</span></code> for a purchase or <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code> for an
+appointment attendance.</li>
+</ul>
+</li>
+</ul>
+<p><strong>User Approval:</strong></p>
+<ul class="simple">
+<li>User approval use cases start with customers who need to submit an application
+by performing an initial ‘on-site’ sign-up event. This company would like to
+reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+application is approved.<ul>
+<li>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
+integration captures the initial ‘on-site’ application sign-up event.</li>
+<li>In order for Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+application approval, the Company must pass the approval data to Talkable’s
+Origins API using <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code>.</li>
+</ul>
+</li>
+</ul>
 <p><br></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /origins
 </pre></div>
