@@ -155,13 +155,18 @@ representing unsubscribed status according to the merchant info.</p>
     <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:55:40.610+03:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:55:40.610+03:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;notifier_offers_email&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:509365458,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:509365458,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;subscribed_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;opted_in_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;sub_choice&quot;:true},&quot;email_type&quot;:&quot;notifier_offers_email&quot;}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:509365458,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:509365458,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;recipient&quot;:{&quot;first_name&quot;:&quot;Bob&quot;,&quot;last_name&quot;:&quot;Smith&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;username&quot;:&quot;username&quot;,&quot;unsubscribed_at&quot;:null,&quot;subscribed_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;opted_in_at&quot;:&quot;2018-09-27T22:55:40.610+03:00&quot;,&quot;sub_choice&quot;:true,&quot;referral_counts&quot;:{&quot;total&quot;:0,&quot;approved&quot;:0,&quot;pending&quot;:0}},&quot;email_type&quot;:&quot;notifier_offers_email&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
