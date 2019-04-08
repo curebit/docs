@@ -11,7 +11,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Integration with Third Party Deep Linking Services" href="custom_deep_linking.html" />
     <link rel="prev" title="Advanced Usage" href="advanced.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -156,6 +155,7 @@ But you can do anything you need with just create one.</p>
 <span class="c1">// Building AffiliateMember</span>
 <span class="n">AffiliateMember</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AffiliateMember</span><span class="o">();</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
+<span class="n">origin</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="s">&quot;your-campaign-tag&quot;</span><span class="o">);</span>
 
 <span class="c1">// Building Event</span>
 <span class="n">String</span> <span class="n">eventNumber</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
@@ -165,6 +165,7 @@ But you can do anything you need with just create one.</p>
 
 <span class="n">Event</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventNumber</span><span class="o">,</span> <span class="n">eventCategory</span><span class="o">,</span> <span class="n">subtotal</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
+<span class="n">origin</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="s">&quot;your-campaign-tag&quot;</span><span class="o">);</span>
 
 <span class="c1">// Build purchase</span>
 <span class="n">Double</span> <span class="n">price</span> <span class="o">=</span> <span class="mf">10.99</span><span class="o">;</span>
@@ -182,6 +183,7 @@ But you can do anything you need with just create one.</p>
 
 <span class="n">Purchase</span> <span class="n">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">orderDate</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
+<span class="n">origin</span><span class="o">.</span><span class="na">setCampaignTag</span><span class="o">(</span><span class="s">&quot;your-campaign-tag&quot;</span><span class="o">);</span>
 <span class="n">origin</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
 </pre></div>
 </div>
