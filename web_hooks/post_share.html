@@ -117,7 +117,7 @@ triggered twice.</p>
 <li><strong>id</strong> — unique campaign ID</li>
 <li><strong>cached_slug</strong> — unique SEO friendly ID</li>
 <li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
-<li><strong>tag_names</strong> — an array of campaign’s tags</li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
 <li><strong>origin_min_age</strong> — timeframe from first site visit when an offer is
 available to Advocate</li>
 <li><strong>origin_max_age</strong> — timeframe from first site visit when an offer is
@@ -147,14 +147,17 @@ customer</li>
 Facebook and Twitter shares)</li>
 <li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
 <li><strong>type</strong><ul>
-<li><em>“Purchase”</em> for post-purchase campaign</li>
-<li><em>“AffiliateMember”</em> for standalone campaign</li>
-<li><em>“Event”</em> for event type origin (such as a signup page which triggers a
-referral campaign)</li>
+<li><em>“Purchase”</em> for post-purchase placement</li>
+<li><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</li>
+<li><dl class="first docutils">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt>
+<dd>referral campaign)</dd>
+</dl>
+</li>
 </ul>
 </li>
 <li><strong>id</strong> — unique identifier of the origin event</li>
-<li><strong>email</strong> — email address of the Advocate (referrer)</li>
+<li><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</li>
 </ul>
 </li>
 </ul>
