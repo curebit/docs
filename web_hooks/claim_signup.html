@@ -106,7 +106,7 @@ a share from an Advocate, and before receiving their discount code.</p>
 <img alt="Friend Email Gating Form" class="is-minimal" src="../_images/friend_email_gating_form.png" />
 <h2>Payload parameters provided</h2><ul class="simple">
 <li><strong>offer</strong> — subhash of parameters describing the offer<ul>
-<li><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s (referrer) email address</li>
+<li><strong>email</strong> — referrer’s email address</li>
 <li><strong>short_url_code</strong></li>
 <li><strong>ip_address</strong></li>
 </ul>
@@ -133,12 +133,6 @@ included subscription checkbox)</li>
 <li><strong>subscribed_at</strong> — date friend has subscribed (deprecated; use opted_in_at instead)</li>
 <li><strong>opted_in_at</strong> — date friend has subscribed (optional)</li>
 <li><strong>unsubscribed_at</strong> — date friend has unsubscribed (optional)</li>
-<li><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts<ul>
-<li><strong>total</strong> — created referrals count</li>
-<li><strong>approved</strong> — approved referrals count</li>
-<li><strong>pending</strong> — count of waiting for approval referrals</li>
-</ul>
-</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -161,16 +155,11 @@ included subscription checkbox)</li>
   <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:54:28.345+03:00&quot;</span><span class="p">,</span>
   <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:54:28.345+03:00&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;campaign&quot;:{&quot;id&quot;:465427859,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:465427859,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:null,&quot;last_name&quot;:null,&quot;ip_address&quot;:&quot;127.0.0.1&quot;,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2018-09-27T22:54:28.345+03:00&quot;,&quot;opted_in_at&quot;:&quot;2018-09-27T22:54:28.345+03:00&quot;,&quot;unsubscribed_at&quot;:null,&quot;referral_counts&quot;:{&quot;total&quot;:0,&quot;approved&quot;:0,&quot;pending&quot;:0}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;campaign&quot;:{&quot;id&quot;:465427859,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:465427859,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:null,&quot;last_name&quot;:null,&quot;sub_choice&quot;:true,&quot;subscribed_at&quot;:&quot;2018-09-27T22:54:28.345+03:00&quot;,&quot;opted_in_at&quot;:&quot;2018-09-27T22:54:28.345+03:00&quot;,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">

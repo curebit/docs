@@ -102,22 +102,15 @@ referral emails</li>
 Talkable sent email.</p>
 <h2>Payload parameters provided</h2><ul class="simple">
 <li><strong>person</strong> — subhash of parameters describing the person<ul>
-<li><strong>email</strong> — person’s email address</li>
 <li><strong>first_name</strong> — person’s first name</li>
 <li><strong>last_name</strong> — person’s last name</li>
-<li><strong>username</strong> — person’s username (optional)</li>
-<li><strong>sub_choice</strong> — subscription choice (optional, present only if the form
-included subscription checkbox)</li>
+<li><strong>email</strong> — person’s email address</li>
+<li><strong>username</strong> — person’s username</li>
+<li><strong>unsubscribed_at</strong> — date person has unsubscribed</li>
 <li><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</li>
-<li><strong>opted_in_at</strong> — date person has subscribed (optional)</li>
-<li><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</li>
+<li><strong>opted_in_at</strong> — date person has subscribed</li>
+<li><strong>sub_choice</strong> — subscription choice</li>
 <li><strong>custom_properties</strong> — hash of person’s custom properties (optional)</li>
-<li><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts<ul>
-<li><strong>total</strong> — created referrals count</li>
-<li><strong>approved</strong> — approved referrals count</li>
-<li><strong>pending</strong> — count of waiting for approval referrals</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

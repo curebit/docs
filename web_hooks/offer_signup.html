@@ -130,12 +130,6 @@ additional parameters will be present:</p>
 <li><strong>subscribed_at</strong> — date affiliate member has subscribed</li>
 <li><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</li>
 <li><strong>custom_properties</strong> — hash of affiliate member’s custom properties (optional)</li>
-<li><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts<ul>
-<li><strong>total</strong> — created referrals count</li>
-<li><strong>approved</strong> — approved referrals count</li>
-<li><strong>pending</strong> — count of waiting for approval referrals</li>
-</ul>
-</li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -159,16 +153,11 @@ additional parameters will be present:</p>
   <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null,&quot;referral_counts&quot;:{&quot;total&quot;:0,&quot;approved&quot;:0,&quot;pending&quot;:0}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
