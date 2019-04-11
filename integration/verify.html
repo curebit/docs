@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Verifying Integration &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -41,18 +42,22 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="custom_integration.html">Standard Integration</a></li>
-</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="shopify.html">Shopify Integration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="shopify.html#automatic-integration">Automatic integration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="shopify.html#manual-integration">Manual integration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Verifying Integration instructions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="custom_integration.html">Standard Integration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="custom/overview.html">Integration High-Level Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/integration_components.html">Integration Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom/validating_integration.html">Validating the Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verifying Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-integration-in-js-spas">Verifying Integration in JS SPAs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="custom/questions.html">F.A.Q.</a></li>
 </ul>
 </li>
 </ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shopify.html">Shopify Integration</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="magento.html">Magento Integration</a></li>
@@ -85,13 +90,13 @@
 <span id="integration-verify"></span><h1>Verifying Integration<a class="headerlink" href="#verifying-integration" title="Permalink to this headline">¶</a></h1>
 <p>After installing Talkable, you should verify that the integration is working:</p>
 <ol class="arabic">
-<li><p>Open your homepage (assuming the Talkable init script is placed on every page,
+<li><p class="first">Open your homepage (assuming the Talkable init script is placed on every page,
 otherwise visit the page where the initialization script was placed)
 with a secret URL parameter like so: <br> <cite>https://www.site.com/?tkbl_verify_integration=true</cite>.
 As a result you should see:</p>
 <img alt="../_images/integration_check_affiliate_member_success.png" src="../_images/integration_check_affiliate_member_success.png" />
 </li>
-<li><p>Issue a test purchase. Order subtotal should be &gt; 0, <br>
+<li><p class="first">Issue a test purchase. Order subtotal should be &gt; 0, <br>
 email should be <cite>integration&#64;talkable.com</cite>. Preferably include a coupon code so we
 can verify it gets passed as well. As a result you should see:</p>
 <img alt="../_images/integration_check_purchase_success.png" src="../_images/integration_check_purchase_success.png" />
