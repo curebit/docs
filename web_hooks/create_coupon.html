@@ -11,7 +11,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Referral Webhook" href="referral.html" />
     <link rel="prev" title="Webhooks" href="../web_hooks.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -69,6 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unsubscribe.html">Unsubscribe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="check_unsubscribe.html">Check Unsubscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">Event</a></li>
 </ul>
 </li>
 </ul>
@@ -160,7 +160,7 @@ otherwise fixed discount</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;coupon_code&quot;:&quot;WHT58574&quot;,&quot;discount_amount&quot;:10,&quot;percentage_discount&quot;:false,&quot;usage_limit&quot;:1,&quot;expires_at&quot;:&quot;2014-04-14T06:17:14.309-07:00&quot;,&quot;coupon_list_id&quot;:1,&quot;coupon_list_name&quot;:&quot;$10 off&quot;}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;site=&lt;site&gt;&amp;type=create_coupon_web_hook&amp;payload={&quot;coupon_code&quot;:&quot;WHT58574&quot;,&quot;discount_amount&quot;:10,&quot;percentage_discount&quot;:false,&quot;usage_limit&quot;:1,&quot;expires_at&quot;:&quot;2014-04-14T06:17:14.309-07:00&quot;,&quot;coupon_list_id&quot;:1,&quot;coupon_list_name&quot;:&quot;$10 off&quot;}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">

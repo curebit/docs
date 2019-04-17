@@ -11,7 +11,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advocate Signup Webhook" href="offer_signup.html" />
     <link rel="prev" title="Reward Webhook" href="reward.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -69,6 +68,7 @@
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unsubscribe.html">Unsubscribe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="check_unsubscribe.html">Check Unsubscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">Event</a></li>
 </ul>
 </li>
 </ul>
@@ -183,7 +183,7 @@ Facebook and Twitter shares)</li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:83587635,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:83587635,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:273085748,&quot;type&quot;:&quot;Purchase&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;site=&lt;site&gt;&amp;type=post_share_web_hook&amp;payload={&quot;campaign&quot;:{&quot;id&quot;:83587635,&quot;type&quot;:&quot;StandaloneCampaign&quot;,&quot;cached_slug&quot;:83587635,&quot;tag_names&quot;:[&quot;default&quot;],&quot;origin_min_age&quot;:null,&quot;origin_max_age&quot;:null,&quot;new_customer&quot;:null},&quot;share_type&quot;:&quot;email&quot;,&quot;share_info&quot;:{&quot;recipients&quot;:[&quot;john@example.com&quot;]},&quot;origin&quot;:{&quot;id&quot;:273085748,&quot;type&quot;:&quot;Purchase&quot;,&quot;email&quot;:&quot;referrer@example.com&quot;}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
