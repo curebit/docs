@@ -69,6 +69,7 @@
 <li class="toctree-l2"><a class="reference internal" href="claim_signup.html">Friend Email Gating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unsubscribe.html">Unsubscribe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="check_unsubscribe.html">Check Unsubscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event.html">Event</a></li>
 </ul>
 </li>
 </ul>
@@ -168,7 +169,7 @@ additional parameters will be present:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null,&quot;referral_counts&quot;:{&quot;total&quot;:0,&quot;approved&quot;:0,&quot;pending&quot;:0}}&#39;</span> &lt;url&gt;
+<h2>cURL example</h2><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --data <span class="s1">&#39;key=&lt;key&gt;&amp;site=&lt;site&gt;&amp;type=offer_signup_web_hook&amp;payload={&quot;campaign&quot;:{&quot;cached_slug&quot;:615437538,&quot;id&quot;:615437538,&quot;new_customer&quot;:null,&quot;origin_max_age&quot;:null,&quot;origin_min_age&quot;:null,&quot;tag_names&quot;:[&quot;default&quot;],&quot;type&quot;:&quot;StandaloneCampaign&quot;},&quot;email&quot;:&quot;john@example.com&quot;,&quot;first_name&quot;:&quot;John&quot;,&quot;gender&quot;:null,&quot;last_name&quot;:&quot;Doe&quot;,&quot;offer&quot;:{&quot;email&quot;:&quot;referrer@example.com&quot;,&quot;short_url_code&quot;:&quot;1a2PV&quot;,&quot;ip_address&quot;:&quot;127.0.0.1&quot;},&quot;opted_in_at&quot;:null,&quot;sub_choice&quot;:false,&quot;subscribed_at&quot;:null,&quot;unsubscribed_at&quot;:null,&quot;referral_counts&quot;:{&quot;total&quot;:0,&quot;approved&quot;:0,&quot;pending&quot;:0}}&#39;</span> &lt;url&gt;
 </pre></div>
 </div>
 <div class="hidden docutils container">
