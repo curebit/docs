@@ -714,6 +714,21 @@ Whatever Liquid you would like to have
 <span class="p">}</span>
 </pre></div>
 </div>
+<p><hr></p>
+</div>
+</div>
+<div class="section" id="events-collection">
+<h2>events_collection<a class="headerlink" href="#events-collection" title="Permalink to this headline">¶</a></h2>
+<p>Person collection of events from the certain date (or for all time when <code class="docutils literal notranslate"><span class="pre">from_date</span></code> is not set).</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;purchase&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">events_collection,</span><span class="w"> </span><span class="na">from_date</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;10/14/2018&quot;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Returns</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>  <span class="nx">order_number</span><span class="o">:</span> <span class="mi">98237519</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;ad@site.com&quot;</span><span class="p">,</span> <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">coupon_codes</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;OFF5&quot;</span><span class="p">],</span> <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;Wed, 13 Oct 2010 22:05:30 PDT -07:00&quot;</span> <span class="p">},</span>
+  <span class="p">{</span>  <span class="nx">order_number</span><span class="o">:</span> <span class="mi">98237520</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;ad@site.com&quot;</span><span class="p">,</span> <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">coupon_codes</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;OFF5&quot;</span><span class="p">],</span> <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;Wed, 13 Oct 2010 22:05:30 PDT -07:00&quot;</span> <span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
 </div>
 </div>
 </div>
