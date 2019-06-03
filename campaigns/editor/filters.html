@@ -647,12 +647,12 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 </div>
 <p>JavaScript API call</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_dashboard_data&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">.</span><span class="nx">some_key</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 <p>Rendered Liquid</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;some_key&quot;:&quot;$420&quot;,&quot;other_key&quot;:12}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;$420&quot;
 </pre></div>
 </div>
 </div>
@@ -687,7 +687,7 @@ Whatever Liquid you would like to have
 </div>
 <p>JavaScript API call</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_advocate_info&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
 </div>
