@@ -578,7 +578,7 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 <h2>barcode_image<a class="headerlink" href="#barcode-image" title="Permalink to this headline">¶</a></h2>
 <p>Represents any <code class="docutils literal notranslate"><span class="pre">string</span></code> as barcode image in png.
 This filter strictly follows GS1-128 specification: <a class="reference external" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
-<p>It may take the following arguments: <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">xdim``(thickness</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">thinnest</span> <span class="pre">line),</span> <span class="pre">``margin</span></code> and <code class="docutils literal notranslate"><span class="pre">bg_transparent</span></code>.</p>
+<p>It may take the following arguments: <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">xdim</span></code> (thickness of the thinnest line), <code class="docutils literal notranslate"><span class="pre">margin</span></code> and <code class="docutils literal notranslate"><span class="pre">bg_transparent</span></code>.</p>
 <p>Default values are <code class="docutils literal notranslate"><span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">height</span></code>,  <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">xdim</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">margin</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bg_transparent</span></code>.</p>
 <p>The values are in pixels.</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">coupon</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">barcode_image</span><span class="w"> </span><span class="p">}}</span>
@@ -647,12 +647,12 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 </div>
 <p>JavaScript API call</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_dashboard_data&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_data</span><span class="p">.</span><span class="nx">some_key</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 <p>Rendered Liquid</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;some_key&quot;:&quot;$420&quot;,&quot;other_key&quot;:12}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;$420&quot;
 </pre></div>
 </div>
 </div>
@@ -687,7 +687,7 @@ Whatever Liquid you would like to have
 </div>
 <p>JavaScript API call</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Talkable</span><span class="p">.</span><span class="nx">loadLiquid</span><span class="p">(</span><span class="s2">&quot;async_advocate_info&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">rendered_template</span><span class="p">));</span>
 <span class="p">});</span>
 </pre></div>
 </div>
