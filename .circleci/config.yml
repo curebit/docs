@@ -14,6 +14,16 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: Display Versions
+          command: |
+            function extract_version() { perl -pe 'if(($v)=/([0-9]+([.][0-9]+)+)/){print"$v\n";exit}$_=""' ; }
+            echo Python $(python3 --version | extract_version)
+            echo Ruby $(ruby --version | extract_version)
+            echo RubyGems $(gem --version | extract_version)
+            echo Bundler $(bundle --version | extract_version)
+            echo $(pwd)
+
       # Download and cache dependencies
       - restore_cache:
           keys:
