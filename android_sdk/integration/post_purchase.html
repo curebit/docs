@@ -113,6 +113,12 @@ close the loop on a referral.</p>
 <span class="n">String</span> <span class="n">orderNumber</span> <span class="o">=</span> <span class="s">&quot;123456&quot;</span><span class="o">;</span> <span class="c1">// Required</span>
 <span class="n">String</span><span class="o">[]</span> <span class="n">coupons</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;EXAMPLE-CODE-1&quot;</span><span class="o">,</span> <span class="s">&quot;EXAMPLE-CODE-2&quot;</span><span class="o">};</span> <span class="c1">// Optional</span>
 
+<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">customProperties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">customProperties</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;property_key&quot;</span><span class="o">,</span> <span class="s">&quot;property_value&quot;</span><span class="o">);</span>
+
+<span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
+<span class="n">customer</span><span class="o">.</span><span class="na">setCustomProperties</span><span class="o">(</span><span class="n">customProperties</span><span class="o">);</span>
+
 <span class="n">Purchase</span> <span class="n">purchase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Purchase</span><span class="o">(</span><span class="n">subtotal</span><span class="o">,</span> <span class="n">orderNumber</span><span class="o">,</span> <span class="n">coupons</span><span class="o">);</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">setCustomer</span><span class="o">(</span><span class="n">customer</span><span class="o">);</span> <span class="c1">// Required</span>
 <span class="n">purchase</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span> <span class="c1">// Optional</span>
