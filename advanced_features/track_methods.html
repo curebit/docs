@@ -2,8 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Referral Tracking Methods &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -109,56 +108,56 @@ while provides the customization for the rewarding criteria inside campaigns and
 attribution model inside dashboards and reports.</p>
 <p>The list of tracking methods by their priority:</p>
 <h2>Manually Generated</h2><ul class="simple">
-<li>Only applies when the referral is made from Talkable admin pages.</li>
-<li>Has the top priority because it forces the referral to be made without
-checking any criteria.</li>
+<li><p>Only applies when the referral is made from Talkable admin pages.</p></li>
+<li><p>Has the top priority because it forces the referral to be made without
+checking any criteria.</p></li>
 </ul>
 <h2>Sticky Advocate</h2><ul class="simple">
-<li>Only available for sites that have this feature enabled in the site settings.</li>
-<li>Designed for case where a single person can only be referred once, so that
+<li><p>Only available for sites that have this feature enabled in the site settings.</p></li>
+<li><p>Designed for case where a single person can only be referred once, so that
 another Advocate will not be able to refer it again (or “steal” him from the
-previous Advocate).</li>
-<li>Checks whether a buyer was referenced before through his previous purchases or
+previous Advocate).</p></li>
+<li><p>Checks whether a buyer was referenced before through his previous purchases or
 events (by same email or browser cookie) and attributes current event to the
-same Advocate as the previous one.</li>
-<li>Makes each Friend bounded to particular Advocate forever without the ability
-to make it referred again by a different Advocate.</li>
+same Advocate as the previous one.</p></li>
+<li><p>Makes each Friend bounded to particular Advocate forever without the ability
+to make it referred again by a different Advocate.</p></li>
 </ul>
 <h2>Coupon</h2><ul class="simple">
-<li>Friend used the coupon code he received through a Friend offer.</li>
-<li>Only applies to campaigns that are giving a single use coupon as a reward to a
-Friend before they make a purchase.</li>
+<li><p>Friend used the coupon code he received through a Friend offer.</p></li>
+<li><p>Only applies to campaigns that are giving a single use coupon as a reward to a
+Friend before they make a purchase.</p></li>
 </ul>
 <h2>Cookie</h2><ul class="simple">
-<li>Friend used the same browser session as when clicking the referral link.</li>
+<li><p>Friend used the same browser session as when clicking the referral link.</p></li>
 </ul>
 <h2>Web Cookie</h2><ul class="simple">
-<li>Only applies to the iOS/Android Mobile SDKs.</li>
-<li>Friend used the same browser session as when clicking the referral link.</li>
-<li>The technology for the referral detection is very different for Mobile SDK
+<li><p>Only applies to the iOS/Android Mobile SDKs.</p></li>
+<li><p>Friend used the same browser session as when clicking the referral link.</p></li>
+<li><p>The technology for the referral detection is very different for Mobile SDK
 from the browser. That is why Talkable distinguishes between Cookie and Web
-Cookie tracking methods.</li>
+Cookie tracking methods.</p></li>
 </ul>
 <h2>Gated Email</h2><ul class="simple">
-<li>Friend used the same email address as they entered on the claim page.</li>
-<li>Only applies to campaigns that have Friend Signup feature enabled.</li>
+<li><p>Friend used the same email address as they entered on the claim page.</p></li>
+<li><p>Only applies to campaigns that have Friend Signup feature enabled.</p></li>
 </ul>
 <h2>Share Email</h2><ul class="simple">
-<li>Friend used the same email address in the Friend Share Email.</li>
-<li>Only applies to offers shared by Email channel.</li>
+<li><p>Friend used the same email address in the Friend Share Email.</p></li>
+<li><p>Only applies to offers shared by Email channel.</p></li>
 </ul>
 <h2>IP Address</h2><ul class="simple">
-<li>Friend used the same IP address as when clicking the referral link.</li>
-<li>Time limit: only applies when a Friend made a purchase or event within 1 hour
-after clicking the referral link.</li>
-<li>The method doesn’t apply to the blacklisted IP addresses, blacklisted emails,
-QA IP addresses and QA emails.</li>
+<li><p>Friend used the same IP address as when clicking the referral link.</p></li>
+<li><p>Time limit: only applies when a Friend made a purchase or event within 1 hour
+after clicking the referral link.</p></li>
+<li><p>The method doesn’t apply to the blacklisted IP addresses, blacklisted emails,
+QA IP addresses and QA emails.</p></li>
 </ul>
 <h2>Event Chain</h2><ul class="simple">
-<li>Friend was already referred before and this is his subsequent event. In this
+<li><p>Friend was already referred before and this is his subsequent event. In this
 case, this event is automatically attributed to the same Advocate as the
-previous one.</li>
-<li>The method doesn’t apply to blacklisted emails and IP addresses.</li>
+previous one.</p></li>
+<li><p>The method doesn’t apply to blacklisted emails and IP addresses.</p></li>
 </ul>
 </div>
 
