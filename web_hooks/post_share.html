@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Post Share Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -93,9 +94,9 @@
 within a referral campaign workflow. Use cases for the Post Share Webhook include:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Sending automated ‘Thank You’ email to an Advocate for performing a share</p></li>
-<li><p>Any event that should be triggered when a user shares</p></li>
-<li><p>Data for Business Intelligence and analytics systems</p></li>
+<li>Sending automated ‘Thank You’ email to an Advocate for performing a share</li>
+<li>Any event that should be triggered when a user shares</li>
+<li>Data for Business Intelligence and analytics systems</li>
 </ul>
 </div></blockquote>
 <h2>When does Talkable call the Post Share Webhook?</h2><p>Talkable Post Share Webhook is triggered any time an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> (referrer)
@@ -103,9 +104,9 @@ shares offer details with a <abbr title="Person, who is invited to participate i
 provided by campaign workflow. Which includes any time:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>An advocate shares with a Friend via Email or any other channel from inside
-a referral campaign workflow</p></li>
-<li><p>An Advocate copies a share link from a referral campaign workflow share screen</p></li>
+<li>An advocate shares with a Friend via Email or any other channel from inside
+a referral campaign workflow</li>
+<li>An Advocate copies a share link from a referral campaign workflow share screen</li>
 </ul>
 </div></blockquote>
 <p>Note: the Post Share Webhook triggers every time a share occurs. For example,
@@ -113,58 +114,51 @@ if an Advocate shares with a Friend via email (or any channel), then shares with
 a second Friend via email (or any channel), the Post Share Webhook will be
 triggered twice.</p>
 <h2>Payload parameters provided for Post Share Webhook</h2><ul class="simple">
-<li><p><strong>campaign</strong> — subhash of parameters describing the campaign</p>
-<ul>
-<li><p><strong>id</strong> — unique campaign ID</p></li>
-<li><p><strong>cached_slug</strong> — unique SEO friendly ID</p></li>
-<li><p><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></p></li>
-<li><p><strong>tag_names</strong> — array of campaign’s tags</p></li>
-<li><p><strong>origin_min_age</strong> — timeframe from first site visit when an offer is
-available to Advocate</p></li>
-<li><p><strong>origin_max_age</strong> — timeframe from first site visit when an offer is
-available to Advocate</p></li>
-<li><p><strong>new_customer</strong> — “yes/no” whether offer requires Advocate to be a new
-customer</p></li>
+<li><strong>campaign</strong> — subhash of parameters describing the campaign<ul>
+<li><strong>id</strong> — unique campaign ID</li>
+<li><strong>cached_slug</strong> — unique SEO friendly ID</li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
+<li><strong>origin_min_age</strong> — timeframe from first site visit when an offer is
+available to Advocate</li>
+<li><strong>origin_max_age</strong> — timeframe from first site visit when an offer is
+available to Advocate</li>
+<li><strong>new_customer</strong> — “yes/no” whether offer requires Advocate to be a new
+customer</li>
 </ul>
 </li>
-<li><p><strong>share_type</strong> — <em>“email”</em>, <em>“facebook”</em>, <em>“twitter”</em>, <em>“facebook_message”</em>,
-<em>“facebook_sponsored”</em>, <em>“whatsapp”</em>, <em>“sms”</em>, <em>“linkedin”</em>, <em>“other”</em></p>
-<ul>
-<li><p>Note: custom share_type’s can be created</p></li>
+<li><strong>share_type</strong> — <em>“email”</em>, <em>“facebook”</em>, <em>“twitter”</em>, <em>“facebook_message”</em>,
+<em>“facebook_sponsored”</em>, <em>“whatsapp”</em>, <em>“sms”</em>, <em>“linkedin”</em>, <em>“other”</em><ul>
+<li>Note: custom share_type’s can be created</li>
 </ul>
 </li>
-<li><p><strong>share_info</strong> — share-specific information</p>
-<ul>
-<li><p>For Facebook share:</p>
-<ul>
-<li><p><strong>facebook_share_post_id</strong> — Facebook post ID</p></li>
-<li><p><strong>facebook_share_user_id</strong> — Facebook user ID</p></li>
+<li><strong>share_info</strong> — share-specific information<ul>
+<li>For Facebook share:<ul>
+<li><strong>facebook_share_post_id</strong> — Facebook post ID</li>
+<li><strong>facebook_share_user_id</strong> — Facebook user ID</li>
 </ul>
 </li>
-<li><p>For email share:</p>
-<ul>
-<li><p><strong>recipients</strong> — an array of email addresses</p></li>
+<li>For email share:<ul>
+<li><strong>recipients</strong> — an array of email addresses</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>share_link</strong> — link sent in share message (optional, present only for
-Facebook and Twitter shares)</p></li>
-<li><p><strong>origin</strong> — contains data about the event that issued an offer:</p>
-<ul>
-<li><p><strong>type</strong></p>
-<ul>
-<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
-<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
-<li><dl class="simple">
-<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
-</dd>
+<li><strong>share_link</strong> — link sent in share message (optional, present only for
+Facebook and Twitter shares)</li>
+<li><strong>origin</strong> — contains data about the event that issued an offer:<ul>
+<li><strong>type</strong><ul>
+<li><em>“Purchase”</em> for post-purchase placement</li>
+<li><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</li>
+<li><dl class="first docutils">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt>
+<dd>referral campaign)</dd>
 </dl>
 </li>
 </ul>
 </li>
-<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><strong>id</strong> — unique identifier of the origin event</li>
+<li><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</li>
 </ul>
 </li>
 </ul>
