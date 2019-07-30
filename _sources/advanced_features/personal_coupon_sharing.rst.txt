@@ -45,7 +45,8 @@ Talkable team:
 Talkable customer:
 
 #. To set up a publicly available backend endpoint that will be receiving
-   Talkable Create Coupon webhooks. On each such payload the endpoint
+   :ref:`Talkable Create Coupon <web_hooks/create_coupon>` webhooks.
+   On each such payload the endpoint
    should create a multi-use coupon with a value taken from a “coupon_code”
    data payload attribute, and for the amount specified in  “discount_amount”
    and “percentage_discount” (false means fixed amount).
