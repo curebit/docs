@@ -2,8 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Advocate Share Page &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -11,6 +10,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Friend Claim Page" href="offers_claim.html" />
     <link rel="prev" title="Global" href="global.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -164,16 +164,16 @@ click here is more advanced setup:</p>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">domain_key</span></code> — CloudSponge account (Talkable by default)</li>
-<li><code class="docutils literal notranslate"><span class="pre">textarea_id</span></code> — ID attribute to populate data to</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">domain_key</span></code> — CloudSponge account (Talkable by default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">textarea_id</span></code> — ID attribute to populate data to</p></li>
 </ol>
 <p><strong>CloudSponge and Custom Domain</strong></p>
 <p>CloudSponge integration is bound to specific domain. In order to use it with
 custom domain you’ll need to obtain separate <code class="docutils literal notranslate"><span class="pre">domain_key</span></code>.</p>
 <ol class="arabic simple">
-<li>Go to <a class="reference external" href="https://www.cloudsponge.com/">CloudSponge</a></li>
-<li>Add new domain, use your custom domain as domain name</li>
-<li>Copy &amp; Paste new <code class="docutils literal notranslate"><span class="pre">domain_key</span></code> to your template</li>
+<li><p>Go to <a class="reference external" href="https://www.cloudsponge.com/">CloudSponge</a></p></li>
+<li><p>Add new domain, use your custom domain as domain name</p></li>
+<li><p>Copy &amp; Paste new <code class="docutils literal notranslate"><span class="pre">domain_key</span></code> to your template</p></li>
 </ol>
 </div>
 <div class="section" id="multiple-email-fields">
@@ -250,14 +250,14 @@ until it is loaded.</p>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">fireOnLinkedInShare</span></code> — triggering this method is required to make
-Talkable visits tracking work.</li>
-<li><code class="docutils literal notranslate"><span class="pre">initLinkedInShareButton</span></code> — checks for LI button to load and then
+<li><p><code class="docutils literal notranslate"><span class="pre">fireOnLinkedInShare</span></code> — triggering this method is required to make
+Talkable visits tracking work.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initLinkedInShareButton</span></code> — checks for LI button to load and then
 show its container <code class="docutils literal notranslate"><span class="pre">js-linkedin-button-holder</span></code> and trigger
-<code class="docutils literal notranslate"><span class="pre">configureShareOnLinkedIn</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">configureShareOnLinkedIn</span></code> — strips all unnecessary styles and
+<code class="docutils literal notranslate"><span class="pre">configureShareOnLinkedIn</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">configureShareOnLinkedIn</span></code> — strips all unnecessary styles and
 <code class="docutils literal notranslate"><span class="pre">id</span></code> attributes from all LI button children nodes and allows to
-change <code class="docutils literal notranslate"><span class="pre">class</span></code> attribute and button text by passing an object.</li>
+change <code class="docutils literal notranslate"><span class="pre">class</span></code> attribute and button text by passing an object.</p></li>
 </ol>
 </div>
 </div>
