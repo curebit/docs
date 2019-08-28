@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Social Sharing &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -10,10 +11,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Native Integration via API" href="api_integration.html" />
-    <link rel="prev" title="Post Purchase Campaign" href="integration/post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="prev" title="Custom Events" href="integration/event.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -112,8 +112,8 @@ detect when the user clicks on the share button and trigger one of the correspon
 The <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary contains information on the content being shared and will have the following keys:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">TKBLOfferClaimUrlKey</span></code> - the link URL to share</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TKBLShareMessage</span></code> - the message to share</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">TKBLOfferClaimUrlKey</span></code> - the link URL to share</li>
+<li><code class="docutils literal notranslate"><span class="pre">TKBLShareMessage</span></code> - the message to share</li>
 </ul>
 </div></blockquote>
 <p>The <code class="docutils literal notranslate"><span class="pre">delegate</span></code> param is a delegate object that conforms to Facebook iOS SDK <code class="docutils literal notranslate"><span class="pre">SharingDelegate</span></code> protocol.
@@ -205,15 +205,15 @@ developers to utilize frameworks provided by Facebook and Twitter.
 While Social.framework is officially deprecated, Talkable SDK still supports a limited subset of its functionality
 to ensure a seamless transition to new implementations.</p>
 <ul class="simple">
-<li><p>If <cite>Talkable Delegate &lt;ios_sdk/advanced/delegate&gt;</cite> doesn’t implement either of the two Facebook methods,
-TalkableSDK will attempt to trigger Facebook share via Social.framework.</p></li>
-<li><p>Facebook sharing popup will only be displayed if Facebook app is installed on a customer’s phone, otherwise it will
-silently fail.</p></li>
-<li><p>Twitter sharing is not supported by Social.framework anymore.</p></li>
+<li>If <cite>Talkable Delegate &lt;ios_sdk/advanced/delegate&gt;</cite> doesn’t implement either of the two Facebook methods,
+TalkableSDK will attempt to trigger Facebook share via Social.framework.</li>
+<li>Facebook sharing popup will only be displayed if Facebook app is installed on a customer’s phone, otherwise it will
+silently fail.</li>
+<li>Twitter sharing is not supported by Social.framework anymore.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Talkable iOS SDK v1.4.9 features improved support of legacy Facebook sharing via Social.framework. If you are having trouble
+<p class="first admonition-title">Note</p>
+<p class="last">Talkable iOS SDK v1.4.9 features improved support of legacy Facebook sharing via Social.framework. If you are having trouble
 with your current implementation, please upgrade to the latest version. Note that we can only try to provide the best
 transitioning experience, and this fallback should not be regarded as a permanent solution. We encourage developers to switch
 to delegate methods for social sharing.</p>
