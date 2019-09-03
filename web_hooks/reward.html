@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Reward Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -10,7 +11,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Post Share Webhook" href="post_share.html" />
     <link rel="prev" title="Referral Webhook" href="referral.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -95,30 +95,33 @@ Talkable Reward Webhook notifications allow your application to know when to
 reward users by means other than the standard ‘give them a coupon code’ method.</p>
 <p>Use cases for the Reward Webhook include:</p>
 <ul class="simple">
-<li><p>Providing account credit or account upgrades to a user as a reward</p></li>
-<li><p>Giving non-monetary rewards such as physical gifts</p></li>
-<li><p>Sending automated ‘Thank You’ emails after a reward is given to a user</p></li>
-<li><p>Any event that should trigger at the moment a user has earned a reward</p></li>
+<li>Providing account credit or account upgrades to a user as a reward</li>
+<li>Giving non-monetary rewards such as physical gifts</li>
+<li>Sending automated ‘Thank You’ emails after a reward is given to a user</li>
+<li>Any event that should trigger at the moment a user has earned a reward</li>
 </ul>
 <h2>When does Talkable call the Reward Webhook?</h2><p>Talkable calls the Reward Webhook any time a reward is ready to be, or has been
 given to either an Advocate or a Friend according to the logic set-up in a
 Talkable referral campaign.</p>
 <p>Possible events which will trigger the Reward Webhook are:</p>
 <ul>
-<li><p>Advocate Signup form submitted (Reason = <strong>signup</strong>)</p></li>
-<li><p>Advocate shares an offer with Friend(s) (Reason = <strong>shared</strong>)</p></li>
-<li><p>Friend passes email gating form (Reason = <strong>click</strong>)</p>
+<li><p class="first">Advocate Signup form submitted (Reason = <strong>signup</strong>)</p>
+</li>
+<li><p class="first">Advocate shares an offer with Friend(s) (Reason = <strong>shared</strong>)</p>
+</li>
+<li><p class="first">Friend passes email gating form (Reason = <strong>click</strong>)</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If campaign is setup without email gating form, Reward Webhook with
+<p class="first admonition-title">Note</p>
+<p class="last">If campaign is setup without email gating form, Reward Webhook with
 Reason = click will trigger when Friend clicks through to site.</p>
 </div>
 </li>
-<li><p>Friend makes eligible purchase (Reason = <strong>referrer</strong>)</p></li>
-<li><p>Friend makes eligible purchase (Reason = <strong>referred</strong>)</p>
+<li><p class="first">Friend makes eligible purchase (Reason = <strong>referrer</strong>)</p>
+</li>
+<li><p class="first">Friend makes eligible purchase (Reason = <strong>referred</strong>)</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Reason = referrer indicates a reward should be given to an Advocate.
+<p class="first admonition-title">Note</p>
+<p class="last">Reason = referrer indicates a reward should be given to an Advocate.
 Reason = referred indicates a reward should be given to a Friend.</p>
 </div>
 </li>
@@ -128,21 +131,21 @@ Incentive configuration for each referral campaign, to trigger the Reward
 Webhook we first must ensure Incentives are correctly configured.
 To configure incentives:</p>
 <ol class="arabic simple">
-<li><p>Navigate to <strong>Campaigns</strong> then select the campaign you would like to
-configure incentives for</p></li>
-<li><p>Proceed to <strong>Rules</strong> then scroll down to <strong>Incentives</strong> section where
-incentives for both Advocates and Friends can be set-up</p></li>
+<li>Navigate to <strong>Campaigns</strong> then select the campaign you would like to
+configure incentives for</li>
+<li>Proceed to <strong>Rules</strong> then scroll down to <strong>Incentives</strong> section where
+incentives for both Advocates and Friends can be set-up</li>
 </ol>
 <img alt="Edit Referral Incentives," class="is-minimal" src="../_images/advocate_referral_incentive.png" />
 <ol class="arabic simple" start="3">
-<li><p>Configure the incentives as desired inside the Referral Incentive Editor.
+<li>Configure the incentives as desired inside the Referral Incentive Editor.
 To configure Incentive types other than Coupon Codes, please contact your
 Talkable Customer Success Manager; they will be able to set up “Rebate (store
-credit)” type incentives and “Non-Monetary” type incentives.</p></li>
+credit)” type incentives and “Non-Monetary” type incentives.</li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If there is a delay configured into when the Advocate reward is approved then
+<p class="first admonition-title">Note</p>
+<p class="last">If there is a delay configured into when the Advocate reward is approved then
 the Reward Webhook trigger when the Advocate reward is ready to be, or has
 been given. For example, if campaigns are set to send an Advocate their reward
 three days after a Friend makes an eligible purchase, then the Reward Webhook
@@ -154,136 +157,132 @@ the Reward Webhook any time either an Advocate or a Friend should receive a
 reward. Now, the Reward  Webhook can be set-up. <a class="reference internal" href="../web_hooks.html#web-hooks"><span class="std std-ref">Learn more about General
 Webhook Set Up Steps</span></a></p>
 <h2>Payload parameters provided by Reward Webhook</h2><ul>
-<li><p><strong>campaign</strong> — subhash of parameters describing the campaign</p>
+<li><p class="first"><strong>campaign</strong> — subhash of parameters describing the campaign</p>
 <ul class="simple">
-<li><p><strong>id</strong> — unique campaign ID</p></li>
-<li><p><strong>cached_slug</strong> — unique SEO friendly ID</p></li>
-<li><p><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></p></li>
-<li><p><strong>tag_names</strong> — array of campaign’s tags</p></li>
+<li><strong>id</strong> — unique campaign ID</li>
+<li><strong>cached_slug</strong> — unique SEO friendly ID</li>
+<li><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></li>
+<li><strong>tag_names</strong> — array of campaign’s tags</li>
 </ul>
 </li>
-<li><p><strong>offer</strong> — subhash of parameters describing the offer</p>
+<li><p class="first"><strong>offer</strong> — subhash of parameters describing the offer</p>
 <ul class="simple">
-<li><p><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s (referrer) email address</p></li>
-<li><p><strong>short_url_code</strong></p></li>
-<li><p><strong>ip_address</strong></p></li>
+<li><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s (referrer) email address</li>
+<li><strong>short_url_code</strong></li>
+<li><strong>ip_address</strong></li>
 </ul>
 </li>
-<li><p><strong>person</strong> — subhash of parameters describing the person that got reward (note: might be <strong>null</strong>)</p>
+<li><p class="first"><strong>person</strong> — subhash of parameters describing the person that got reward (note: might be <strong>null</strong>)</p>
 <ul class="simple">
-<li><p><strong>email</strong> — person’s email address</p></li>
-<li><p><strong>first_name</strong> — person’s first name</p></li>
-<li><p><strong>last_name</strong> — person’s last name</p></li>
-<li><p><strong>username</strong> — person’s username (optional)</p></li>
-<li><p><strong>sub_choice</strong> — subscription choice (optional, present only if the form
-included subscription checkbox)</p></li>
-<li><p><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</p></li>
-<li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
-<li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
-<li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
-<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
-<ul>
-<li><p><strong>total</strong> — created referrals count</p></li>
-<li><p><strong>approved</strong> — approved referrals count</p></li>
-<li><p><strong>pending</strong> — count of waiting for approval referrals</p></li>
+<li><strong>email</strong> — person’s email address</li>
+<li><strong>first_name</strong> — person’s first name</li>
+<li><strong>last_name</strong> — person’s last name</li>
+<li><strong>username</strong> — person’s username (optional)</li>
+<li><strong>sub_choice</strong> — subscription choice (optional, present only if the form
+included subscription checkbox)</li>
+<li><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</li>
+<li><strong>opted_in_at</strong> — date person has subscribed (optional)</li>
+<li><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</li>
+<li><strong>custom_properties</strong> — hash of person’s custom properties (optional)</li>
+<li><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts<ul>
+<li><strong>total</strong> — created referrals count</li>
+<li><strong>approved</strong> — approved referrals count</li>
+<li><strong>pending</strong> — count of waiting for approval referrals</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong>origin</strong> — subhash of data related to the event that issued an offer</p>
+<li><p class="first"><strong>origin</strong> — subhash of data related to the event that issued an offer</p>
 <ul class="simple">
-<li><p><strong>type</strong></p>
-<ul>
-<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
-<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
-<li><dl class="simple">
-<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
-</dd>
+<li><strong>type</strong><ul>
+<li><em>“Purchase”</em> for post-purchase placement</li>
+<li><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</li>
+<li><dl class="first docutils">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt>
+<dd>referral campaign)</dd>
 </dl>
 </li>
 </ul>
 </li>
-<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><strong>id</strong> — unique identifier of the origin event</li>
+<li><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</li>
 </ul>
 </li>
-<li><p><strong>reward</strong> — subhash of parameters describing the reward itself</p>
+<li><p class="first"><strong>reward</strong> — subhash of parameters describing the reward itself</p>
 <ul class="simple">
-<li><p><strong>reason</strong> — reason why this reward was given</p></li>
-<li><p><strong>incentive_type</strong> — type of incentive (rebate, discount_coupon, other)</p></li>
-<li><p><strong>incentive_description</strong> — description of incentive (human readable, equals
-to non monetary description if <strong>incentive_type</strong> is other)</p></li>
-<li><p><strong>amount</strong> — amount of money to reward (null when <strong>incentive_type</strong> is
-discount_coupon or other)</p></li>
-<li><p><strong>coupon_code</strong> — coupon code received by person as a reward (null when
-<strong>incentive_type</strong> is rebate or other)</p></li>
+<li><strong>reason</strong> — reason why this reward was given</li>
+<li><strong>incentive_type</strong> — type of incentive (rebate, discount_coupon, other)</li>
+<li><strong>incentive_description</strong> — description of incentive (human readable, equals
+to non monetary description if <strong>incentive_type</strong> is other)</li>
+<li><strong>amount</strong> — amount of money to reward (null when <strong>incentive_type</strong> is
+discount_coupon or other)</li>
+<li><strong>coupon_code</strong> — coupon code received by person as a reward (null when
+<strong>incentive_type</strong> is rebate or other)</li>
 </ul>
 </li>
-<li><p><strong>advocate_origin</strong> - subhash of data related to the advocate event</p>
+<li><p class="first"><strong>advocate_origin</strong> - subhash of data related to the advocate event</p>
 <ul class="simple">
-<li><p><strong>type</strong></p>
-<ul>
-<li><p><em>“Purchase”</em> for post-purchase campaign</p></li>
-<li><p><em>“AffiliateMember”</em> for standalone campaign</p></li>
+<li><strong>type</strong><ul>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“AffiliateMember”</em> for standalone campaign</li>
 </ul>
 </li>
-<li><p><strong>id</strong> — unique identifier of the advocate’s origin event</p></li>
+<li><strong>id</strong> — unique identifier of the advocate’s origin event</li>
 </ul>
 <blockquote>
 <div><p><em>For Affiliate Member:</em></p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>email</strong> — email address of the referrer (Advocate) person</p></li>
+<li><strong>email</strong> — email address of the referrer (Advocate) person</li>
 </ul>
 <blockquote>
 <div><p><em>For Purchase:</em></p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>order_number</strong> - unique identifier of advocate’s order</p></li>
-<li><p><strong>subtotal</strong> - advocate’s order subtotal</p></li>
-<li><p><strong>email</strong> - advocate’s email address</p></li>
-<li><p><strong>customer_id</strong> - unique identifier of advocate</p></li>
+<li><strong>order_number</strong> - unique identifier of advocate’s order</li>
+<li><strong>subtotal</strong> - advocate’s order subtotal</li>
+<li><strong>email</strong> - advocate’s email address</li>
+<li><strong>customer_id</strong> - unique identifier of advocate</li>
 </ul>
 </li>
-<li><p><strong>friend_origin</strong> - subhash of data related to the friend event</p>
+<li><p class="first"><strong>friend_origin</strong> - subhash of data related to the friend event</p>
 <ul class="simple">
-<li><p><strong>type</strong></p>
-<ul>
-<li><p><em>“Purchase”</em> for post-purchase campaign</p></li>
-<li><p><em>“Event”</em> for custom campaign</p></li>
+<li><strong>type</strong><ul>
+<li><em>“Purchase”</em> for post-purchase campaign</li>
+<li><em>“Event”</em> for custom campaign</li>
 </ul>
 </li>
-<li><p><strong>id</strong> — unique identifier of the friend’s origin</p></li>
-<li><p><strong>order_number</strong> - unique identifier of friend’s order</p></li>
-<li><p><strong>subtotal</strong> - friend’s order subtotal</p></li>
-<li><p><strong>email</strong> - friend’s email address</p></li>
-<li><p><strong>customer_id</strong> - unique identifier of friend</p></li>
+<li><strong>id</strong> — unique identifier of the friend’s origin</li>
+<li><strong>order_number</strong> - unique identifier of friend’s order</li>
+<li><strong>subtotal</strong> - friend’s order subtotal</li>
+<li><strong>email</strong> - friend’s email address</li>
+<li><strong>customer_id</strong> - unique identifier of friend</li>
 </ul>
 </li>
 </ul>
 <h2>Reasons</h2><p>Reward reason can be of 5 following general types.</p>
 <ul class="simple">
-<li><p><strong>signup</strong> — Advocate reward for sign-up (Advocate Signup form submitted)</p></li>
-<li><p><strong>shared</strong> — Advocate reward for sharing an offer with Friend(s)</p></li>
-<li><p><strong>click</strong> — Friend reward for visiting claim page (and optionally passing gating)</p></li>
-<li><p><strong>referrer</strong> — Advocate reward for eligible referral purchase by Friend</p></li>
-<li><p><strong>referred</strong> — Friend reward for eligible referral purchase by themselves</p></li>
+<li><strong>signup</strong> — Advocate reward for sign-up (Advocate Signup form submitted)</li>
+<li><strong>shared</strong> — Advocate reward for sharing an offer with Friend(s)</li>
+<li><strong>click</strong> — Friend reward for visiting claim page (and optionally passing gating)</li>
+<li><strong>referrer</strong> — Advocate reward for eligible referral purchase by Friend</li>
+<li><strong>referred</strong> — Friend reward for eligible referral purchase by themselves</li>
 </ul>
 <h2>Incentive types</h2><p>Incentives can be of 3 following general types.</p>
 <ul class="simple">
-<li><p><strong>Rebate</strong> (<cite>rebate</cite>) — monetary reward, certain amount of money that should
+<li><strong>Rebate</strong> (<cite>rebate</cite>) — monetary reward, certain amount of money that should
 be paid out to a customer with a given email. The merchants’ payment system
-should handle the payment.</p></li>
-<li><p><strong>Coupon code</strong> (<cite>discount_coupon</cite>) — a discount coupon is issued to user.
-Talkable handles distributing this type of incentives.</p></li>
-<li><p><strong>Non-monetary</strong> (<cite>other</cite>) — used when a campaign has a non-monetary rebate
+should handle the payment.</li>
+<li><strong>Coupon code</strong> (<cite>discount_coupon</cite>) — a discount coupon is issued to user.
+Talkable handles distributing this type of incentives.</li>
+<li><strong>Non-monetary</strong> (<cite>other</cite>) — used when a campaign has a non-monetary rebate
 like <em>“Free T-shirt”</em> or <em>“One Month Free”</em>. This should be handled on the
 merchant’s side. More information on the reward is specified in
-<cite>incentive_description</cite>.</p></li>
+<cite>incentive_description</cite>.</li>
 </ul>
 <h2>Coupon codes as a reward</h2><div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If referral campaigns are set-up to reward either Friends or Advocates with
+<p class="first admonition-title">Important</p>
+<p class="last">If referral campaigns are set-up to reward either Friends or Advocates with
 Talkable provided coupon codes, then the Reward Webhook is called for
 informational purposes only. It is a notification that the reward has been
 provided. Note, Talkable gets these coupons either by manual upload from the
