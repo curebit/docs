@@ -2,8 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Custom Events &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -11,6 +10,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Advanced Usage" href="../advanced.html" />
     <link rel="prev" title="Post Purchase Campaign" href="post_purchase.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -102,8 +102,8 @@
 </div>
 <p>If you have a Talkable offer configured for this event, the Talkable campaign screen will be displayed as a result of calling the <code class="docutils literal notranslate"><span class="pre">createOrigin</span></code> method.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Unlike the default <a class="reference internal" href="standalone.html#android-sdk-integration-standalone"><span class="std std-ref">Standalone</span></a> and <a class="reference internal" href="post_purchase.html#android-sdk-integration-post-purchase"><span class="std std-ref">Post Purchase</span></a> integrations, the event-based integration will not automatically use the default campaign tag (<code class="docutils literal notranslate"><span class="pre">android-invite</span></code> or <code class="docutils literal notranslate"><span class="pre">android-post-purchase</span></code> respectively). To match your events to the desired Talkable campaign, you <strong>must</strong> specify the correct campaign tag when creating an event.</p>
+<p class="admonition-title">Warning</p>
+<p>Unlike the default <a class="reference internal" href="standalone.html#android-sdk-integration-standalone"><span class="std std-ref">Standalone</span></a> and <a class="reference internal" href="post_purchase.html#android-sdk-integration-post-purchase"><span class="std std-ref">Post Purchase</span></a> integrations, the event-based integration will not automatically use the default campaign tag (<code class="docutils literal notranslate"><span class="pre">android-invite</span></code> or <code class="docutils literal notranslate"><span class="pre">android-post-purchase</span></code> respectively). To match your events to the desired Talkable campaign, you <strong>must</strong> specify the correct campaign tag when creating an event.</p>
 </div>
 <p>Customer data can be added to the registered event. Custom properties passed with the event will be added to the customer profile.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;advocate@example.com&quot;</span><span class="o">;</span>
