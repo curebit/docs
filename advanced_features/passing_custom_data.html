@@ -48,7 +48,9 @@
 <li class="toctree-l2"><a class="reference internal" href="events.html">Integrating Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_encryption.html">File Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom User Data</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom User Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-set">How to set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
@@ -97,42 +99,60 @@
             
   <div class="section" id="pass-custom-user-data">
 <span id="advanced-features-passing-custom-data"></span><h1>Pass Custom User Data<a class="headerlink" href="#pass-custom-user-data" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> is a variable that allows you to pass custom data
-to Talkable in the form of Key-Value pairs via integration.</p>
-<p><code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> has robust uses as you are able to define and pass
-any key value pairs you wish.</p>
-<p>The values you define for some key should be JSON Key-Value pairs themselves,
-this means complex data structures can be passed through.</p>
-<p>Any <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> data passed through is tied to the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> or the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>,
-that means there is only one instance of each field in
-existence at any time: the most recently passed data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> variable allows you to pass any custom data
+to Talkable as a collection of Key-Value pairs.
+Those can be used for various segmentation purposes, since join criteria and incentive criteria are capable of using the ones in conditions.</p>
 <p>All data associated with <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> is available for use
-across all Campaign Views. Accessing this data beings by creating a variable
-to store your custom_properties:</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>advocate_custom_properties<span class="w"> </span><span class="p">%}</span>
-</pre></div>
+across all Campaign Views.</p>
 </div>
-<p>or</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>friend_custom_properties<span class="w"> </span><span class="p">%}</span>
-</pre></div>
-</div>
-<p>Key Value pairs can be referenced through your newly created object by referencing
-the value name such as:</p>
-<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">data</span><span class="p">.</span><span class="nv">favorite_color</span><span class="w"> </span><span class="p">}}</span>
-</pre></div>
-</div>
-<p>Defining <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> in your integration might look something like this:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="p">...</span>
+<div class="section" id="how-to-set">
+<h1>How to set<a class="headerlink" href="#how-to-set" title="Permalink to this headline">¶</a></h1>
+<p><strong>Initialization script</strong></p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> collection in the <code class="docutils literal notranslate"><span class="pre">register_affiliate</span></code> call of the Initialization script.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">custom_properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>
-    <span class="nx">height</span><span class="o">:</span> <span class="s1">&#39;72 inches&#39;</span><span class="p">,</span>
-    <span class="nx">eye_color</span><span class="o">:</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span>
-    <span class="nx">birthday</span><span class="o">:</span> <span class="s1">&#39;07/03/1983&#39;</span>
+    <span class="nx">eye_color</span><span class="o">:</span> <span class="s1">&#39;brown&#39;</span>
   <span class="p">}</span>
-  <span class="p">...</span>
-<span class="p">}</span>
+<span class="p">}]);</span>
 </pre></div>
+</div>
+<p><strong>Post-purchase script</strong></p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> collection to the data passed in the <code class="docutils literal notranslate"><span class="pre">register_purchase</span></code> call. It should be nested the same as <code class="docutils literal notranslate"><span class="pre">purchase</span></code> collection.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">custom_properties</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">person_occupation</span><span class="o">:</span> <span class="s1">&#39;marketing&#39;</span><span class="p">,</span>
+    <span class="nx">eye_color</span><span class="o">:</span> <span class="s1">&#39;brown&#39;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The values you pass in the <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> have to be JSON Key-Value pairs themselves,
+meaning that complex nested data structures can not be passed through.</p>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
+<p>To access <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> in Talkable, use:</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">advocate_custom_properties</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">friend_custom_properties</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Key-Value pairs can be referenced calling the desired data key, such as:</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">advocate_custom_properties</span><span class="p">.</span><span class="nv">eye_color</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> data passed through is tied to the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> or the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>.
+If Talkable receives a custom property that was previously defined for the user, the property gets overwritten with a new value.</p>
 </div>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
