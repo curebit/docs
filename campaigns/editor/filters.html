@@ -224,6 +224,64 @@ as an array.</p>
 </div>
 <p><hr></p>
 </div>
+<div class="section" id="date-diff">
+<h2>date_diff<a class="headerlink" href="#date-diff" title="Permalink to this headline">¶</a></h2>
+<p>Return absolute difference between two dates in seconds.</p>
+<p>Date is compared to current time if no argument is passed.</p>
+<p>All dates are interpreted in context of the site time zone
+unless time zone is specified.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{ valid_until | date_diff }}
+{{ valid_until | date_diff: &#39;Apr 4, 2019&#39; }}
+{{ &#39;2019-09-01 08:30:00&#39; | date_diff: current_time }}
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="date-greater-than">
+<h2>date_greater_than<a class="headerlink" href="#date-greater-than" title="Permalink to this headline">¶</a></h2>
+<p>Return boolean that indicates whether a date is more recent
+than another date.</p>
+<p>All dates are interpreted in context of the site time zone
+unless time zone is specified.</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">current_time</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_greater_than</span><span class="p">:</span><span class="w"> </span>valid_until<span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_greater_than</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2019-09-01 08:30:00&#39;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="date-greater-than-or-equal">
+<h2>date_greater_than_or_equal<a class="headerlink" href="#date-greater-than-or-equal" title="Permalink to this headline">¶</a></h2>
+<p>Return boolean that indicates whether a date is the same as
+or more recent than another date.</p>
+<p>All dates are interpreted in context of the site time zone
+unless time zone is specified.</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">current_time</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_greater_than_or_equal</span><span class="p">:</span><span class="w"> </span>valid_until<span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_greater_than_or_equal</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2019-09-01 08:30:00&#39;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="add-time">
+<h2>add_time<a class="headerlink" href="#add-time" title="Permalink to this headline">¶</a></h2>
+<p>Add a specified amount of time to a date and return the result.</p>
+<p>Time unit defaults to seconds.</p>
+<p>Available time units (can be used in plural form as well):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">second</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minute</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hour</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">week</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fortnight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code></p></li>
+</ul>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">add_time</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">add_time</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;months&#39;</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p><hr></p>
+</div>
 <div class="section" id="format-date">
 <span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
 <p>Format date for current localization.</p>
