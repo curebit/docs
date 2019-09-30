@@ -48,9 +48,7 @@
 <li class="toctree-l2"><a class="reference internal" href="events.html">Integrating Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_encryption.html">File Encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom User Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-set">How to set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pass Custom User Data</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
@@ -104,10 +102,7 @@ to Talkable as a collection of Key-Value pairs.
 Those can be used for various segmentation purposes, since join criteria and incentive criteria are capable of using the ones in conditions.</p>
 <p>All data associated with <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> is available for use
 across all Campaign Views.</p>
-</div>
-<div class="section" id="how-to-set">
-<h1>How to set<a class="headerlink" href="#how-to-set" title="Permalink to this headline">¶</a></h1>
-<p><strong>Initialization script</strong></p>
+<h2>How to set</h2><p><strong>Initialization script</strong></p>
 <p>Add the <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> collection in the <code class="docutils literal notranslate"><span class="pre">register_affiliate</span></code> call of the Initialization script.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_affiliate&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">custom_properties</span><span class="o">:</span> <span class="p">{</span>
@@ -137,15 +132,12 @@ across all Campaign Views.</p>
 <p>The values you pass in the <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> have to be JSON Key-Value pairs themselves,
 meaning that complex nested data structures can not be passed through.</p>
 </div>
-</div>
-<div class="section" id="how-to-use">
-<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
-<p>To access <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> in Talkable, use:</p>
+<h2>How to use</h2><p>To access <code class="docutils literal notranslate"><span class="pre">custom_properties</span></code> in Talkable, use:</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">advocate_custom_properties</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">friend_custom_properties</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
-<p>Key Value pairs can be referenced calling the desired data key, such as:</p>
+<p>Key-Value pairs can be referenced calling the desired data key, such as:</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">advocate_custom_properties</span><span class="p">.</span><span class="nv">eye_color</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>

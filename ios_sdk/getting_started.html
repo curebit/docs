@@ -162,11 +162,13 @@ Use only the public key in your application submitted to the App Store.</p></li>
 </pre></div>
 </div>
 </li>
-<li><p>Add <cite>tkbl-&lt;your-site-slug&gt;</cite> scheme and <cite>fb-messenger</cite> sheme to the list of schemes are queried within application:</p>
+<li><p>Add <cite>tkbl-&lt;your-site-slug&gt;</cite> scheme to the list of schemes that are queried within application. Also add <cite>fb-messenger</cite>, <cite>fbauth2</cite>, <cite>whatsapp</cite> schemes if you going to utilize these sharing channels:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;key&gt;</span>LSApplicationQueriesSchemes<span class="nt">&lt;/key&gt;</span>
 <span class="nt">&lt;array&gt;</span>
   <span class="nt">&lt;string&gt;</span>tkbl-your-site-slug<span class="nt">&lt;/string&gt;</span>
   <span class="nt">&lt;string&gt;</span>fb-messenger<span class="nt">&lt;/string&gt;</span>
+  <span class="nt">&lt;string&gt;</span>fbauth2<span class="nt">&lt;/string&gt;</span>
+  <span class="nt">&lt;string&gt;</span>whatsapp<span class="nt">&lt;/string&gt;</span>
 <span class="nt">&lt;/array&gt;</span>
 </pre></div>
 </div>
