@@ -111,7 +111,8 @@
       <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Full address of the order, make sure to strictly follow a format: &#39;Apt #, Street address, City, State, ZIP, Country&#39;</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Customer email address who issued a purchase. Example: &#39;customer@example.com&#39;</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Customer email address who issued a purchase. Example: &#39;customer@example.com&#39;</span>
+      <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// The source of the traffic driven to the campaign. Example: &#39;facebook&#39;</span>
     <span class="p">}</span>
   <span class="p">};</span>
   <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
