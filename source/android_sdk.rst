@@ -27,5 +27,7 @@ Contents:
    android_sdk/integration
    android_sdk/advanced
    android_sdk/api
+   android_sdk/custom_deep_linking
+   android_sdk/testing
    android_sdk/upgrade
 

@@ -6,6 +6,109 @@ Upgrade
 
 Sometimes we need you to upgrade existing integration to use our latest features.
 
+0.5.9
+-----
+
+Added support for native email sharing.
+
+0.5.8
+-----
+
+Added compatibility with Gradle 5.x
+
+Added ability to :ref:`set custom properties <android_sdk/integration/standalone>` on Customer
+
+Updated Visitor registration logic to meet updated Talkable requirements
+
+0.5.7
+-----
+
+Added :ref:`debug mode <android_sdk/testing>` to facilitate testing.
+
+Fixed bug with missing getter methods in the `Reward` model.
+
+0.5.6
+-----
+
+SDK is now available as a `Maven package on JitPack <https://jitpack.io/#talkable/android-sdk>`_.
+
+0.5.5
+-----
+
+Added support for :ref:`third party deep linking providers <android_sdk/custom_deep_linking>`.
+
+Improved authentication and error handling for API requests.
+
+0.5.4
+-----
+
+Fixed crashes when the server sends bad responses.
+
+0.5.3
+-----
+
+Added ``createEmailShare`` and ``createSocialShare`` methods to ``TalkableApi``.
+
+Deprecated ``createShare`` methods from ``TalkableApi``.
+
+0.5.2
+-----
+
+Added support for ``title``, ``url`` and ``imageUrl`` attributes for ``Item``.
+
+0.5.1
+-----
+
+Added multiple coupons support for ``Event`` and ``Purchase``.
+
+0.5.0
+-----
+
+Added an ability to :ref:`handle errors <error_handling>` when showing Offer.
+
+To update from the previous version, please do following steps.
+
+1. Update dependencies inside ``build.gradle``:
+
+   .. code-block:: groovy
+
+      // From
+      compile 'com.google.code.gson:gson:2.7'
+      compile 'com.android.support:support-v4:25.3.1'
+
+      // To
+      compile 'com.google.code.gson:gson:2.8'
+      compile 'com.android.support:support-v4:26.1.0'
+
+2. Use ``showOffer`` functions with a callback parameter.
+
+   .. code-block:: java
+
+      // From
+      showOffer(activity, origin);
+
+      // To
+      showOffer(activity, origin, new TalkableErrorCallback<TalkableOfferLoadException>() {
+          @Override
+          public void onError(final TalkableOfferLoadException error) {
+              // Error handling. Note that it runs on non UI thread
+          }
+      });
+
+3. Use ``Talkable.setSiteSlug`` functions without Context as a parameter.
+
+   .. code-block:: java
+
+      // From
+      setSiteSlug(context, "site-slug");
+
+      // To
+      setSiteSlug("site-slug");
+
+4. ``TalkableOfferFragmentListener`` interface implementation is optional now.
+
+5. In case you used ``TalkableOfferFragment`` directly check out :ref:`a new workflow <using_fragment_directly>`.
+
 0.4.2
 -----
 
@@ -16,11 +119,11 @@ permission inside the manifest:
 
    .. code-block:: xml
 
-     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-       package="com.android.app.myapp" >
-       <uses-permission android:name="android.permission.READ_CONTACTS" />
-       ...
-     </manifest>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.android.app.myapp" >
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+        ...
+      </manifest>
 
 0.4.1
 -----
@@ -36,7 +139,7 @@ Added multiple site slugs support. Bugs fixing.
 From this moment you can operate with multiple Talkable sites inside Talkable SDK.
 Look in :ref:`Advanced Usage <android_sdk/advanced>` for more detailed information if needed.
 
-To update from the previous version please do following steps.
+To update from the previous version, please do following steps.
 
 1. Update dependencies inside ``build.gradle``.
 
@@ -55,61 +158,61 @@ To update from the previous version please do following steps.
    .. code-block:: xml
 
       <!-- From -->
-       <application>
-           ...
-           <meta-data
-               android:name="TalkableApiKey"
-               android:value="{{YOUR_TALKABLE_PUBLIC_API_KEY}}" />
-           <meta-data
-               android:name="TalkableSiteSlug"
-               android:value="{{YOUR_SITE_SLUG}}" />
-           ...
-       </application>
+      <application>
+          ...
+          <meta-data
+              android:name="TalkableApiKey"
+              android:value="{{YOUR_TALKABLE_PUBLIC_API_KEY}}" />
+          <meta-data
+              android:name="TalkableSiteSlug"
+              android:value="{{YOUR_SITE_SLUG}}" />
+          ...
+      </application>
 
-       <!-- To -->
-       <application>
-           ...
-           <meta-data
-               android:name="tkbl-api-key-{{YOUR_SITE_SLUG}}"
-               android:value="{{YOUR_TALKABLE_PUBLIC_API_KEY}}" />
-           ...
-       </application>
+      <!-- To -->
+      <application>
+          ...
+          <meta-data
+              android:name="tkbl-api-key-{{YOUR_SITE_SLUG}}"
+              android:value="{{YOUR_TALKABLE_PUBLIC_API_KEY}}" />
+          ...
+      </application>
 
 3. Initialize Talkable in the ``Application``.
 
    .. code-block:: java
 
-     import com.talkable.sdk.Talkable;
-     import android.app.Application;
+      import com.talkable.sdk.Talkable;
+      import android.app.Application;
 
-     public class App extends Application {
-         @Override
-         public void onCreate() {
-             super.onCreate();
-             Talkable.initialize(this);
-         }
-     }
+      public class App extends Application {
+          @Override
+          public void onCreate() {
+              super.onCreate();
+              Talkable.initialize(this);
+          }
+      }
 
    .. note::
 
-     Make sure to add your application class name as ``android:name`` parameter of
-     the ``<application>`` element in your manifest
+      Make sure to add your application class name as ``android:name`` parameter of
+      the ``<application>`` element in your manifest
 
 4. Call ``Talkable.trackAppOpen`` inside you main activity class, like before.
 
    .. code-block:: java
 
-     import com.talkable.sdk.Talkable;
-     import android.app.Activity;
+      import com.talkable.sdk.Talkable;
+      import android.app.Activity;
 
-     public class MainActivity extends Activity {
-         @Override
-         public void onCreate(Bundle savedInstanceState) {
-             ...
+      public class MainActivity extends Activity {
+          @Override
+          public void onCreate(Bundle savedInstanceState) {
+              ...
 
-             Talkable.trackAppOpen(this);
-         }
-     }
+              Talkable.trackAppOpen(this);
+          }
+      }
 
 From this version defining of ``TalkableActivity`` and ``InstallReferrerReceiver``
 inside Android Manifest is not necessary.

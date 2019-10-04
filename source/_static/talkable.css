@@ -190,7 +190,7 @@ abbr {
 }
 
 .header-logo {
-    background: url("img/logo.png");
+    background: url("img/logo.svg") no-repeat;
     color: transparent;
     display: inline-block;
     font-size: 0;
@@ -199,6 +199,7 @@ abbr {
     text-indent: -99999em;
     vertical-align: middle;
     width: 189px;
+    background-size: 100%;
 }
 
 blockquote.epigraph {
@@ -217,6 +218,7 @@ table.docutils th,
 table.docutils td {
     border-bottom: 2px solid #e0e0e0;
     padding: 8px 8px 8px 0px;
+    vertical-align: top;
 }
 
 .ptable table {
@@ -574,6 +576,11 @@ div.hidden {
   margin-left: 40px;
 }
 
+.page-break-after,
+.header-printable {
+  display: none;
+}
+
 /* FIREFOX SPECIFIC */
 @-moz-document url-prefix() {
     .button {
@@ -596,4 +603,78 @@ div.hidden {
     .content-container {
         padding: 0 20px;
     }
+}
+
+@media only print {
+  html {
+    background-color: transparent;
+  }
+
+  .nav,
+  .search-form {
+    display: none !important;
+  }
+
+  .header {
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .header-logo {
+    background-image: none;
+  }
+
+  .header-logo:after {
+    content: url(img/logo.svg);
+  }
+
+  .section li {
+    position: relative;
+    page-break-inside: avoid;
+  }
+
+  .admonition {
+    position: relative;
+    page-break-inside: avoid;
+    page-break-before: avoid;
+  }
+
+  .section,
+  .section li {
+    widows: 2;
+    orphans: 2;
+  }
+
+  .body h1,
+  .body h2,
+  .body h3,
+  .body h4,
+  .body h5,
+  .body h6 {
+    display: block;
+    position: relative;
+    page-break-after: avoid;
+  }
+
+  .body h1 {
+    text-align: center;
+  }
+
+  .body img {
+    display: block;
+    position: relative;
+    page-break-before: avoid;
+    max-height: 700px;
+    margin: 20px 0;
+  }
+
+  .body p {
+    font-size: 20px;
+  }
+
+  .page-break-after {
+    display: block;
+    position: relative;
+    page-break-after: always;
+  }
 }

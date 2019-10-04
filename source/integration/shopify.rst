@@ -13,7 +13,7 @@ Automatic integration
      Talkable integration script located in the Additional Content & Scripts section before
      you start the Automatic integration process. See `Manual integration`_ for details.
 
-1. Get a unique link from Talkable manager to sign up
+1. Contact sales@talkable.com to learn about our pricing and set up an account with Talkable
 
 |space_indent| - Provide a valid Shopify store URL. Example: |example_link|. |br|
 |space_indent| - Choose “Shopify” as your platform during registration process
@@ -35,23 +35,70 @@ Automatic integration
 Manual integration
 ------------------
 
-1. In your Shopify administration panel, go to
-   **Settings** |rarr| **Checkout & Payment**.
-2. Under **Order Processing** |rarr| **Additional Content & Scripts**,
-   insert this code:
+1. In your Shopify Admin follow:
 
-   .. include:: /partials/note_sample_code.rst
+    * Online Store
+    * Themes
+    * Click “Customize” near your current theme
+    * Theme actions → Edit code
+    * Open `Layout / theme.liquid` file
+    * Before closing `</head>` paste the following code:
 
-   .. include:: /samples/ecommerce/platform/shopify.rst
+    .. include:: /samples/ecommerce/platform/shopify_init_script.rst
 
-3. Click **Apply these settings**.
-4. Verify your integration using :ref:`Verifying Integration instructions <integration/verify>`.
+    .. include:: /partials/note_sample_code.rst
+
+    .. include:: /partials/note_sample_integration.rst
+
+    * Click “Save”.
+
+2. Then navigate to:
+
+    * Open `Themes/Templates`
+    * Click `Add a new template`
+    * Create a new template for `page` called `talkable`
+    * Paste the following code inside layout of this page:
+
+    .. code-block:: html
+
+      <div id="talkable-offer"></div>
+
+    * Click “Save”
+
+3. Then navigate to:
+
+    * Open `Online Store / Pages`
+    * Click `Add page`
+    * Select Template suffix `page.talkable`
+    * Click “Save”
+
+4. Then navigate to:
+
+    * Settings
+    * Checkout
+    * Scroll down to **Order Processing**
+    * Paste the following code into **Additional scripts** field:
+
+    .. include:: /samples/ecommerce/platform/shopify.rst
+
+    .. include:: /partials/note_sample_code.rst
+
+    .. include:: /partials/note_sample_integration.rst
+
+5. Click “Save”.
+6. Verify your integration using :ref:`Verifying Integration instructions <integration/verify>`.
+
+Watch a |video| demonstrating the full integration from start to finish.
 
 |br|
 
 .. |example_link| raw:: html
 
   <span class="a">http://123test.myshopify.com</span>
+
+.. |video| raw:: html
+
+   <a href="https://youtu.be/NxVscXSRtSA" target="_blank">video</a>
 
 .. container:: hidden
 

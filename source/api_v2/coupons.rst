@@ -51,7 +51,7 @@ Find a coupon by code
 
 .. code-block:: text
 
-   GET https://www.talkable.com/api/v2/coupons/COUPON_CODE?site_slug=my-store&api_key=i9uil7nQgDjucCiTJu
+   GET https://www.talkable.com/api/v2/coupons/COUPON_CODE?site_slug=my-store
 
 Sample response:
 
@@ -65,6 +65,7 @@ Sample response:
          "id": 233,
          "code": "COUPON_CODE",
          "single_use": false,
+         "used": false,
          "expires_at": "2017-05-03T07:41:30.000-07:00",
          "amount": 10.0,
          "percentage_discount": false
@@ -80,7 +81,12 @@ Sample response:
            "username": null,
            "unsubscribed_at": null,
            "subscribed_at": null,
-           "sub_choice": false
+           "sub_choice": false,
+           "referral_counts": {
+             "total": 0,
+             "approved": 0,
+             "pending": 0
+           }
          },
          "campaign": {
            "id": 196,
@@ -131,7 +137,9 @@ Check if a coupon belongs to a person
 
 .. code-block:: text
 
-   GET https://www.talkable.com/api/v2/coupons/COUPON_CODE/permission/user@example.com?site_slug=my-store&api_key=i9uil7nQgDjucCiTJu
+   GET https://www.talkable.com/api/v2/coupons/COUPON_CODE/permission/user@example.com?site_slug=my-store
+
+Sample response:
 
 .. code-block:: javascript
 
@@ -152,6 +160,7 @@ Check if a coupon belongs to a person
          "id": 233,
          "code": "COUPON_CODE",
          "single_use": false,
+         "used": false,
          "expires_at": "2017-05-03T07:41:30.000-07:00",
          "amount": 10.0,
          "percentage_discount": false
@@ -167,7 +176,12 @@ Check if a coupon belongs to a person
            "username": null,
            "unsubscribed_at": null,
            "subscribed_at": null,
-           "sub_choice": false
+           "sub_choice": false,
+           "referral_counts": {
+             "total": 0,
+             "approved": 0,
+             "pending": 0
+           }
          },
          "campaign": {
            "id": 196,

@@ -21,7 +21,13 @@ with the following line of code:
 
   Activity activity = this;
   AffiliateMember affiliateMember = new AffiliateMember();
-  Talkable.showOffer(activity, affiliateMember);
+  Talkable.showOffer(activity, affiliateMember, new TalkableErrorCallback<TalkableOfferLoadException>() {
+      @Override
+      public void onError(TalkableOfferLoadException error) {
+          // Error handling. Note that it runs on non UI thread
+      }
+  });
+
   ...
 
 .. note::
@@ -43,14 +49,21 @@ flow and show the :ref:`Advocate Share Page <campaigns/views/offers_show>`.
   String idInYourApp = "a8db7683-0f7f-407e-8d12-af2d501035c8"; // Use unique identifier from your system, optional
   String firstName = "John"; // Optional
   String lastName = "Smith"; // Optional
-  Customer customer = new Customer(idInYourApp, firstName, lastName, email);
+  HashMap<String, String> customProperties = new HashMap<String, String>();
+  customProperties.put("property_key", "property_value");
+  Customer customer = new Customer(idInYourApp, firstName, lastName, email, customProperties);
 
   AffiliateMember affiliateMember = new AffiliateMember(customer);
   String campaignTag = "android-invite";
   affiliateMember.setCampaignTag(campaignTag);
 
   Activity activity = this;
-  Talkable.showOffer(activity, affiliateMember);
+  Talkable.showOffer(activity, affiliateMember, new TalkableErrorCallback<TalkableOfferLoadException>() {
+      @Override
+      public void onError(TalkableOfferLoadException error) {
+          // Error handling. Note that it runs on non UI thread
+      }
+  });
   ...
 
 .. container:: hidden

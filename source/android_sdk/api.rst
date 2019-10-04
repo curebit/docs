@@ -29,6 +29,8 @@ But you can do anything you need with just create one.
         }
     });
 
+.. _android-api-origins:
+
 Create origin
 -------------
 
@@ -59,29 +61,34 @@ You need to build `Origin` using one of examples below:
     // Building AffiliateMember
     AffiliateMember origin = new AffiliateMember();
     origin.setCustomer(customer); // Required
+    origin.setCampaignTag("your-campaign-tag");
 
     // Building Event
     String eventNumber = "1"; // Required
     String eventCategory = "event-category"; // Required
     Double subtotal = 10.99; // Optional
-    String coupon = "EXAMPLE-CODE"; // Optional
+    String[] coupons = {"EXAMPLE-CODE"}; // Optional
 
-    Event origin = new Event(eventNumber, eventCategory, subtotal, coupon);
+    Event origin = new Event(eventNumber, eventCategory, subtotal, coupons);
     origin.setCustomer(customer); // Required
+    origin.setCampaignTag("your-campaign-tag");
 
     // Build purchase
     Double price = 10.99;
     Integer quantity = 1;
     String productId = "1";
     Item item = new Item(subtotal, quantity, productId);
+    item.setTitle("Item Title"); // Optional
+    item.setUrl("https://site.com/product.html"); // Optional
+    item.setImageUrl("https://site.com/image.jpg"); // Optional
 
     Double subtotal = price * quantity; // Required
-    Integer orderNumber = 1; // Required
-    Date orderDate = Calendar.getInstance().getTime(); // Required
-    String coupon = "EXAMPLE-CODE"; // Optional
+    String orderNumber = "123456"; // Required
+    String[] coupons = {"EXAMPLE-CODE-1", "EXAMPLE-CODE-2"}; // Optional
 
-    Purchase origin = new Purchase(subtotal, orderNumber, orderDate, coupon);
+    Purchase origin = new Purchase(subtotal, orderNumber, coupons);
     origin.setCustomer(customer); // Required
+    origin.setCampaignTag("your-campaign-tag");
     origin.addItem(item); // Optional
 
 API request
@@ -103,6 +110,8 @@ If you have, you need call method like in the example below:
             // Process error
         }
     });
+
+.. _android-api-rewards:
 
 Retrieve rewards
 ----------------
@@ -163,26 +172,65 @@ This method is used to get offer details by it’s short code. Example:
         }
     });
 
+.. _android-api-sharing:
+
 Create offer share
 ------------------
 
-If you have your own sharing mechanism, you can create shares using API.
-Firstly, you need to create offer using `registerOrigin <Create origin_>`_ method. Example:
+If you have your own sharing mechanism, you can create shares using an API.
+First, you need to create an Offer using the `registerOrigin <Create origin_>`_
+method.
+
+Email Share
+...........
+
+Use the ``createEmailShare`` method to share an offer via email.
 
 .. code-block:: java
 
-    OfferShare share = new OfferShare(offer, SharingChannel.OTHER);
-    TalkableApi.createShare(share, new Callback2<OfferShare[], Reward>() {
-        @Override
-        public void onSuccess(OfferShare[] shares, Reward reward) {
-            // Process success
-        }
+   String subject = "Email Subject"; // optional
+   String body = "Email custom message"; // optional
+   Boolean reminder = false; // whether Talkable should send a reminder email later; true by default; optional
+   ShareEmail email = new ShareEmail(subject, body, reminder); // optional
 
-        @Override
-        public void onError(ApiError e) {
-            // Process error
-        }
-    });
+   String recipients = "friend1@example.com,friend2@example.com"; // emails separated by commas; required
+   EmailOfferShare share = new EmailOfferShare(offer, recipients, email);
+   TalkableApi.createEmailShare(share, new Callback2<JsonElement, Reward>() {
+       @Override
+       public void onSuccess(JsonElement result, Reward reward) {
+           // Process success
+       }
+       @Override
+       public void onError(ApiError e) {
+           // Process error
+       }
+   });
+
+.. note::
+
+   ``JsonElement result`` from ``onSuccess(JsonElement result, Reward reward)``
+   contains data, described in :ref:`Shares API <email-sharing-response>` under
+   the ``result`` key
+
+Social Share
+............
+
+Use the ``createSocialShare`` method to track a social share.
+
+.. code-block:: java
+
+   SharingChannel channel = SharingChannel.FACEBOOK; // required
+   SocialOfferShare share = new SocialOfferShare(offer, channel);
+   TalkableApi.createSocialShare(share, new Callback2<SocialOfferShare, Reward>() {
+       @Override
+       public void onSuccess(SocialOfferShare createdShare, Reward reward) {
+           // Process success
+       }
+       @Override
+       public void onError(ApiError e) {
+           // Process error
+       }
+   });
 
 .. container:: hidden
 

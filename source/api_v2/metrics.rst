@@ -4,7 +4,7 @@
 Metrics
 =======
 
-This API allows you to access Talkable metrics. Go to Reports -> Metric
+This API allows you to access Talkable metrics. Go to Reports → Metric
 descriptions to see the list of available metrics.
 
 |br|
@@ -53,57 +53,57 @@ Offers metric
 
 .. code-block:: text
 
-   GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01&campaign_ids=35944,12345&campaign_tags=invite,test&campaign_status=live&api_key=i9uil7nQgDjucCiTJu
+   GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01&campaign_ids=35944,12345&campaign_tags=invite,test&campaign_status=live
 
 Sample response:
 
 .. code-block:: javascript
 
-  {
-    "ok": true,
-    "result": {
-      "plain": 1234,
-      "formatted": "1234",
-      "result_type": "number"
-    }
-  }
+   {
+     "ok": true,
+     "result": {
+       "plain": 1234,
+       "formatted": "1234",
+       "result_type": "number"
+     }
+   }
 
 Revenue percentage metric with precision
 ........................................
 
 .. code-block:: text
 
-   GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01&precision=2&api_key=i9uil7nQgDjucCiTJu
+   GET https://www.talkable.com/api/v2/metrics/offers?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01&precision=2
 
 Sample response:
 
 .. code-block:: javascript
 
-  {
-    "ok": true,
-    "result": {
-      "plain": 34.35,
-      "formatted": "34.35%",
-      "result_type": "percent"
-    }
-  }
+   {
+     "ok": true,
+     "result": {
+       "plain": 34.35,
+       "formatted": "34.35%",
+       "result_type": "percent"
+     }
+   }
 
 Average order value metric
 ..........................
 
 .. code-block:: text
 
-   GET https://www.talkable.com/api/v2/metrics/average_order_value?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01&api_key=i9uil7nQgDjucCiTJu
+   GET https://www.talkable.com/api/v2/metrics/average_order_value?site_slug=my-store&start_date=2014-09-01&end_date=2014-10-01
 
 Sample response:
 
 .. code-block:: javascript
 
-  {
-    "ok": true,
-    "result": {
-      "plain": 5432,
-      "formatted": "$5432",
-      "result_type": "money"
-    }
-  }
+   {
+     "ok": true,
+     "result": {
+       "plain": 5432,
+       "formatted": "$5432",
+       "result_type": "money"
+     }
+   }

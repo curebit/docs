@@ -46,7 +46,7 @@ Configuration
     You can locate your credentials inside Talkable site:
 
     - Visit https://admin.talkable.com/account/sites to find your site slug
-    - Select site and go to **Dashboard** |rarr| **Settings** |rarr| **Site Settings**.
+    - Select site and go to **Dashboard** → **Settings** → **Site Settings**.
       Find **Integration settings** section and there you will see your API Keys.
       Use only the public key in your application submitted to the App Store.
 
@@ -66,7 +66,7 @@ Configuration
         </dict>
       </array>
 
-  - Add `tkbl-<your-site-slug>` scheme and `fb-messenger` sheme to the list of schemes are queried within application:
+  - Add `tkbl-<your-site-slug>` scheme to the list of schemes that are queried within application. Also add `fb-messenger`, `fbauth2`, `whatsapp` schemes if you going to utilize these sharing channels:
 
     .. code-block:: xml
 
@@ -74,6 +74,8 @@ Configuration
       <array>
         <string>tkbl-your-site-slug</string>
         <string>fb-messenger</string>
+        <string>fbauth2</string>
+        <string>whatsapp</string>
       </array>
 
   .. note::
@@ -92,7 +94,7 @@ Your environment is all set up! Now you need to :ref:`integrate <ios_sdk/integra
 Requirements
 ------------
 
-The SDK supports iOS 8.0 and later.
+The SDK supports iOS 9.0 and later.
 
 .. _`Talkable SDK framework`: https://talkable-downloads.s3.amazonaws.com/ios-sdk/talkable_ios_sdk.zip
 
