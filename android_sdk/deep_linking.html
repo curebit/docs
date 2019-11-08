@@ -17,7 +17,7 @@
   </head><body>
   
     <div class="header">
-      <a rel="nofollow" href="../index.html" class="header-logo">Talkable docs</a>
+      <a href="../index.html" class="header-logo">Talkable docs</a>
           <form class="search-form" action="../search.html" method="get">
             <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
             <input type="submit" class="button search-form-button" value="Search" />
@@ -26,7 +26,7 @@
           </form>
       <div class="header-disclaimer">
         Visit
-        <a rel="nofollow" href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
       </div>
     </div> <!-- /.header -->
   
@@ -34,34 +34,34 @@
   <div class="content-container content clearfix">
       <div class="nav">
         <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_features.html">Advanced Features</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../integration/custom_integration.html">Standard Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Standard Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../integration/magento.html">Magento Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/magento.html">Magento Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../integration/demandware.html">Demandware Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration/demandware.html">Demandware Integration</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../api_v2.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../web_hooks.html">Webhooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Webhooks</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a rel="nofollow" class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
 </ul>
 
       </div>
@@ -73,8 +73,8 @@
           <div class="body" role="main">
             
   <div class="section" id="deep-linking">
-<h1>Deep Linking<a rel="nofollow" class="headerlink" href="#deep-linking" title="Permalink to this headline">¶</a></h1>
-<p>Talkable uses <a rel="nofollow" class="reference external" href="https://www.getsocial.im">GetSocial.im</a> technology to provide installation attribution and
+<h1>Deep Linking<a class="headerlink" href="#deep-linking" title="Permalink to this headline">¶</a></h1>
+<p>Talkable uses <a class="reference external" href="https://www.getsocial.im">GetSocial.im</a> technology to provide installation attribution and
 deep linking functionality with its Android SDK. This guide describes how to
 configure your Talkable campaign for deep linking and add support for it to
 your Android app.</p>
@@ -86,17 +86,17 @@ with the document. Make sure to replace corresponding placeholders
 in examples with the providen values.</p>
 </div>
 <div class="section" id="application-attributes">
-<h2>Application Attributes<a rel="nofollow" class="headerlink" href="#application-attributes" title="Permalink to this headline">¶</a></h2>
+<h2>Application Attributes<a class="headerlink" href="#application-attributes" title="Permalink to this headline">¶</a></h2>
 <p>To enable the deep linking, you should provide us with <em>Package name</em> and
 <em>Signing-certificate fingerprints</em>.</p>
 <p><em>Package name</em> is the <code class="docutils literal notranslate"><span class="pre">applicationId</span></code> in your app-level <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
 <p><em>Signing-certificate fingerprints</em> is a list of SHA-256 hashes of the certificates
 you use to sign your application. You should provide fingerprints of all keys
 you use to sign the app. This tutorial tells you how to do this:
-<a rel="nofollow" class="reference external" href="https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/">Finding SHA256 fingerprint for Android signing keys</a></p>
+<a class="reference external" href="https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/">Finding SHA256 fingerprint for Android signing keys</a></p>
 </div>
 <div class="section" id="configure-sdk-and-dependencies">
-<h2>Configure SDK and Dependencies<a rel="nofollow" class="headerlink" href="#configure-sdk-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<h2>Configure SDK and Dependencies<a class="headerlink" href="#configure-sdk-and-dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Talkable SDK is distributed as an Android Library in <code class="docutils literal notranslate"><span class="pre">aar</span></code> format.</p>
 <ol class="arabic">
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">talkable-sdk.aar</span></code> as a module dependency in Android studio.</p>
@@ -136,7 +136,7 @@ repositories inside your top-level <code class="docutils literal notranslate"><s
 </ol>
 </div>
 <div class="section" id="configure-manifest">
-<h2>Configure Manifest<a rel="nofollow" class="headerlink" href="#configure-manifest" title="Permalink to this headline">¶</a></h2>
+<h2>Configure Manifest<a class="headerlink" href="#configure-manifest" title="Permalink to this headline">¶</a></h2>
 <p>Open your <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> file and configure it by following next steps:</p>
 <ol class="arabic">
 <li><p>Specify Talkable credentials as a meta-data inside the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> tag
@@ -221,7 +221,7 @@ deep link, inside the corresponding tag:</p>
 <li><p>Setup App Links for Android 6+. App Links (supported on Android 6.0
 (API level 23) and higher) allow the user to be taken directly to the app
 on the link click without the browser window in the middle. Check
-the official <a rel="nofollow" class="reference external" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
+the official <a class="reference external" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
 To set them up add intent filter with the following host configuration
 to the activity that must be opened from the deep link:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
@@ -241,7 +241,7 @@ to the activity that must be opened from the deep link:</p>
 </ol>
 </div>
 <div class="section" id="sdk-initialization">
-<h2>SDK Initialization<a rel="nofollow" class="headerlink" href="#sdk-initialization" title="Permalink to this headline">¶</a></h2>
+<h2>SDK Initialization<a class="headerlink" href="#sdk-initialization" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Initialize Talkable in the <code class="docutils literal notranslate"><span class="pre">Application</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
@@ -277,7 +277,7 @@ of the <code class="docutils literal notranslate"><span class="pre">&lt;applicat
 </ol>
 </div>
 <div class="section" id="requirements">
-<h2>Requirements<a rel="nofollow" class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>The SDK supports Android 4.1 and later.</p>
 <div class="hidden docutils container">
 <div class="toctree-wrapper compound">
