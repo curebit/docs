@@ -36,15 +36,6 @@ end
 
 task :build => :environment do
   sh "#{SPHINX_BUILD} #{SPHINX_OPTS}"
-
-  Rake::FileList["#{BUILD_DIR}/html/**/*.html"].each do |filename|
-    File.open(filename, "r+") do |file|
-      old_content = file.read
-      new_content = old_content.gsub('<a href="http', '<a rel="nofollow" href="http')
-      file.tap(&:rewind).write(new_content) if old_content != new_content
-    end
-  end
-
   puts "\nBuild finished. The HTML pages are in #{File.expand_path("#{BUILD_DIR}/html")}."
 end
 
