@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><meta content="Talkable JS integration script embeds Talkable campaign as an iframe with src attribute starting with www.talkable.com domain." name="description" />
+
     <title>Subscribing To Iframe Events &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -96,8 +97,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="subscribing-to-iframe-events">
-<span id="advanced-features-subscribing-to-events"></span><h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="advanced-features-subscribing-to-events"></span><div class="section" id="subscribing-to-iframe-events">
+<h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
 <p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">white-labeling</span></a> is setup).</p>
 <p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
 <p>In order to subscribe to an iframe Event you need to know <cite>id</cite> HTML attribute of the Container DIV that holds it, and the Event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>
