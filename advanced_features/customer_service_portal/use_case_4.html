@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Use case #4: Did my Friend get an email? &#8212; Talkable Documentation</title>
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="canonical" href="https://docs.talkable.com/advanced_features/customer_service_portal/use_case_4.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Use case #5: Blacklisting a user" href="use_case_5.html" />
+    <link rel="prev" title="Use case #3: Who should get the reward?" href="use_case_3.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head><body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../advanced_features.html">Advanced Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../track_methods.html">Referral Tracking Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../personal_coupon_sharing.html">Advocate Personal Coupon Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../converting_into_localization.html">Converting Into Localization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../customer_service_portal.html">Customer Service Portal</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="terminology.html">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use_case_1.html">Use case #1: Where do I find referrals?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use_case_2.html">Use case #2: Where is Advocate reward?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use_case_3.html">Use case #3: Who should get the reward?</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Use case #4: Did my Friend get an email?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use_case_5.html">Use case #5: Blacklisting a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use_case_6.html">Use case #6: Creating a referral for an Advocate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../email_encryption.html">Email Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Integrating Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file_encryption.html">File Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../product_items.html">Including Product Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../passing_custom_data.html">Pass Custom User Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../product_sku.html">Segment With Product SKU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subscribing_to_events.html">Subscribing To Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reg_ex.html">Setting up Campaign Placement criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../white_labeling.html">White-labeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single_sign_on.html">Single Sign-On (SSO)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/custom_integration.html">Standard Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../integration/demandware.html">Demandware Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Webhooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="use-case-4-did-my-friend-get-an-email">
+<span id="advanced-features-customer-service-portal-use-case-4"></span><h1>Use case #4: Did my Friend get an email?<a class="headerlink" href="#use-case-4-did-my-friend-get-an-email" title="Permalink to this headline">¶</a></h1>
+<p>To investigate did an Advocate’s Friend get an email, we’ll need to have their Friends email. All Advocate shares
+are located inside “Shares” tab:</p>
+<img alt="../../_images/shares_1.png" src="../../_images/shares_1.png" />
+<img alt="../../_images/shares_2.png" src="../../_images/shares_2.png" />
+<p>In this case we can see that the Friend received the email, opened it, and clicked through.</p>
+<img alt="../../_images/shares_clicks.png" src="../../_images/shares_clicks.png" />
+<p>If the Friend did not open the email you will see 0 in the ‘Friends’ tab.</p>
+<p>There also can be a case when an Advocate share has several Friends and clicks:</p>
+<img alt="../../_images/friends_click.png" src="../../_images/friends_click.png" />
+<p>‘Friends’ column displays the number of Friend offers created per each share. ‘Clicks’ column displays the number
+of Friend clicks per each share. The numbers may be different in case:</p>
+<ol class="arabic simple">
+<li><p>Multiple Friend offers may be created if one Friend forwarded their email to another person.</p></li>
+<li><p>One individual Friend may click multiple times on the same share link.</p></li>
+</ol>
+<p>Note: for email shares Friend offers are created upon each share while for other sharing channels only whenever
+Friends click on the share link.</p>
+<p>Clicking on details opens “Friend Offers” page where we can see all Friend offers generated in a
+scope of the particular Advocate share.</p>
+<p>The same logic works for other sharing channels such as ‘Direct link’, ‘Facebook’, ‘SMS’ etc.</p>
+<div class="section" id="friend-was-blocked-for-self-referral">
+<h2>4.1 Friend was blocked for self-referral<a class="headerlink" href="#friend-was-blocked-for-self-referral" title="Permalink to this headline">¶</a></h2>
+<p>Again, the above only references valid cases where the Friend should have in fact received a reward. The alternative
+cases are listed below where Talkable identified that a Friend may be trying to game the system and therefore did NOT
+allow them to use the Friend coupon code.</p>
+<p>The most common case is that a <strong>Friend was blocked/flagged for self-referral</strong>. As with the case of the Advocate, we
+find that the most vocal customers are typically trying to game the system.</p>
+<p>To validate this use case simply lookup for the Friend’s email address and browse through referrals to see
+flagged/blocked ones. We see that the blocked reason in this case is “Matching email”, in some cases it may be
+“Similar email match”:</p>
+<img alt="../../_images/marked_as_fraud.png" src="../../_images/marked_as_fraud.png" />
+<div class="hidden docutils container">
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
