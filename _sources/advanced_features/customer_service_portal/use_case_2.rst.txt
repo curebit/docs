@@ -18,7 +18,7 @@ Here are the steps we will take:
 
 .. image:: /_static/img/advanced_features/customer_service_portal/email_details.png
 
-2.1 Email delivery
+Email delivery
 ------------------
 
 Navigate to ‘Emails’ tab after entering in Stephanie’s email. The “Emails” tab shows all emails sent to the Advocate
@@ -30,12 +30,12 @@ To ensure we find the desired email we need to go back to the referral details a
 
 .. image:: /_static/img/advanced_features/customer_service_portal/approve_date.png
 
-Navigating back to “Emails” tab. Look for “Advocate reward paid email” from the same campaign that the referral dated
+Navigating back to the “Emails” tab. Look for “Advocate reward paid email” from the same campaign that the referral dated
 04/16/2015 or a few days later. There is a suitable email with status ‘Clicked’ 04/17/2015:
 
 .. image:: /_static/img/advanced_features/customer_service_portal/email_status.png
 
-Click on ‘Details’ and compare the referral created date with the email created date to ensure that we found
+Click on ‘Details’ and compare the referral creation date with the email created date to ensure that we found
 the desired email:
 
 .. image:: /_static/img/advanced_features/customer_service_portal/email_letter_details.png

@@ -4,7 +4,7 @@
 Use case #4: Did my Friend get an email?
 ========================================
 
-To investigate did an Advocate’s Friend get an email, we’ll need to have their Friends email. All Advocate shares
+To investigate if the Advocate’s Friend has got an email, we’ll need to have their Friend’s email. All Advocate shares
 are located inside “Shares” tab:
 
 .. image:: /_static/img/advanced_features/customer_service_portal/shares_1.png
@@ -36,7 +36,7 @@ scope of the particular Advocate share.
 
 The same logic works for other sharing channels such as ‘Direct link’, ‘Facebook’, ‘SMS’ etc.
 
-4.1 Friend was blocked for self-referral
+Friend was blocked for self-referral
 ----------------------------------------
 
 Again, the above only references valid cases where the Friend should have in fact received a reward. The alternative
