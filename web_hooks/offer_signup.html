@@ -130,9 +130,11 @@ additional parameters will be present:</p>
 <li><p><strong>first_name</strong> — affiliate member’s first name</p></li>
 <li><p><strong>last_name</strong> — affiliate member’s last name</p></li>
 <li><p><strong>username</strong> — affiliate member’s username</p></li>
-<li><p><strong>sub_choice</strong> — subscription choice</p></li>
-<li><p><strong>subscribed_at</strong> — date affiliate member has subscribed</p></li>
-<li><p><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed</p></li>
+<li><p><strong>sub_choice</strong> — subscription choice (optional, present only if the form
+included subscription checkbox)</p></li>
+<li><p><strong>subscribed_at</strong> — date affiliate member has subscribed (deprecated; use opted_in_at instead)</p></li>
+<li><p><strong>opted_in_at</strong> — date affiliate member has subscribed (optional)</p></li>
+<li><p><strong>unsubscribed_at</strong> — date affiliate member has unsubscribed (optional)</p></li>
 <li><p><strong>custom_properties</strong> — hash of affiliate member’s custom properties (optional)</p></li>
 <li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
 <ul>
