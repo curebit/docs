@@ -56,7 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="product_sku.html">Segment With Product SKU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Subscribing To Iframe Events</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#talkable-events">Talkable Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iframe-events-list">Iframe Events List</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="reg_ex.html">Setting up Campaign Placement criteria</a></li>
@@ -101,30 +101,31 @@
             
   <span class="target" id="advanced-features-subscribing-to-events"></span><div class="section" id="subscribing-to-iframe-events">
 <h1>Subscribing To Iframe Events<a class="headerlink" href="#subscribing-to-iframe-events" title="Permalink to this headline">¶</a></h1>
-<p>Talkable JS integration script embeds Talkable campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">white-labeling</span></a> is setup).</p>
-<p>Due to <a class="reference external" href="https://en.wikipedia.org/wiki/Same-origin_policy">same-origin</a> policy it is not possible to pass/get any data to the iframe directly. Talkable JS integration library has a built-in subscription mechanism for that which is based on JS <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">window.postmessage</a> method.</p>
-<p>In order to subscribe to an iframe Event you need to know <cite>id</cite> HTML attribute of the Container DIV that holds it, and the Event name. Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>
-<p>Given we have integrated Campaign for <a class="reference internal" href="../campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><span class="std std-ref">Standalone</span></a> Placement, its JS-generated HTML tag looks similar to the following:</p>
+<p>Talkable integration embeds a referral campaign as an iframe with <cite>src</cite> attribute starting with <cite>www.talkable.com</cite> domain (or custom domain if the <a class="reference internal" href="white_labeling.html#advanced-features-white-labeling"><span class="std std-ref">white-labeling</span></a> is setup).</p>
+<p>In order to subscribe to an iframe Event you need to know <cite>name</cite> HTML attribute of the Talkable iframe and the Event name.
+Iframe ‘name’ attribute may change depending on the <a class="reference internal" href="../campaigns/views.html#campaigns-views"><span class="std std-ref">campaign view</span></a> opened. Thus, to use the right iframe name, open the campaign view you want to capture events from and copy the iframe name from the HTML of the page.</p>
+<p>Below is an example of subscription to <cite>offer_loaded</cite> Talkable iframe Event.</p>
+<p>Given we have integrated Campaign for <a class="reference internal" href="../campaigns/campaign_placements/standalone.html#campaigns-campaign-placements-standalone"><span class="std std-ref">Standalone</span></a> Placement, its HTML iframe reference looks like that:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;talkable-offer&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;talkable-offer-iframe&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.talkable.com/...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Knowing the container <cite>id</cite> attribute is <cite>talkable-offer</cite> the subscription JS will be:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;offer_loaded&quot;</span><span class="p">,</span> <span class="s2">&quot;talkable-offer&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
+<p>Knowing the container <cite>name</cite> attribute of the iframe is <cite>talkable-offer-iframe</cite> the subscription JS will be:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;offer_loaded&quot;</span><span class="p">,</span> <span class="s2">&quot;talkable-offer-iframe&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Talkable campaign iframe is loaded!&quot;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>Notice the callback function with two arguments:</p>
+<p>Notice two arguments passed in the callback:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p><cite>data</cite> object — this is the data which gets passed by the iframe upon firing the event. You can use it to receive data from Talkable.</p></li>
-<li><p><cite>iframe</cite> object — this is iframe’s <a class="reference external" href="http://www.w3schools.com/jsref/dom_obj_frame.asp">HTML DOM reference</a></p></li>
+<li><p><cite>data</cite> object — the data passed by the iframe upon firing the event</p></li>
+<li><p><cite>iframe</cite> object — iframe’s <a class="reference external" href="http://www.w3schools.com/jsref/dom_obj_frame.asp">HTML DOM reference</a></p></li>
 </ol>
 </div></blockquote>
-<div class="section" id="talkable-events">
-<h2>Talkable Events<a class="headerlink" href="#talkable-events" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="iframe-events-list">
+<h2>Iframe Events List<a class="headerlink" href="#iframe-events-list" title="Permalink to this headline">¶</a></h2>
 <p>Talkable campaigns are equipped with the following set of events:</p>
 <blockquote>
 <div><ol class="arabic simple">
