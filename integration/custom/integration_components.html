@@ -107,7 +107,7 @@ that spans every page. All other integration components are dependent on the Ini
 </li>
 <li><p><a class="reference internal" href="#integration-custom-integration-components-post-purchase-script"><span class="std std-ref">Post Purchase Script</span></a></p>
 <p><strong>Script Location.</strong> The Post Purchase script should be placed on the checkout confirmation page.</p>
-<p><strong>Script Dependency.</strong> The Post Purchase script is dependent on the Initialization script to run.</p>
+<p><strong>Script Dependency.</strong> The Post Purchase script should be fired after the Initialization script.</p>
 <p><strong>Data Capture.</strong> This script needs to capture purchase based details</p>
 <ul class="simple">
 <li><p>Email of purchaser</p></li>
@@ -183,20 +183,21 @@ using any calculation, you’re responsible for ensuring that some number is
 passed where division by zero or <cite>null</cite> value does not occur.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="kd">var</span> <span class="nx">_talkable_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">purchase</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Unique order number. Example: &#39;100011&#39;</span>
-      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Order subtotal (pre-tax, post-discount). Example: &#39;23.97&#39;</span>
+      <span class="nx">order_number</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Required - Unique order number. Example: &#39;100011&#39;</span>
+      <span class="nx">subtotal</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Required - Order subtotal (pre-tax, post-discount). Example: &#39;23.97&#39;</span>
       <span class="nx">coupon_code</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Coupon code that was used at checkout (pass multiple as an array). Example: &#39;SAVE20&#39;</span>
-      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="c1">// Optional - used for fraud protection by address. Example: &#39;02222&#39;</span>
+      <span class="nx">shipping_zip</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>  <span class="c1">// Used for fraud protection by address. Example: &#39;02222&#39;</span>
       <span class="nx">shipping_address</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// Full address of the order, make sure to strictly follow a format: &#39;Apt #, Street address, City, State, ZIP, Country&#39;</span>
     <span class="p">},</span>
     <span class="nx">customer</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Customer email address who issued a purchase. Example: &#39;customer@example.com&#39;</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Required - email of the customer who issued a purchase. Example: &#39;customer@example.com&#39;</span>
       <span class="nx">traffic_source</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// The source of the traffic driven to the campaign. Example: &#39;facebook&#39;</span>
     <span class="p">}</span>
   <span class="p">};</span>
-  <span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;register_purchase&#39;</span><span class="p">,</span> <span class="nx">_talkable_data</span><span class="p">]);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Talkable integration code --&gt;</span>
 </pre></div>
@@ -205,11 +206,9 @@ passed where division by zero or <cite>null</cite> value does not occur.</p>
 <h3>Post Purchase Script Notes<a class="headerlink" href="#post-purchase-script-notes" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Mandatory parameters must be passed or the purchase will not be
-passed to Talkable. Mandatory parameters are: {email, order_number,
-subtotal}</p></li>
-<li><p>Coupon code is not mandatory, and Talkable will still consider it a
-valid purchase without this, however if you have the ability to
-surface this variable, then it should be passed.</p></li>
+passed to Talkable. Mandatory parameters are: <cite>email</cite>, <cite>order_number</cite>,
+<cite>subtotal</cite></p></li>
+<li><p><cite>coupon_code</cite> is not mandatory, but it’s preferred to be passed via the script, since some of the fraud checks and referral tracking methods rely on those</p></li>
 <li><p>Shipping parameters are optional but gives the added benefit of
 additional fraud protection</p></li>
 <li><p>If you’re using a payment gateway that directs the user away from
@@ -218,7 +217,7 @@ enabled so that the user returns to the checkout confirmation page to
 allow the post purchase script to run.</p></li>
 <li><p>If you’re using a tag manager <a class="reference internal" href="integration_tag_manager.html#integration-custom-integration-tag-manager"><span class="std std-ref">click here</span></a>.</p></li>
 <li><p>If you need to pass shopping cart line items, to see the alternate
-post purchase integration script <a class="reference internal" href="alternate_post_purchase.html#integration-custom-alternate-post-purchase"><span class="std std-ref">click here</span></a>.</p></li>
+post purchase integration script <a class="reference internal" href="../../advanced_features/product_items.html#advanced-features-product-items"><span class="std std-ref">click here</span></a>.</p></li>
 </ol>
 </div>
 </div>
