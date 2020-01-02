@@ -2,9 +2,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" /><meta content="This API allows you to create visitors." name="description" />
+    <meta charset="utf-8" /><meta content="This API allows you to access traffic sources." name="description" />
 
-    <title>Visitors &#8212; Talkable Documentation</title>
+    <title>Traffic sources &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -12,10 +12,10 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <link rel="canonical" href="https://docs.talkable.com/api_v2/visitors.html" />
+    <link rel="canonical" href="https://docs.talkable.com/api_v2/traffic_sources.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Origins" href="origins.html" />
-    <link rel="prev" title="Campaigns" href="campaigns.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Webhooks" href="../web_hooks.html" />
+    <link rel="prev" title="Metrics" href="metrics.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -60,10 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Referral Program via API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Visitors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
@@ -72,7 +69,10 @@
 <li class="toctree-l2"><a class="reference internal" href="rewards.html">Rewards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="traffic_sources.html">Traffic sources</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic sources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -94,13 +94,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="api-v2-visitors"></span><div class="section" id="visitors">
-<h1>Visitors<a class="headerlink" href="#visitors" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to create visitors. See examples below.</p>
+  <span class="target" id="api-v2-traffic-sources"></span><div class="section" id="traffic-sources">
+<h1>Traffic sources<a class="headerlink" href="#traffic-sources" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to access traffic sources. Traffic source can be used to filter metrics.</p>
 <p><br></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /visitors
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET /traffic_sources
 </pre></div>
 </div>
+<p>Returns all traffic sources</p>
 <div class="ptable docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -117,32 +118,23 @@
 <td><p>Your Talkable Site ID. You can get this from your
 Talkable dashboard after you log in and create a site.</p></td>
 </tr>
-<tr class="row-odd"><td><p>data</p></td>
-<td><p>Hash or JSON object with following properties:</p>
-<ul class="simple">
-<li><p>uuid - UUID of new visitor that will be created</p></li>
-</ul>
-</td>
-</tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-a-visitor">
-<h3>Create a visitor<a class="headerlink" href="#create-a-visitor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;uuid&quot;:&quot;b3967d36-4e7f-46bc-92b3-57344347cd6a&quot;}}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/visitors
+<div class="section" id="offers-metric">
+<h3>Offers metric<a class="headerlink" href="#offers-metric" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/traffic_sources?site_slug=my-store
 </pre></div>
 </div>
 <p>Sample response:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;uuid&quot;</span><span class="o">:</span> <span class="s2">&quot;b3967d36-4e7f-46bc-92b3-57344347cd6a&quot;</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;talkable-gem&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;post-event&quot;</span> <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
