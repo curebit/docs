@@ -68,7 +68,7 @@ Returns a metric value which includes plain value, formatted value and result’
      metric            Specific metric name.
      start_date        Start of the period for which data is pulled, inclusively.
      end_date          End of the period for which data is pulled, inclusively.
-     detalize_by       Hash of specific detalization parameters for
+     detalize_by       JSON object with specific detalization parameters for
                        which data is pulled.
 
                        Options:
@@ -162,3 +162,50 @@ Sample response:
        "result_type": "money"
      }
    }
+
+Detalized metric
+................
+
+.. code-block:: text
+
+  GET https://admin.talkable.com/api/v2/metrics/shares/detalize?site_slug=my-store&start_date=2019-12-25&end_date=2020-01-21&sharing_channels%5B%5D=Email&sharing_channels%5B%5D=SMS&detalize_by%5Bsharing_channels%5D=true&detalize_by%5Bperiod%5D=month
+
+Sample response:
+
+.. code-block:: javascript
+
+  {
+    "ok": true,
+    "result": {
+      "detalized": [
+        {
+          "formatted": "765",
+          "period": "12/25/19 - 12/31/19",
+          "plain": 765,
+          "result_type": "number",
+          "sharing_channel": "Email"
+        },
+        {
+          "formatted": "567",
+          "period": "1/1/20 - 1/21/20",
+          "plain": 567,
+          "result_type": "number",
+          "sharing_channel": "Email"
+        },
+        {
+          "formatted": "123",
+          "period": "12/25/19 - 12/31/19",
+          "plain": 123,
+          "result_type": "number",
+          "sharing_channel": "SMS"
+        },
+        {
+          "formatted": "321",
+          "period": "1/1/20 - 1/21/20",
+          "plain": 321,
+          "result_type": "number",
+          "sharing_channel": "SMS"
+        }
+      ]
+    }
+  }
