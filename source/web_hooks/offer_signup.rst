@@ -1,6 +1,9 @@
 .. _web_hooks/offer_signup:
 .. include:: /partials/common.rst
 
+.. meta::
+   :description: Advocate Signup Webhook notifies your endpoint of an Advocate signup forms submission.
+
 Advocate Signup Webhook
 =======================
 
@@ -49,9 +52,11 @@ additional parameters will be present:
 * **first_name** — affiliate member’s first name
 * **last_name** — affiliate member’s last name
 * **username** — affiliate member’s username
-* **sub_choice** — subscription choice
-* **subscribed_at** — date affiliate member has subscribed
-* **unsubscribed_at** — date affiliate member has unsubscribed
+* **sub_choice** — subscription choice (optional, present only if the form
+  included subscription checkbox)
+* **subscribed_at** — date affiliate member has subscribed (deprecated; use opted_in_at instead)
+* **opted_in_at** — date affiliate member has subscribed (optional)
+* **unsubscribed_at** — date affiliate member has unsubscribed (optional)
 * **custom_properties** — hash of affiliate member’s custom properties (optional)
 * **referral_counts** - subhash of |advocate|'s referral counts
 

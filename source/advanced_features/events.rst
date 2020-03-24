@@ -1,6 +1,9 @@
 .. _advanced_features/events:
 .. include:: /partials/common.rst
 
+.. meta::
+   :description: In addition to regular referral campaigns, Talkable also supports custom events that can be split into multiple categories.
+
 Integrating Events
 ==================
 
@@ -87,11 +90,11 @@ Here is a list of available properties each event can include:
                            should have a unique event number, duplicate events will not be
                            saved. |br|
                            Example: ``'18934671af'``.
-                         * **subtotal** – event subtotal, Any valid positive number
+                         * **subtotal** (optional) – event subtotal. Any valid positive number
                            (including floats) or 0 are allowed. Preferably it should be passed
                            as a string to avoid JavaScript issues with rounding floats. |br|
                            Example: ``'198.5'``.
-                         * **coupon_code**  – a coupon code that was applied to
+                         * **coupon_code** (optional) – a coupon code that was applied to
                            this event. |br|
                            Example: ``'SAVE20'``. You can also pass multiple coupons as
                            an array: ``['SAVE20', 'SAVE5']`` if they were stacked.

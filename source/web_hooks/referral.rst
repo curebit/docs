@@ -1,6 +1,9 @@
 .. _web_hooks/referral:
 .. include:: /partials/common.rst
 
+.. meta::
+   :description: Referral Webhook notifies your endpoint that your brand Advocate’s referral status has become “Approved” or “Unblocked”.
+
 Referral Webhook
 ================
 
@@ -25,14 +28,6 @@ Talkable Referral Webhook is triggered any time an Advocate referral status has 
 **Note:** Referral Webhook triggers only for Advocate rewards specifically from a Friend
 Purchase or Friend Event (such as signup event or subscription purchase event).
 To receive notification of both Advocate and Friend rewards use the Rewards Webhook.
-
-.. raw:: html
-
-   <h2>How to use Referral Webhook</h2>
-
-To approve a referral, respond with 200 code to the webhook request.
-
-To block a referral, first void the referral using :ref:`Referrals API <api_v2/referrals>`, and then respond with 200 code to the webhook request.
 
 .. raw:: html
 
