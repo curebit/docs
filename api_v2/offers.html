@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" /><meta content="This API allows you to access Advocate offers." name="description" />
 
     <title>Advocate Offers &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/api_v2/offers.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Shares" href="shares.html" />
@@ -146,7 +146,55 @@ generated sharing links.</p>
       <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/iEov9g&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/5B3xO1&quot;</span>
+      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/5B3xO1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;incentives&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;referrer&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;action_type&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;percentage&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s2">&quot;criteria_config&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_optin&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;subtotal_min&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;subtotal_max&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;referrals_min&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;referrals_max&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;reward_uniqueness&quot;</span><span class="o">:</span> <span class="s2">&quot;once_per_friend&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;friend_event_category&quot;</span><span class="o">:</span> <span class="s2">&quot;purchase&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;has_liquid_criteria&quot;</span><span class="o">:</span> <span class="kc">false</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;for_advocate&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;for_friend&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;highest_amount&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;coupon_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;friend_new_customer&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;action_type&quot;</span><span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;percentage&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s2">&quot;criteria_config&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;once_per_person&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_optin&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;allow_on_expired_offer&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;allow_on_self_referral&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;has_liquid_criteria&quot;</span><span class="o">:</span> <span class="kc">false</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;for_advocate&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;for_friend&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;highest_amount&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_new_customer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;coupon_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;trigger_widget&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;invite&quot;</span><span class="p">]</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -166,7 +214,55 @@ generated sharing links.</p>
       <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;dZpBwd&quot;</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/iEov9g&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/5B3xO1&quot;</span>
+      <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/5B3xO1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;incentives&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;referrer&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;action_type&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;percentage&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s2">&quot;criteria_config&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_optin&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;subtotal_min&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;subtotal_max&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;referrals_min&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;referrals_max&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;reward_uniqueness&quot;</span><span class="o">:</span> <span class="s2">&quot;once_per_friend&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;friend_event_category&quot;</span><span class="o">:</span> <span class="s2">&quot;purchase&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;has_liquid_criteria&quot;</span><span class="o">:</span> <span class="kc">false</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;for_advocate&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;for_friend&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;highest_amount&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;coupon_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;friend_new_customer&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;action_type&quot;</span><span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;percentage&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+          <span class="s2">&quot;criteria_config&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;once_per_person&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;new_optin&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;allow_on_expired_offer&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;allow_on_self_referral&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;has_liquid_criteria&quot;</span><span class="o">:</span> <span class="kc">false</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;for_advocate&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+          <span class="s2">&quot;for_friend&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;highest_amount&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+          <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;friend_new_customer&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;coupon_expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;trigger_widget&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;invite&quot;</span><span class="p">]</span>
     <span class="p">},</span>
     <span class="s2">&quot;claim_links&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;facebook&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/8L6xO2&quot;</span><span class="p">,</span>
