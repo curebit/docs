@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Native Integration via API &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <link rel="canonical" href="https://docs.talkable.com/ios_sdk/api_integration.html" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advanced Usage" href="advanced.html" />
     <link rel="prev" title="Social Sharing" href="social_sharing.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -90,8 +89,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="native-integration-via-api">
-<span id="ios-sdk-api-integration"></span><h1>Native Integration via API<a class="headerlink" href="#native-integration-via-api" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="ios-sdk-api-integration"></span><div class="section" id="native-integration-via-api">
+<h1>Native Integration via API<a class="headerlink" href="#native-integration-via-api" title="Permalink to this headline">¶</a></h1>
 <p>Talkable provides an API that can be utilized to implement a fully native referral program interface if you don’t want to use
 included WKWebView-based functionality. Below are the methods necessary to integrate the Talkable referral loop into your iOS app.</p>
 <div class="section" id="create-an-origin">
@@ -182,14 +181,14 @@ create a <a class="reference internal" href="../api_v2/shares.html#api-v2-shares
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method will be called automatically when you use <code class="docutils literal notranslate"><span class="pre">socialShare:</span></code> or <code class="docutils literal notranslate"><span class="pre">nativeShare:</span></code> methods.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">This method will be called automatically when you use <code class="docutils literal notranslate"><span class="pre">socialShare:</span></code> or <code class="docutils literal notranslate"><span class="pre">nativeShare:</span></code> methods.</p>
 </div>
 </div>
 <div class="section" id="legacy-social-sharing">
 <h3>Legacy social sharing<a class="headerlink" href="#legacy-social-sharing" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic" start="3">
-<li><p>The legacy <code class="docutils literal notranslate"><span class="pre">socialShare:</span></code> method was used prior to v1.4.9 and is provided for backwards compatibility.
+<li><p class="first">The legacy <code class="docutils literal notranslate"><span class="pre">socialShare:</span></code> method was used prior to v1.4.9 and is provided for backwards compatibility.
 It will attempt to display a sharing dialog directly using the deprecated Social.framework.
 Only the Facebook sharing channel is currently supported.</p>
 <div class="highlight-objc notranslate"><div class="highlight"><pre><span></span><span class="bp">SLComposeViewController</span><span class="o">*</span> <span class="n">sheet</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Talkable</span> <span class="n">manager</span><span class="p">]</span> <span class="nl">socialShare</span><span class="p">:</span><span class="l">@{</span>
@@ -203,8 +202,8 @@ Only the Facebook sharing channel is currently supported.</p>
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Starting with v1.4.9, this method is deprecated and offers only limited Facebook sharing support.
+<p class="first admonition-title">Warning</p>
+<p class="last">Starting with v1.4.9, this method is deprecated and offers only limited Facebook sharing support.
 Native sharing or custom implementation based on Facebook/Twitter SDK should be used instead.
 See <a class="reference internal" href="social_sharing.html#ios-sdk-social-sharing"><span class="std std-ref">Social Sharing</span></a> for details.</p>
 </div>
