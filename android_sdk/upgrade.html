@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Upgrade &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/android_sdk/upgrade.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Testing" href="testing.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -175,24 +175,24 @@ Improved native features stability.</p>
 </li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">showOffer</span></code> functions with a callback parameter.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// From</span>
-<span class="n">showOffer</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="n">origin</span><span class="p">);</span>
+<span class="n">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">origin</span><span class="o">);</span>
 
 <span class="c1">// To</span>
-<span class="n">showOffer</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="k">new</span> <span class="n">TalkableErrorCallback</span><span class="o">&lt;</span><span class="n">TalkableOfferLoadException</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">showOffer</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="n">origin</span><span class="o">,</span> <span class="k">new</span> <span class="n">TalkableErrorCallback</span><span class="o">&lt;</span><span class="n">TalkableOfferLoadException</span><span class="o">&gt;()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="p">(</span><span class="kd">final</span> <span class="n">TalkableOfferLoadException</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="kd">final</span> <span class="n">TalkableOfferLoadException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// Error handling. Note that it runs on non UI thread</span>
-    <span class="p">}</span>
-<span class="p">});</span>
+    <span class="o">}</span>
+<span class="o">});</span>
 </pre></div>
 </div>
 </li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">Talkable.setSiteSlug</span></code> functions without Context as a parameter.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// From</span>
-<span class="n">setSiteSlug</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s">&quot;site-slug&quot;</span><span class="p">);</span>
+<span class="n">setSiteSlug</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;site-slug&quot;</span><span class="o">);</span>
 
 <span class="c1">// To</span>
-<span class="n">setSiteSlug</span><span class="p">(</span><span class="s">&quot;site-slug&quot;</span><span class="p">);</span>
+<span class="n">setSiteSlug</span><span class="o">(</span><span class="s">&quot;site-slug&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 </li>
@@ -263,16 +263,16 @@ Look in <a class="reference internal" href="advanced.html#android-sdk-advanced">
 </div>
 </li>
 <li><p>Initialize Talkable in the <code class="docutils literal notranslate"><span class="pre">Application</span></code>.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">android.app.Application</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.app.Application</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">();</span>
-        <span class="n">Talkable</span><span class="p">.</span><span class="na">initialize</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+        <span class="n">Talkable</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -282,17 +282,17 @@ the <code class="docutils literal notranslate"><span class="pre">&lt;application
 </div>
 </li>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">Talkable.trackAppOpen</span></code> inside you main activity class, like before.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.talkable.sdk.Talkable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">...</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
 
-        <span class="n">Talkable</span><span class="p">.</span><span class="na">trackAppOpen</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span class="n">Talkable</span><span class="o">.</span><span class="na">trackAppOpen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 </li>
