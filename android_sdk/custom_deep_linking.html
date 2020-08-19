@@ -108,7 +108,7 @@ and opened for the first time, show them personalized messages, and more.</p>
 <p class="admonition-title">Note</p>
 <p>If you have configured a custom Friend Destination URL for your campaign,
 make sure the following GET parameters are present in the final URL:
-<code class="docutils literal notranslate"><span class="pre">?talkable_visitor_uuid={{</span> <span class="pre">visitor_uuid</span> <span class="pre">}}&amp;talkable_visitor_offer_id={{</span> <span class="pre">friend_offer.id</span> <span class="pre">}}</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">?tkbl_cvuuid={{</span> <span class="pre">visitor_uuid</span> <span class="pre">}}&amp;talkable_visitor_offer_id={{</span> <span class="pre">friend_offer.id</span> <span class="pre">}}</span></code>.</p>
 <p>All major deep linking providers support passing additional GET parameters
 with the deep link. This functionality is used to pass the Friend’s identifying
 information to the Talkable SDK in your iOS app. To use this functionality with
@@ -129,12 +129,12 @@ following types:</p>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// For Branch.io</span>
 
-<span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">initSession</span><span class="o">(</span><span class="k">new</span> <span class="n">Branch</span><span class="o">.</span><span class="na">BranchReferralInitListener</span><span class="o">()</span> <span class="o">{</span>
+<span class="n">Branch</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">initSession</span><span class="p">(</span><span class="k">new</span> <span class="n">Branch</span><span class="p">.</span><span class="na">BranchReferralInitListener</span><span class="p">()</span> <span class="p">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInitFinished</span><span class="o">(</span><span class="n">JSONObject</span> <span class="n">referringParams</span><span class="o">,</span> <span class="n">BranchError</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">TalkableDeepLinking</span><span class="o">.</span><span class="na">track</span><span class="o">(</span><span class="n">referringParams</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">},</span> <span class="k">this</span><span class="o">.</span><span class="na">getIntent</span><span class="o">().</span><span class="na">getData</span><span class="o">(),</span> <span class="k">this</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInitFinished</span><span class="p">(</span><span class="n">JSONObject</span> <span class="n">referringParams</span><span class="p">,</span> <span class="n">BranchError</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TalkableDeepLinking</span><span class="p">.</span><span class="na">track</span><span class="p">(</span><span class="n">referringParams</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="na">getIntent</span><span class="p">().</span><span class="na">getData</span><span class="p">(),</span> <span class="k">this</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -146,37 +146,37 @@ installs only when desired conditions are met.</p>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// For GetSocial</span>
 
-<span class="n">GetSocial</span><span class="o">.</span><span class="na">getReferralData</span><span class="o">(</span><span class="k">new</span> <span class="n">FetchReferralDataCallback</span><span class="o">()</span> <span class="o">{</span>
+<span class="n">GetSocial</span><span class="p">.</span><span class="na">getReferralData</span><span class="p">(</span><span class="k">new</span> <span class="n">FetchReferralDataCallback</span><span class="p">()</span> <span class="p">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">ReferralData</span> <span class="n">referralData</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">referralData</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">referralData</span><span class="o">.</span><span class="na">isFirstMatch</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">TalkableDeepLinking</span><span class="o">.</span><span class="na">track</span><span class="o">(</span><span class="n">referralData</span><span class="o">.</span><span class="na">getLinkParams</span><span class="o">().</span><span class="na">getStringValues</span><span class="o">());</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="p">(</span><span class="nd">@Nullable</span> <span class="n">ReferralData</span> <span class="n">referralData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">referralData</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">referralData</span><span class="p">.</span><span class="na">isFirstMatch</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">TalkableDeepLinking</span><span class="p">.</span><span class="na">track</span><span class="p">(</span><span class="n">referralData</span><span class="p">.</span><span class="na">getLinkParams</span><span class="p">().</span><span class="na">getStringValues</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">GetSocialException</span> <span class="n">error</span><span class="o">)</span> <span class="o">{}</span>
-<span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="p">(</span><span class="n">GetSocialException</span> <span class="n">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// For Firebase</span>
 
-<span class="n">FirebaseDynamicLinks</span><span class="o">.</span><span class="na">getInstance</span><span class="o">()</span>
-    <span class="o">.</span><span class="na">getDynamicLink</span><span class="o">(</span><span class="n">getIntent</span><span class="o">())</span>
-    <span class="o">.</span><span class="na">addOnSuccessListener</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">OnSuccessListener</span><span class="o">&lt;</span><span class="n">PendingDynamicLinkData</span><span class="o">&gt;()</span> <span class="o">{</span>
+<span class="n">FirebaseDynamicLinks</span><span class="p">.</span><span class="na">getInstance</span><span class="p">()</span>
+    <span class="p">.</span><span class="na">getDynamicLink</span><span class="p">(</span><span class="n">getIntent</span><span class="p">())</span>
+    <span class="p">.</span><span class="na">addOnSuccessListener</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">new</span> <span class="n">OnSuccessListener</span><span class="o">&lt;</span><span class="n">PendingDynamicLinkData</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
         <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">PendingDynamicLinkData</span> <span class="n">pendingDynamicLinkData</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="p">(</span><span class="n">PendingDynamicLinkData</span> <span class="n">pendingDynamicLinkData</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// Get deep link from result (may be null if no link is found)</span>
-            <span class="n">Uri</span> <span class="n">deepLink</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">pendingDynamicLinkData</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">deepLink</span> <span class="o">=</span> <span class="n">pendingDynamicLinkData</span><span class="o">.</span><span class="na">getLink</span><span class="o">();</span>
-            <span class="o">}</span>
+            <span class="n">Uri</span> <span class="n">deepLink</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pendingDynamicLinkData</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">deepLink</span> <span class="o">=</span> <span class="n">pendingDynamicLinkData</span><span class="p">.</span><span class="na">getLink</span><span class="p">();</span>
+            <span class="p">}</span>
 
-            <span class="k">if</span> <span class="o">(</span><span class="n">deepLink</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">TalkableDeepLinking</span><span class="o">.</span><span class="na">track</span><span class="o">(</span><span class="n">deepLink</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">})</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">deepLink</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">TalkableDeepLinking</span><span class="p">.</span><span class="na">track</span><span class="p">(</span><span class="n">deepLink</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
 </pre></div>
 </div>
 <p>Calling the <code class="docutils literal notranslate"><span class="pre">TalkableDeepLinking.track()</span></code> method will register the app
