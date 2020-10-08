@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="Reward Webhook notifies your endpoint that a reward is ready to be given, or it has been already given." name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Reward Webhook notifies your endpoint that a reward is ready to be given, or it has been already given." name="description" />
 
     <title>Reward Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/web_hooks/reward.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Post Share Webhook" href="post_share.html" />
@@ -211,14 +212,33 @@ included subscription checkbox)</p></li>
 </li>
 <li><p><strong>reward</strong> — subhash of parameters describing the reward itself</p>
 <ul class="simple">
+<li><p><strong>id</strong> — unique identifier of the reward</p></li>
 <li><p><strong>reason</strong> — reason why this reward was given</p></li>
+<li><p><strong>status</strong> — status of the reward (i.e. “Paid”, “Unpaid”, “Voided”)</p></li>
 <li><p><strong>incentive_type</strong> — type of incentive (rebate, discount_coupon, other)</p></li>
-<li><p><strong>incentive_description</strong> — description of incentive (human readable, equals
+<li><p><strong>incentive_identifier</strong> — unique human-readable identifier of the incentive</p></li>
+<li><p><strong>incentive_description</strong> — description of incentive (human-readable, equals
 to non monetary description if <strong>incentive_type</strong> is other)</p></li>
 <li><p><strong>amount</strong> — amount of money to reward (null when <strong>incentive_type</strong> is
 discount_coupon or other)</p></li>
-<li><p><strong>coupon_code</strong> — coupon code received by person as a reward (null when
-<strong>incentive_type</strong> is rebate or other)</p></li>
+<li><p><strong>coupon</strong> — reward coupon details (null when <strong>incentive_type</strong>
+is rebate or other)</p>
+<ul>
+<li><p><strong>active</strong> — true if the coupon has not expired yet</p></li>
+<li><p><strong>amount</strong> — amount of the discount that the coupon provides</p></li>
+<li><p><strong>code</strong> — unique coupon code</p></li>
+<li><p><strong>description</strong> — human-readable representation of the discount
+(e.g. “$15” or “10%”)</p></li>
+<li><p><strong>id</strong> — unique identifier of the coupon</p></li>
+<li><p><strong>percentage_discount</strong> — true if the coupon amount is percentage
+as opposed to a fixed value</p></li>
+<li><p><strong>single_use</strong> — true if the coupon is single-use</p></li>
+<li><p><strong>usages</strong> — number of times the coupon has been used
+(null if the coupon is multi-use)</p></li>
+<li><p><strong>used</strong> — true if the coupon has been used</p></li>
+<li><p><strong>valid_until</strong> — expiration time of the coupon</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p><strong>advocate_origin</strong> - subhash of data related to the advocate event</p>
@@ -296,14 +316,14 @@ automatically.</p>
 <h2>Sample payload | Reason = signup</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">186742865</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">186742865</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;910930418&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;advocate_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">186742865</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">186742865</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;910930418&quot;</span><span class="p">,</span>
@@ -311,9 +331,9 @@ automatically.</p>
   <span class="p">},</span>
   <span class="s2">&quot;friend_origin&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">500548529</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">500548529</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">500548529</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">500548529</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -324,7 +344,7 @@ automatically.</p>
     <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;1a2PV&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">8261257</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">8261257</span><span class="p">,</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;signup&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;signup coupon \&quot;SAMPLE-COUPON-CODE\&quot; for $10.00 off&quot;</span><span class="p">,</span>
@@ -340,7 +360,7 @@ automatically.</p>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
       <span class="s2">&quot;percentage_discount&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">60477154</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">60477154</span><span class="p">,</span>
       <span class="s2">&quot;expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">},</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;SAMPLE-COUPON-CODE&quot;</span><span class="p">,</span>
@@ -355,14 +375,14 @@ automatically.</p>
 <h2>Sample payload | Reason = shared</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">186742865</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">186742865</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;910930418&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;advocate_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">186742865</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">186742865</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;910930418&quot;</span><span class="p">,</span>
@@ -370,9 +390,9 @@ automatically.</p>
   <span class="p">},</span>
   <span class="s2">&quot;friend_origin&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">500548529</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">500548529</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">500548529</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">500548529</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -384,7 +404,7 @@ automatically.</p>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">8260964</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">8260964</span><span class="p">,</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;shared coupon \&quot;SAMPLE-COUPON-CODE\&quot; for $10.00 off&quot;</span><span class="p">,</span>
@@ -400,7 +420,7 @@ automatically.</p>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
       <span class="s2">&quot;percentage_discount&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">60477154</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">60477154</span><span class="p">,</span>
       <span class="s2">&quot;expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">},</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;SAMPLE-COUPON-CODE&quot;</span><span class="p">,</span>
@@ -416,7 +436,7 @@ automatically.</p>
   <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;advocate_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">395950177</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">395950177</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;180484020&quot;</span><span class="p">,</span>
@@ -424,9 +444,9 @@ automatically.</p>
   <span class="p">},</span>
   <span class="s2">&quot;friend_origin&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">312538309</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">312538309</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">312538309</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">312538309</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -438,7 +458,7 @@ automatically.</p>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">8261304</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">8261304</span><span class="p">,</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;click&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;shared coupon \&quot;SAMPLE-COUPON-CODE\&quot; for $10 off&quot;</span><span class="p">,</span>
@@ -454,7 +474,7 @@ automatically.</p>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
       <span class="s2">&quot;percentage_discount&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">60477154</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">60477154</span><span class="p">,</span>
       <span class="s2">&quot;expires_at&quot;</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">},</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;SAMPLE-COUPON-CODE&quot;</span><span class="p">,</span>
@@ -477,13 +497,13 @@ automatically.</p>
     <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-08-27T21:42:23.060+03:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">280695079</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">280695079</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;288015920&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;6.31&quot;</span><span class="p">,</span>
@@ -492,7 +512,7 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT25279&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;advocate_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">280695079</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">280695079</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;288015920&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;6.31&quot;</span><span class="p">,</span>
@@ -501,7 +521,7 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT25279&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;friend_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">264084636</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">264084636</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;4190583&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;73.41&quot;</span><span class="p">,</span>
@@ -511,9 +531,9 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT40052&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">484002505</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">484002505</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">484002505</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">484002505</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -525,7 +545,7 @@ automatically.</p>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">8261305</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">8261305</span><span class="p">,</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00 back&quot;</span><span class="p">,</span>
@@ -552,13 +572,13 @@ automatically.</p>
     <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-08-27T21:45:29.519+03:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">818629076</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">818629076</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;416466456&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;48.39&quot;</span><span class="p">,</span>
@@ -568,7 +588,7 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT862&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;advocate_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">77856467</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">77856467</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;529868349&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;25.76&quot;</span><span class="p">,</span>
@@ -577,7 +597,7 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT15105&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;friend_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">818629076</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">818629076</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;416466456&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="s2">&quot;48.39&quot;</span><span class="p">,</span>
@@ -587,9 +607,9 @@ automatically.</p>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT862&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">944706822</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">944706822</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">944706822</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">944706822</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -601,7 +621,7 @@ automatically.</p>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;reward&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">8261300</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">8261300</span><span class="p">,</span>
     <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;referred&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00 back&quot;</span><span class="p">,</span>
@@ -624,6 +644,7 @@ automatically.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
