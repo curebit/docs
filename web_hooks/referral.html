@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="Referral Webhook notifies your endpoint that your brand Advocate’s referral status has become “Approved”." name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Referral Webhook notifies your endpoint that your brand Advocate’s referral status has become “Approved”." name="description" />
 
     <title>Referral Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/web_hooks/referral.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Reward Webhook" href="reward.html" />
@@ -230,9 +231,9 @@ merchant’s side. More information on the reward is specified in
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">593427266</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">593427266</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">593427266</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">593427266</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -244,7 +245,7 @@ merchant’s side. More information on the reward is specified in
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span>
   <span class="p">},</span>
   <span class="s2">&quot;referrer&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">715729561</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">715729561</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
@@ -255,16 +256,16 @@ merchant’s side. More information on the reward is specified in
       <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;5.00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5.00 back&quot;</span><span class="p">,</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">159843498</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">159843498</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;64227025&quot;</span><span class="p">,</span>
@@ -272,7 +273,7 @@ merchant’s side. More information on the reward is specified in
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">&quot;referred&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">11192772</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">11192772</span><span class="p">,</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
@@ -283,16 +284,16 @@ merchant’s side. More information on the reward is specified in
       <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
       <span class="p">}</span>
     <span class="p">},</span>
     <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;0.00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;First Month Free&quot;</span><span class="p">,</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">147886587</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">147886587</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
       <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;450901776&quot;</span><span class="p">,</span>
       <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">35.03</span><span class="p">,</span>
@@ -303,7 +304,7 @@ merchant’s side. More information on the reward is specified in
   <span class="p">},</span>
   <span class="s2">&quot;advocate_rewards&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">715729561</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">715729561</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
@@ -315,16 +316,16 @@ merchant’s side. More information on the reward is specified in
         <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+          <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+          <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;5.00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5.00 back&quot;</span><span class="p">,</span>
       <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">159843498</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">159843498</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
         <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
         <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;64227025&quot;</span><span class="p">,</span>
@@ -334,7 +335,7 @@ merchant’s side. More information on the reward is specified in
   <span class="p">],</span>
   <span class="s2">&quot;friend_rewards&quot;</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">11192772</span><span class="p">,</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">11192772</span><span class="p">,</span>
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
@@ -345,16 +346,16 @@ merchant’s side. More information on the reward is specified in
         <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
         <span class="s2">&quot;unsubscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+          <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+          <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
         <span class="p">}</span>
       <span class="p">},</span>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;0.00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;First Month Free&quot;</span><span class="p">,</span>
       <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">147886587</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">147886587</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
         <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;450901776&quot;</span><span class="p">,</span>
         <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">35.03</span><span class="p">,</span>
@@ -365,7 +366,7 @@ merchant’s side. More information on the reward is specified in
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">&quot;referred_origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">6400368</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">6400368</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;459179054&quot;</span><span class="p">,</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">11.39</span><span class="p">,</span>
@@ -386,6 +387,7 @@ merchant’s side. More information on the reward is specified in
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
