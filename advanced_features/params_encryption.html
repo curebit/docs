@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="It is possible to encrypt Advocate and Friend emails on back-end if you want to provide additional security." name="description" />
 
-    <title>Email Encryption &#8212; Talkable Documentation</title>
+    <title>Params Encryption &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -13,7 +13,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
-    <link rel="canonical" href="https://docs.talkable.com/advanced_features/email_encryption.html" />
+    <link rel="canonical" href="https://docs.talkable.com/advanced_features/params_encryption.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Integrating Events" href="events.html" />
     <link rel="prev" title="Use case #6: Creating a referral for an Advocate" href="customer_service_portal/use_case_6.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -48,7 +48,7 @@
 <li class="toctree-l2"><a class="reference internal" href="personal_coupon_sharing.html">Advocate Personal Coupon Sharing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customer_service_portal.html">Customer Service Portal</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Email Encryption</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Params Encryption</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#passing-email-as-a-get-parameter-to-standalone-campaign">Passing email as a GET parameter to Standalone Campaign</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ruby-example">Ruby Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#java-example">Java Example</a></li>
@@ -103,11 +103,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="advanced-features-email-encryption"></span><div class="section" id="email-encryption">
-<h1>Email Encryption<a class="headerlink" href="#email-encryption" title="Permalink to this headline">¶</a></h1>
-<p>For additional security, it is possible to encrypt Advocate and Friend emails on back-end.
+  <span class="target" id="advanced-features-params-encryption"></span><div class="section" id="params-encryption">
+<h1>Params Encryption<a class="headerlink" href="#params-encryption" title="Permalink to this headline">¶</a></h1>
+<p>For additional security, it is possible to encrypt Advocate email, Friend email and <a class="reference internal" href="passing_custom_data.html#advanced-features-passing-custom-data"><span class="std std-ref">Custom User Data</span></a> on back-end.
 This can be done by using 2048-bit key <a class="reference external" rel="nofollow" href="https://d2jjzw81hqbuqv.cloudfront.net/integration/talkable_public_key.pem">Talkable Public Key</a>.
-So, instead of sending email addresses in plain text, you can send them encrypted.</p>
+So, instead of sending params in plain text, you can send them encrypted.</p>
 <div class="section" id="passing-email-as-a-get-parameter-to-standalone-campaign">
 <h2>Passing email as a GET parameter to Standalone Campaign<a class="headerlink" href="#passing-email-as-a-get-parameter-to-standalone-campaign" title="Permalink to this headline">¶</a></h2>
 <p>Also it’s possible to pass encrypted email as a GET parameter (e.g. for CTA links that
@@ -125,12 +125,12 @@ point to standalone invite page). But to do that encrypted email should be <stro
   <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="k">def</span> <span class="nf">encode_email_for_talkable</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
-  <span class="n">encrypted_email</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">public_encrypt</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
-  <span class="no">Base64</span><span class="o">.</span><span class="n">strict_encode64</span><span class="p">(</span><span class="n">encrypted_email</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">encode_param_for_talkable</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+  <span class="n">encrypted_param</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">public_encrypt</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+  <span class="no">Base64</span><span class="o">.</span><span class="n">strict_encode64</span><span class="p">(</span><span class="n">encrypted_param</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="nb">puts</span> <span class="n">encode_email_for_talkable</span><span class="p">(</span><span class="s2">&quot;email_to_encrypt@example.com&quot;</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">encode_param_for_talkable</span><span class="p">(</span><span class="s2">&quot;email_to_encrypt@example.com&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -161,7 +161,7 @@ So it is recommended to store the key in memory instead of loading it each time 
 <span class="kn">import</span> <span class="nn">org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">EncryptionDemo</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">EmailEncryptor</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ParamEncryptor</span> <span class="p">{</span>
         <span class="kd">private</span> <span class="n">Cipher</span> <span class="n">cipher</span><span class="p">;</span>
         <span class="kd">private</span> <span class="n">Key</span> <span class="n">publicKey</span><span class="p">;</span>
 
@@ -177,37 +177,37 @@ So it is recommended to store the key in memory instead of loading it each time 
             <span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">Cipher</span><span class="p">.</span><span class="na">ENCRYPT_MODE</span><span class="p">,</span> <span class="n">publicKey</span><span class="p">);</span>
         <span class="p">}</span>
 
-        <span class="kd">public</span> <span class="nf">EmailEncryptor</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">GeneralSecurityException</span> <span class="p">{</span>
+        <span class="kd">public</span> <span class="nf">ParamEncryptor</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="p">,</span> <span class="n">GeneralSecurityException</span> <span class="p">{</span>
             <span class="n">initPublicKey</span><span class="p">();</span>
             <span class="n">initCipher</span><span class="p">();</span>
         <span class="p">}</span>
 
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">encryptEmail</span><span class="p">(</span><span class="n">String</span> <span class="n">email</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">BadPaddingException</span><span class="p">,</span> <span class="n">IllegalBlockSizeException</span> <span class="p">{</span>
-            <span class="kt">byte</span><span class="o">[]</span> <span class="n">input</span> <span class="o">=</span> <span class="n">email</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">encryptParam</span><span class="p">(</span><span class="n">String</span> <span class="n">param</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">BadPaddingException</span><span class="p">,</span> <span class="n">IllegalBlockSizeException</span> <span class="p">{</span>
+            <span class="kt">byte</span><span class="o">[]</span> <span class="n">input</span> <span class="o">=</span> <span class="n">param</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
             <span class="kt">byte</span><span class="o">[]</span> <span class="n">cipherText</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="na">doFinal</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
             <span class="kt">byte</span><span class="o">[]</span> <span class="n">encodedBytes</span> <span class="o">=</span> <span class="n">Base64</span><span class="p">.</span><span class="na">getEncoder</span><span class="p">().</span><span class="na">encode</span><span class="p">(</span><span class="n">cipherText</span><span class="p">);</span>
             <span class="k">return</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">encodedBytes</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="kd">static</span> <span class="n">EmailEncryptor</span> <span class="n">emailEncryptor</span><span class="p">;</span>
+    <span class="kd">static</span> <span class="n">ParamEncryptor</span> <span class="n">paramEncryptor</span><span class="p">;</span>
 
     <span class="kd">static</span> <span class="p">{</span>
         <span class="n">Security</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="k">new</span> <span class="n">BouncyCastleProvider</span><span class="p">());</span>
         <span class="k">try</span> <span class="p">{</span>
-            <span class="n">emailEncryptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmailEncryptor</span><span class="p">();</span>
+            <span class="n">paramEncryptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParamEncryptor</span><span class="p">();</span>
         <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">GeneralSecurityException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">encryptEmail</span><span class="p">(</span><span class="n">String</span> <span class="n">email</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">BadPaddingException</span><span class="p">,</span> <span class="n">IllegalBlockSizeException</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">emailEncryptor</span><span class="p">.</span><span class="na">encryptEmail</span><span class="p">(</span><span class="n">email</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">encryptParam</span><span class="p">(</span><span class="n">String</span> <span class="n">param</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">BadPaddingException</span><span class="p">,</span> <span class="n">IllegalBlockSizeException</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">paramEncryptor</span><span class="p">.</span><span class="na">encryptParam</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
         <span class="n">String</span> <span class="n">email</span> <span class="o">=</span> <span class="s">&quot;encrypted_email@example.com&quot;</span><span class="p">;</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">encryptEmail</span><span class="p">(</span><span class="n">email</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">encryptParam</span><span class="p">(</span><span class="n">email</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -221,6 +221,9 @@ So it is recommended to store the key in memory instead of loading it each time 
     <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(TalkableEmail.encrypt(current_user.email)) %&gt;&#39;</span><span class="p">,</span>
     <span class="nx">first_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.first_name) %&gt;&#39;</span><span class="p">,</span>
     <span class="nx">last_name</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.last_name) %&gt;&#39;</span>
+    <span class="nx">person_custom_properties</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;&lt;%= to_json(current_user.encrypted_secret) %&gt;&#39;</span>
+    <span class="p">}</span>
   <span class="p">}]);</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
