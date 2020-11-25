@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="Standard Liquid filters that are available out of box." name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Standard Liquid filters that are available out of box." name="description" />
 
     <title>Filters &#8212; Talkable Documentation</title>
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/campaigns/editor/filters.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videos" href="videos.html" />
@@ -505,6 +506,44 @@ unless time zone is specified.</p>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
 <p><hr></p>
 </div>
+<div class="section" id="pluralize">
+<h2>pluralize<a class="headerlink" href="#pluralize" title="Permalink to this headline">¶</a></h2>
+<p>Returns the singular or plural form of a word based on the value of a number.
+Accepts singular (required) and plural (optional) forms.</p>
+<div class="ptable docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 82%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">5</span> <span class="pre">|</span> <span class="pre">pluralize:</span> <span class="pre">&quot;point&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">points</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">2</span> <span class="pre">|</span> <span class="pre">pluralize:</span> <span class="pre">&quot;sheep&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">sheep</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">1</span> <span class="pre">|</span> <span class="pre">pluralize:</span> <span class="pre">&quot;day</span> <span class="pre">off&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">day</span> <span class="pre">off</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">5</span> <span class="pre">|</span> <span class="pre">pluralize:</span> <span class="pre">&quot;day</span> <span class="pre">off&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">day</span> <span class="pre">offs</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">5</span> <span class="pre">|</span> <span class="pre">pluralize:</span> <span class="pre">&quot;day</span> <span class="pre">off&quot;,</span> <span class="pre">&quot;days</span> <span class="pre">off&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">days</span> <span class="pre">off</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As shown in the table, simple words can be pluralized without specifying plural form.
+However, more advanced cases require explicit plural form to work correctly.</p>
+<p><hr></p>
+</div>
 <div class="section" id="claim-url">
 <h2>claim_url<a class="headerlink" href="#claim-url" title="Permalink to this headline">¶</a></h2>
 <p>Returns channel-specific claim URL.</p>
@@ -881,6 +920,7 @@ Implies that there is only one funding source in the Tremendous account.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
