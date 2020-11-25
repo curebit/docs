@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post Purchase Campaign &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/ios_sdk/integration/post_purchase.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Custom Events" href="event.html" />
@@ -90,8 +89,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="ios-sdk-integration-post-purchase"></span><div class="section" id="post-purchase-campaign">
-<h1>Post Purchase Campaign<a class="headerlink" href="#post-purchase-campaign" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="post-purchase-campaign">
+<span id="ios-sdk-integration-post-purchase"></span><h1>Post Purchase Campaign<a class="headerlink" href="#post-purchase-campaign" title="Permalink to this headline">¶</a></h1>
 <p>Now that we know what a Standalone campaign is, let’s take a look at one more type of Talkable campaign — Post Purchase. It is used to convert your existing customers into Advocates after they make a purchase.  It has the same flow as a basic Standalone campaign except this is gated by a purchase and shown to a customer immediately after.</p>
 <p>Post Purchase campaign usually looks like a pop up right after a user made a purchase. This campaign initializes on the order confirmation page and captures order details parameters. You need to pass order data that includes your customer’s email address, order id, subtotal, coupon code used at checkout in order to close a referral loop. This allows talkable to detect and close the loop on a referral.</p>
 <p>Here is an example of a Purchase capturing, this action should be triggered on the order confirmation page:</p>
@@ -130,7 +129,6 @@
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
