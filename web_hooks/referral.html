@@ -106,9 +106,9 @@ or event.</p>
 <p><strong>Note:</strong> Referral Webhook triggers only for Advocate rewards specifically from a Friend
 Purchase or Friend Event (such as signup event or subscription purchase event).
 To receive notification of both Advocate and Friend rewards use the Rewards Webhook.</p>
-<h2>Payload parameters provided for Referral Webhook</h2><ul class="simple">
+<h2>Payload parameters provided for Referral Webhook</h2><ul>
 <li><p><strong>campaign</strong> — subhash of parameters describing the campaign</p>
-<ul>
+<ul class="simple">
 <li><p><strong>id</strong> — unique campaign ID</p></li>
 <li><p><strong>cached_slug</strong> — unique SEO friendly ID</p></li>
 <li><p><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></p></li>
@@ -116,7 +116,7 @@ To receive notification of both Advocate and Friend rewards use the Rewards Webh
 </ul>
 </li>
 <li><p><strong>offer</strong> — subhash of parameters describing the offer</p>
-<ul>
+<ul class="simple">
 <li><p><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> email address</p></li>
 <li><p><strong>short_url_code</strong> – unique offer ID</p></li>
 <li><p><strong>ip_address</strong></p></li>
@@ -128,7 +128,7 @@ person, where each hash contains parameters:</p>
 <ul>
 <li><p><strong>email</strong> — email of the person that got reward</p></li>
 <li><p><strong>person</strong> — subhash of parameters describing the person that got reward</p>
-<ul>
+<ul class="simple">
 <li><p><strong>email</strong> — person’s email address</p></li>
 <li><p><strong>first_name</strong> — person’s first name</p></li>
 <li><p><strong>last_name</strong> — person’s last name</p></li>
@@ -154,7 +154,7 @@ included subscription checkbox)</p></li>
 <li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when
 incentive equals <cite>discount_coupon</cite>.</p></li>
 <li><p><strong>origin</strong> — contains data about the event that issued an offer:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>type</strong></p>
 <ul>
 <li><p><em>“Purchase”</em> for post-purchase placement</p></li>
@@ -172,12 +172,29 @@ incentive equals <cite>discount_coupon</cite>.</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
 </ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
 </li>
 <li><p><strong>friend_rewards</strong> — array of hashes describing the rewards received by referred person,
 where each hash contains parameters:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>email</strong> — email of the person that got reward</p></li>
 <li><p><strong>person</strong> — subhash of parameters describing the person that got reward</p>
 <ul>

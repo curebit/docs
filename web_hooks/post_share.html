@@ -114,9 +114,9 @@ a referral campaign workflow</p></li>
 if an Advocate shares with a Friend via email (or any channel), then shares with
 a second Friend via email (or any channel), the Post Share Webhook will be
 triggered twice.</p>
-<h2>Payload parameters provided for Post Share Webhook</h2><ul class="simple">
+<h2>Payload parameters provided for Post Share Webhook</h2><ul>
 <li><p><strong>campaign</strong> — subhash of parameters describing the campaign</p>
-<ul>
+<ul class="simple">
 <li><p><strong>id</strong> — unique campaign ID</p></li>
 <li><p><strong>cached_slug</strong> — unique SEO friendly ID</p></li>
 <li><p><strong>type</strong> — either <em>“StandaloneCampaign”</em> or <em>“DoubleSidedDealCampaign”</em></p></li>
@@ -131,12 +131,12 @@ customer</p></li>
 </li>
 <li><p><strong>share_type</strong> — <em>“email”</em>, <em>“facebook”</em>, <em>“twitter”</em>, <em>“facebook_message”</em>,
 <em>“facebook_sponsored”</em>, <em>“whatsapp”</em>, <em>“sms”</em>, <em>“linkedin”</em>, <em>“other”</em></p>
-<ul>
+<ul class="simple">
 <li><p>Note: custom share_type’s can be created</p></li>
 </ul>
 </li>
 <li><p><strong>share_info</strong> — share-specific information</p>
-<ul>
+<ul class="simple">
 <li><p>For Facebook share:</p>
 <ul>
 <li><p><strong>facebook_share_post_id</strong> — Facebook post ID</p></li>
@@ -153,7 +153,7 @@ customer</p></li>
 <li><p><strong>share_link</strong> — link sent in share message (optional, present only for
 Facebook and Twitter shares)</p></li>
 <li><p><strong>origin</strong> — contains data about the event that issued an offer:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>type</strong></p>
 <ul>
 <li><p><em>“Purchase”</em> for post-purchase placement</p></li>
@@ -171,6 +171,23 @@ Facebook and Twitter shares)</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
 </ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
 </li>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>

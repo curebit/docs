@@ -211,6 +211,23 @@ included subscription checkbox)</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
 </ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
 </li>
 <li><p><strong>reward</strong> — subhash of parameters describing the reward itself</p>
 <ul class="simple">
