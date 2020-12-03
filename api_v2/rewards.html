@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="This API allows you to access visitor rewards." name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="This API allows you to access visitor rewards." name="description" />
 
     <title>Rewards &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/api_v2/rewards.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Coupons" href="coupons.html" />
@@ -141,20 +142,20 @@ By default API returns only <cite>Paid</cite> rewards.</p>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;rewards&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">22017</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">22017</span><span class="p">,</span>
         <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span>
         <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;discount_coupon&quot;</span><span class="p">,</span>
         <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;shared coupon \&quot;10_OFF\&quot; for $10.00 off&quot;</span><span class="p">,</span>
         <span class="s2">&quot;incentive_custom_description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
         <span class="s2">&quot;coupon&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">95012</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">95012</span><span class="p">,</span>
           <span class="s2">&quot;code&quot;</span><span class="o">:</span> <span class="s2">&quot;10_OFF&quot;</span><span class="p">,</span>
           <span class="s2">&quot;active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
           <span class="s2">&quot;valid_until&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;single_use&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
           <span class="s2">&quot;used&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-          <span class="s2">&quot;usages&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="s2">&quot;usages&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
           <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="mf">10.0</span><span class="p">,</span>
           <span class="s2">&quot;percentage_discount&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00&quot;</span><span class="p">,</span>
@@ -164,7 +165,7 @@ By default API returns only <cite>Paid</cite> rewards.</p>
         <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Paid&quot;</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">22018</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">22018</span><span class="p">,</span>
         <span class="s2">&quot;reason&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer&quot;</span><span class="p">,</span>
         <span class="s2">&quot;incentive_type&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
         <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$10.00 back&quot;</span><span class="p">,</span>
@@ -182,6 +183,7 @@ By default API returns only <cite>Paid</cite> rewards.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
