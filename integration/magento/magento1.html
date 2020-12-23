@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="A Magento Talkable extension is available for easy integration. The extension supports Magento versions 1.5+" name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="A Magento Talkable extension is available for easy integration. The extension supports Magento versions 1.5+" name="description" />
 
     <title>Magento 1.x Integration &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/integration/magento/magento1.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Magento 2.x Integration" href="magento2.html" />
@@ -82,6 +83,10 @@
             
   <span class="target" id="integration-magento-magento1"></span><div class="section" id="magento-1-x-integration">
 <h1>Magento 1.x Integration<a class="headerlink" href="#magento-1-x-integration" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>From June 30, 2020 Adobe doesn’t support Magento 1.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You must have Talkable account in order to get started</p>
@@ -89,19 +94,8 @@
 <p>A <a class="reference external" rel="nofollow" href="https://github.com/talkable/talkable-magento/releases/latest">Magento Talkable extension</a> is available for easy
 integration. The extension currently supports Magento versions 1.5+</p>
 <ol class="arabic">
-<li><p>Log into your Magento Admin Panel (usually located at
-<cite>http://your-site.com/index.php/admin</cite>). We will install the Talkable extension
-using Magento Connect Manager. Go to
-<strong>System</strong> → <strong>Magento Connect</strong> → <strong>Magento Connect Manager</strong>.
-You may be required to log in again:</p>
-<img alt="../../_images/magento-flow-1.jpg" src="../../_images/magento-flow-1.jpg" />
-</li>
-<li><p>Copy the extension key: <strong>http://connect20.magentocommerce.com/community/talkable</strong> →
-then paste it into an extension key input field (2) and click <strong>Install</strong> (3).
-In the table below you should see a status “Ready to install”, hit <strong>Proceed</strong> (4):</p>
-<img alt="../../_images/magento-flow-2.jpg" src="../../_images/magento-flow-2.jpg" />
-<p>You should see the console window indicate successful installation.</p>
-</li>
+<li><p>Since Magento 1 reached EOL and Magento 1 extensions were removed from the
+Magento Marketplace, you only have ability to download them manually via SSH / FTP.</p></li>
 <li><p>After the extension has been installed, you must enable the extension and set
 your Talkable Site ID. Click the <strong>Return to Admin</strong> link and navigate to
 <strong>System</strong> → <strong>Configuration</strong>:</p>
@@ -135,6 +129,7 @@ re-login to Admin Panel and try again.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>

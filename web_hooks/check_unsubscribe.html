@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta charset="utf-8" /><meta content="Check Unsubscribe Webhook ensures that emails are not sent to unsubscribed users." name="description" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Check Unsubscribe Webhook ensures that emails are not sent to unsubscribed users." name="description" />
 
     <title>Check Unsubscribe Webhook &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/web_hooks/check_unsubscribe.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Event Webhook" href="event.html" />
@@ -150,9 +151,9 @@ representing unsubscribed status according to the merchant info.</p>
 </ul>
 <h2>Sample payload</h2><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">509365458</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">509365458</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;StandaloneCampaign&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mi">509365458</span><span class="p">,</span>
+    <span class="s2">&quot;cached_slug&quot;</span><span class="o">:</span> <span class="mf">509365458</span><span class="p">,</span>
     <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -168,9 +169,9 @@ representing unsubscribed status according to the merchant info.</p>
     <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-27T22:55:40.610+03:00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">&quot;referral_counts&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mi">0</span>
+      <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
+      <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">&quot;email_type&quot;</span><span class="o">:</span> <span class="s2">&quot;notifier_offers_email&quot;</span>
@@ -187,6 +188,7 @@ representing unsubscribed status according to the merchant info.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
