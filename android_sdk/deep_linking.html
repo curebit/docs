@@ -11,7 +11,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="canonical" href="https://docs.talkable.com/android_sdk/deep_linking.html" />
     <link rel="search" title="Search" href="../search.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
@@ -28,7 +27,7 @@
           </form>
       <div class="header-disclaimer">
         Visit
-        <a rel="nofollow" href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
       </div>
     </div> <!-- /.header -->
   
@@ -76,7 +75,7 @@
             
   <div class="section" id="deep-linking">
 <h1>Deep Linking<a class="headerlink" href="#deep-linking" title="Permalink to this headline">¶</a></h1>
-<p>Talkable uses <a class="reference external" href="https://www.getsocial.im">GetSocial.im</a> technology to provide installation attribution and
+<p>Talkable uses <a class="reference external" rel="nofollow" href="https://www.getsocial.im">GetSocial.im</a> technology to provide installation attribution and
 deep linking functionality with its Android SDK. This guide describes how to
 configure your Talkable campaign for deep linking and add support for it to
 your Android app.</p>
@@ -95,7 +94,7 @@ in examples with the providen values.</p>
 <p><em>Signing-certificate fingerprints</em> is a list of SHA-256 hashes of the certificates
 you use to sign your application. You should provide fingerprints of all keys
 you use to sign the app. This tutorial tells you how to do this:
-<a class="reference external" href="https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/">Finding SHA256 fingerprint for Android signing keys</a></p>
+<a class="reference external" rel="nofollow" href="https://docs.getsocial.im/knowledge-base/android-signing-key-sha256/">Finding SHA256 fingerprint for Android signing keys</a></p>
 </div>
 <div class="section" id="configure-sdk-and-dependencies">
 <h2>Configure SDK and Dependencies<a class="headerlink" href="#configure-sdk-and-dependencies" title="Permalink to this headline">¶</a></h2>
@@ -223,7 +222,7 @@ deep link, inside the corresponding tag:</p>
 <li><p>Setup App Links for Android 6+. App Links (supported on Android 6.0
 (API level 23) and higher) allow the user to be taken directly to the app
 on the link click without the browser window in the middle. Check
-the official <a class="reference external" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
+the official <a class="reference external" rel="nofollow" href="https://developer.android.com/training/app-links/index.html">Android App Links docs</a> for more details.
 To set them up add intent filter with the following host configuration
 to the activity that must be opened from the deep link:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;activity&gt;</span>
