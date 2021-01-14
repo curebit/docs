@@ -31,7 +31,7 @@
           </form>
       <div class="header-disclaimer">
         Visit
-        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+        <a rel="nofollow" href="https://www.talkable.com" target="_blank">www.talkable.com</a>
       </div>
     </div> <!-- /.header -->
   
@@ -96,7 +96,7 @@
             
   <span class="target" id="campaigns-editor-filters"></span><div class="section" id="filters">
 <h1>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" rel="nofollow" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters">Standard liquid filters</a> that are available out of box.</p>
+<p><a class="reference external" href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#standard-filters">Standard liquid filters</a> that are available out of box.</p>
 <div class="section" id="import-font">
 <h2>import_font<a class="headerlink" href="#import-font" title="Permalink to this headline">¶</a></h2>
 <p>Inserts the font declaration to the page.</p>
@@ -120,7 +120,7 @@
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;image.jpg&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">asset_url</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>
 </div>
-<p>Example: <a class="reference external" rel="nofollow" href="http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg">http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg</a></p>
+<p>Example: <a class="reference external" href="http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg">http://d2jjzw81hqbuqv.cloudfront.net/static_assets/files/745/original/offer-background.jpg</a></p>
 <p><hr></p>
 </div>
 <div class="section" id="simple-format">
@@ -191,7 +191,7 @@ First parameter is a maximum random number.</p>
 <div class="section" id="regexp-captures">
 <h2>regexp_captures<a class="headerlink" href="#regexp-captures" title="Permalink to this headline">¶</a></h2>
 <p>Parses input with a given regexp and returning
-<a class="reference external" rel="nofollow" href="http://www.regular-expressions.info/brackets.html">regular expression captures</a>
+<a class="reference external" href="http://www.regular-expressions.info/brackets.html">regular expression captures</a>
 as an array.</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s1">&#39;12345678&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">regexp_captures</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;(....)(....)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s1">&#39;bogdan@example.com&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">regexp_captures</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;^([a-z]+)\@([a-z]+)\.([a-z]+)&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">json</span><span class="w"> </span><span class="p">}}</span>
@@ -289,8 +289,8 @@ unless time zone is specified.</p>
 <span id="liquid-filter-format-date"></span><h2>format_date<a class="headerlink" href="#format-date" title="Permalink to this headline">¶</a></h2>
 <p>Format date for current localization.</p>
 <p>Default format: Apr 04, 2014</p>
-<p>Reference to all available formatting can be found in <a class="reference external" rel="nofollow" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
-<p>Reference to all available locales can be found in <a class="reference external" rel="nofollow" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
+<p>Reference to all available formatting can be found in <a class="reference external" href="http://apidock.com/ruby/DateTime/strftime">strftime documentation</a></p>
+<p>Reference to all available locales can be found in <a class="reference external" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="p">:</span><span class="w"> </span><span class="na">format</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">format_date</span><span class="p">:</span><span class="w"> </span><span class="na">locale</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="w"> </span><span class="p">}}</span>
@@ -304,7 +304,7 @@ unless time zone is specified.</p>
 <h2>human_time_ago<a class="headerlink" href="#human-time-ago" title="Permalink to this headline">¶</a></h2>
 <p>Transform given time to time ago in words.</p>
 <p>If given time is yesterday, returns <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">day</span></code>.</p>
-<p>Reference to all available locales can be found in <a class="reference external" rel="nofollow" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
+<p>Reference to all available locales can be found in <a class="reference external" href="https://github.com/svenfuchs/rails-i18n#available-locales">rails-i18n documentation</a></p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">valid_until</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="p">:</span><span class="w"> </span><span class="na">locale</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">current_time</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">human_time_ago</span><span class="w"> </span><span class="p">}}</span>
@@ -414,6 +414,55 @@ unless time zone is specified.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">money:</span> <span class="pre">format:</span> <span class="pre">&quot;%n</span> <span class="pre">%u&quot;,</span> <span class="pre">unit:</span> <span class="pre">&quot;zł&quot;</span> <span class="pre">}}</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">100.00</span> <span class="pre">zł</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><hr></p>
+</div>
+<div class="section" id="points">
+<h2>points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
+<p>Formats number using conversion rate for loyalty from site settings.</p>
+<div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">points</span><span class="w"> </span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">500</span></code>.</p>
+<p>Available options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">delimiter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percentage_discount</span> <span class="pre">(boolean)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convert</span> <span class="pre">(boolean)</span></code> - It will work like money filter if value <cite>false</cite></p></li>
+</ul>
+<div class="ptable docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 82%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;10050&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">delimiter:</span> <span class="pre">&quot;_&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">100_500</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">format:</span> <span class="pre">&quot;%nP&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1000P</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">convert:</span> <span class="pre">false</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$100.00</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;1000&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">convert:</span> <span class="pre">false,</span> <span class="pre">delimiter:</span> <span class="pre">&quot;,&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">$1,000.00</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">convert:</span> <span class="pre">false,</span> <span class="pre">unit:</span> <span class="pre">&quot;€&quot;</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">€100.00</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;100&quot;</span> <span class="pre">|</span> <span class="pre">points:</span> <span class="pre">percentage_discount:</span> <span class="pre">true</span> <span class="pre">}}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">500</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -643,7 +692,7 @@ website snapshot.</p>
 <div class="section" id="barcode">
 <h2>barcode<a class="headerlink" href="#barcode" title="Permalink to this headline">¶</a></h2>
 <p>Represents any <code class="docutils literal notranslate"><span class="pre">string</span></code> as an array of boolean values: <code class="docutils literal notranslate"><span class="pre">[true,</span> <span class="pre">false]</span></code> in order to convert it into a barcode.
-This filter strictly follows GS1-128 specification: <a class="reference external" rel="nofollow" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
+This filter strictly follows GS1-128 specification: <a class="reference external" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">barcode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;X&quot;</span><span class="w"> </span>|<span class="w"> </span>barcode<span class="w"> </span><span class="p">%}</span>
 </pre></div>
 </div>
@@ -675,7 +724,7 @@ This filter strictly follows GS1-128 specification: <a class="reference external
 <div class="section" id="barcode-image">
 <h2>barcode_image<a class="headerlink" href="#barcode-image" title="Permalink to this headline">¶</a></h2>
 <p>Represents any <code class="docutils literal notranslate"><span class="pre">string</span></code> as barcode image in png.
-This filter strictly follows GS1-128 specification: <a class="reference external" rel="nofollow" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
+This filter strictly follows GS1-128 specification: <a class="reference external" href="https://en.wikipedia.org/wiki/GS1-128">https://en.wikipedia.org/wiki/GS1-128</a>.</p>
 <p>It may take the following arguments: <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">xdim</span></code> (thickness of the thinnest line), <code class="docutils literal notranslate"><span class="pre">margin</span></code> and <code class="docutils literal notranslate"><span class="pre">bg_transparent</span></code>.</p>
 <p>Default values are <code class="docutils literal notranslate"><span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">height</span></code>,  <code class="docutils literal notranslate"><span class="pre">1</span></code> for <code class="docutils literal notranslate"><span class="pre">xdim</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">margin</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for <code class="docutils literal notranslate"><span class="pre">bg_transparent</span></code>.</p>
 <p>The values are in pixels.</p>
