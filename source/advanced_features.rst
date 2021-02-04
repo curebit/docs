@@ -9,7 +9,7 @@ Features
 
 Talkable provides several optional features that help increase conversions
 and make your referral program incredibly easy to manage. Here’s an overview of
-each with links to integration details.
+each with links to integration details. 1
 
 .. list-table::
    :widths: 35 65
