@@ -50,9 +50,10 @@ Sample response:
            "origin_max_age": null,
            "origin_min_age": null,
            "tag_names": ["api"],
-           "slug": "35944-api-campaign",
+           "slug": 35944,
            "type": "Standalone Campaign",
-           "is_active": true
+           "is_active": true,
+           "status": "Live"
          },
          {
            "appearance": "popup",
@@ -63,9 +64,10 @@ Sample response:
            "origin_max_age": null,
            "origin_min_age": null,
            "tag_names": ["default"],
-           "slug": "34601-pp-campaign",
+           "slug": 34601,
            "type": "Post-Checkout Campaign",
-           "is_active": true
+           "is_active": true,
+           "status": "Live"
          },
          {
            "appearance": "inline",
@@ -76,9 +78,10 @@ Sample response:
            "origin_max_age": null,
            "origin_min_age": null,
            "tag_names": ["default"],
-           "slug": "34376",
+           "slug": 34376,
            "type": "Standalone Campaign",
-           "is_active": false
+           "is_active": false,
+           "status": "Disabled"
          }
        ]
      }
