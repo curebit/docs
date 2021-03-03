@@ -337,7 +337,7 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://share.mystore.com/by/customer@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://share.mystore.com/by/customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;events_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
       <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
@@ -372,8 +372,8 @@ Talkable dashboard after you log in and create a site.</td>
 </pre></div>
 </div>
 </div>
-<div class="section" id="person-referrals">
-<h3>Person referrals<a class="headerlink" href="#person-referrals" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-friends-referred-by-advocate">
+<h3>Get Friends referred by Advocate<a class="headerlink" href="#get-friends-referred-by-advocate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com/referrals_as_advocate?site_slug=my-store
 </pre></div>
 </div>
@@ -409,8 +409,20 @@ Talkable dashboard after you log in and create a site.</td>
       <span class="p">},</span>
       <span class="p">{</span>
         <span class="s2">&quot;ad_rewarded&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">&quot;advocate_person&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">39198</span><span class="p">,</span>
+          <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
         <span class="s2">&quot;campaign_id&quot;</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span>
         <span class="s2">&quot;created_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2021-03-02T09:16:15.000-08:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;friend_person&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">39200</span><span class="p">,</span>
+          <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="kc">null</span>
+        <span class="p">},</span>
         <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
         <span class="s2">&quot;offer_id&quot;</span><span class="o">:</span> <span class="mi">71</span><span class="p">,</span>
         <span class="s2">&quot;qa_generated&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -419,18 +431,6 @@ Talkable dashboard after you log in and create a site.</td>
         <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;approved&quot;</span><span class="p">,</span>
         <span class="s2">&quot;track_method&quot;</span><span class="o">:</span> <span class="s2">&quot;cookie&quot;</span><span class="p">,</span>
         <span class="s2">&quot;updated_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2021-03-02T09:16:16.000-08:00&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;advocate_person&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">39198</span><span class="p">,</span>
-          <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-          <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="kc">null</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;friend_person&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">39200</span><span class="p">,</span>
-          <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="kc">null</span>
-        <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -438,8 +438,8 @@ Talkable dashboard after you log in and create a site.</td>
 </pre></div>
 </div>
 </div>
-<div class="section" id="person-rewards">
-<h3>Person rewards<a class="headerlink" href="#person-rewards" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-rewards-received-by-person">
+<h3>Get rewards received by person<a class="headerlink" href="#get-rewards-received-by-person" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com/rewards?site_slug=my-store
 </pre></div>
 </div>
@@ -488,8 +488,8 @@ Talkable dashboard after you log in and create a site.</td>
 </pre></div>
 </div>
 </div>
-<div class="section" id="person-shares">
-<h3>Person shares<a class="headerlink" href="#person-shares" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-shares-made-by-person">
+<h3>Get shares made by person<a class="headerlink" href="#get-shares-made-by-person" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/people/customer@example.com/shares_by?site_slug=my-store
 </pre></div>
 </div>
@@ -499,16 +499,16 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;shares&quot;</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s2">&quot;short_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/8t9d2p&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;short_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/8t9d2p&quot;</span><span class="p">,</span>
         <span class="s2">&quot;channel_identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;facebook&quot;</span><span class="p">,</span>
         <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;SocialOfferShare&quot;</span><span class="p">,</span>
         <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
           <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;test-offer@gmail.com&quot;</span><span class="p">,</span>
           <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">71</span><span class="p">,</span>
           <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;0EiKB3&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/ArhsqM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/ArhsqM&quot;</span><span class="p">,</span>
           <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;incentives&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;referrer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -556,42 +556,36 @@ Talkable dashboard after you log in and create a site.</td>
             <span class="p">}</span>
           <span class="p">},</span>
           <span class="s2">&quot;trigger_widget&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-          <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;test-invite&quot;</span>
-          <span class="p">]</span>
+          <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test-invite&quot;</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
           <span class="s2">&quot;slug&quot;</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span>
           <span class="s2">&quot;is_active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
           <span class="s2">&quot;appearance&quot;</span><span class="o">:</span> <span class="s2">&quot;inline&quot;</span><span class="p">,</span>
           <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span>
-          <span class="s2">&quot;joinable_category_names&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;affiliate_member&quot;</span>
-          <span class="p">],</span>
+          <span class="s2">&quot;joinable_category_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;affiliate_member&quot;</span><span class="p">],</span>
           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Standalone landing page&quot;</span><span class="p">,</span>
           <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;test-invite&quot;</span>
-          <span class="p">],</span>
+          <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test-invite&quot;</span><span class="p">],</span>
           <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Standalone Campaign&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;friends_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="s2">&quot;friend_clicks_count&quot;</span><span class="o">:</span> <span class="mi">0</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="s2">&quot;short_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;short_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
         <span class="s2">&quot;channel_identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
         <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;SocialOfferShare&quot;</span><span class="p">,</span>
         <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/14PMvl&quot;</span><span class="p">,</span>
           <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;test-offer@gmail.com&quot;</span><span class="p">,</span>
           <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">71</span><span class="p">,</span>
           <span class="s2">&quot;short_url_code&quot;</span><span class="o">:</span> <span class="s2">&quot;0EiKB3&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.talkable.com/x/ArhsqM&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;show_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.talkable.com/x/ArhsqM&quot;</span><span class="p">,</span>
           <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;incentives&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;referrer&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -639,26 +633,20 @@ Talkable dashboard after you log in and create a site.</td>
             <span class="p">}</span>
           <span class="p">},</span>
           <span class="s2">&quot;trigger_widget&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-          <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;test-invite&quot;</span>
-          <span class="p">]</span>
+          <span class="s2">&quot;campaign_tags&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test-invite&quot;</span><span class="p">]</span>
         <span class="p">},</span>
         <span class="s2">&quot;campaign&quot;</span><span class="o">:</span> <span class="p">{</span>
           <span class="s2">&quot;slug&quot;</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span>
           <span class="s2">&quot;is_active&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
           <span class="s2">&quot;appearance&quot;</span><span class="o">:</span> <span class="s2">&quot;inline&quot;</span><span class="p">,</span>
           <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span>
-          <span class="s2">&quot;joinable_category_names&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;affiliate_member&quot;</span>
-          <span class="p">],</span>
+          <span class="s2">&quot;joinable_category_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;affiliate_member&quot;</span><span class="p">],</span>
           <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Standalone landing page&quot;</span><span class="p">,</span>
           <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
           <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span>
-            <span class="s2">&quot;test-invite&quot;</span>
-          <span class="p">],</span>
+          <span class="s2">&quot;tag_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;test-invite&quot;</span><span class="p">],</span>
           <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Standalone Campaign&quot;</span>
         <span class="p">},</span>
         <span class="s2">&quot;friends_count&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
@@ -692,7 +680,7 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://share.mystore.com/by/lizard_king&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://share.mystore.com/by/lizard_king&quot;</span><span class="p">,</span>
       <span class="s2">&quot;events_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
       <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
@@ -746,7 +734,7 @@ Talkable dashboard after you log in and create a site.</td>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://share.mystore.com/by/customer@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;personal_claim_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://share.mystore.com/by/customer@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;events_count&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
       <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
