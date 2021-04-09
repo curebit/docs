@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Find the components of what Talkable is composed." name="description" />
+
+    <title>Integration Components &#8212; Talkable Documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/talkable.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="canonical" href="https://docs.talkable.com/integration/loyalty/integration_components.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Reference" href="../../api_v2.html" />
+    <link rel="prev" title="Loyalty Integration (beta)" href="../loyalty.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../../_static/pygments-github.css" rel="stylesheet">
+  <link href="../../_static/img/favicon.ico" rel="shortcut icon" />
+  </head><body>
+  
+    <div class="header">
+      <a href="../../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced_features.html">Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../custom_integration.html">Standard Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../demandware.html">Salesforce Commerce Cloud Integration</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../loyalty.html">Loyalty Integration (beta)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Integration Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialization-script">Initialization Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loyalty-dashboard">Loyalty Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loyalty-redeem-widget">Loyalty Redeem Widget</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../web_hooks.html">Webhooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="integration-loyalty-integration-components"></span><div class="section" id="integration-components">
+<h1>Integration Components<a class="headerlink" href="#integration-components" title="Permalink to this headline">¶</a></h1>
+<p>Talkable Loyalty is composed of the following components:</p>
+<ol class="arabic">
+<li><p><a class="reference internal" href="#initialization-script">Initialization Script</a></p>
+<p><strong>Script Location.</strong> The Initialization script should be placed in the head template or some template
+that spans every page. All other integration components are dependent on the Init script.</p>
+<p><strong>Data Capture.</strong> The Initialization Script should pass variables for logged in users:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Email</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="#loyalty-dashboard"><span class="std std-ref">Loyalty Dashboard</span></a></p></li>
+<li><p><a class="reference internal" href="#loyalty-redeem-widget"><span class="std std-ref">Loyalty Redeem Widget</span></a></p></li>
+</ol>
+<p><hr></p>
+<div class="section" id="initialization-script">
+<span id="integration-loyalty-integration-components-initialization-script"></span><h2>Initialization Script<a class="headerlink" href="#initialization-script" title="Permalink to this headline">¶</a></h2>
+<p>The Initialization script should be placed in the head template or some
+template that spans every page. Talkable JS library size is typically
+around 20kB and causes no noticeable impact to your site’s loading time.
+All other integration components are dependent on the Initialization
+script.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Begin Talkable integration code --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/&lt;YOUR-TALKABLE-SITE-ID&gt;.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">unshift</span><span class="p">([</span><span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">site_id</span><span class="o">:</span> <span class="s1">&#39;&lt;YOUR-TALKABLE-SITE-ID&gt;&#39;</span> <span class="p">}]);</span>
+
+  <span class="nb">window</span><span class="p">.</span><span class="nx">_talkableq</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="s1">&#39;authenticate_customer&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="c1">// required, loyalty program is only available to logged in users. Example: &#39;customer@example.com&#39;</span>
+  <span class="p">}]);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- End Talkable integration code --&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="initialization-script-notes">
+<h3>Initialization Script Notes<a class="headerlink" href="#initialization-script-notes" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><strong>Site ID.</strong> You can obtain your Site ID by logging into the Talkable
+platform where Site ID is displayed on your Dashboard and URL as seen
+here:</p>
+<div class="figure align-default">
+<img alt="Site ID" src="../../_images/site_id.png" />
+</div>
+</li>
+<li><p><strong>Variables.</strong> Use your dynamic variables to pass user details.</p></li>
+</ol>
+<p><hr></p>
+</div>
+</div>
+<div class="section" id="loyalty-dashboard">
+<span id="id1"></span><h2>Loyalty Dashboard<a class="headerlink" href="#loyalty-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>Create a new HTML page with URL
+path (<cite>www.your-site.com/loyalty</cite>) and add the Talkable Container DIV in
+the body of the page:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-loyalty&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="loyalty-dashboard-notes">
+<h3>Loyalty Dashboard Notes<a class="headerlink" href="#loyalty-dashboard-notes" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The <a class="reference internal" href="#initialization-script">Talkable Initialization Script</a> must be
+present in your head template in order for the Loyalty Dashboard to work.</p></li>
+<li><p>Talkable will inject loyalty content where Talkable Container
+resides in your DOM. Adding a new page is only a suggestion. The
+dashboard can be added inline inside your user accounts menu, however
+the dashboard content width for proper display is 980px.</p></li>
+<li><p>Allow your users to reach the Loyalty Dashboard by adding a link
+from any place that makes sense considering your website configuration.
+Most common uses are links in the user accounts section, or from the user accounts menu.</p></li>
+</ol>
+<p><hr></p>
+</div>
+</div>
+<div class="section" id="loyalty-redeem-widget">
+<span id="id2"></span><h2>Loyalty Redeem Widget<a class="headerlink" href="#loyalty-redeem-widget" title="Permalink to this headline">¶</a></h2>
+<p>Add Talkable container DIV element at the checkout
+exactly where the loyalty points redemption widget should render:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;talkable-loyalty&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
