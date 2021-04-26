@@ -208,19 +208,19 @@ field, submit button, and “signup for latest news” checkbox.</p>
 
   <span class="kd">function</span> <span class="nx">displayNotice</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$notice</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-    <span class="nx">$notice</span><span class="p">.</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+    <span class="nx">$notice</span><span class="p">.</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">$notice</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+      <span class="nx">$notice</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mf">3000</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="nx">Talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;email_gating_passed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$contentGating</span><span class="p">.</span><span class="nx">slideUp</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+    <span class="nx">$contentGating</span><span class="p">.</span><span class="nx">slideUp</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">$contentHidden</span><span class="p">.</span><span class="nx">slideDown</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+      <span class="nx">$contentHidden</span><span class="p">.</span><span class="nx">slideDown</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
       <span class="nx">$couponCode</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span> <span class="c1">// Insert coupon code</span>
       <span class="nx">bindClipToCopy</span><span class="p">(</span><span class="s1">&#39;.js-coupon-code&#39;</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mf">300</span><span class="p">);</span>
   <span class="p">});</span>
 
   <span class="kd">function</span> <span class="nx">unlockGating</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
@@ -299,10 +299,10 @@ field, submit button, and “signup for latest news” checkbox.</p>
     <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
     <span class="nx">notice</span>
       <span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+      <span class="p">.</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
     <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">notice</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-    <span class="p">},</span> <span class="nx">delay</span> <span class="o">?</span> <span class="nx">delay</span> <span class="o">:</span> <span class="mi">5000</span><span class="p">);</span>
+      <span class="nx">notice</span><span class="p">.</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">delay</span> <span class="o">?</span> <span class="nx">delay</span> <span class="o">:</span> <span class="mf">5000</span><span class="p">);</span>
   <span class="p">};</span>
 
   <span class="nx">Talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;like_gating_succeeded&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
@@ -312,10 +312,10 @@ field, submit button, and “signup for latest news” checkbox.</p>
   <span class="nx">Talkable</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;like_gating_passed&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">populateCouponCode</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coupon_code</span><span class="p">);</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-before&#39;</span><span class="p">).</span><span class="nx">slideUp</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-before&#39;</span><span class="p">).</span><span class="nx">slideUp</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
       <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-after&#39;</span><span class="p">).</span><span class="nx">slideDown</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-      <span class="p">},</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-after&#39;</span><span class="p">).</span><span class="nx">slideDown</span><span class="p">(</span><span class="mf">300</span><span class="p">);</span>
+      <span class="p">},</span> <span class="mf">300</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No coupon provided.&#39;</span><span class="p">);</span>
       <span class="nx">displayNotice</span><span class="p">(</span><span class="s1">&#39;No coupon provided.&#39;</span><span class="p">);</span>
