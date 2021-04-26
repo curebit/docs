@@ -109,7 +109,10 @@ or event.</p>
 <li><p>Sending automated ‘Thank You’ emails after a reward is given to an Advocate</p></li>
 <li><p>Data for business intelligence or analytics systems to track when Advocates receive rewards</p></li>
 </ul>
-<p><strong>Note:</strong> “Approved” referral status does not guarantee that Advocate will receive a reward.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“Approved” referral status does not guarantee that Advocate will receive a reward.</p>
+</div>
 <p>Things that can prevent Advocate or Friend from being rewarded:</p>
 <ul class="simple">
 <li><p>Share wasn’t active at the moment of referral event creation</p></li>
@@ -125,9 +128,12 @@ Only after that rewards associated with the referral can be paid.</p>
 </div>
 <h2>When does Talkable call the Referral Webhook?</h2><p>Talkable Referral Webhook is triggered any time an Advocate referral status has become
 “Approved” specifically for a Friend purchase or event.</p>
-<p><strong>Note:</strong> Referral Webhook triggers only for Advocate rewards specifically from a Friend
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Referral Webhook triggers only for Advocate rewards specifically from a Friend
 Purchase or Friend Event (such as signup event or subscription purchase event).
 To receive notification of both Advocate and Friend rewards use the Rewards Webhook.</p>
+</div>
 <h2>Payload parameters provided for Referral Webhook</h2><ul>
 <li><p><strong>campaign</strong> — subhash of parameters describing the campaign</p>
 <ul class="simple">
