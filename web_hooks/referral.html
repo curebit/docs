@@ -56,6 +56,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../integration/demandware.html">Salesforce Commerce Cloud Integration</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/loyalty.html">Loyalty Integration (beta)</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
 </ul>
 <ul class="current">
@@ -94,6 +97,11 @@
 <p>The Talkable Referral Webhook notifies your endpoint that an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> referral
 status has become “Approved” specifically for a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> purchase
 or event.</p>
+<p>“Approved” referral status signifies the following:</p>
+<ul class="simple">
+<li><p>Neither Advocate nor Friend are blocked by email or IP</p></li>
+<li><p>Advocate passed enabled fraud checks and is considered non-fraudulent</p></li>
+</ul>
 <p>Use cases for the Referral Webhook include:</p>
 <ul class="simple">
 <li><p>Providing account credit or account upgrades to an Advocate as a reward</p></li>
@@ -101,6 +109,20 @@ or event.</p>
 <li><p>Sending automated ‘Thank You’ emails after a reward is given to an Advocate</p></li>
 <li><p>Data for business intelligence or analytics systems to track when Advocates receive rewards</p></li>
 </ul>
+<p><strong>Note:</strong> “Approved” referral status does not guarantee that Advocate will receive a reward.</p>
+<p>Things that can prevent Advocate or Friend from being rewarded:</p>
+<ul class="simple">
+<li><p>Share wasn’t active at the moment of referral event creation</p></li>
+<li><p>Advocate Referral Incentive rewards limit (per month or in total) has been reached</p></li>
+<li><p>Coupon cycling has been detected (when Friend uses Advocate’s coupon in referred event)</p></li>
+<li><p>Incentive criteria does not match</p></li>
+<li><p>Rewards issuing is not allowed for auto-approved referrals</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Referral Webhook keeps retrying until it gets 2xx HTTP status in response.
+Only after that rewards associated with the referral can be paid.</p>
+</div>
 <h2>When does Talkable call the Referral Webhook?</h2><p>Talkable Referral Webhook is triggered any time an Advocate referral status has become
 “Approved” specifically for a Friend purchase or event.</p>
 <p><strong>Note:</strong> Referral Webhook triggers only for Advocate rewards specifically from a Friend
@@ -122,12 +144,50 @@ To receive notification of both Advocate and Friend rewards use the Rewards Webh
 <li><p><strong>ip_address</strong></p></li>
 </ul>
 </li>
-<li><p><strong>referred_origin</strong> - subhash with referred origin made by friend that created a referral</p></li>
-<li><p><strong>advocate_rewards</strong> — array of hashes describing the rewards received by <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>
-person, where each hash contains parameters:</p>
+<li><p><strong>referred_origin</strong> - subhash with referred origin made by friend that created a referral</p>
+<ul class="simple">
+<li><p><strong>type</strong></p>
 <ul>
+<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
+<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
+<li><dl class="simple">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
+<li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
+<li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
+</ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>advocate_rewards</strong> — array of hashes describing the rewards received by <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>
+person (except for rewards paid in loyalty points), where each hash contains parameters:</p>
+<ul>
+<li><p><strong>id</strong> — unique reward ID</p></li>
+<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
 <li><p><strong>email</strong> — email of the person that got reward</p></li>
-<li><p><strong>person</strong> — subhash of parameters describing the person that got reward</p>
+<li><p><strong>person</strong> — parameters describing the person that got reward</p>
 <ul class="simple">
 <li><p><strong>email</strong> — person’s email address</p></li>
 <li><p><strong>first_name</strong> — person’s first name</p></li>
@@ -148,12 +208,10 @@ included subscription checkbox)</p></li>
 </li>
 </ul>
 </li>
-<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
 <li><p><strong>incentive</strong> — type of incentive reward (<cite>rebate</cite>, <cite>discount_coupon</cite>, <cite>other</cite>)</p></li>
 <li><p><strong>incentive_description</strong> — verbal reward explanation</p></li>
-<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when
-incentive equals <cite>discount_coupon</cite>.</p></li>
-<li><p><strong>origin</strong> — contains data about the event that issued an offer:</p>
+<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward (present if incentive equals <cite>discount_coupon</cite>)</p></li>
+<li><p><strong>origin</strong> — contains data about the event that issued an offer</p>
 <ul class="simple">
 <li><p><strong>type</strong></p>
 <ul>
@@ -192,12 +250,14 @@ incentive equals <cite>discount_coupon</cite>.</p></li>
 </li>
 </ul>
 </li>
-<li><p><strong>friend_rewards</strong> — array of hashes describing the rewards received by referred person,
-where each hash contains parameters:</p>
-<ul class="simple">
-<li><p><strong>email</strong> — email of the person that got reward</p></li>
-<li><p><strong>person</strong> — subhash of parameters describing the person that got reward</p>
+<li><p><strong>friend_rewards</strong> — array of hashes describing the rewards received by referred person
+(except for rewards paid in loyalty points), where each hash contains parameters:</p>
 <ul>
+<li><p><strong>id</strong> — unique reward ID</p></li>
+<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
+<li><p><strong>email</strong> — email of the person that got reward</p></li>
+<li><p><strong>person</strong> — parameters describing the person that got reward</p>
+<ul class="simple">
 <li><p><strong>email</strong> — person’s email address</p></li>
 <li><p><strong>first_name</strong> — person’s first name</p></li>
 <li><p><strong>last_name</strong> — person’s last name</p></li>
@@ -217,12 +277,187 @@ included subscription checkbox)</p></li>
 </li>
 </ul>
 </li>
-<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
-<li><p><strong>incentive</strong> — type of incentive reward (rebate, discount_coupon, other)</p></li>
+<li><p><strong>incentive</strong> — type of incentive reward (<cite>rebate</cite>, <cite>discount_coupon</cite>, <cite>other</cite>)</p></li>
 <li><p><strong>incentive_description</strong> — verbal reward explanation</p></li>
-<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward. Only in case when
-incetive equals discount_coupon.</p></li>
-<li><p><strong>origin</strong> — contains a data about Purchase that issued a referral</p></li>
+<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward (present if incentive equals <cite>discount_coupon</cite>)</p></li>
+<li><p><strong>origin</strong> — contains data about the event that issued an offer</p>
+<ul class="simple">
+<li><p><strong>type</strong></p>
+<ul>
+<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
+<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
+<li><dl class="simple">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
+<li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
+<li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
+</ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>share</strong> — details about share:</p>
+<ul class="simple">
+<li><p><strong>channel</strong> — sharing channel involved in the referral</p></li>
+</ul>
+</li>
+<li><p><strong>referrer</strong> — Advocate referral incentive reward details (optional, absent if reward was paid in loyalty points)</p>
+<ul>
+<li><p><strong>id</strong> — unique reward ID</p></li>
+<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
+<li><p><strong>email</strong> — email of the person that got reward</p></li>
+<li><p><strong>person</strong> — parameters describing the person that got reward</p>
+<ul class="simple">
+<li><p><strong>email</strong> — person’s email address</p></li>
+<li><p><strong>first_name</strong> — person’s first name</p></li>
+<li><p><strong>last_name</strong> — person’s last name</p></li>
+<li><p><strong>username</strong> — person’s username (optional)</p></li>
+<li><p><strong>sub_choice</strong> — subscription choice (optional, present only if the form
+included subscription checkbox)</p></li>
+<li><p><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</p></li>
+<li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
+<li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
+<li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<ul>
+<li><p><strong>total</strong> — created referrals count</p></li>
+<li><p><strong>approved</strong> — approved referrals count</p></li>
+<li><p><strong>pending</strong> — count of waiting for approval referrals</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>incentive</strong> — type of incentive reward (<cite>rebate</cite>, <cite>discount_coupon</cite>, <cite>other</cite>)</p></li>
+<li><p><strong>incentive_description</strong> — verbal reward explanation</p></li>
+<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward (present if incentive equals <cite>discount_coupon</cite>)</p></li>
+<li><p><strong>origin</strong> — contains data about the event that issued an offer</p>
+<ul class="simple">
+<li><p><strong>type</strong></p>
+<ul>
+<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
+<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
+<li><dl class="simple">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
+<li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
+<li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
+</ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>referred</strong> — Friend referred incentive reward details (optional, absent if reward was paid in loyalty points)</p>
+<ul>
+<li><p><strong>id</strong> — unique reward ID</p></li>
+<li><p><strong>amount</strong> — amount of money to reward (null when non-monetary incentive is used)</p></li>
+<li><p><strong>email</strong> — email of the person that got reward</p></li>
+<li><p><strong>person</strong> — parameters describing the person that got reward</p>
+<ul class="simple">
+<li><p><strong>email</strong> — person’s email address</p></li>
+<li><p><strong>first_name</strong> — person’s first name</p></li>
+<li><p><strong>last_name</strong> — person’s last name</p></li>
+<li><p><strong>username</strong> — person’s username (optional)</p></li>
+<li><p><strong>sub_choice</strong> — subscription choice (optional, present only if the form
+included subscription checkbox)</p></li>
+<li><p><strong>subscribed_at</strong> — date person has subscribed (deprecated; use opted_in_at instead)</p></li>
+<li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
+<li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
+<li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<ul>
+<li><p><strong>total</strong> — created referrals count</p></li>
+<li><p><strong>approved</strong> — approved referrals count</p></li>
+<li><p><strong>pending</strong> — count of waiting for approval referrals</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>incentive</strong> — type of incentive reward (<cite>rebate</cite>, <cite>discount_coupon</cite>, <cite>other</cite>)</p></li>
+<li><p><strong>incentive_description</strong> — verbal reward explanation</p></li>
+<li><p><strong>reward_coupon_code</strong> — Coupon code received by person as a reward (present if incentive equals <cite>discount_coupon</cite>)</p></li>
+<li><p><strong>origin</strong> — contains data about the event that issued an offer</p>
+<ul class="simple">
+<li><p><strong>type</strong></p>
+<ul>
+<li><p><em>“Purchase”</em> for post-purchase placement</p></li>
+<li><p><em>“AffiliateMember”</em> for standalone, floating widget, or gleam placements</p></li>
+<li><dl class="simple">
+<dt><em>“Event”</em> for post-event placement (such as a signup page which triggers a</dt><dd><p>referral campaign)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>id</strong> — unique identifier of the origin event</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
+<li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
+<li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
+</ul>
+<p><em>For Purchase:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>order_number</strong> - unique identifier of the Purchase</p></li>
+<li><p><strong>subtotal</strong> - order subtotal for the purchase</p></li>
+<li><p><strong>coupon_code</strong> - coupon code used with the purchase</p></li>
+</ul>
+</div></blockquote>
+<p><em>For Event:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>event_category</strong> - identifier of an action that trigger the Event (e.g. <code class="docutils literal notranslate"><span class="pre">app_installed</span></code>)</p></li>
+<li><p><strong>event_number</strong> - unique identifier of the Event within the associated <strong>event_category</strong></p></li>
+<li><p><strong>subtotal</strong> - optional monetary attribute of the Event</p></li>
+<li><p><strong>coupon_code</strong> - optional coupon code associated with the Event</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </li>
 </ul>
@@ -257,6 +492,7 @@ merchant’s side. More information on the reward is specified in
     <span class="s2">&quot;origin_min_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin_max_age&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;new_customer&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="s2">&quot;joinable_category_names&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;affiliate_member&quot;</span><span class="p">],</span>
   <span class="p">},</span>
   <span class="s2">&quot;offer&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
@@ -299,6 +535,7 @@ merchant’s side. More information on the reward is specified in
       <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
       <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
       <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
@@ -307,11 +544,13 @@ merchant’s side. More information on the reward is specified in
         <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
         <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
         <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
-      <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;custom_properties&quot;</span><span class="o">:</span> <span class="p">{}</span>
     <span class="p">},</span>
     <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;0.00&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
     <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;First Month Free&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reward_coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">147886587</span><span class="p">,</span>
       <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
@@ -331,7 +570,7 @@ merchant’s side. More information on the reward is specified in
         <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
         <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span>
         <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Crane&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;gender&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -340,18 +579,24 @@ merchant’s side. More information on the reward is specified in
           <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
           <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
           <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
-        <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;custom_properties&quot;</span><span class="o">:</span> <span class="p">{}</span>
       <span class="p">},</span>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;5.00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;rebate&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;$5.00 back&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;reward_coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">159843498</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;AffiliateMember&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referrer@example.com&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;64227025&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">6400368</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;459179054&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2021-04-23T19:08:17.000-08:00&quot;</span>
+        <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">11.39</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span>
+        <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;376990942&quot;</span><span class="p">,</span>
         <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;traffic_source&quot;</span><span class="o">:</span> <span class="s2">&quot;unknown&quot;</span>
+        <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT59688&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;traffic_source&quot;</span><span class="o">:</span> <span class="s2">&quot;post-checkout&quot;</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">],</span>
@@ -363,6 +608,7 @@ merchant’s side. More information on the reward is specified in
         <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span><span class="p">,</span>
         <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
         <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s2">&quot;sub_choice&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="s2">&quot;subscribed_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
         <span class="s2">&quot;opted_in_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-14T23:57:18.734+03:00&quot;</span><span class="p">,</span>
@@ -371,11 +617,13 @@ merchant’s side. More information on the reward is specified in
           <span class="s2">&quot;total&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
           <span class="s2">&quot;approved&quot;</span><span class="o">:</span> <span class="mf">0</span><span class="p">,</span>
           <span class="s2">&quot;pending&quot;</span><span class="o">:</span> <span class="mf">0</span>
-        <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;custom_properties&quot;</span><span class="o">:</span> <span class="p">{}</span>
       <span class="p">},</span>
       <span class="s2">&quot;amount&quot;</span><span class="o">:</span> <span class="s2">&quot;0.00&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive&quot;</span><span class="o">:</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span>
       <span class="s2">&quot;incentive_description&quot;</span><span class="o">:</span> <span class="s2">&quot;First Month Free&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;reward_coupon_code&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">147886587</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
@@ -392,7 +640,9 @@ merchant’s side. More information on the reward is specified in
     <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">6400368</span><span class="p">,</span>
     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;459179054&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2021-04-23T19:08:17.000-08:00&quot;</span>
     <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">11.39</span><span class="p">,</span>
+    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;referred@example.com&quot;</span>
     <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="s2">&quot;376990942&quot;</span><span class="p">,</span>
     <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
     <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;WHT59688&quot;</span><span class="p">,</span>
