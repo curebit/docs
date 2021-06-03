@@ -3,19 +3,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="This API allows you to make refunds." name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="This API allows you to find loyalty members and adjust their points balance." name="description" />
 
-    <title>Refunds &#8212; Talkable Documentation</title>
+    <title>Loyalty members &#8212; Talkable Documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/talkable.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <link rel="canonical" href="https://docs.talkable.com/api_v2/refunds.html" />
+    <link rel="canonical" href="https://docs.talkable.com/api_v2/loyalty_members.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="People" href="people.html" />
-    <link rel="prev" title="Origins" href="origins.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link rel="next" title="Webhooks" href="../web_hooks.html" />
+    <link rel="prev" title="Traffic sources" href="traffic_sources.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
   <link href="../_static/pygments-github.css" rel="stylesheet">
   <link href="../_static/img/favicon.ico" rel="shortcut icon" />
   </head><body>
@@ -65,10 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="visitors.html">Visitors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="origins.html">Origins</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Refunds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="refunds.html">Refunds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="people.html">People</a></li>
 <li class="toctree-l2"><a class="reference internal" href="offers.html">Advocate Offers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shares.html">Shares</a></li>
@@ -77,7 +74,10 @@
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_sources.html">Traffic sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loyalty_members.html">Loyalty members</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Loyalty members</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -99,14 +99,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="api-v2-refunds"></span><div class="section" id="refunds">
-<h1>Refunds<a class="headerlink" href="#refunds" title="Permalink to this headline">¶</a></h1>
-<p>This API allows you to make refunds. See examples below.</p>
+  <span class="target" id="api-v2-loyalty-members"></span><div class="section" id="loyalty-members">
+<h1>Loyalty members<a class="headerlink" href="#loyalty-members" title="Permalink to this headline">¶</a></h1>
+<p>This API allows you to find loyalty members and adjust their points balance.
+See examples below.</p>
 <p><br></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /api/v2/origins/&lt;origin_slug&gt;/refund
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET /loyalty/members/&lt;email&gt;
 </pre></div>
 </div>
-<p>Marks origin as refunded.</p>
+<p>Returns a loyalty member.</p>
 <div class="ptable docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -123,18 +124,39 @@
 <td><p>Your Talkable Site ID. You can get this from your
 Talkable dashboard after you log in and create a site.</p></td>
 </tr>
-<tr class="row-odd"><td><p>origin_slug</p></td>
-<td><p>If origin is a <em>Purchase</em>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">order_number</span></code>, e.g.:
-<code class="docutils literal notranslate"><span class="pre">&quot;B00K2EOONI&quot;</span></code></p>
-<p>If origin is an <em>Event</em>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">event_category</span></code>:<code class="docutils literal notranslate"><span class="pre">event_number</span></code>, e.g.:
-<code class="docutils literal notranslate"><span class="pre">&quot;newsletter_subscription:42&quot;</span></code></p>
-</td>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>Loyalty member’s email</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>POST /loyalty/members/&lt;email&gt;/manual_adjustment_actions
+</pre></div>
+</div>
+<p>Adjusts loyalty member’s points balance.</p>
+<div class="ptable docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>site_slug</p></td>
+<td><p>Your Talkable Site ID. You can get this from your
+Talkable dashboard after you log in and create a site.</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>Loyalty member’s email</p></td>
 </tr>
 <tr class="row-even"><td><p>data</p></td>
-<td><p>Optional: JSON object with <code class="docutils literal notranslate"><span class="pre">refunded_at</span></code> property.</p>
-<p>E.g. <code class="docutils literal notranslate"><span class="pre">{&quot;refunded_at&quot;:</span> <span class="pre">&quot;2020-04-27T00:00:00.000-07:00&quot;}</span></code></p>
+<td><p>JSON object with <code class="docutils literal notranslate"><span class="pre">points</span></code> property and optional <code class="docutils literal notranslate"><span class="pre">description</span></code>.</p>
+<p>E.g. <code class="docutils literal notranslate"><span class="pre">{&quot;points&quot;:</span> <span class="pre">100}</span></code> or <code class="docutils literal notranslate"><span class="pre">{&quot;points&quot;:</span> <span class="pre">-100,</span> <span class="pre">&quot;description&quot;:</span> <span class="pre">&quot;For</span> <span class="pre">cheating&quot;}</span></code></p>
 </td>
 </tr>
 </tbody>
@@ -142,29 +164,41 @@ Talkable dashboard after you log in and create a site.</p></td>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mark-purchase-as-refunded">
-<h3>Mark Purchase as Refunded<a class="headerlink" href="#mark-purchase-as-refunded" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
-     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;}&#39;</span> <span class="se">\</span>
-     https://www.talkable.com/api/v2/origins/B00K2EOONI/refund
+<div class="section" id="find-a-loyalty-member-by-email">
+<h3>Find a loyalty member by email<a class="headerlink" href="#find-a-loyalty-member-by-email" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET https://www.talkable.com/api/v2/loyalty/members/customer@example.com?site_slug=my-store
 </pre></div>
 </div>
 <p>Sample response:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;customer_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;ad160654@gmail.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mf">5</span><span class="p">,</span>
-    <span class="s2">&quot;ip_address&quot;</span><span class="o">:</span> <span class="s2">&quot;100.107.1.171&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;order_number&quot;</span><span class="o">:</span> <span class="s2">&quot;B00K2EOONI&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;subtotal&quot;</span><span class="o">:</span> <span class="mf">100.0</span><span class="p">,</span>
-    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Purchase&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;order_date&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-01-20T01:46:10.000-07:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;refunded_at&quot;</span><span class="o">:</span> <span class="s2">&quot;2020-04-27T00:00:00.000-07:00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;coupon_code&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="s2">&quot;loyalty_member&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;points_balance&quot;</span><span class="o">:</span> <span class="mf">1000</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adjust-loyalty-members-points-balance">
+<h3>Adjust loyalty member’s points balance<a class="headerlink" href="#adjust-loyalty-members-points-balance" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;points&quot;:100,&quot;description&quot;:&quot;For being a loyal customer&quot;}}&#39;</span> <span class="se">\</span>
+     https://www.talkable.com/api/v2/loyalty/members/customer@example.com/manual_adjustment_actions
+</pre></div>
+</div>
+<p>Sample response:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;ok&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;loyalty_member&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;customer@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;points_balance&quot;</span><span class="o">:</span> <span class="mf">1100</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

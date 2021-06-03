@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="You can localize your referral campaign. Use the same template with different localization." name="description" />
 
     <title>Localization &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/talkable.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -92,7 +92,7 @@
   <span class="target" id="campaigns-localization"></span><div class="section" id="localization">
 <h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
 <p>Each template can be localized.
-Localization is not a part of the view template. Default talkable campaigns are comming with localization now. It is stored in campaign allowing multiple campaign to use same template with different locazation and ability to edit Copy of a campaign outside of liquid editor (making interface significatly easier for marketer).</p>
+Localization is not a part of the view template. Default Talkable campaigns are comming with localization now. It is stored in campaign allowing multiple campaign to use same template with different locazation and ability to edit Copy of a campaign outside of liquid editor (making interface significatly easier for marketer).</p>
 <p>Campaign localization is done using a liquid filter <cite>localize</cite>:</p>
 <div class="highlight-liquid notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="w"> </span><span class="s2">&quot;offer_title&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">localize</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Get [[incentives.referrer.descrition]]&#39;</span><span class="w"> </span><span class="p">}}</span>
 </pre></div>

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="This flow helps to integrate with Talkable via API for a default store or service." name="description" />
 
     <title>Referral Program via API &#8212; Talkable Documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/talkable.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -63,9 +63,9 @@
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Referral Program via API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#initial-origin">Initial Origin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#displaying-and-sharing-the-offer">Displaying and Sharing the offer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-and-sharing-the-offer">Displaying and Sharing the Offer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#claiming-an-offer">Claiming an Offer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#submit-origin-data-to-talkable-to-generate-the-referral">Submit Origin data to talkable to generate the referral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submit-origin-data-to-talkable-to-generate-the-referral">Submit Origin data to Talkable to generate the Referral</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="campaigns.html">Campaigns</a></li>
@@ -80,6 +80,7 @@
 <li class="toctree-l2"><a class="reference internal" href="coupons.html">Coupons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="traffic_sources.html">Traffic sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loyalty_members.html">Loyalty members</a></li>
 </ul>
 </li>
 </ul>
@@ -117,7 +118,7 @@ It shows how you can do the following actions via API:</p>
 <p>Invite <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> to referral program at some point by creating an <a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">Origin</span></a> and obtaining <a class="reference internal" href="offers.html#api-v2-offers"><span class="std std-ref">Offer</span></a> to share.</p>
 </div>
 <div class="section" id="displaying-and-sharing-the-offer">
-<h2>Displaying and Sharing the offer<a class="headerlink" href="#displaying-and-sharing-the-offer" title="Permalink to this headline">¶</a></h2>
+<h2>Displaying and Sharing the Offer<a class="headerlink" href="#displaying-and-sharing-the-offer" title="Permalink to this headline">¶</a></h2>
 <p>Display options for <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> to share with their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>s.</p>
 <p><strong>For Social Share</strong></p>
 <ul class="simple">
@@ -142,7 +143,7 @@ It shows how you can do the following actions via API:</p>
 <p>Example destination URL: <cite>http://merchant.com?tkbl_cvuuid={{visitor_uuid}}&amp;utm_source=talkable&amp;…</cite></p>
 </div>
 <div class="section" id="submit-origin-data-to-talkable-to-generate-the-referral">
-<h2>Submit Origin data to talkable to generate the referral<a class="headerlink" href="#submit-origin-data-to-talkable-to-generate-the-referral" title="Permalink to this headline">¶</a></h2>
+<h2>Submit Origin data to Talkable to generate the Referral<a class="headerlink" href="#submit-origin-data-to-talkable-to-generate-the-referral" title="Permalink to this headline">¶</a></h2>
 <p>Once any user makes an action which implies possible close of a referral chain, send an <a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">Origin</span></a>. Please include <cite>uuid</cite> in this request if possible.</p>
 <p>For example, if <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> makes a purchase on your site or installs your app — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> needs to be rewarded, and this is achieved with creating <a class="reference internal" href="origins.html#api-v2-origins"><span class="std std-ref">Purchase or Event</span></a> which gets linked to previously created <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> offer.</p>
 </div>
