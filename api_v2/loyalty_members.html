@@ -221,9 +221,9 @@ Talkable dashboard after you log in and create a site.</p></td>
 <div class="section" id="update-loyalty-member-s-custom-properties">
 <h3>Update loyalty member’s custom properties<a class="headerlink" href="#update-loyalty-member-s-custom-properties" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
-     -X POST <span class="se">\</span>
+     -X PUT <span class="se">\</span>
      -u i9uil7nQgDjucCiTJu: <span class="se">\</span>
-     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;custom_properties&quot;:{&quot;contest_participant&quot;:true}}}}&#39;</span> <span class="se">\</span>
+     -d <span class="s1">&#39;{&quot;site_slug&quot;:&quot;my-store&quot;,&quot;data&quot;:{&quot;custom_properties&quot;:{&quot;contest_participant&quot;:true}}}&#39;</span> <span class="se">\</span>
      https://www.talkable.com/api/v2/loyalty/members/customer@example.com
 </pre></div>
 </div>
