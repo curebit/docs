@@ -3,7 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="The Talkable Referrals API allows referrals to be approved or to be voided." name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+<meta content="The Talkable Referrals API allows referrals to be approved or to be voided." name="description" />
 
     <title>Referrals &#8212; Talkable Documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -99,23 +100,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="api-v2-referrals"></span><div class="section" id="referrals">
+  <span class="target" id="api-v2-referrals"></span><section id="referrals">
 <h1>Referrals<a class="headerlink" href="#referrals" title="Permalink to this headline">¶</a></h1>
 <p>The Talkable Referrals API allows referrals to be approved or voided.</p>
 <h2>Example use cases for the Referrals API</h2><p><strong>Voiding referrals after a purchase is returned or cancelled:</strong></p>
 <ul class="simple">
-<li><p>A company who wants to ensure an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> does not receive referral Rewards
-if the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> returns their purchase. To prevent the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> from receiving
+<li><p>A company who wants to ensure an <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> does not receive referral Rewards
+if the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> returns their purchase. To prevent the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> from receiving
 their referral reward, this company would call the Talkable Referrals API with
-<code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;voided&quot;}</span></code> after the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> order is canceled.</p></li>
+<code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;voided&quot;}</span></code> after the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> order is canceled.</p></li>
 </ul>
 <p><strong>Approving Referrals only after a specific CRM Event:</strong></p>
 <ul class="simple">
-<li><p>A company who wants to approve referral rewards only after the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> order
+<li><p>A company who wants to approve referral rewards only after the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> order
 has reached a certain state (ie, ‘shipped’, or ‘no longer refundable’) can
 control this Referral Approval with the Talkable Referrals API. This company
 would call the Talkable Referrals API with <code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;approved&quot;}</span></code> after
-the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> order reaches the desired state.</p></li>
+the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> order reaches the desired state.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -126,7 +127,7 @@ are tied to referrals.</p>
 <p>Also: Inside ‘Fraud Settings’ exists two options for Referrals Approval
 configuration. When ‘Automatic’ Referrals Approvals selected, eligible
 Referrals will be approved a fixed number of hours or days (per configuration)
-after the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> Purchase and/or Conversion Event. When ‘Manual’ Referrals
+after the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> Purchase and/or Conversion Event. When ‘Manual’ Referrals
 Approval is selected, referral rewards will only be paid out after either the
 Talkable Referrals API is called with <code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:</span> <span class="pre">&quot;approved&quot;}</span></code> or after an
 Admin has approved the referral from inside the Talkable Customer Service
@@ -174,9 +175,9 @@ Talkable dashboard after you log in and create a site.</p></td>
 </tbody>
 </table>
 </div>
-<div class="section" id="example">
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="approve-a-referral">
+<section id="approve-a-referral">
 <h3>Approve a Referral<a class="headerlink" href="#approve-a-referral" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
      -X PUT <span class="se">\</span>
@@ -233,9 +234,9 @@ Talkable dashboard after you log in and create a site.</p></td>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>

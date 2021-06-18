@@ -3,7 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="Referral Webhook notifies your endpoint that your brand Advocate’s referral status has become “Approved”." name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+<meta content="Referral Webhook notifies your endpoint that your brand Advocate’s referral status has become “Approved”." name="description" />
 
     <title>Referral Webhook &#8212; Talkable Documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -92,10 +93,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="web-hooks-referral"></span><div class="section" id="referral-webhook">
+  <span class="target" id="web-hooks-referral"></span><section id="referral-webhook">
 <h1>Referral Webhook<a class="headerlink" href="#referral-webhook" title="Permalink to this headline">¶</a></h1>
-<p>The Talkable Referral Webhook notifies your endpoint that an <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> referral
-status has become “Approved” specifically for a <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> purchase
+<p>The Talkable Referral Webhook notifies your endpoint that an <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> referral
+status has become “Approved” specifically for a <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> purchase
 or event.</p>
 <p>“Approved” referral status signifies the following:</p>
 <ul class="simple">
@@ -145,7 +146,7 @@ To receive notification of both Advocate and Friend rewards use the Rewards Webh
 </li>
 <li><p><strong>offer</strong> — subhash of parameters describing the offer</p>
 <ul class="simple">
-<li><p><strong>email</strong> — <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> email address</p></li>
+<li><p><strong>email</strong> — <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> email address</p></li>
 <li><p><strong>short_url_code</strong> – unique offer ID</p></li>
 <li><p><strong>ip_address</strong></p></li>
 </ul>
@@ -164,7 +165,7 @@ To receive notification of both Advocate and Friend rewards use the Rewards Webh
 </ul>
 </li>
 <li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
 <li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
@@ -187,7 +188,7 @@ To receive notification of both Advocate and Friend rewards use the Rewards Webh
 </ul>
 </div></blockquote>
 </li>
-<li><p><strong>advocate_rewards</strong> — array of hashes describing the rewards received by <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>
+<li><p><strong>advocate_rewards</strong> — array of hashes describing the rewards received by <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr>
 person (except for rewards paid in loyalty points), where each hash contains parameters:</p>
 <ul>
 <li><p><strong>id</strong> — unique reward ID</p></li>
@@ -205,7 +206,7 @@ included subscription checkbox)</p></li>
 <li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
 <li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
 <li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
-<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
 <ul>
 <li><p><strong>total</strong> — created referrals count</p></li>
 <li><p><strong>approved</strong> — approved referrals count</p></li>
@@ -231,7 +232,7 @@ included subscription checkbox)</p></li>
 </ul>
 </li>
 <li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
 <li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
@@ -274,7 +275,7 @@ included subscription checkbox)</p></li>
 <li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
 <li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
 <li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
-<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
 <ul>
 <li><p><strong>total</strong> — created referrals count</p></li>
 <li><p><strong>approved</strong> — approved referrals count</p></li>
@@ -300,7 +301,7 @@ included subscription checkbox)</p></li>
 </ul>
 </li>
 <li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
 <li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
@@ -347,7 +348,7 @@ included subscription checkbox)</p></li>
 <li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
 <li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
 <li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
-<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
 <ul>
 <li><p><strong>total</strong> — created referrals count</p></li>
 <li><p><strong>approved</strong> — approved referrals count</p></li>
@@ -373,7 +374,7 @@ included subscription checkbox)</p></li>
 </ul>
 </li>
 <li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
 <li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
@@ -415,7 +416,7 @@ included subscription checkbox)</p></li>
 <li><p><strong>opted_in_at</strong> — date person has subscribed (optional)</p></li>
 <li><p><strong>unsubscribed_at</strong> — date person has unsubscribed (optional)</p></li>
 <li><p><strong>custom_properties</strong> — hash of person’s custom properties (optional)</p></li>
-<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
+<li><p><strong>referral_counts</strong> - subhash of <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr>’s referral counts</p>
 <ul>
 <li><p><strong>total</strong> — created referrals count</p></li>
 <li><p><strong>approved</strong> — approved referrals count</p></li>
@@ -441,7 +442,7 @@ included subscription checkbox)</p></li>
 </ul>
 </li>
 <li><p><strong>id</strong> — unique identifier of the origin event</p></li>
-<li><p><strong>email</strong> — email address of the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
+<li><p><strong>email</strong> — email address of the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> person</p></li>
 <li><p><strong>customer_id</strong> - unique external identifier of a customer who triggered the origin event</p></li>
 <li><p><strong>traffic_source</strong> — traffic source of the origin event</p></li>
 <li><p><strong>ip_address</strong> - IP address of the origin event</p></li>
@@ -664,7 +665,7 @@ merchant’s side. More information on the reward is specified in
 <div class="toctree-wrapper compound">
 </div>
 </div>
-</div>
+</section>
 
 
             <div class="clearer"></div>

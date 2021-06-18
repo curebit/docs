@@ -3,7 +3,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="The Talkable Origins API allows the registration of “off-site” or “backend” purchases, or CRM events. That means they can be used in the referral flow." name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+<meta content="The Talkable Origins API allows the registration of “off-site” or “backend” purchases, or CRM events. That means they can be used in the referral flow." name="description" />
 
     <title>Origins &#8212; Talkable Documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -99,7 +100,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <span class="target" id="api-v2-origins"></span><div class="section" id="origins">
+  <span class="target" id="api-v2-origins"></span><section id="origins">
 <h1>Origins<a class="headerlink" href="#origins" title="Permalink to this headline">¶</a></h1>
 <p>The Talkable Origins API allows the registration of ‘off-site’ or ‘backend’
 purchases or CRM events so they can be used in the referral flow. This
@@ -117,14 +118,14 @@ feed ‘off-site’ or ‘backend’ purchases or CRM events to Talkable.</p>
 <ul class="simple">
 <li><p>A company whose customers sign up for a monthly service by making an initial
 ‘on-site’ payment, then are charged monthly on the backend for subsequent
-subscription payments. This company would like to reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users
-(referrers) with a reward after their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> has been a member for three
+subscription payments. This company would like to reward <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> users
+(referrers) with a reward after their <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> has been a member for three
 billing cycles.</p>
 <ul>
 <li><p>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
 integration captures the initial ‘on-site’ payment.</p></li>
-<li><p>For Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the third billing cycle of the
-<abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> subscription, the Company must pass the subsequent subscription
+<li><p>For Talkable to reward the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> after the third billing cycle of the
+<abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> subscription, the Company must pass the subsequent subscription
 data to Talkable’s Origins API using <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code>.</p></li>
 </ul>
 </li>
@@ -132,13 +133,13 @@ data to Talkable’s Origins API using <code class="docutils literal notranslate
 <p><strong>Off-Site Events:</strong></p>
 <ul class="simple">
 <li><p>A company whose customers purchase product or perform events off-site. This
-company would like to reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after
-their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> has purchased a product in the brick and mortar store, or
+company would like to reward <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after
+their <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> has purchased a product in the brick and mortar store, or
 attended an in-person appointment.</p>
 <ul>
 <li><p>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
 integration captures an initial ‘on-site’ signup event if there is one.</p></li>
-<li><p>For Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the in-person <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr> store
+<li><p>For Talkable to reward the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> after the in-person <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr> store
 purchase, or appointment attendance, the Company must pass the in store
 purchase, or appointment attendance data to Talkable’s Origins API with
 either <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Purchase&quot;</span></code> for a purchase or <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code> for an
@@ -150,12 +151,12 @@ appointment attendance.</p></li>
 <ul class="simple">
 <li><p>User approval use cases start with customers who need to submit an application
 by performing an initial ‘on-site’ sign-up event. This company would like to
-reward <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after their <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+reward <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> users (referrers) with a reward after their <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr>
 application is approved.</p>
 <ul>
 <li><p>Talkable’s <a class="reference internal" href="../integration/custom/overview.html#integration-custom-overview"><span class="std std-ref">standard front-end</span></a>
 integration captures the initial ‘on-site’ application sign-up event.</p></li>
-<li><p>In order for Talkable to reward the <abbr title="Person, who shares an offer with their Friend(s)">Advocate</abbr> after the <abbr title="Person, who is invited to participate in Campaign by Advocate">Friend</abbr>
+<li><p>In order for Talkable to reward the <abbr title="Person who shares an offer with their Friend(s)">Advocate</abbr> after the <abbr title="Person who is invited to participate in Campaign by Advocate">Friend</abbr>
 application approval, the Company must pass the approval data to Talkable’s
 Origins API using <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;:</span> <span class="pre">&quot;Event&quot;</span></code>.</p></li>
 </ul>
@@ -219,9 +220,9 @@ for which will be generated sharing links</p></li>
 </tbody>
 </table>
 </div>
-<div class="section" id="example">
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-a-purchase">
+<section id="create-a-purchase">
 <h3>Create a purchase<a class="headerlink" href="#create-a-purchase" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
@@ -268,8 +269,8 @@ for which will be generated sharing links</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-an-event">
+</section>
+<section id="create-an-event">
 <h3>Create an event<a class="headerlink" href="#create-an-event" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
@@ -308,8 +309,8 @@ for which will be generated sharing links</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-an-affiliate-member-and-target-a-campaign">
+</section>
+<section id="create-an-affiliate-member-and-target-a-campaign">
 <h3>Create an affiliate member and target a campaign<a class="headerlink" href="#create-an-affiliate-member-and-target-a-campaign" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
@@ -398,8 +399,8 @@ for which will be generated sharing links</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="with-sharing-links">
+</section>
+<section id="with-sharing-links">
 <h3>With sharing links<a class="headerlink" href="#with-sharing-links" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;site_slug&quot;</span><span class="o">:</span> <span class="s2">&quot;my-store&quot;</span><span class="p">,</span>
@@ -497,9 +498,9 @@ for which will be generated sharing links</p></li>
 <div class="toctree-wrapper compound">
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
