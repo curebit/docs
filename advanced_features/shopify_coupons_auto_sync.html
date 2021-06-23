@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="Talkable supports coupon auto-sync for Shopify. This feature allows to avoid manual coupon uploads and/or Shopify Price Rule management." name="description" />
+
+    <title>Shopify coupon auto-sync &#8212; Talkable Documentation</title>
+    <link rel="stylesheet" href="../_static/talkable.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="canonical" href="https://docs.talkable.com/advanced_features/shopify_coupons_auto_sync.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Referral Tracking Methods" href="track_methods.html" />
+    <link rel="prev" title="Automatic Coupon Creation" href="coupons.html" /><link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="../_static/pygments-github.css" rel="stylesheet">
+  <link href="../_static/img/favicon.ico" rel="shortcut icon" />
+  </head><body>
+  
+    <div class="header">
+      <a href="../index.html" class="header-logo">Talkable docs</a>
+          <form class="search-form" action="../search.html" method="get">
+            <input type="text" class="textfield search-form-field" name="q" placeholder="Search docs" />
+            <input type="submit" class="button search-form-button" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+      <div class="header-disclaimer">
+        Visit
+        <a href="https://www.talkable.com" target="_blank">www.talkable.com</a>
+      </div>
+    </div> <!-- /.header -->
+  
+
+  <div class="content-container content clearfix">
+      <div class="nav">
+        <ul>
+<li class="toctree-l1"><a class="reference internal" href="../campaigns.html">Talkable Campaigns</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../advanced_features.html">Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="coupons.html">Automatic Coupon Creation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Shopify coupon auto-sync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-started">Get started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-features">Advanced features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="track_methods.html">Referral Tracking Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="personal_coupon_sharing.html">Advocate Personal Coupon Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_into_localization.html">Converting Into Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customer_service_portal.html">Customer Service Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="params_encryption.html">Params Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Integrating Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_encryption.html">File Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product_items.html">Including Product Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passing_custom_data.html">Pass Custom User Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="referrals_approval.html">Referrals Approval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="product_sku.html">Segment With Product SKU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_source.html">Segment With Traffic Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribing_to_events.html">Subscribing To Iframe Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reg_ex.html">Setting up Campaign Placement criteria</a></li>
+<li class="toctree-l2"><a class="reference internal" href="url_parameters.html">Using URL Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="white_labeling.html">White-labeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_sign_on.html">Single Sign-On (SSO)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/custom_integration.html">Standard Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/shopify.html">Shopify Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/magento.html">Magento Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/demandware.html">Salesforce Commerce Cloud Integration</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/loyalty.html">Loyalty Integration (beta)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_v2.html">API Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../web_hooks.html">Webhooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ios_sdk.html">Talkable iOS SDK</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../android_sdk.html">Talkable Android SDK</a></li>
+</ul>
+
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="advanced-features-shopify-coupons-auto-sync"></span><div class="section" id="shopify-coupon-auto-sync">
+<h1>Shopify coupon auto-sync<a class="headerlink" href="#shopify-coupon-auto-sync" title="Permalink to this headline">¶</a></h1>
+<p>Talkable supports coupon auto-sync for Shopify. This feature allows to avoid manual coupon uploads and/or Shopify Price Rule management.</p>
+<div class="section" id="get-started">
+<h2>Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
+<p>Before using coupon auto-sync, you have to install our Shopify app (Settings → Shopify Integration → click Authorize).</p>
+<p>To enable coupon auto-sync in a coupon list, go to coupon list edit/create page and check “Enable Coupon List Shopify Auto Sync”. If this checkbox is disabled, it means this site uses Coupon Webhook, and no coupons can be directly uploaded to Shopify. Instead, coupons are delivered to Coupon Webhook url, and that’s where they should be handled.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Talkable uses Shopify Price Rule ID (if present) to determine where to upload newly generated coupons. It is recommended to leave it blank when creating coupon lists. In that case Talkable will create a Price Rule based on coupon list configuration and store its ID in coupon list. Please see <strong>Advanced features</strong> for more information about Shopify Price Rule ID.</p>
+</div>
+<div class="section" id="what-is-price-rule">
+<h3>What is Price Rule?<a class="headerlink" href="#what-is-price-rule" title="Permalink to this headline">¶</a></h3>
+<p>Price rule is the closest thing to Talkable coupon lists in Shopify. It defines properties and applicability of associated coupon codes.</p>
+</div>
+<div class="section" id="what-attributes-will-the-auto-generated-price-rule-have">
+<h3>What attributes will the auto-generated Price Rule have?<a class="headerlink" href="#what-attributes-will-the-auto-generated-price-rule-have" title="Permalink to this headline">¶</a></h3>
+<p>Talkable applies coupon list settings onto Price Rule:</p>
+<div class="ptable docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="37%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Coupon list attribute</th>
+<th class="head">Price rule attribute (as in API)</th>
+<th class="head">Price rule attribute (as in interface)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Amount</strong></td>
+<td><cite>value</cite></td>
+<td>Value</td>
+</tr>
+<tr class="row-odd"><td><strong>Discount type</strong></td>
+<td><cite>value_type</cite></td>
+<td>Type</td>
+</tr>
+<tr class="row-even"><td><strong>Expiration date</strong></td>
+<td><cite>ends_at</cite></td>
+<td>End date</td>
+</tr>
+<tr class="row-odd"><td><strong>Minimum subtotal</strong></td>
+<td><cite>prerequisite_subtotal_range</cite></td>
+<td>Minimum purchase amount</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some other Price Rule attributes that we set when generating Price Rule:</p>
+<div class="ptable docutils container">
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="16%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Price Rule attribute</th>
+<th class="head">Value</th>
+<th class="head">Attribute effect</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><cite>title</cite></td>
+<td>e.g. “Talkable single-use coupons $10”</td>
+<td>Describes Price Rule.</td>
+</tr>
+<tr class="row-odd"><td><cite>target_type</cite></td>
+<td><cite>line_item</cite></td>
+<td>The price rule applies to the cart’s line items.</td>
+</tr>
+<tr class="row-even"><td><cite>target_selection</cite></td>
+<td><cite>all</cite></td>
+<td>The price rule applies the discount to all line items in the checkout.</td>
+</tr>
+<tr class="row-odd"><td><cite>allocation_method</cite></td>
+<td><cite>across</cite></td>
+<td>The calculated discount amount will be applied across the entitled items. For example, for a price rule that takes $15 off, the discount will be applied across all the entitled items.</td>
+</tr>
+<tr class="row-even"><td><cite>usage_limit</cite></td>
+<td><cite>1</cite></td>
+<td>Each discount code can be used exactly once.</td>
+</tr>
+<tr class="row-odd"><td><cite>customer_selection</cite></td>
+<td><cite>all</cite></td>
+<td>The price rule is valid for all customers.</td>
+</tr>
+<tr class="row-even"><td><cite>starts_at</cite></td>
+<td>Time of coupon list creation</td>
+<td>The date and time when the price rule starts.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="why-arent-there-any-coupons-created-for-my-auto-synced-list">
+<h3>Why aren’t there any coupons created for my auto-synced list?<a class="headerlink" href="#why-arent-there-any-coupons-created-for-my-auto-synced-list" title="Permalink to this headline">¶</a></h3>
+<p>Auto-sync generates and uploads coupons when there is demand for them. That means that nothing will happen before there are rewards waiting for coupons from this coupon list. When there is at least one such reward, Talkable generates a code and syncs it with Shopify, while scheduling a refill task that will generate a bunch of codes in advance. This logic is triggered every time a coupon is issued, so there always should be some available coupons for future rewards.</p>
+</div>
+</div>
+<div class="section" id="advanced-features">
+<h2>Advanced features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shopify-price-rule-id">
+<h3>Shopify Price Rule ID<a class="headerlink" href="#shopify-price-rule-id" title="Permalink to this headline">¶</a></h3>
+<p>Talkable allows to assign custom Price Rule ID to a coupon list. This might be helpful if clients want to deviate from our default Price Rule settings, e.g. restrict price rule to a group of customer or kind of products.</p>
+<p>It is recommended to create a new Price Rule in Shopify if there is a need to use a custom one, instead of editing the Price Rule generated by Talkable.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Talkable validates Price Rule attached to coupon list. There are certain Price Rule attributes that must match coupon list configuration.
+These include:</p>
+<blockquote class="last">
+<div><p><cite>value</cite> - must correspond to coupon list amount</p>
+<p><cite>value_type</cite> - must correspond to coupon list type</p>
+<p><cite>ends_at</cite> - must be greater than or equal to coupon list expiration (and absent if coupon list has no expiration)</p>
+<p><cite>prerequisite_subtotal_range</cite> - must match coupon list minimum subtotal</p>
+</div></blockquote>
+</div>
+<p>If Price Rule passes validation, it can be attached to a coupon list and will be used as a new destination for all the coupons created from that moment on.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All the previously generated coupons will remain in the Price Rule that was used when they were auto-synced.</p>
+</div>
+</div>
+<div class="section" id="shopify-price-rule-changed-email-notification">
+<h3>Shopify Price Rule Changed Email Notification<a class="headerlink" href="#shopify-price-rule-changed-email-notification" title="Permalink to this headline">¶</a></h3>
+<p>You might modify Price Rules on Shopify by mistake, making them incompatible with the coupon lists they are attached to. In order to find out about such changes as early as possible, we have a daily monitoring job that checks that Price Rules have no critical differences from respective coupon lists.</p>
+<p>Attributes that are checked in this job are the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>usage_limit</cite> - must always be 1</li>
+<li><cite>value</cite> - must correspond to coupon list amount</li>
+<li><cite>value_type</cite> - must correspond to coupon list type</li>
+<li><cite>ends_at</cite> - must be greater than or equal to coupon list expiration (and absent if coupon list has no expiration)</li>
+<li><cite>prerequisite_subtotal_range</cite> - must match coupon list minimum subtotal</li>
+</ul>
+</div></blockquote>
+<p>If any of these attributes differ from what they are expected to be and Talkable cannot fix that by updating a coupon list (see <strong>Coupon list sync</strong>), Talkable sends an email notification.</p>
+<p>Once Price Rule becomes critically different from the coupon list it is assigned to, the coupon list is no longer editable. Please encourage clients to fix issues listed in the email notification to remedy this situation.</p>
+</div>
+<div class="section" id="coupon-list-sync">
+<h3>Coupon list sync<a class="headerlink" href="#coupon-list-sync" title="Permalink to this headline">¶</a></h3>
+<p>Talkable tries to keep up with the Price Rules assigned to coupon lists when/if Price Rules change.</p>
+<p>As long as the Price Rule is otherwise valid for a coupon list, we update the coupon list’s:</p>
+<p><strong>expiration date</strong> - only if Price Rule end date is further in the future (or absent)</p>
+<p><strong>minimum subtotal</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If there are any other changes in Price Rule that make it not suitable for a certain coupon list, we won’t sync coupon list. In this case a Shopify Price Rule Changed Email Notification will be delivered and actions from clients will be required to fix the issue.</p>
+</div>
+<p>This sync is performed on a daily basis. Do not expect immediate effect after Price Rule update.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </div> <!-- /.content-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63500208-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  </body>
+</html>
